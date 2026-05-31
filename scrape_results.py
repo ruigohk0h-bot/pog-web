@@ -66,14 +66,21 @@ def save_cache(cache):
         json.dump(cache, f, ensure_ascii=False, indent=2)
 
 def get_kettonum(name, cache):
-    """馬名からnetkeiba上のkettonumを取得（2023年産限定）"""
+    """馬名からnetkeiba上のkettonumを取得（Playwright使用）"""
     if name in cache:
         return cache[name]
-    encoded = urllib.parse.quote(name.encode('euc-jp'))
-    url = f"https://db.netkeiba.com/?pid=horse_search_list&word={encoded}&bf=1&yob=2023"
     try:
-        r = requests.get(url, headers=HEADERS, timeout=10)
-        soup = BeautifulSoup(r.content, "lxml", from_encoding="euc-jp")
+        from playwright.sync_api import sync_playwright
+        import urllib.parse as _up
+        with sync_playwright() as p:
+            browser = p.chromium.launch(headless=True)
+            page = browser.new_page()
+            encoded = _up.quote(name.encode("euc-jp"))
+            url = f"https://db.netkeiba.com/horse/search/list/?word={encoded}&yob=2023"
+            page.goto(url, timeout=20000, wait_until="networkidle")
+            content = page.content()
+            browser.close()
+        soup = BeautifulSoup(content, "lxml")
         for a in soup.find_all("a", href=re.compile(r"/horse/2023\d+")):
             m = re.search(r"/horse/(2023\d+)", a["href"])
             if m:
