@@ -410,34 +410,51 @@ function PlayerDetailScreen({ userId, onBack, onSelectHorse }) {
           </div>
         )}
       </div>
-      {horses.map(h => (
-        <button key={h.no} onClick={() => onSelectHorse(h)}
-          style={{
-            width:"100%", textAlign:"left", background:"#fff",
-            border:"1px solid #e4e9e6", borderRadius:10,
-            padding:"10px 12px", marginBottom:8, cursor:"pointer",
-            display:"flex", alignItems:"center", gap:10,
+      {horses.map(h => {
+        const netkeibaUrl = `https://db.netkeiba.com/?pid=horse_search_list&word=${encodeURIComponent(h.name)}`;
+        return (
+          <div key={h.no} style={{
+            background:"#fff", border:"1px solid #e4e9e6", borderRadius:10,
+            padding:"10px 12px", marginBottom:8,
           }}>
-          <div style={{
-            width:26, height:26, borderRadius:6, background:G.greenDark,
-            color:"#fff", display:"flex", alignItems:"center", justifyContent:"center",
-            fontSize:13, fontWeight:700, flexShrink:0,
-          }}>{h.no}</div>
-          <div style={{ flex:1, minWidth:0 }}>
-            <div style={{ fontWeight:700, fontSize:14, display:"flex", alignItems:"center", gap:6 }}>
-              {h.name}
-              <span style={{ fontSize:10, color: h.active?G.green:"#bbb", border:`1px solid ${h.active?G.green:"#ccc"}`, borderRadius:4, padding:"0 4px" }}>
-                {h.active?"在厩":"抹消"}
-              </span>
+            <div style={{ display:"flex", alignItems:"center", gap:10 }}>
+              <div style={{
+                width:26, height:26, borderRadius:6, background:G.greenDark,
+                color:"#fff", display:"flex", alignItems:"center", justifyContent:"center",
+                fontSize:13, fontWeight:700, flexShrink:0,
+              }}>{h.no}</div>
+              <div style={{ flex:1, minWidth:0, cursor:"pointer" }} onClick={() => onSelectHorse(h)}>
+                <div style={{ fontWeight:700, fontSize:14, display:"flex", alignItems:"center", gap:6 }}>
+                  {h.name}
+                  {h.active && (
+                    <span style={{ fontSize:10, color:G.green, border:`1px solid ${G.green}`, borderRadius:4, padding:"0 4px" }}>
+                      在厩
+                    </span>
+                  )}
+                </div>
+                <div style={{ fontSize:11, color:"#888", marginTop:2 }}>
+                  成績 {h.record}
+                  {h.sire && <span style={{ marginLeft:8 }}>父 {h.sire}</span>}
+                  {h.dam  && <span style={{ marginLeft:6 }}>母 {h.dam}</span>}
+                </div>
+              </div>
+              <div style={{ display:"flex", flexDirection:"column", alignItems:"flex-end", gap:4 }}>
+                <div style={{ textAlign:"right" }}>
+                  <div style={{ fontWeight:800, fontSize:15 }}>{fmt(h.pt)}</div>
+                  <div style={{ fontSize:10, color:"#999" }}>pt</div>
+                </div>
+                <a href={netkeibaUrl} target="_blank" rel="noopener noreferrer"
+                  style={{
+                    fontSize:10, fontWeight:700, color:"#1a56c4",
+                    textDecoration:"none", whiteSpace:"nowrap",
+                  }}>
+                  🔍 netkeiba
+                </a>
+              </div>
             </div>
-            <div style={{ fontSize:11, color:"#888", marginTop:2 }}>成績 {h.record}</div>
           </div>
-          <div style={{ textAlign:"right" }}>
-            <div style={{ fontWeight:800, fontSize:15 }}>{fmt(h.pt)}</div>
-            <div style={{ fontSize:10, color:"#999" }}>pt</div>
-          </div>
-        </button>
-      ))}
+        );
+      })}
     </div>
   );
 }
