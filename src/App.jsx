@@ -398,7 +398,9 @@ function PlayerDetailScreen({ userId, onBack, onSelectHorse, kettonums }) {
         )}
       </div>
       {horses.map(h => {
-        const netkeibaUrl = `https://db.netkeiba.com/horse/${kettonums[h.name] ?? ""}/`;
+        const netkeibaUrl = kettonums[h.name]
+          ? `https://db.netkeiba.com/horse/${kettonums[h.name]}/`
+          : `https://www.google.com/search?q=netkeiba+${encodeURIComponent(h.name)}`;
         return (
           <div key={h.no} style={{
             background:"#fff", border:"1px solid #e4e9e6", borderRadius:10,
@@ -430,15 +432,13 @@ function PlayerDetailScreen({ userId, onBack, onSelectHorse, kettonums }) {
                   <div style={{ fontWeight:800, fontSize:15 }}>{fmt(h.pt)}</div>
                   <div style={{ fontSize:10, color:"#999" }}>pt</div>
                 </div>
-                {kettonums[h.name] && (
-                  <a href={netkeibaUrl} target="_blank" rel="noopener noreferrer"
-                    style={{
-                      fontSize:10, fontWeight:700, color:"#1a56c4",
-                      textDecoration:"none", whiteSpace:"nowrap",
-                    }}>
-                    🔍 netkeiba
-                  </a>
-                )}
+                <a href={netkeibaUrl} target="_blank" rel="noopener noreferrer"
+                  style={{
+                    fontSize:10, fontWeight:700, color:"#1a56c4",
+                    textDecoration:"none", whiteSpace:"nowrap",
+                  }}>
+                  🔍 netkeiba
+                </a>
               </div>
             </div>
           </div>
@@ -450,7 +450,9 @@ function PlayerDetailScreen({ userId, onBack, onSelectHorse, kettonums }) {
 
 function HorseDetailScreen({ horse, playerId, results, kettonums }) {
   const horseResults = results.filter(r => r.horse === horse.name);
-  const netkeibaUrl = `https://db.netkeiba.com/horse/${kettonums[horse.name] ?? ""}/`;
+  const netkeibaUrl = kettonums[horse.name]
+    ? `https://db.netkeiba.com/horse/${kettonums[horse.name]}/`
+    : `https://www.google.com/search?q=netkeiba+${encodeURIComponent(horse.name)}`;
   return (
     <div style={{ padding:12 }}>
       <div style={{ background:"#fff", borderRadius:12, padding:"16px 18px", marginBottom:14, border:"1px solid #e4e9e6" }}>
@@ -461,17 +463,15 @@ function HorseDetailScreen({ horse, playerId, results, kettonums }) {
               {playerEmoji(playerId)} {playerName(playerId)}
             </div>
           </div>
-          {kettonums[horse.name] && (
-            <a href={netkeibaUrl} target="_blank" rel="noopener noreferrer"
-              style={{
-                display:"inline-flex", alignItems:"center", gap:4,
-                background:"#1a56c4", color:"#fff", borderRadius:8,
-                padding:"6px 12px", fontSize:12, fontWeight:700,
-                textDecoration:"none", whiteSpace:"nowrap", flexShrink:0,
-              }}>
-              🔍 netkeiba
-            </a>
-          )}
+          <a href={netkeibaUrl} target="_blank" rel="noopener noreferrer"
+            style={{
+              display:"inline-flex", alignItems:"center", gap:4,
+              background:"#1a56c4", color:"#fff", borderRadius:8,
+              padding:"6px 12px", fontSize:12, fontWeight:700,
+              textDecoration:"none", whiteSpace:"nowrap", flexShrink:0,
+            }}>
+            🔍 netkeiba
+          </a>
         </div>
         <div style={{ display:"flex", gap:16, marginTop:14 }}>
           <div>
