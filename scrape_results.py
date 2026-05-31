@@ -199,10 +199,10 @@ def main():
     print("【Step1】kettonum取得...")
     changed = False
     for name in HORSE_PLAYER:
-        if name not in cache:
+        if name not in cache or cache.get(name) is None:
             get_kettonum(name, cache)
             changed = True
-            time.sleep(0.6)
+            time.sleep(0.3)
     if changed:
         save_cache(cache)
         print(f"キャッシュ保存: {CACHE_FILE}\n")
