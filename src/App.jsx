@@ -58,7 +58,39 @@ const CURRENT_SEASON = {
   ],
 };
 
-// 長谷部厩舎（P03）の持ち馬（実データ）
+// 前田厩舎（P01）
+const HORSES_P01 = [
+  { no:11, name:"クラッチスラッガー", record:"1-1-0-3", pt:999,  active:false },
+  { no:2,  name:"キンダーブンシュ",   record:"1-0-1-4", pt:941,  active:true  },
+  { no:12, name:"ゲタリア",           record:"1-1-0-1", pt:830,  active:true  },
+  { no:1,  name:"インシオン",         record:"1-0-1-3", pt:775,  active:false },
+  { no:3,  name:"ウンナターシャ",     record:"0-2-0-4", pt:759,  active:true  },
+  { no:8,  name:"サントマーレ",       record:"1-0-1-1", pt:730,  active:false },
+  { no:9,  name:"セヴェロ",           record:"1-0-0-2", pt:670,  active:false },
+  { no:7,  name:"キセログラフィカ",   record:"0-0-4-2", pt:640,  active:true  },
+  { no:10, name:"スマイルガーデン",   record:"0-0-3-4", pt:430,  active:false },
+  { no:4,  name:"ワンモメンタム",     record:"1-0-0-3", pt:360,  active:false },
+  { no:6,  name:"ネイティヴプライド", record:"0-0-1-5", pt:209,  active:true  },
+  { no:5,  name:"ブロンザイト",       record:"0-0-0-3", pt:0,    active:true  },
+];
+
+// 川村厩舎（P02）
+const HORSES_P02 = [
+  { no:5,  name:"アニマレイ",       record:"0-5-3-3", pt:1778, active:false },
+  { no:3,  name:"リベッチオ",       record:"2-0-0-2", pt:1380, active:true  },
+  { no:6,  name:"サンラザール",     record:"1-1-0-2", pt:1242, active:false },
+  { no:7,  name:"アローメタル",     record:"1-1-0-0", pt:1210, active:false },
+  { no:8,  name:"ブームバップビート",record:"1-0-2-2", pt:992,  active:false },
+  { no:10, name:"ハイライトニング", record:"1-0-0-6", pt:700,  active:false },
+  { no:4,  name:"パドゼフィール",   record:"1-0-0-4", pt:646,  active:false },
+  { no:9,  name:"ダンジョンヒーロー",record:"1-0-0-4", pt:225,  active:false },
+  { no:2,  name:"アリハム",         record:"0-0-0-2", pt:98,   active:true  },
+  { no:1,  name:"グラムエッジ",     record:"0-0-0-3", pt:0,    active:false },
+  { no:11, name:"ウェンロック",     record:"0-0-0-0", pt:0,    active:false },
+  { no:12, name:"ヒットホーム",     record:"0-0-0-0", pt:0,    active:false },
+];
+
+// 長谷部厩舎（P03）
 const HORSES_P03 = [
   { no:9,  name:"フィンガー",       record:"3-4-0-0", pt:10780, active:true  },
   { no:6,  name:"チュウワカーネギー",record:"2-1-0-4", pt:2764,  active:false },
@@ -74,7 +106,23 @@ const HORSES_P03 = [
   { no:10, name:"ワンインザスカイ",  record:"0-0-0-5", pt:0,     active:true  },
 ];
 
-// 田崎厩舎（P05）の持ち馬
+// ミリオン厩舎（P04）
+const HORSES_P04 = [
+  { no:6,  name:"アルデトップガン",   record:"2-0-0-5", pt:2740, active:false },
+  { no:7,  name:"クラウトロック",     record:"2-0-0-0", pt:1570, active:false },
+  { no:9,  name:"アクアアイ",         record:"0-2-2-1", pt:909,  active:true  },
+  { no:1,  name:"ペトリコール",       record:"1-1-0-1", pt:850,  active:true  },
+  { no:10, name:"マルシュボヌール",   record:"0-0-1-3", pt:349,  active:false },
+  { no:5,  name:"フィデリス",         record:"0-1-0-5", pt:329,  active:true  },
+  { no:8,  name:"アンビエントポップ", record:"0-1-0-1", pt:240,  active:true  },
+  { no:2,  name:"ホウオウファラオ",   record:"0-0-0-4", pt:0,    active:true  },
+  { no:3,  name:"メイショウバンサン", record:"0-0-0-2", pt:0,    active:false },
+  { no:4,  name:"ヤマニンコルザ",     record:"0-0-0-1", pt:0,    active:true  },
+  { no:11, name:"エコロデュラン",     record:"0-0-0-3", pt:0,    active:true  },
+  { no:12, name:"（未登録）",         record:"0-0-0-0", pt:0,    active:false },
+];
+
+// 田崎厩舎（P05）
 const HORSES_P05 = [
   { no:4,  name:"パントルナイーフ",   record:"2-1-0-1", pt:16660, active:true  },
   { no:7,  name:"アドマイヤクワッズ", record:"2-0-3-1", pt:11050, active:false },
@@ -90,12 +138,48 @@ const HORSES_P05 = [
   { no:5,  name:"レッドフレーザー",   record:"0-0-0-4", pt:59,    active:false },
 ];
 
+// 涼子厩舎（P06）
+const HORSES_P06 = [
+  { no:10, name:"ロックターミガン",   record:"3-1-0-2", pt:7690, active:true  },
+  { no:2,  name:"トリグラフヒル",     record:"2-1-0-1", pt:2220, active:false },
+  { no:8,  name:"キッコベッロ",       record:"1-2-0-2", pt:2060, active:false },
+  { no:1,  name:"イナズマダイモン",   record:"1-5-0-1", pt:1910, active:false },
+  { no:3,  name:"ペルセア",           record:"2-0-0-0", pt:1860, active:false },
+  { no:11, name:"ムスクレスト",       record:"1-0-1-3", pt:1099, active:true  },
+  { no:5,  name:"リアライズタキオン", record:"1-1-0-6", pt:969,  active:true  },
+  { no:6,  name:"バートラガッツ",     record:"1-0-0-0", pt:750,  active:false },
+  { no:9,  name:"ライトフライヤー",   record:"0-0-0-3", pt:84,   active:false },
+  { no:4,  name:"（未登録）",         record:"0-0-0-0", pt:0,    active:false },
+  { no:7,  name:"フローズンブーケ",   record:"0-0-0-2", pt:0,    active:true  },
+  { no:12, name:"ブルースプレイヤー", record:"0-0-0-5", pt:0,    active:true  },
+];
+
+// 成田厩舎（P07）
+const HORSES_P07 = [
+  { no:11, name:"デアヴェローチェ",   record:"2-1-1-2", pt:6880, active:true  },
+  { no:4,  name:"アーガイルショア",   record:"1-2-2-2", pt:1399, active:true  },
+  { no:1,  name:"アルカディアカフェ", record:"1-1-1-1", pt:1260, active:false },
+  { no:12, name:"ホットシート",       record:"1-1-0-1", pt:980,  active:false },
+  { no:3,  name:"ミティリーニ",       record:"1-1-0-3", pt:974,  active:true  },
+  { no:9,  name:"リーグナイト",       record:"1-1-0-2", pt:946,  active:false },
+  { no:2,  name:"ホウオウストライク", record:"1-0-1-2", pt:836,  active:false },
+  { no:8,  name:"リュウカルネ",       record:"1-0-0-1", pt:750,  active:true  },
+  { no:6,  name:"アイデアユー",       record:"0-1-2-2", pt:649,  active:true  },
+  { no:5,  name:"メイショウコシュウ", record:"0-1-1-1", pt:370,  active:false },
+  { no:7,  name:"アイランド",         record:"0-0-0-0", pt:0,    active:true  },
+  { no:10, name:"ジュピターバローズ", record:"0-0-0-0", pt:0,    active:true  },
+];
+
 const HORSES_BY_PLAYER = {
+  P01: HORSES_P01,
+  P02: HORSES_P02,
   P03: HORSES_P03,
+  P04: HORSES_P04,
   P05: HORSES_P05,
-  // 他はサンプルとして長谷部を流用（本番はAPI取得）
+  P06: HORSES_P06,
+  P07: HORSES_P07,
 };
-const getHorses = (pid) => HORSES_BY_PLAYER[pid] ?? HORSES_P03;
+const getHorses = (pid) => HORSES_BY_PLAYER[pid] ?? [];
 
 // 最新結果
 const RESULTS = [
