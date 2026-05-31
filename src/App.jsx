@@ -92,18 +92,18 @@ const HORSES_P02 = [
 
 // 長谷部厩舎（P03）
 const HORSES_P03 = [
-  { no:9,  name:"フィンガー",        record:"3-4-0-0", pt:10780, active:true,  sire:"", dam:"" },
-  { no:6,  name:"チュウワカーネギー", record:"2-1-0-4", pt:2764,  active:false, sire:"", dam:"" },
-  { no:3,  name:"ヘリテージブルーム", record:"2-2-3-1", pt:2540,  active:false, sire:"", dam:"" },
-  { no:11, name:"ゴールドバローズ",  record:"1-2-0-1", pt:1180,  active:false, sire:"", dam:"" },
-  { no:1,  name:"エクストラプッシュ", record:"1-1-0-7", pt:1087,  active:false, sire:"", dam:"" },
-  { no:7,  name:"エコロボルト",      record:"1-1-0-3", pt:889,   active:true,  sire:"", dam:"" },
-  { no:4,  name:"エジプシャンマウ",  record:"1-0-0-0", pt:750,   active:true,  sire:"", dam:"" },
-  { no:12, name:"アメリカンコール",  record:"1-0-0-1", pt:750,   active:false, sire:"", dam:"" },
-  { no:2,  name:"セスティーナ",      record:"0-1-1-1", pt:430,   active:true,  sire:"", dam:"" },
-  { no:8,  name:"ゲレイロ",          record:"0-0-0-7", pt:148,   active:false, sire:"", dam:"" },
-  { no:5,  name:"サンライズメジェド", record:"0-0-0-0", pt:0,     active:true,  sire:"", dam:"" },
-  { no:10, name:"ワンインザスカイ",  record:"0-0-0-5", pt:0,     active:true,  sire:"", dam:"" },
+  { no:9,  name:"フィンガー",        record:"3-4-0-0", pt:10780, active:true,  sire:"Gun Runner",        dam:"エスティロタレントーソ" },
+  { no:6,  name:"チュウワカーネギー", record:"2-1-0-4", pt:2764,  active:false, sire:"モーリス",          dam:"デックドアウト" },
+  { no:3,  name:"ヘリテージブルーム", record:"2-2-3-1", pt:2540,  active:false, sire:"ミスチヴィアスアレック", dam:"オールドパサデナ" },
+  { no:11, name:"ゴールドバローズ",  record:"1-2-0-1", pt:1180,  active:false, sire:"ゴールドドリーム",   dam:"アースサウンド" },
+  { no:1,  name:"エクストラプッシュ", record:"1-1-0-7", pt:1087,  active:false, sire:"ナダル",            dam:"ヘアケイリー" },
+  { no:7,  name:"エコロボルト",      record:"1-1-0-3", pt:889,   active:true,  sire:"Practical Joke",    dam:"In My Time" },
+  { no:4,  name:"エジプシャンマウ",  record:"1-0-0-0", pt:750,   active:true,  sire:"American Pharoah",  dam:"ヘウンハズマイニッキー" },
+  { no:12, name:"アメリカンコール",  record:"1-0-0-1", pt:750,   active:false, sire:"American Pharoah",  dam:"イヴニングコール" },
+  { no:2,  name:"セスティーナ",      record:"0-1-1-1", pt:430,   active:true,  sire:"マインドユアビスケッツ", dam:"アムールポエジー" },
+  { no:8,  name:"ゲレイロ",          record:"0-0-0-7", pt:148,   active:false, sire:"ミスターメロディ",   dam:"キタサンテンビー" },
+  { no:5,  name:"サンライズメジェド", record:"0-0-0-0", pt:0,     active:true,  sire:"リアルスティール",   dam:"ラサルダン" },
+  { no:10, name:"ワンインザスカイ",  record:"0-0-0-5", pt:0,     active:true,  sire:"デクラレーションオブウォー", dam:"サンドクイーン" },
 ];
 
 // ミリオン厩舎（P04）
@@ -124,18 +124,18 @@ const HORSES_P04 = [
 
 // 田崎厩舎（P05）
 const HORSES_P05 = [
-  { no:4,  name:"パントルナイーフ",   record:"2-1-0-1", pt:16660, active:true,  sire:"", dam:"" },
-  { no:7,  name:"アドマイヤクワッズ", record:"2-0-3-1", pt:11050, active:false, sire:"", dam:"" },
-  { no:2,  name:"サトノボヤージュ",   record:"4-1-1-0", pt:8570,  active:false, sire:"", dam:"" },
-  { no:12, name:"テーオーグレーザー", record:"2-2-2-1", pt:2980,  active:true,  sire:"", dam:"" },
-  { no:1,  name:"カットソロ",         record:"1-1-2-1", pt:1290,  active:false, sire:"", dam:"" },
-  { no:3,  name:"ジャスティンダラス", record:"1-1-0-1", pt:860,   active:false, sire:"", dam:"" },
-  { no:10, name:"フリーガー",         record:"1-0-0-2", pt:750,   active:false, sire:"", dam:"" },
-  { no:9,  name:"エコログロウ",       record:"1-0-1-2", pt:740,   active:false, sire:"", dam:"" },
-  { no:8,  name:"ミリオンヴォイス",   record:"1-0-0-1", pt:655,   active:true,  sire:"", dam:"" },
-  { no:11, name:"ゾネブルーム",       record:"0-0-2-1", pt:300,   active:true,  sire:"", dam:"" },
-  { no:6,  name:"ローズスマッシュ",   record:"0-0-0-1", pt:240,   active:true,  sire:"", dam:"" },
-  { no:5,  name:"レッドフレーザー",   record:"0-0-0-4", pt:59,    active:false, sire:"", dam:"" },
+  { no:4,  name:"パントルナイーフ",   record:"2-1-0-1", pt:16660, active:true,  sire:"キズナ",           dam:"アールブリュット" },
+  { no:7,  name:"アドマイヤクワッズ", record:"2-0-3-1", pt:11050, active:false, sire:"リアルスティール", dam:"デイトライン" },
+  { no:2,  name:"サトノボヤージュ",   record:"4-1-1-0", pt:8570,  active:false, sire:"Into Mischief",    dam:"ジョリーオリンピア" },
+  { no:12, name:"テーオーグレーザー", record:"2-2-2-1", pt:2980,  active:true,  sire:"マテラスカイ",     dam:"マリンブラスト" },
+  { no:1,  name:"カットソロ",         record:"1-1-2-1", pt:1290,  active:false, sire:"コントレイル",     dam:"スルターナ" },
+  { no:3,  name:"ジャスティンダラス", record:"1-1-0-1", pt:860,   active:false, sire:"Gun Runner",       dam:"ピンクサンズ" },
+  { no:10, name:"フリーガー",         record:"1-0-0-2", pt:750,   active:false, sire:"コントレイル",     dam:"ゲットリッドオブ" },
+  { no:9,  name:"エコログロウ",       record:"1-0-1-2", pt:740,   active:false, sire:"ドレフォン",       dam:"ペイザージュ" },
+  { no:8,  name:"ミリオンヴォイス",   record:"1-0-0-1", pt:655,   active:true,  sire:"ゴールドドリーム", dam:"ペルシャンジュエル" },
+  { no:11, name:"ゾネブルーム",       record:"0-0-2-1", pt:300,   active:true,  sire:"ヴァンゴッホ",     dam:"プリガアルタ" },
+  { no:6,  name:"モンスターラッシュ", record:"0-0-0-1", pt:240,   active:true,  sire:"クリソベリル",     dam:"クラーベセクレタ" },
+  { no:5,  name:"レッドフレーザー",   record:"0-0-0-4", pt:59,    active:false, sire:"ドレフォン",       dam:"ラーゴブルー" },
 ];
 
 // 涼子厩舎（P06）
