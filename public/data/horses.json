@@ -1,0 +1,3470 @@
+[
+  {
+    "kettonum": "2023102813",
+    "name": "フィンガー",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P03"
+      }
+    ],
+    "total_races": 7,
+    "dirt_stakes_podium": 3
+  },
+  {
+    "kettonum": "2023103895",
+    "name": "チュウワカーネギー",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P03"
+      }
+    ],
+    "total_races": 7,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023103365",
+    "name": "ヘリテージブルーム",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P03"
+      }
+    ],
+    "total_races": 8,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023105395",
+    "name": "ゴールドバローズ",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P03"
+      }
+    ],
+    "total_races": 4,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023105329",
+    "name": "エクストラプッシュ",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P03"
+      }
+    ],
+    "total_races": 9,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023110063",
+    "name": "エコロボルト",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P03"
+      }
+    ],
+    "total_races": 5,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023107216",
+    "name": "エジプシャンマウ",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P03"
+      }
+    ],
+    "total_races": 1,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023106867",
+    "name": "アメリカンコール",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P03"
+      }
+    ],
+    "total_races": 2,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023103316",
+    "name": "セスティーナ",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P03"
+      }
+    ],
+    "total_races": 3,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023104669",
+    "name": "ゲレイロ",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P03"
+      }
+    ],
+    "total_races": 7,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023107294",
+    "name": "サンライズメジェド",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P03"
+      }
+    ],
+    "total_races": 0,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023105120",
+    "name": "ワンインザスカイ",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P03"
+      }
+    ],
+    "total_races": 5,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023107377",
+    "name": "パントルナイーフ",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P05"
+      }
+    ],
+    "total_races": 4,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023105311",
+    "name": "アドマイヤクワッズ",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P05"
+      }
+    ],
+    "total_races": 6,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023100936",
+    "name": "サトノボヤージュ",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P05"
+      }
+    ],
+    "total_races": 6,
+    "dirt_stakes_podium": 2
+  },
+  {
+    "kettonum": "2023104562",
+    "name": "テーオーグレーザー",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P05"
+      }
+    ],
+    "total_races": 7,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023105404",
+    "name": "カットソロ",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P05"
+      }
+    ],
+    "total_races": 5,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023102230",
+    "name": "ジャスティンダラス",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P05"
+      }
+    ],
+    "total_races": 3,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023104389",
+    "name": "フリーガー",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P05"
+      }
+    ],
+    "total_races": 3,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023100961",
+    "name": "エコログロウ",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P05"
+      }
+    ],
+    "total_races": 4,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023100131",
+    "name": "ミリオンヴォイス",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P05"
+      }
+    ],
+    "total_races": 2,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023107195",
+    "name": "ゾネブルーム",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P05"
+      }
+    ],
+    "total_races": 3,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023106976",
+    "name": "モンスターラッシュ",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P05"
+      }
+    ],
+    "total_races": 1,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023105340",
+    "name": "レッドフレーザー",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P05"
+      }
+    ],
+    "total_races": 4,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023105279",
+    "name": "アニマレイ",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P02"
+      }
+    ],
+    "total_races": 11,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023107082",
+    "name": "リベッチオ",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P02"
+      }
+    ],
+    "total_races": 4,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023107162",
+    "name": "サンラザール",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P02"
+      }
+    ],
+    "total_races": 5,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023107256",
+    "name": "アローメタル",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P02"
+      }
+    ],
+    "total_races": 2,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023110070",
+    "name": "ブームバップビート",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P02"
+      }
+    ],
+    "total_races": 5,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023105381",
+    "name": "ハイライトニング",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P02"
+      }
+    ],
+    "total_races": 7,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023103699",
+    "name": "パドゼフィール",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P02"
+      }
+    ],
+    "total_races": 5,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023105430",
+    "name": "ダンジョンヒーロー",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P02"
+      }
+    ],
+    "total_races": 5,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023103443",
+    "name": "アリハム",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P02"
+      }
+    ],
+    "total_races": 2,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023107305",
+    "name": "グラムエッジ",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P02"
+      }
+    ],
+    "total_races": 3,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023101121",
+    "name": "ウェンロック",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P02"
+      }
+    ],
+    "total_races": 0,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023110052",
+    "name": "ヒットホーム",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P02"
+      }
+    ],
+    "total_races": 0,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023107264",
+    "name": "デアヴェローチェ",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P07"
+      }
+    ],
+    "total_races": 6,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023103718",
+    "name": "アーガイルショア",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P07"
+      }
+    ],
+    "total_races": 7,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023110061",
+    "name": "アルカディアカフェ",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P07"
+      }
+    ],
+    "total_races": 4,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023101161",
+    "name": "ホットシート",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P07"
+      }
+    ],
+    "total_races": 3,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023107262",
+    "name": "ミティリーニ",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P07"
+      }
+    ],
+    "total_races": 5,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023106284",
+    "name": "リーグナイト",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P07"
+      }
+    ],
+    "total_races": 4,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023110105",
+    "name": "ホウオウストライク",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P07"
+      }
+    ],
+    "total_races": 4,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023102574",
+    "name": "リュウカルネ",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P07"
+      }
+    ],
+    "total_races": 2,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023101124",
+    "name": "アイデアユー",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P07"
+      }
+    ],
+    "total_races": 5,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023105032",
+    "name": "メイショウコシュウ",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P07"
+      }
+    ],
+    "total_races": 3,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023100944",
+    "name": "アイランド",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P07"
+      }
+    ],
+    "total_races": 0,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023106961",
+    "name": "ジュピターバローズ",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P07"
+      }
+    ],
+    "total_races": 0,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023106816",
+    "name": "ロックターミガン",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P06"
+      }
+    ],
+    "total_races": 6,
+    "dirt_stakes_podium": 2
+  },
+  {
+    "kettonum": "2023107131",
+    "name": "トリグラフヒル",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P06"
+      }
+    ],
+    "total_races": 5,
+    "dirt_stakes_podium": 1
+  },
+  {
+    "kettonum": "2023104996",
+    "name": "キッコベッロ",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P06"
+      }
+    ],
+    "total_races": 5,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023107158",
+    "name": "イナズマダイモン",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P06"
+      }
+    ],
+    "total_races": 7,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023107119",
+    "name": "ペルセア",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P06"
+      }
+    ],
+    "total_races": 2,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023104402",
+    "name": "ムスクレスト",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P06"
+      }
+    ],
+    "total_races": 5,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023105224",
+    "name": "リアライズタキオン",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P06"
+      }
+    ],
+    "total_races": 8,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023107362",
+    "name": "バートラガッツ",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P06"
+      }
+    ],
+    "total_races": 1,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023102088",
+    "name": "ライトフライヤー",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P06"
+      }
+    ],
+    "total_races": 3,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023110012",
+    "name": "フローズンブーケ",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P06"
+      }
+    ],
+    "total_races": 2,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023103432",
+    "name": "ブルースプレイヤー",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P06"
+      }
+    ],
+    "total_races": 5,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023105106",
+    "name": "アルデトップガン",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P04"
+      }
+    ],
+    "total_races": 7,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023107080",
+    "name": "クラウトロック",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P04"
+      }
+    ],
+    "total_races": 2,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023106837",
+    "name": "アクアアイ",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P04"
+      }
+    ],
+    "total_races": 5,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023107141",
+    "name": "ペトリコール",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P04"
+      }
+    ],
+    "total_races": 3,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023107245",
+    "name": "マルシュボヌール",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P04"
+      }
+    ],
+    "total_races": 4,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023107064",
+    "name": "フィデリス",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P04"
+      }
+    ],
+    "total_races": 6,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023103524",
+    "name": "アンビエントポップ",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P04"
+      }
+    ],
+    "total_races": 2,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023105365",
+    "name": "ホウオウファラオ",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P04"
+      }
+    ],
+    "total_races": 4,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023105052",
+    "name": "メイショウバンサン",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P04"
+      }
+    ],
+    "total_races": 2,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023104364",
+    "name": "ヤマニンコルザ",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P04"
+      }
+    ],
+    "total_races": 1,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023103623",
+    "name": "エコロデュラン",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P04"
+      }
+    ],
+    "total_races": 3,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023104363",
+    "name": "ヤマニンソロイスト",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P04"
+      }
+    ],
+    "total_races": 0,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023107351",
+    "name": "クラッチスラッガー",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P01"
+      }
+    ],
+    "total_races": 5,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023106989",
+    "name": "キンダープンシュ",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P01"
+      }
+    ],
+    "total_races": 6,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023105342",
+    "name": "ゲタリア",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P01"
+      }
+    ],
+    "total_races": 3,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023107203",
+    "name": "インシオン",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P01"
+      }
+    ],
+    "total_races": 5,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023103329",
+    "name": "ウンナターシャ",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P01"
+      }
+    ],
+    "total_races": 6,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023107313",
+    "name": "サントマーレ",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P01"
+      }
+    ],
+    "total_races": 3,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023106969",
+    "name": "セヴェロ",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P01"
+      }
+    ],
+    "total_races": 3,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023105682",
+    "name": "キセログラフィカ",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P01"
+      }
+    ],
+    "total_races": 6,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023107077",
+    "name": "スマイルガーデン",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P01"
+      }
+    ],
+    "total_races": 7,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023103823",
+    "name": "ワンモメンタム",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P01"
+      }
+    ],
+    "total_races": 4,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023105319",
+    "name": "ネイティヴプライド",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P01"
+      }
+    ],
+    "total_races": 6,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2023106979",
+    "name": "ブロンザイト",
+    "entries": [
+      {
+        "season": "2025-26",
+        "player": "P01"
+      }
+    ],
+    "total_races": 3,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2022104743",
+    "name": "クレーキング",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P01"
+      }
+    ],
+    "total_races": 7,
+    "dirt_stakes_podium": 2
+  },
+  {
+    "kettonum": "2022104888",
+    "name": "ジャナドリア",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P01"
+      }
+    ],
+    "total_races": 5,
+    "dirt_stakes_podium": 2
+  },
+  {
+    "kettonum": "2022104673",
+    "name": "グランジョルノ",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P01"
+      }
+    ],
+    "total_races": 8,
+    "dirt_stakes_podium": 2
+  },
+  {
+    "kettonum": "2022104604",
+    "name": "アローオブライト",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P01"
+      }
+    ],
+    "total_races": 5,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2022104749",
+    "name": "ソリスクラヴィス",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P01"
+      }
+    ],
+    "total_races": 8,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2022104861",
+    "name": "ヤノマスティーロ",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P01"
+      }
+    ],
+    "total_races": 4,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2022105124",
+    "name": "ボヌールキャッツ",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P01"
+      }
+    ],
+    "total_races": 10,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2022105100",
+    "name": "フォンデネージュ",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P01"
+      }
+    ],
+    "total_races": 9,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2022105363",
+    "name": "ラピッドグロウス",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P01"
+      }
+    ],
+    "total_races": 6,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2022110064",
+    "name": "エンジェルラダー",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P01"
+      }
+    ],
+    "total_races": 8,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2022100537",
+    "name": "ジャスティンロング",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P01"
+      }
+    ],
+    "total_races": 9,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2022105009",
+    "name": "フランシュフック",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P01"
+      }
+    ],
+    "total_races": 8,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2022110083",
+    "name": "ルクソールカフェ",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P04"
+      }
+    ],
+    "total_races": 11,
+    "dirt_stakes_podium": 2
+  },
+  {
+    "kettonum": "2022100490",
+    "name": "モズナナスター",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P04"
+      }
+    ],
+    "total_races": 20,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2022105028",
+    "name": "プロミストジーン",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P04"
+      }
+    ],
+    "total_races": 10,
+    "dirt_stakes_podium": 2
+  },
+  {
+    "kettonum": "2022106813",
+    "name": "マイネルフーガ",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P04"
+      }
+    ],
+    "total_races": 14,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2022105064",
+    "name": "マリアイリダータ",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P04"
+      }
+    ],
+    "total_races": 7,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2022103242",
+    "name": "ダノンヴェステル",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P04"
+      }
+    ],
+    "total_races": 9,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2022106541",
+    "name": "グレイテストソング",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P04"
+      }
+    ],
+    "total_races": 9,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2022104758",
+    "name": "ヴィンブルレー",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P04"
+      }
+    ],
+    "total_races": 7,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2022102735",
+    "name": "スマートカイロス",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P04"
+      }
+    ],
+    "total_races": 12,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2022106781",
+    "name": "コスモマガラニカ",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P04"
+      }
+    ],
+    "total_races": 13,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2022104023",
+    "name": "マリアディオーサ",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P04"
+      }
+    ],
+    "total_races": 15,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2022105261",
+    "name": "ランフォザプライド",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P04"
+      }
+    ],
+    "total_races": 3,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2022104877",
+    "name": "カナルビーグル",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P05"
+      }
+    ],
+    "total_races": 6,
+    "dirt_stakes_podium": 1
+  },
+  {
+    "kettonum": "2022104928",
+    "name": "トリポリタニア",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P05"
+      }
+    ],
+    "total_races": 11,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2022105987",
+    "name": "アートレスマインド",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P05"
+      }
+    ],
+    "total_races": 14,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2022106718",
+    "name": "ボルトテソーロ",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P05"
+      }
+    ],
+    "total_races": 11,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2022105848",
+    "name": "ステイクオール",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P05"
+      }
+    ],
+    "total_races": 10,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2022105776",
+    "name": "グレイスザクラウン",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P05"
+      }
+    ],
+    "total_races": 14,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2022105403",
+    "name": "レッドソニード",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P05"
+      }
+    ],
+    "total_races": 6,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2022105024",
+    "name": "ソーツアウト",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P05"
+      }
+    ],
+    "total_races": 0,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2022105709",
+    "name": "バレアレス",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P05"
+      }
+    ],
+    "total_races": 12,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2022104709",
+    "name": "ツァイトガイスト",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P05"
+      }
+    ],
+    "total_races": 0,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2022105691",
+    "name": "グランダイト",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P05"
+      }
+    ],
+    "total_races": 14,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2022101387",
+    "name": "レッドエソール",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P05"
+      }
+    ],
+    "total_races": 3,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2022104643",
+    "name": "ニューファウンド",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P02"
+      }
+    ],
+    "total_races": 12,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2022104627",
+    "name": "シホノペルフェット",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P02"
+      }
+    ],
+    "total_races": 14,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2022105990",
+    "name": "クニノハッピー",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P02"
+      }
+    ],
+    "total_races": 16,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2022104601",
+    "name": "バタール",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P02"
+      }
+    ],
+    "total_races": 7,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2022105443",
+    "name": "モレポブラーノ",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P02"
+      }
+    ],
+    "total_races": 11,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2022105116",
+    "name": "マーキュリーダイム",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P02"
+      }
+    ],
+    "total_races": 4,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2022100125",
+    "name": "ホウオウアンジュ",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P02"
+      }
+    ],
+    "total_races": 2,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2022105171",
+    "name": "タンテドヴィーヴル",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P02"
+      }
+    ],
+    "total_races": 11,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2022110005",
+    "name": "ジャスティントレノ",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P02"
+      }
+    ],
+    "total_races": 10,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2022105530",
+    "name": "レジェンダイズ",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P02"
+      }
+    ],
+    "total_races": 23,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2022103762",
+    "name": "テイエムライダー",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P02"
+      }
+    ],
+    "total_races": 1,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2022110097",
+    "name": "アーロッタレット",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P02"
+      }
+    ],
+    "total_races": 10,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2022103754",
+    "name": "ミストレス",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P03"
+      }
+    ],
+    "total_races": 16,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2022104628",
+    "name": "レイナデアルシーラ",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P03"
+      }
+    ],
+    "total_races": 14,
+    "dirt_stakes_podium": 1
+  },
+  {
+    "kettonum": "2022100699",
+    "name": "イガッチ",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P03"
+      }
+    ],
+    "total_races": 10,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2022102966",
+    "name": "サンダーロード",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P03"
+      }
+    ],
+    "total_races": 17,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2022110051",
+    "name": "チムニートップス",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P03"
+      }
+    ],
+    "total_races": 11,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2022105407",
+    "name": "サニーサルサ",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P03"
+      }
+    ],
+    "total_races": 12,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2022110001",
+    "name": "シルフズミスチーフ",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P03"
+      }
+    ],
+    "total_races": 15,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2022102397",
+    "name": "ビービーバザーク",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P03"
+      }
+    ],
+    "total_races": 13,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2022104778",
+    "name": "カルデライト",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P03"
+      }
+    ],
+    "total_races": 11,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2022105705",
+    "name": "バルジール",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P03"
+      }
+    ],
+    "total_races": 11,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2022104683",
+    "name": "グレインワーク",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P03"
+      }
+    ],
+    "total_races": 2,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2022103026",
+    "name": "メムエクラ",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P03"
+      }
+    ],
+    "total_races": 14,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2022100623",
+    "name": "ダノンフィーゴ",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P07"
+      }
+    ],
+    "total_races": 12,
+    "dirt_stakes_podium": 3
+  },
+  {
+    "kettonum": "2022105722",
+    "name": "グランドプラージュ",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P07"
+      }
+    ],
+    "total_races": 6,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2022101703",
+    "name": "ベンヌ",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P07"
+      }
+    ],
+    "total_races": 8,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2022101431",
+    "name": "ダニエルバローズ",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P07"
+      }
+    ],
+    "total_races": 16,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2022106754",
+    "name": "オンクラウドナイン",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P07"
+      }
+    ],
+    "total_races": 12,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2022106617",
+    "name": "サルタール",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P07"
+      }
+    ],
+    "total_races": 14,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2022106664",
+    "name": "スキュア",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P07"
+      }
+    ],
+    "total_races": 3,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2022106583",
+    "name": "ケイアイブイスリー",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P07"
+      }
+    ],
+    "total_races": 13,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2022110055",
+    "name": "アインプレーゲン",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P07"
+      }
+    ],
+    "total_races": 2,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2022103774",
+    "name": "チェインズモーカー",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P07"
+      }
+    ],
+    "total_races": 4,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2022106636",
+    "name": "チームビルディング",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P07"
+      }
+    ],
+    "total_races": 1,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2022101671",
+    "name": "ブランクシート",
+    "entries": [
+      {
+        "season": "2024-25",
+        "player": "P07"
+      }
+    ],
+    "total_races": 11,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021110056",
+    "name": "エコロガイア",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P02"
+      }
+    ],
+    "total_races": 24,
+    "dirt_stakes_podium": 1
+  },
+  {
+    "kettonum": "2021110008",
+    "name": "ルディック",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P02"
+      }
+    ],
+    "total_races": 22,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021103716",
+    "name": "メイショウホウレン",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P02"
+      }
+    ],
+    "total_races": 13,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021110069",
+    "name": "エスカル",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P02"
+      }
+    ],
+    "total_races": 22,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021104314",
+    "name": "ダンツティアラ",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P02"
+      }
+    ],
+    "total_races": 11,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021104922",
+    "name": "インテルメディオ",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P02"
+      }
+    ],
+    "total_races": 12,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021104945",
+    "name": "ポンピエ",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P02"
+      }
+    ],
+    "total_races": 22,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021107230",
+    "name": "パリッドキャリア",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P02"
+      }
+    ],
+    "total_races": 8,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021110053",
+    "name": "ワインダモ",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P02"
+      }
+    ],
+    "total_races": 0,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021104960",
+    "name": "モッドフレイム",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P02"
+      }
+    ],
+    "total_races": 5,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021105656",
+    "name": "リムショット",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P02"
+      }
+    ],
+    "total_races": 22,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021110068",
+    "name": "シングマイブルース",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P02"
+      }
+    ],
+    "total_races": 3,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021101444",
+    "name": "サトノフェニックス",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P01"
+      }
+    ],
+    "total_races": 15,
+    "dirt_stakes_podium": 3
+  },
+  {
+    "kettonum": "2021104092",
+    "name": "ペンナヴェローチェ",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P01"
+      }
+    ],
+    "total_races": 28,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021105849",
+    "name": "オコタンペ",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P01"
+      }
+    ],
+    "total_races": 27,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021106625",
+    "name": "ノットイナフ",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P01"
+      }
+    ],
+    "total_races": 20,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021105871",
+    "name": "ソニックライン",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P01"
+      }
+    ],
+    "total_races": 18,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021105805",
+    "name": "アルシミスト",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P01"
+      }
+    ],
+    "total_races": 10,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021104840",
+    "name": "フルレゾン",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P01"
+      }
+    ],
+    "total_races": 18,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021110010",
+    "name": "クラリファイ",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P01"
+      }
+    ],
+    "total_races": 5,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021104913",
+    "name": "ジャンドル",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P01"
+      }
+    ],
+    "total_races": 8,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021105840",
+    "name": "メネラオス",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P01"
+      }
+    ],
+    "total_races": 13,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021104743",
+    "name": "クセノポン",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P01"
+      }
+    ],
+    "total_races": 4,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021104801",
+    "name": "レイヌドサーブル",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P01"
+      }
+    ],
+    "total_races": 26,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021105387",
+    "name": "アンデスビエント",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P04"
+      }
+    ],
+    "total_races": 13,
+    "dirt_stakes_podium": 1
+  },
+  {
+    "kettonum": "2021102244",
+    "name": "テーオードラッカー",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P04"
+      }
+    ],
+    "total_races": 18,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021105598",
+    "name": "ダノンスウィッチ",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P04"
+      }
+    ],
+    "total_races": 22,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021101400",
+    "name": "マックスセレナーデ",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P04"
+      }
+    ],
+    "total_races": 18,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021104782",
+    "name": "ミッキードラマー",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P04"
+      }
+    ],
+    "total_races": 10,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021110070",
+    "name": "アタラヨ",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P04"
+      }
+    ],
+    "total_races": 6,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021103554",
+    "name": "リルフロスト",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P04"
+      }
+    ],
+    "total_races": 40,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021110094",
+    "name": "キツネノヨメイリ",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P04"
+      }
+    ],
+    "total_races": 5,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021107056",
+    "name": "タイセイマーシャル",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P04"
+      }
+    ],
+    "total_races": 27,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021101393",
+    "name": "ブラストバローズ",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P04"
+      }
+    ],
+    "total_races": 27,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021103487",
+    "name": "ホウオウラムセス",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P04"
+      }
+    ],
+    "total_races": 15,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021107172",
+    "name": "コヴィーニャ",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P04"
+      }
+    ],
+    "total_races": 40,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021101660",
+    "name": "アンクエンチャブル",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P07"
+      }
+    ],
+    "total_races": 16,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021105272",
+    "name": "タンゴバイラリン",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P07"
+      }
+    ],
+    "total_races": 22,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021110112",
+    "name": "ウェットシーズン",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P07"
+      }
+    ],
+    "total_races": 11,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021103223",
+    "name": "ダノンケイツー",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P07"
+      }
+    ],
+    "total_races": 7,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021104784",
+    "name": "オペラプラージュ",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P07"
+      }
+    ],
+    "total_races": 10,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021110096",
+    "name": "クリティカルヒット",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P07"
+      }
+    ],
+    "total_races": 20,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021100104",
+    "name": "ダイシンバースディ",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P07"
+      }
+    ],
+    "total_races": 29,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021105269",
+    "name": "ビスクウィザード",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P07"
+      }
+    ],
+    "total_races": 25,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021110093",
+    "name": "ディフェリ",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P07"
+      }
+    ],
+    "total_races": 3,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021104413",
+    "name": "ウェイトゥゴー",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P07"
+      }
+    ],
+    "total_races": 18,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021100290",
+    "name": "バルログ",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P07"
+      }
+    ],
+    "total_races": 1,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021103502",
+    "name": "アイウィル",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P07"
+      }
+    ],
+    "total_races": 20,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021105616",
+    "name": "エルフストラック",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P05"
+      }
+    ],
+    "total_races": 23,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021104158",
+    "name": "センチュリボンド",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P05"
+      }
+    ],
+    "total_races": 8,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021105508",
+    "name": "リューデスハイム",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P05"
+      }
+    ],
+    "total_races": 17,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021104903",
+    "name": "ヴェルトラウム",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P05"
+      }
+    ],
+    "total_races": 15,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021100711",
+    "name": "ケイアイアルタイル",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P05"
+      }
+    ],
+    "total_races": 12,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021106213",
+    "name": "ウインイメル",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P05"
+      }
+    ],
+    "total_races": 19,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021106689",
+    "name": "アセレラシオン",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P05"
+      }
+    ],
+    "total_races": 16,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021106033",
+    "name": "トニーテソーロ",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P05"
+      }
+    ],
+    "total_races": 12,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021105862",
+    "name": "フェリーニ",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P05"
+      }
+    ],
+    "total_races": 17,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021101110",
+    "name": "リベルテ",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P05"
+      }
+    ],
+    "total_races": 36,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021104999",
+    "name": "テトラード",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P05"
+      }
+    ],
+    "total_races": 20,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021100868",
+    "name": "アウトドライブ",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P05"
+      }
+    ],
+    "total_races": 15,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021107058",
+    "name": "ピューロマジック",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P03"
+      }
+    ],
+    "total_races": 18,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021103219",
+    "name": "カラフルメロディー",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P03"
+      }
+    ],
+    "total_races": 11,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021105150",
+    "name": "ナファロア",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P03"
+      }
+    ],
+    "total_races": 16,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021101671",
+    "name": "サンダーアラート",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P03"
+      }
+    ],
+    "total_races": 17,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021102079",
+    "name": "サウンドアレグリア",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P03"
+      }
+    ],
+    "total_races": 16,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021103263",
+    "name": "メイショウソウタ",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P03"
+      }
+    ],
+    "total_races": 20,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021106566",
+    "name": "ヘニーズネフュー",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P03"
+      }
+    ],
+    "total_races": 24,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021100486",
+    "name": "リアルモハメド",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P03"
+      }
+    ],
+    "total_races": 26,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021103295",
+    "name": "アショカ",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P03"
+      }
+    ],
+    "total_races": 21,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021103034",
+    "name": "ハードタック",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P03"
+      }
+    ],
+    "total_races": 0,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021101642",
+    "name": "ソングライター",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P03"
+      }
+    ],
+    "total_races": 10,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021106223",
+    "name": "ウインクリード",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P03"
+      }
+    ],
+    "total_races": 17,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021105623",
+    "name": "ホウオウプロサンゲ",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P08"
+      }
+    ],
+    "total_races": 22,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021100557",
+    "name": "オーサムストローク",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P08"
+      }
+    ],
+    "total_races": 20,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021101429",
+    "name": "サトミノキラリ",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P08"
+      }
+    ],
+    "total_races": 21,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021106658",
+    "name": "ストレングス",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P08"
+      }
+    ],
+    "total_races": 21,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021103242",
+    "name": "ジーベック",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P08"
+      }
+    ],
+    "total_races": 24,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021103711",
+    "name": "ロサンゼルス",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P08"
+      }
+    ],
+    "total_races": 22,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021110080",
+    "name": "フェヴリエ",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P08"
+      }
+    ],
+    "total_races": 19,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021105673",
+    "name": "マルチライセンス",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P08"
+      }
+    ],
+    "total_races": 24,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021105904",
+    "name": "フォローウィンド",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P08"
+      }
+    ],
+    "total_races": 5,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021103682",
+    "name": "マジックブルー",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P08"
+      }
+    ],
+    "total_races": 14,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021105268",
+    "name": "ウェックスフォード",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P08"
+      }
+    ],
+    "total_races": 13,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2021105304",
+    "name": "ポーラーウインド",
+    "entries": [
+      {
+        "season": "2023-24",
+        "player": "P08"
+      }
+    ],
+    "total_races": 1,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2020102891",
+    "name": "ユティタム",
+    "entries": [
+      {
+        "season": "2022-23",
+        "player": "P01"
+      }
+    ],
+    "total_races": 17,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2020103295",
+    "name": "エクロジャイト",
+    "entries": [
+      {
+        "season": "2022-23",
+        "player": "P01"
+      }
+    ],
+    "total_races": 17,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2020103534",
+    "name": "ジュドー",
+    "entries": [
+      {
+        "season": "2022-23",
+        "player": "P01"
+      }
+    ],
+    "total_races": 22,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2020100677",
+    "name": "サンデュエル",
+    "entries": [
+      {
+        "season": "2022-23",
+        "player": "P01"
+      }
+    ],
+    "total_races": 7,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2020106899",
+    "name": "イエルバブエナ",
+    "entries": [
+      {
+        "season": "2022-23",
+        "player": "P01"
+      }
+    ],
+    "total_races": 26,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2020103701",
+    "name": "ルージュイストリア",
+    "entries": [
+      {
+        "season": "2022-23",
+        "player": "P01"
+      }
+    ],
+    "total_races": 16,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2020103574",
+    "name": "ウォーハンマー",
+    "entries": [
+      {
+        "season": "2022-23",
+        "player": "P01"
+      }
+    ],
+    "total_races": 24,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2020110078",
+    "name": "ヴァンビスタ",
+    "entries": [
+      {
+        "season": "2022-23",
+        "player": "P01"
+      }
+    ],
+    "total_races": 3,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2020101604",
+    "name": "エンブレム",
+    "entries": [
+      {
+        "season": "2022-23",
+        "player": "P01"
+      }
+    ],
+    "total_races": 6,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2020110027",
+    "name": "ランドオブサンド",
+    "entries": [
+      {
+        "season": "2022-23",
+        "player": "P01"
+      }
+    ],
+    "total_races": 4,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2020102565",
+    "name": "スクーバー",
+    "entries": [
+      {
+        "season": "2022-23",
+        "player": "P02"
+      }
+    ],
+    "total_races": 20,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2020110075",
+    "name": "ミスティックロア",
+    "entries": [
+      {
+        "season": "2022-23",
+        "player": "P02"
+      }
+    ],
+    "total_races": 12,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2020103086",
+    "name": "カレンアルカンタラ",
+    "entries": [
+      {
+        "season": "2022-23",
+        "player": "P02"
+      }
+    ],
+    "total_races": 24,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2020110069",
+    "name": "モズアカボス",
+    "entries": [
+      {
+        "season": "2022-23",
+        "player": "P02"
+      }
+    ],
+    "total_races": 35,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2020105326",
+    "name": "パイリヴレ",
+    "entries": [
+      {
+        "season": "2022-23",
+        "player": "P02"
+      }
+    ],
+    "total_races": 21,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2020110103",
+    "name": "ワインワインレッド",
+    "entries": [
+      {
+        "season": "2022-23",
+        "player": "P02"
+      }
+    ],
+    "total_races": 19,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2020103363",
+    "name": "ダグフォース",
+    "entries": [
+      {
+        "season": "2022-23",
+        "player": "P02"
+      }
+    ],
+    "total_races": 46,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2020110101",
+    "name": "ゴールデンマイク",
+    "entries": [
+      {
+        "season": "2022-23",
+        "player": "P02"
+      }
+    ],
+    "total_races": 19,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2020103341",
+    "name": "カミノモラド",
+    "entries": [
+      {
+        "season": "2022-23",
+        "player": "P02"
+      }
+    ],
+    "total_races": 9,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2020102723",
+    "name": "メガラニカ",
+    "entries": [
+      {
+        "season": "2022-23",
+        "player": "P02"
+      }
+    ],
+    "total_races": 0,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2020102818",
+    "name": "メイクザビート",
+    "entries": [
+      {
+        "season": "2022-23",
+        "player": "P03"
+      }
+    ],
+    "total_races": 20,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2020105651",
+    "name": "メジェド",
+    "entries": [
+      {
+        "season": "2022-23",
+        "player": "P03"
+      }
+    ],
+    "total_races": 15,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2020100583",
+    "name": "レイズカイザー",
+    "entries": [
+      {
+        "season": "2022-23",
+        "player": "P03"
+      }
+    ],
+    "total_races": 16,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2020101950",
+    "name": "ナムラテディー",
+    "entries": [
+      {
+        "season": "2022-23",
+        "player": "P03"
+      }
+    ],
+    "total_races": 57,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2020101123",
+    "name": "サクセスハチハチ",
+    "entries": [
+      {
+        "season": "2022-23",
+        "player": "P03"
+      }
+    ],
+    "total_races": 10,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2020106925",
+    "name": "メイショウノブカ",
+    "entries": [
+      {
+        "season": "2022-23",
+        "player": "P03"
+      }
+    ],
+    "total_races": 19,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2020106943",
+    "name": "コパノスタンリー",
+    "entries": [
+      {
+        "season": "2022-23",
+        "player": "P03"
+      }
+    ],
+    "total_races": 35,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2020100518",
+    "name": "デュアルモーション",
+    "entries": [
+      {
+        "season": "2022-23",
+        "player": "P03"
+      }
+    ],
+    "total_races": 14,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2020104463",
+    "name": "カーメルビーチ",
+    "entries": [
+      {
+        "season": "2022-23",
+        "player": "P03"
+      }
+    ],
+    "total_races": 14,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2020103392",
+    "name": "ロジザキア",
+    "entries": [
+      {
+        "season": "2022-23",
+        "player": "P03"
+      }
+    ],
+    "total_races": 3,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2020103070",
+    "name": "ミラクルティアラ",
+    "entries": [
+      {
+        "season": "2022-23",
+        "player": "P04"
+      }
+    ],
+    "total_races": 19,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2020100572",
+    "name": "ルルシュシュ",
+    "entries": [
+      {
+        "season": "2022-23",
+        "player": "P04"
+      }
+    ],
+    "total_races": 13,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2020103676",
+    "name": "ミラクルキャッツ",
+    "entries": [
+      {
+        "season": "2022-23",
+        "player": "P04"
+      }
+    ],
+    "total_races": 15,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2020103374",
+    "name": "ヴァレンティヌス",
+    "entries": [
+      {
+        "season": "2022-23",
+        "player": "P04"
+      }
+    ],
+    "total_races": 7,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2020101814",
+    "name": "スターグロウ",
+    "entries": [
+      {
+        "season": "2022-23",
+        "player": "P04"
+      }
+    ],
+    "total_races": 15,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2020103505",
+    "name": "マスグラバイト",
+    "entries": [
+      {
+        "season": "2022-23",
+        "player": "P04"
+      }
+    ],
+    "total_races": 16,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2020103570",
+    "name": "ジャスティンカプリ",
+    "entries": [
+      {
+        "season": "2022-23",
+        "player": "P04"
+      }
+    ],
+    "total_races": 15,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2020110065",
+    "name": "キュピドン",
+    "entries": [
+      {
+        "season": "2022-23",
+        "player": "P04"
+      }
+    ],
+    "total_races": 15,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2020102711",
+    "name": "ノルドヴェスト",
+    "entries": [
+      {
+        "season": "2022-23",
+        "player": "P04"
+      }
+    ],
+    "total_races": 14,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2020104978",
+    "name": "オンクルヨリ",
+    "entries": [
+      {
+        "season": "2022-23",
+        "player": "P04"
+      }
+    ],
+    "total_races": 0,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2020102867",
+    "name": "フルメタルボディー",
+    "entries": [
+      {
+        "season": "2022-23",
+        "player": "P05"
+      }
+    ],
+    "total_races": 22,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2020102119",
+    "name": "ロードディフィート",
+    "entries": [
+      {
+        "season": "2022-23",
+        "player": "P05"
+      }
+    ],
+    "total_races": 33,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2020102061",
+    "name": "ローズスター",
+    "entries": [
+      {
+        "season": "2022-23",
+        "player": "P05"
+      }
+    ],
+    "total_races": 18,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2020102796",
+    "name": "ミラーオブマインド",
+    "entries": [
+      {
+        "season": "2022-23",
+        "player": "P05"
+      }
+    ],
+    "total_races": 10,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2020104661",
+    "name": "ダンテバローズ",
+    "entries": [
+      {
+        "season": "2022-23",
+        "player": "P05"
+      }
+    ],
+    "total_races": 24,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2020105517",
+    "name": "ヒビキ",
+    "entries": [
+      {
+        "season": "2022-23",
+        "player": "P05"
+      }
+    ],
+    "total_races": 27,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2020105477",
+    "name": "ニシノメラーキ",
+    "entries": [
+      {
+        "season": "2022-23",
+        "player": "P05"
+      }
+    ],
+    "total_races": 4,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2020103531",
+    "name": "フローラルハニー",
+    "entries": [
+      {
+        "season": "2022-23",
+        "player": "P05"
+      }
+    ],
+    "total_races": 23,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2020100943",
+    "name": "クリスプエアー",
+    "entries": [
+      {
+        "season": "2022-23",
+        "player": "P05"
+      }
+    ],
+    "total_races": 32,
+    "dirt_stakes_podium": 0
+  },
+  {
+    "kettonum": "2020110066",
+    "name": "ガルミッシュ",
+    "entries": [
+      {
+        "season": "2022-23",
+        "player": "P05"
+      }
+    ],
+    "total_races": 4,
+    "dirt_stakes_podium": 0
+  }
+]
