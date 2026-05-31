@@ -398,7 +398,7 @@ function PlayerDetailScreen({ userId, onBack, onSelectHorse }) {
         )}
       </div>
       {horses.map(h => {
-        const netkeibaUrl = `https://db.netkeiba.com/?pid=horse_search_list&word=${encodeURIComponent(h.name)}`;
+        const netkeibaUrl = `https://www.google.com/search?q=netkeiba+${encodeURIComponent(h.name)}`;
         return (
           <div key={h.no} style={{
             background:"#fff", border:"1px solid #e4e9e6", borderRadius:10,
@@ -448,7 +448,7 @@ function PlayerDetailScreen({ userId, onBack, onSelectHorse }) {
 
 function HorseDetailScreen({ horse, playerId, results }) {
   const horseResults = results.filter(r => r.horse === horse.name);
-  const netkeibaUrl = `https://db.netkeiba.com/?pid=horse_search_list&word=${encodeURIComponent(horse.name)}`;
+  const netkeibaUrl = `https://www.google.com/search?q=netkeiba+${encodeURIComponent(horse.name)}`;
   return (
     <div style={{ padding:12 }}>
       <div style={{ background:"#fff", borderRadius:12, padding:"16px 18px", marginBottom:14, border:"1px solid #e4e9e6" }}>
