@@ -379,7 +379,7 @@ function RankingScreen({ onSelectPlayer }) {
   );
 }
 
-function PlayerDetailScreen({ userId, onBack, onSelectHorse }) {
+function PlayerDetailScreen({ userId, onBack, onSelectHorse, kettonums }) {
   const user = CURRENT_SEASON.users.find(u => u.id === userId);
   const horses = getHorses(userId);
   const player = PLAYERS.find(p => p.id === userId);
@@ -398,7 +398,7 @@ function PlayerDetailScreen({ userId, onBack, onSelectHorse }) {
         )}
       </div>
       {horses.map(h => {
-        const netkeibaUrl = `https://www.google.com/search?q=netkeiba+${encodeURIComponent(h.name)}`;
+        const netkeibaUrl = `https://db.netkeiba.com/horse/${kettonums[h.name] ?? ""}/`;
         return (
           <div key={h.no} style={{
             background:"#fff", border:"1px solid #e4e9e6", borderRadius:10,
@@ -430,13 +430,15 @@ function PlayerDetailScreen({ userId, onBack, onSelectHorse }) {
                   <div style={{ fontWeight:800, fontSize:15 }}>{fmt(h.pt)}</div>
                   <div style={{ fontSize:10, color:"#999" }}>pt</div>
                 </div>
-                <a href={netkeibaUrl} target="_blank" rel="noopener noreferrer"
-                  style={{
-                    fontSize:10, fontWeight:700, color:"#1a56c4",
-                    textDecoration:"none", whiteSpace:"nowrap",
-                  }}>
-                  🔍 netkeiba
-                </a>
+                {kettonums[h.name] && (
+                  <a href={netkeibaUrl} target="_blank" rel="noopener noreferrer"
+                    style={{
+                      fontSize:10, fontWeight:700, color:"#1a56c4",
+                      textDecoration:"none", whiteSpace:"nowrap",
+                    }}>
+                    🔍 netkeiba
+                  </a>
+                )}
               </div>
             </div>
           </div>
@@ -446,9 +448,9 @@ function PlayerDetailScreen({ userId, onBack, onSelectHorse }) {
   );
 }
 
-function HorseDetailScreen({ horse, playerId, results }) {
+function HorseDetailScreen({ horse, playerId, results, kettonums }) {
   const horseResults = results.filter(r => r.horse === horse.name);
-  const netkeibaUrl = `https://www.google.com/search?q=netkeiba+${encodeURIComponent(horse.name)}`;
+  const netkeibaUrl = `https://db.netkeiba.com/horse/${kettonums[horse.name] ?? ""}/`;
   return (
     <div style={{ padding:12 }}>
       <div style={{ background:"#fff", borderRadius:12, padding:"16px 18px", marginBottom:14, border:"1px solid #e4e9e6" }}>
@@ -459,15 +461,17 @@ function HorseDetailScreen({ horse, playerId, results }) {
               {playerEmoji(playerId)} {playerName(playerId)}
             </div>
           </div>
-          <a href={netkeibaUrl} target="_blank" rel="noopener noreferrer"
-            style={{
-              display:"inline-flex", alignItems:"center", gap:4,
-              background:"#1a56c4", color:"#fff", borderRadius:8,
-              padding:"6px 12px", fontSize:12, fontWeight:700,
-              textDecoration:"none", whiteSpace:"nowrap", flexShrink:0,
-            }}>
-            🔍 netkeiba
-          </a>
+          {kettonums[horse.name] && (
+            <a href={netkeibaUrl} target="_blank" rel="noopener noreferrer"
+              style={{
+                display:"inline-flex", alignItems:"center", gap:4,
+                background:"#1a56c4", color:"#fff", borderRadius:8,
+                padding:"6px 12px", fontSize:12, fontWeight:700,
+                textDecoration:"none", whiteSpace:"nowrap", flexShrink:0,
+              }}>
+              🔍 netkeiba
+            </a>
+          )}
         </div>
         <div style={{ display:"flex", gap:16, marginTop:14 }}>
           <div>
@@ -771,10 +775,12 @@ export default function App() {
   const [results,  setResults]  = useState([]);
   const [upcoming, setUpcoming] = useState([]);
   const [resultsLoaded, setResultsLoaded] = useState(false);
+  const [kettonums, setKettonums] = useState({});
 
   useEffect(() => {
     fetch("/data/results.json").then(r => r.json()).then(d => { setResults(d); setResultsLoaded(true); }).catch(() => setResultsLoaded(true));
     fetch("/data/upcoming.json").then(r => r.json()).then(setUpcoming).catch(() => {});
+    fetch("/data/kettonums.json").then(r => r.json()).then(setKettonums).catch(() => {});
   }, []);
 
   const switchTab = (t) => {
@@ -791,12 +797,12 @@ export default function App() {
     if (selectedHorse) {
       title = "馬詳細";
       onBack = () => setSHorse(null);
-      content = <HorseDetailScreen horse={selectedHorse} playerId={selectedPlayerId} results={results} />;
+      content = <HorseDetailScreen horse={selectedHorse} playerId={selectedPlayerId} results={results} kettonums={kettonums} />;
     } else if (selectedPlayerId) {
       title = playerName(selectedPlayerId);
       onBack = () => setSPId(null);
       content = <PlayerDetailScreen userId={selectedPlayerId} onBack={()=>setSPId(null)}
-                  onSelectHorse={h => { setSHorse(h); }} />;
+                  onSelectHorse={h => { setSHorse(h); }} kettonums={kettonums} />;
     } else {
       content = <RankingScreen onSelectPlayer={u => setSPId(u.id)} />;
     }

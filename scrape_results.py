@@ -233,6 +233,11 @@ def main():
     with open(os.path.join(out_dir, "upcoming.json"), "w", encoding="utf-8") as f:
         json.dump(upcoming[:10], f, ensure_ascii=False, indent=2)
 
+    # kettonums.json（馬名 → ID）を保存（フロントエンドのリンク用）
+    kettonums_for_front = {k: v for k, v in cache.items() if v is not None}
+    with open(os.path.join(out_dir, "kettonums.json"), "w", encoding="utf-8") as f:
+        json.dump(kettonums_for_front, f, ensure_ascii=False, indent=2)
+
     print(f"\n✓ 完了！ 確定結果: {len(past)}件 / 出走予定: {len(upcoming)}件")
     print(f"  → public/data/results.json")
     print(f"  → public/data/upcoming.json")
