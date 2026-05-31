@@ -65,32 +65,46 @@ def save_cache(cache):
     with open(CACHE_FILE, "w", encoding="utf-8") as f:
         json.dump(cache, f, ensure_ascii=False, indent=2)
 
+def get_kettonum_browser(name):
+    """Playwright でフォーム検索して kettonum を取得"""
+    from playwright.sync_api import sync_playwright
+    import time as _time
+    with sync_playwright() as p:
+        browser = p.chromium.launch(headless=True)
+        page = browser.new_page()
+        page.goto("https://db.netkeiba.com/horse/search/", timeout=30000, wait_until="load")
+        _time.sleep(2)
+        page.fill("input[name=word]", name)
+        page.click("input[name=submit]")
+        _time.sleep(3)
+        content = page.content()
+        browser.close()
+    soup = BeautifulSoup(content, "lxml")
+    for a in soup.find_all("a", href=re.compile(r"/horse/2023\d+")):
+        m = re.search(r"/horse/(2023\d+)", a["href"])
+        if m and a.get_text(strip=True) == name:
+            return m.group(1)
+    # 完全一致がなければ先頭
+    for a in soup.find_all("a", href=re.compile(r"/horse/2023\d+")):
+        m = re.search(r"/horse/(2023\d+)", a["href"])
+        if m:
+            return m.group(1)
+    return None
+
 def get_kettonum(name, cache):
-    """馬名からnetkeiba上のkettonumを取得（Playwright使用）"""
+    """馬名からnetkeiba上のkettonumを取得"""
     if name in cache and cache[name] is not None:
         return cache[name]
     try:
-        from playwright.sync_api import sync_playwright
-        import urllib.parse as _up
-        with sync_playwright() as p:
-            browser = p.chromium.launch(headless=True)
-            page = browser.new_page()
-            encoded = _up.quote(name.encode("euc-jp"))
-            url = f"https://db.netkeiba.com/horse/search/list/?word={encoded}&yob=2023"
-            page.goto(url, timeout=20000, wait_until="networkidle")
-            content = page.content()
-            browser.close()
-        soup = BeautifulSoup(content, "lxml")
-        for a in soup.find_all("a", href=re.compile(r"/horse/2023\d+")):
-            m = re.search(r"/horse/(2023\d+)", a["href"])
-            if m:
-                cache[name] = m.group(1)
-                print(f"  ✓ {name}: {m.group(1)}")
-                return m.group(1)
+        result = get_kettonum_browser(name)
+        if result:
+            cache[name] = result
+            print(f"  ✓ {name}: {result}", flush=True)
+            return result
     except Exception as e:
-        print(f"  ✗ {name}: エラー {e}")
+        print(f"  ✗ {name}: エラー {e}", flush=True)
     cache[name] = None
-    print(f"  ? {name}: 見つからず")
+    print(f"  ? {name}: 見つからず", flush=True)
     return None
 
 def parse_grade(race_name):
@@ -196,16 +210,49 @@ def main():
     cache = load_cache()
 
     # Step1: kettonum取得
-    print("【Step1】kettonum取得...")
-    changed = False
-    for name in HORSE_PLAYER:
-        if name not in cache or cache.get(name) is None:
-            get_kettonum(name, cache)
-            changed = True
-            time.sleep(0.3)
-    if changed:
+    print("【Step1】kettonum取得...", flush=True)
+    missing = [name for name in HORSE_PLAYER if name not in cache or cache.get(name) is None]
+    if missing:
+        print(f"  {len(missing)}頭を検索します...", flush=True)
+        try:
+            from playwright.sync_api import sync_playwright
+            import time as _time
+            with sync_playwright() as p:
+                browser = p.chromium.launch(headless=True)
+                for name in missing:
+                    try:
+                        page = browser.new_page()
+                        page.goto("https://db.netkeiba.com/horse/search/", timeout=30000, wait_until="load")
+                        _time.sleep(1)
+                        page.fill("input[name=word]", name)
+                        page.click("input[name=submit]")
+                        _time.sleep(2)
+                        content = page.content()
+                        page.close()
+                        soup = BeautifulSoup(content, "lxml")
+                        found = None
+                        # 完全一致優先
+                        for a in soup.find_all("a", href=re.compile(r"/horse/2023\d+")):
+                            if a.get_text(strip=True) == name:
+                                found = re.search(r"/horse/(2023\d+)", a["href"]).group(1)
+                                break
+                        if not found:
+                            a = soup.find("a", href=re.compile(r"/horse/2023\d+"))
+                            if a:
+                                found = re.search(r"/horse/(2023\d+)", a["href"]).group(1)
+                        cache[name] = found
+                        if found:
+                            print(f"  ✓ {name}: {found}", flush=True)
+                        else:
+                            print(f"  ? {name}: 見つからず", flush=True)
+                    except Exception as e:
+                        print(f"  ✗ {name}: {e}", flush=True)
+                        cache[name] = None
+                browser.close()
+        except Exception as e:
+            print(f"  Playwright エラー: {e}", flush=True)
         save_cache(cache)
-        print(f"キャッシュ保存: {CACHE_FILE}\n")
+        print(f"キャッシュ保存完了\n", flush=True)
 
     # Step2: 最新レース結果取得
     print("【Step2】直近60日のレース結果取得...")
