@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 // ============================================================
 // POG砂遊び 統合アプリ
@@ -181,20 +181,7 @@ const HORSES_BY_PLAYER = {
 };
 const getHorses = (pid) => HORSES_BY_PLAYER[pid] ?? [];
 
-// 最新結果
-const RESULTS = [
-  { date:"05/31", venue:"船橋11R", grade:"GⅡ", local:true,  race:"東京湾盃",      surface:"dirt", dist:2400, horse:"パントルナイーフ",   order:2,  rawPt:12000, player:"P05" },
-  { date:"05/31", venue:"東京11R", grade:"",    local:false, race:"むらさきステークス", surface:"turf", dist:1800, horse:"ヴェスクライスト",   order:5,  rawPt:210,   player:"P06" },
-  { date:"05/31", venue:"東京01R", grade:"",    local:false, race:"３歳未勝利",    surface:"dirt", dist:1800, horse:"ウンナターシャ",     order:2,  rawPt:240,   player:"P01" },
-  { date:"05/31", venue:"東京01R", grade:"",    local:false, race:"３歳未勝利",    surface:"dirt", dist:1800, horse:"ラインザスカイ",     order:8,  rawPt:0,     player:"P03" },
-  { date:"05/31", venue:"京都03R", grade:"",    local:false, race:"３歳未勝利",    surface:"dirt", dist:1600, horse:"ローズスマッシュ",   order:2,  rawPt:240,   player:"P05" },
-  { date:"05/31", venue:"東京06R", grade:"",    local:false, race:"500万円以下",   surface:"dirt", dist:1400, horse:"エコロボルト",       order:12, rawPt:0,     player:"P03" },
-  { date:"05/30", venue:"浦和01R", grade:"",    local:true,  race:"３歳未勝利",    surface:"dirt", dist:1400, horse:"ジュピターバローズ", order:10, rawPt:0,     player:"P07" },
-  { date:"05/30", venue:"東京11R", grade:"GⅢ", local:false, race:"葵ステークス",  surface:"turf", dist:1200, horse:"デアヴェローチェ",   order:1,  rawPt:4100,  player:"P07" },
-];
-const UPCOMING = [
-  { date:"06/07", venue:"京都12R", grade:"重賞", local:false, race:"東海賞", surface:"dirt", dist:1600, horse:"メベッチオ", player:"P02" },
-];
+// 最新結果・出走予定はJSONから動的取得（useResultsで管理）
 
 // 殿堂データ
 const SEASONS_ALL = [
@@ -459,8 +446,8 @@ function PlayerDetailScreen({ userId, onBack, onSelectHorse }) {
   );
 }
 
-function HorseDetailScreen({ horse, playerId }) {
-  const horseResults = RESULTS.filter(r => r.horse === horse.name);
+function HorseDetailScreen({ horse, playerId, results }) {
+  const horseResults = results.filter(r => r.horse === horse.name);
   const netkeibaUrl = `https://db.netkeiba.com/?pid=horse_search_list&word=${encodeURIComponent(horse.name)}`;
   return (
     <div style={{ padding:12 }}>
@@ -524,13 +511,13 @@ function HorseDetailScreen({ horse, playerId }) {
 // タブ2: 最新結果
 // ================================================================
 
-function ResultsScreen() {
+function ResultsScreen({ results, upcoming }) {
   return (
     <div style={{ padding:12 }}>
-      {UPCOMING.length > 0 && (
+      {upcoming.length > 0 && (
         <>
           <div style={{ fontSize:13, fontWeight:700, color:"#555", margin:"2px 4px 8px" }}>出走予定</div>
-          {UPCOMING.map((u,i) => (
+          {upcoming.map((u,i) => (
             <div key={i} style={{
               background:"#f0f6f3", border:`1px dashed ${G.green}`,
               borderRadius:10, padding:"10px 12px", marginBottom:8,
@@ -550,7 +537,10 @@ function ResultsScreen() {
         </>
       )}
       <div style={{ fontSize:13, fontWeight:700, color:"#555", margin:"14px 4px 8px" }}>確定・結果</div>
-      {RESULTS.map((r,i) => <ResultCard key={i} r={r} />)}
+      {results.length === 0
+        ? <div style={{ background:"#fff", borderRadius:10, padding:24, textAlign:"center", color:"#aaa", fontSize:13, border:"1px solid #e4e9e6" }}>読み込み中...</div>
+        : results.map((r,i) => <ResultCard key={i} r={r} />)
+      }
     </div>
   );
 }
@@ -776,6 +766,13 @@ export default function App() {
   const [selectedPlayerId, setSPId] = useState(null);
   const [selectedHorse, setSHorse]  = useState(null);
   const [selectedHallP, setSHallP]  = useState(null);
+  const [results,  setResults]  = useState([]);
+  const [upcoming, setUpcoming] = useState([]);
+
+  useEffect(() => {
+    fetch("/data/results.json").then(r => r.json()).then(setResults).catch(() => {});
+    fetch("/data/upcoming.json").then(r => r.json()).then(setUpcoming).catch(() => {});
+  }, []);
 
   const switchTab = (t) => {
     setTab(t); setSPId(null); setSHorse(null); setSHallP(null);
@@ -791,7 +788,7 @@ export default function App() {
     if (selectedHorse) {
       title = "馬詳細";
       onBack = () => setSHorse(null);
-      content = <HorseDetailScreen horse={selectedHorse} playerId={selectedPlayerId} />;
+      content = <HorseDetailScreen horse={selectedHorse} playerId={selectedPlayerId} results={results} />;
     } else if (selectedPlayerId) {
       title = playerName(selectedPlayerId);
       onBack = () => setSPId(null);
@@ -802,7 +799,7 @@ export default function App() {
     }
   } else if (tab === "results") {
     title = "最新結果";
-    content = <ResultsScreen />;
+    content = <ResultsScreen results={results} upcoming={upcoming} />;
   } else if (tab === "hall") {
     if (selectedHallP) {
       title = selectedHallP.name;
