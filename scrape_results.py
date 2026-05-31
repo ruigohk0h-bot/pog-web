@@ -67,7 +67,7 @@ def save_cache(cache):
 
 def get_kettonum(name, cache):
     """馬名からnetkeiba上のkettonumを取得（Playwright使用）"""
-    if name in cache:
+    if name in cache and cache[name] is not None:
         return cache[name]
     try:
         from playwright.sync_api import sync_playwright
