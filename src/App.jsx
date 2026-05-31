@@ -511,7 +511,7 @@ function HorseDetailScreen({ horse, playerId, results }) {
 // タブ2: 最新結果
 // ================================================================
 
-function ResultsScreen({ results, upcoming }) {
+function ResultsScreen({ results, upcoming, loaded }) {
   return (
     <div style={{ padding:12 }}>
       {upcoming.length > 0 && (
@@ -537,9 +537,11 @@ function ResultsScreen({ results, upcoming }) {
         </>
       )}
       <div style={{ fontSize:13, fontWeight:700, color:"#555", margin:"14px 4px 8px" }}>確定・結果</div>
-      {results.length === 0
+      {!loaded
         ? <div style={{ background:"#fff", borderRadius:10, padding:24, textAlign:"center", color:"#aaa", fontSize:13, border:"1px solid #e4e9e6" }}>読み込み中...</div>
-        : results.map((r,i) => <ResultCard key={i} r={r} />)
+        : results.length === 0
+          ? <div style={{ background:"#fff", borderRadius:10, padding:24, textAlign:"center", color:"#aaa", fontSize:13, border:"1px solid #e4e9e6" }}>まだ結果がありません</div>
+          : results.map((r,i) => <ResultCard key={i} r={r} />)
       }
     </div>
   );
@@ -768,9 +770,10 @@ export default function App() {
   const [selectedHallP, setSHallP]  = useState(null);
   const [results,  setResults]  = useState([]);
   const [upcoming, setUpcoming] = useState([]);
+  const [resultsLoaded, setResultsLoaded] = useState(false);
 
   useEffect(() => {
-    fetch("/data/results.json").then(r => r.json()).then(setResults).catch(() => {});
+    fetch("/data/results.json").then(r => r.json()).then(d => { setResults(d); setResultsLoaded(true); }).catch(() => setResultsLoaded(true));
     fetch("/data/upcoming.json").then(r => r.json()).then(setUpcoming).catch(() => {});
   }, []);
 
@@ -799,7 +802,7 @@ export default function App() {
     }
   } else if (tab === "results") {
     title = "最新結果";
-    content = <ResultsScreen results={results} upcoming={upcoming} />;
+    content = <ResultsScreen results={results} upcoming={upcoming} loaded={resultsLoaded} />;
   } else if (tab === "hall") {
     if (selectedHallP) {
       title = selectedHallP.name;

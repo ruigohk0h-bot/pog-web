@@ -5,7 +5,7 @@
 
 import requests
 from bs4 import BeautifulSoup
-import json, re, time, os
+import json, re, time, os, urllib.parse
 from datetime import datetime, timedelta
 
 # ============================================================
@@ -69,7 +69,8 @@ def get_kettonum(name, cache):
     """馬名からnetkeiba上のkettonumを取得（2023年産限定）"""
     if name in cache:
         return cache[name]
-    url = f"https://db.netkeiba.com/?pid=horse_search_list&word={name}&bf=1&yob=2023"
+    encoded = urllib.parse.quote(name.encode('euc-jp'))
+    url = f"https://db.netkeiba.com/?pid=horse_search_list&word={encoded}&bf=1&yob=2023"
     try:
         r = requests.get(url, headers=HEADERS, timeout=10)
         soup = BeautifulSoup(r.content, "lxml", from_encoding="euc-jp")
