@@ -513,105 +513,105 @@ const SEASON_AWARDS = [
 // ================================================================
 const RACE_CALENDAR = [
   // ── 2025年7月 ── 函館・小倉で2歳ダート新馬解禁 ──────────────
-  { date:"2025/07/05", name:"2歳新馬戦", grade:"新馬", venue:"函館", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"", note:"今シーズン初の2歳ダート新馬戦" },
-  { date:"2025/07/05", name:"2歳新馬戦", grade:"新馬", venue:"小倉", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"" },
-  { date:"2025/07/12", name:"2歳新馬戦", grade:"新馬", venue:"函館", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"" },
-  { date:"2025/07/12", name:"2歳新馬戦", grade:"新馬", venue:"小倉", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"" },
-  { date:"2025/07/19", name:"2歳新馬戦", grade:"新馬", venue:"函館", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"" },
-  { date:"2025/07/19", name:"2歳新馬戦", grade:"新馬", venue:"小倉", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"" },
-  { date:"2025/07/26", name:"2歳新馬戦", grade:"新馬", venue:"函館", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"" },
-  { date:"2025/07/26", name:"2歳新馬戦", grade:"新馬", venue:"小倉", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/07/05", name:"2歳新馬戦", grade:"新馬", venue:"函館", dist:null, dists:"ダ1000m", age:"2歳", exchange:false, type:"meeting", winner:"", note:"今シーズン初の2歳ダート新馬戦" },
+  { date:"2025/07/05", name:"2歳新馬戦", grade:"新馬", venue:"小倉", dist:null, dists:"ダ1000・1700m", age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/07/12", name:"2歳新馬戦", grade:"新馬", venue:"函館", dist:null, dists:"ダ1000m", age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/07/12", name:"2歳新馬戦", grade:"新馬", venue:"小倉", dist:null, dists:"ダ1000・1700m", age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/07/19", name:"2歳新馬戦", grade:"新馬", venue:"函館", dist:null, dists:"ダ1000m", age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/07/19", name:"2歳新馬戦", grade:"新馬", venue:"小倉", dist:null, dists:"ダ1000・1700m", age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/07/26", name:"2歳新馬戦", grade:"新馬", venue:"函館", dist:null, dists:"ダ1000m", age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/07/26", name:"2歳新馬戦", grade:"新馬", venue:"小倉", dist:null, dists:"ダ1000・1700m", age:"2歳", exchange:false, type:"meeting", winner:"" },
 
   // ── 2025年8月 ── 新潟・小倉・札幌 ──────────────────────────
-  { date:"2025/08/02", name:"2歳新馬戦", grade:"新馬", venue:"新潟", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"", note:"新潟・小倉・札幌で2歳ダート開幕" },
-  { date:"2025/08/02", name:"2歳新馬戦", grade:"新馬", venue:"小倉", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"" },
-  { date:"2025/08/02", name:"2歳新馬戦", grade:"新馬", venue:"札幌", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"" },
-  { date:"2025/08/09", name:"2歳新馬戦", grade:"新馬", venue:"新潟", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"" },
-  { date:"2025/08/09", name:"2歳新馬戦", grade:"新馬", venue:"小倉", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"" },
-  { date:"2025/08/09", name:"2歳新馬戦", grade:"新馬", venue:"札幌", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"" },
-  { date:"2025/08/16", name:"2歳新馬戦", grade:"新馬", venue:"新潟", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"" },
-  { date:"2025/08/16", name:"2歳新馬戦", grade:"新馬", venue:"小倉", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"" },
-  { date:"2025/08/16", name:"2歳新馬戦", grade:"新馬", venue:"札幌", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"" },
-  { date:"2025/08/23", name:"2歳新馬戦", grade:"新馬", venue:"新潟", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"" },
-  { date:"2025/08/23", name:"2歳新馬戦", grade:"新馬", venue:"小倉", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"" },
-  { date:"2025/08/23", name:"2歳新馬戦", grade:"新馬", venue:"札幌", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"" },
-  { date:"2025/08/30", name:"2歳新馬戦", grade:"新馬", venue:"新潟", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"" },
-  { date:"2025/08/30", name:"2歳新馬戦", grade:"新馬", venue:"小倉", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"" },
-  { date:"2025/08/30", name:"2歳新馬戦", grade:"新馬", venue:"札幌", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/08/02", name:"2歳新馬戦", grade:"新馬", venue:"新潟", dist:null, dists:"ダ1200m", age:"2歳", exchange:false, type:"meeting", winner:"", note:"新潟・小倉・札幌で2歳ダート開幕" },
+  { date:"2025/08/02", name:"2歳新馬戦", grade:"新馬", venue:"小倉", dist:null, dists:"ダ1000・1700m", age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/08/02", name:"2歳新馬戦", grade:"新馬", venue:"札幌", dist:null, dists:"ダ1000m", age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/08/09", name:"2歳新馬戦", grade:"新馬", venue:"新潟", dist:null, dists:"ダ1200m", age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/08/09", name:"2歳新馬戦", grade:"新馬", venue:"小倉", dist:null, dists:"ダ1000・1700m", age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/08/09", name:"2歳新馬戦", grade:"新馬", venue:"札幌", dist:null, dists:"ダ1000m", age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/08/16", name:"2歳新馬戦", grade:"新馬", venue:"新潟", dist:null, dists:"ダ1200m", age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/08/16", name:"2歳新馬戦", grade:"新馬", venue:"小倉", dist:null, dists:"ダ1000・1700m", age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/08/16", name:"2歳新馬戦", grade:"新馬", venue:"札幌", dist:null, dists:"ダ1000m", age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/08/23", name:"2歳新馬戦", grade:"新馬", venue:"新潟", dist:null, dists:"ダ1200m", age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/08/23", name:"2歳新馬戦", grade:"新馬", venue:"小倉", dist:null, dists:"ダ1000・1700m", age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/08/23", name:"2歳新馬戦", grade:"新馬", venue:"札幌", dist:null, dists:"ダ1000m", age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/08/30", name:"2歳新馬戦", grade:"新馬", venue:"新潟", dist:null, dists:"ダ1200m", age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/08/30", name:"2歳新馬戦", grade:"新馬", venue:"小倉", dist:null, dists:"ダ1000・1700m", age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/08/30", name:"2歳新馬戦", grade:"新馬", venue:"札幌", dist:null, dists:"ダ1000m", age:"2歳", exchange:false, type:"meeting", winner:"" },
 
   // ── 2025年9月 ── 中山・中京・阪神・新潟・札幌 ───────────────
   { date:"2025/09/03", name:"北海道2歳優駿", grade:"JpnII", venue:"門別", dist:1800, age:"2歳", exchange:true, type:"race", winner:"" },
-  { date:"2025/09/06", name:"2歳新馬戦", grade:"新馬", venue:"中山", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"", note:"中山・中京で2歳ダート開幕" },
-  { date:"2025/09/06", name:"2歳新馬戦", grade:"新馬", venue:"中京", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"" },
-  { date:"2025/09/06", name:"2歳新馬戦", grade:"新馬", venue:"新潟", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"" },
-  { date:"2025/09/06", name:"2歳新馬戦", grade:"新馬", venue:"札幌", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"" },
-  { date:"2025/09/13", name:"2歳新馬戦", grade:"新馬", venue:"中山", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"" },
-  { date:"2025/09/13", name:"2歳新馬戦", grade:"新馬", venue:"中京", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"" },
-  { date:"2025/09/13", name:"2歳新馬戦", grade:"新馬", venue:"阪神", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"", note:"阪神で2歳ダート開幕" },
-  { date:"2025/09/20", name:"2歳新馬戦", grade:"新馬", venue:"中山", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"" },
-  { date:"2025/09/20", name:"2歳新馬戦", grade:"新馬", venue:"中京", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"" },
-  { date:"2025/09/20", name:"2歳新馬戦", grade:"新馬", venue:"阪神", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"" },
-  { date:"2025/09/27", name:"2歳新馬戦", grade:"新馬", venue:"中山", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"" },
-  { date:"2025/09/27", name:"2歳新馬戦", grade:"新馬", venue:"中京", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"" },
-  { date:"2025/09/27", name:"2歳新馬戦", grade:"新馬", venue:"阪神", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/09/06", name:"2歳新馬戦", grade:"新馬", venue:"中山", dist:null, dists:"ダ1200・1800m", age:"2歳", exchange:false, type:"meeting", winner:"", note:"中山・中京で2歳ダート開幕" },
+  { date:"2025/09/06", name:"2歳新馬戦", grade:"新馬", venue:"中京", dist:null, dists:"ダ1400・1800m", age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/09/06", name:"2歳新馬戦", grade:"新馬", venue:"新潟", dist:null, dists:"ダ1200m", age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/09/06", name:"2歳新馬戦", grade:"新馬", venue:"札幌", dist:null, dists:"ダ1000m", age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/09/13", name:"2歳新馬戦", grade:"新馬", venue:"中山", dist:null, dists:"ダ1200・1800m", age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/09/13", name:"2歳新馬戦", grade:"新馬", venue:"中京", dist:null, dists:"ダ1400・1800m", age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/09/13", name:"2歳新馬戦", grade:"新馬", venue:"阪神", dist:null, dists:"ダ1200・1400・1800m", age:"2歳", exchange:false, type:"meeting", winner:"", note:"阪神で2歳ダート開幕" },
+  { date:"2025/09/20", name:"2歳新馬戦", grade:"新馬", venue:"中山", dist:null, dists:"ダ1200・1800m", age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/09/20", name:"2歳新馬戦", grade:"新馬", venue:"中京", dist:null, dists:"ダ1400・1800m", age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/09/20", name:"2歳新馬戦", grade:"新馬", venue:"阪神", dist:null, dists:"ダ1200・1400・1800m", age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/09/27", name:"2歳新馬戦", grade:"新馬", venue:"中山", dist:null, dists:"ダ1200・1800m", age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/09/27", name:"2歳新馬戦", grade:"新馬", venue:"中京", dist:null, dists:"ダ1400・1800m", age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/09/27", name:"2歳新馬戦", grade:"新馬", venue:"阪神", dist:null, dists:"ダ1200・1400・1800m", age:"2歳", exchange:false, type:"meeting", winner:"" },
 
   // ── 2025年10月 ── 東京・京都開幕 ────────────────────────────
-  { date:"2025/10/04", name:"2歳新馬戦", grade:"新馬", venue:"東京", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"", note:"東京で2歳ダート開幕" },
-  { date:"2025/10/04", name:"2歳新馬戦", grade:"新馬", venue:"中京", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"" },
-  { date:"2025/10/04", name:"2歳新馬戦", grade:"新馬", venue:"阪神", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"" },
-  { date:"2025/10/11", name:"2歳新馬戦", grade:"新馬", venue:"京都", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"", note:"京都で2歳ダート開幕" },
-  { date:"2025/10/11", name:"2歳新馬戦", grade:"新馬", venue:"阪神", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/10/04", name:"2歳新馬戦", grade:"新馬", venue:"東京", dist:null, dists:"ダ1400・1600・1800m", age:"2歳", exchange:false, type:"meeting", winner:"", note:"東京で2歳ダート開幕" },
+  { date:"2025/10/04", name:"2歳新馬戦", grade:"新馬", venue:"中京", dist:null, dists:"ダ1400・1800m", age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/10/04", name:"2歳新馬戦", grade:"新馬", venue:"阪神", dist:null, dists:"ダ1200・1400・1800m", age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/10/11", name:"2歳新馬戦", grade:"新馬", venue:"京都", dist:null, dists:"ダ1200・1400・1900m", age:"2歳", exchange:false, type:"meeting", winner:"", note:"京都で2歳ダート開幕" },
+  { date:"2025/10/11", name:"2歳新馬戦", grade:"新馬", venue:"阪神", dist:null, dists:"ダ1200・1400・1800m", age:"2歳", exchange:false, type:"meeting", winner:"" },
   { date:"2025/10/13", name:"プラタナス賞", grade:"OP", venue:"東京", dist:1800, age:"2歳", exchange:false, type:"race", winner:"" },
-  { date:"2025/10/18", name:"2歳新馬戦", grade:"新馬", venue:"東京", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"" },
-  { date:"2025/10/18", name:"2歳新馬戦", grade:"新馬", venue:"京都", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"" },
-  { date:"2025/10/18", name:"2歳新馬戦", grade:"新馬", venue:"阪神", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"" },
-  { date:"2025/10/25", name:"2歳新馬戦", grade:"新馬", venue:"東京", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"" },
-  { date:"2025/10/25", name:"2歳新馬戦", grade:"新馬", venue:"京都", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"" },
-  { date:"2025/10/25", name:"2歳新馬戦", grade:"新馬", venue:"阪神", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/10/18", name:"2歳新馬戦", grade:"新馬", venue:"東京", dist:null, dists:"ダ1400・1600・1800m", age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/10/18", name:"2歳新馬戦", grade:"新馬", venue:"京都", dist:null, dists:"ダ1200・1400・1900m", age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/10/18", name:"2歳新馬戦", grade:"新馬", venue:"阪神", dist:null, dists:"ダ1200・1400・1800m", age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/10/25", name:"2歳新馬戦", grade:"新馬", venue:"東京", dist:null, dists:"ダ1400・1600・1800m", age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/10/25", name:"2歳新馬戦", grade:"新馬", venue:"京都", dist:null, dists:"ダ1200・1400・1900m", age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/10/25", name:"2歳新馬戦", grade:"新馬", venue:"阪神", dist:null, dists:"ダ1200・1400・1800m", age:"2歳", exchange:false, type:"meeting", winner:"" },
 
   // ── 2025年11月 ── 東京・阪神・中京・重賞集中 ────────────────
-  { date:"2025/11/01", name:"2歳新馬戦", grade:"新馬", venue:"東京", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"" },
-  { date:"2025/11/01", name:"2歳新馬戦", grade:"新馬", venue:"京都", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"" },
-  { date:"2025/11/01", name:"2歳新馬戦", grade:"新馬", venue:"阪神", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/11/01", name:"2歳新馬戦", grade:"新馬", venue:"東京", dist:null, dists:"ダ1400・1600・1800m", age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/11/01", name:"2歳新馬戦", grade:"新馬", venue:"京都", dist:null, dists:"ダ1200・1400・1900m", age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/11/01", name:"2歳新馬戦", grade:"新馬", venue:"阪神", dist:null, dists:"ダ1200・1400・1800m", age:"2歳", exchange:false, type:"meeting", winner:"" },
   { date:"2025/11/02", name:"百日草特別", grade:"1勝", venue:"東京", dist:1800, age:"2歳", exchange:false, type:"race", winner:"" },
-  { date:"2025/11/08", name:"カトレアS", grade:"OP", venue:"東京", dist:1600, age:"2歳", exchange:false, type:"race", winner:"" },
-  { date:"2025/11/08", name:"2歳新馬戦", grade:"新馬", venue:"中京", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"" },
-  { date:"2025/11/08", name:"2歳新馬戦", grade:"新馬", venue:"阪神", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"" },
-  { date:"2025/11/15", name:"2歳新馬戦", grade:"新馬", venue:"東京", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"" },
-  { date:"2025/11/15", name:"2歳新馬戦", grade:"新馬", venue:"中京", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"" },
-  { date:"2025/11/15", name:"2歳新馬戦", grade:"新馬", venue:"阪神", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/11/08", name:"カトレアステークス", grade:"OP", venue:"東京", dist:1600, age:"2歳", exchange:false, type:"race", winner:"" },
+  { date:"2025/11/08", name:"2歳新馬戦", grade:"新馬", venue:"中京", dist:null, dists:"ダ1400・1800m", age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/11/08", name:"2歳新馬戦", grade:"新馬", venue:"阪神", dist:null, dists:"ダ1200・1400・1800m", age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/11/15", name:"2歳新馬戦", grade:"新馬", venue:"東京", dist:null, dists:"ダ1400・1600・1800m", age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/11/15", name:"2歳新馬戦", grade:"新馬", venue:"中京", dist:null, dists:"ダ1400・1800m", age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/11/15", name:"2歳新馬戦", grade:"新馬", venue:"阪神", dist:null, dists:"ダ1200・1400・1800m", age:"2歳", exchange:false, type:"meeting", winner:"" },
   { date:"2025/11/19", name:"兵庫ジュニアグランプリ", grade:"JpnII", venue:"園田", dist:1400, age:"2歳", exchange:true, type:"race", winner:"" },
-  { date:"2025/11/22", name:"2歳新馬戦", grade:"新馬", venue:"東京", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"" },
-  { date:"2025/11/22", name:"2歳新馬戦", grade:"新馬", venue:"中京", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"" },
-  { date:"2025/11/22", name:"2歳新馬戦", grade:"新馬", venue:"阪神", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"" },
-  { date:"2025/11/29", name:"2歳新馬戦", grade:"新馬", venue:"中山", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"", note:"冬・中山開幕" },
-  { date:"2025/11/29", name:"2歳新馬戦", grade:"新馬", venue:"中京", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/11/22", name:"2歳新馬戦", grade:"新馬", venue:"東京", dist:null, dists:"ダ1400・1600・1800m", age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/11/22", name:"2歳新馬戦", grade:"新馬", venue:"中京", dist:null, dists:"ダ1400・1800m", age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/11/22", name:"2歳新馬戦", grade:"新馬", venue:"阪神", dist:null, dists:"ダ1200・1400・1800m", age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/11/29", name:"2歳新馬戦", grade:"新馬", venue:"中山", dist:null, dists:"ダ1200・1800m", age:"2歳", exchange:false, type:"meeting", winner:"", note:"冬・中山開幕" },
+  { date:"2025/11/29", name:"2歳新馬戦", grade:"新馬", venue:"中京", dist:null, dists:"ダ1400・1800m", age:"2歳", exchange:false, type:"meeting", winner:"" },
 
   // ── 2025年12月 ── 中山・阪神・中京＋主要重賞 ────────────────
-  { date:"2025/12/06", name:"2歳新馬戦", grade:"新馬", venue:"中山", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"", note:"冬・阪神・中京開幕" },
-  { date:"2025/12/06", name:"2歳新馬戦", grade:"新馬", venue:"阪神", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"" },
-  { date:"2025/12/06", name:"2歳新馬戦", grade:"新馬", venue:"中京", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/12/06", name:"2歳新馬戦", grade:"新馬", venue:"中山", dist:null, dists:"ダ1200・1800m", age:"2歳", exchange:false, type:"meeting", winner:"", note:"冬・阪神・中京開幕" },
+  { date:"2025/12/06", name:"2歳新馬戦", grade:"新馬", venue:"阪神", dist:null, dists:"ダ1200・1400・1800m", age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/12/06", name:"2歳新馬戦", grade:"新馬", venue:"中京", dist:null, dists:"ダ1400・1800m", age:"2歳", exchange:false, type:"meeting", winner:"" },
   { date:"2025/12/10", name:"全日本2歳優駿", grade:"JpnI", venue:"川崎", dist:1600, age:"2歳", exchange:true, type:"race", winner:"" },
-  { date:"2025/12/13", name:"2歳新馬戦", grade:"新馬", venue:"中山", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"" },
-  { date:"2025/12/13", name:"2歳新馬戦", grade:"新馬", venue:"阪神", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"" },
-  { date:"2025/12/13", name:"2歳新馬戦", grade:"新馬", venue:"中京", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/12/13", name:"2歳新馬戦", grade:"新馬", venue:"中山", dist:null, dists:"ダ1200・1800m", age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/12/13", name:"2歳新馬戦", grade:"新馬", venue:"阪神", dist:null, dists:"ダ1200・1400・1800m", age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/12/13", name:"2歳新馬戦", grade:"新馬", venue:"中京", dist:null, dists:"ダ1400・1800m", age:"2歳", exchange:false, type:"meeting", winner:"" },
   { date:"2025/12/17", name:"東京2歳優駿牝馬", grade:"JpnII", venue:"大井", dist:1600, age:"2歳牝", exchange:true, type:"race", winner:"" },
-  { date:"2025/12/20", name:"ポインセチアS", grade:"OP", venue:"阪神", dist:1800, age:"2歳", exchange:false, type:"race", winner:"", note:"2025年新設" },
-  { date:"2025/12/20", name:"2歳新馬戦", grade:"新馬", venue:"中山", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"" },
-  { date:"2025/12/20", name:"2歳新馬戦", grade:"新馬", venue:"阪神", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"" },
-  { date:"2025/12/27", name:"2歳新馬戦", grade:"新馬", venue:"中山", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"" },
-  { date:"2025/12/27", name:"2歳新馬戦", grade:"新馬", venue:"阪神", dist:null, age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/12/20", name:"ポインセチアステークス", grade:"OP", venue:"阪神", dist:1800, age:"2歳", exchange:false, type:"race", winner:"", note:"2025年新設" },
+  { date:"2025/12/20", name:"2歳新馬戦", grade:"新馬", venue:"中山", dist:null, dists:"ダ1200・1800m", age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/12/20", name:"2歳新馬戦", grade:"新馬", venue:"阪神", dist:null, dists:"ダ1200・1400・1800m", age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/12/27", name:"2歳新馬戦", grade:"新馬", venue:"中山", dist:null, dists:"ダ1200・1800m", age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/12/27", name:"2歳新馬戦", grade:"新馬", venue:"阪神", dist:null, dists:"ダ1200・1400・1800m", age:"2歳", exchange:false, type:"meeting", winner:"" },
 
   // ── 2026年1月 ── 3歳本格化 ──────────────────────────────────
   { date:"2026/01/04", name:"3歳ダート1勝クラス", grade:"1勝", venue:"中山・中京・京都", dist:null, age:"3歳", exchange:false, type:"meeting", winner:"", note:"年明け初日から3歳条件戦スタート" },
   { date:"2026/01/10", name:"3歳ダート1勝クラス", grade:"1勝", venue:"中山・中京・京都", dist:null, age:"3歳", exchange:false, type:"meeting", winner:"" },
   { date:"2026/01/17", name:"3歳ダート1勝クラス", grade:"1勝", venue:"中山・中京・京都", dist:null, age:"3歳", exchange:false, type:"meeting", winner:"" },
-  { date:"2026/01/21", name:"ブルーバードC", grade:"L", venue:"中山", dist:1200, age:"3歳", exchange:false, type:"race", winner:"" },
+  { date:"2026/01/21", name:"ブルーバードカップ", grade:"L", venue:"中山", dist:1200, age:"3歳", exchange:false, type:"race", winner:"" },
   { date:"2026/01/24", name:"3歳ダート1勝クラス", grade:"1勝", venue:"中山・中京・京都", dist:null, age:"3歳", exchange:false, type:"meeting", winner:"" },
   { date:"2026/01/31", name:"3歳ダート1勝クラス", grade:"1勝", venue:"中山・中京・京都", dist:null, age:"3歳", exchange:false, type:"meeting", winner:"" },
 
   // ── 2026年2月 ─────────────────────────────────────────────
-  { date:"2026/02/07", name:"ヒヤシンスS", grade:"L", venue:"東京", dist:1600, age:"3歳", exchange:false, type:"race", winner:"" },
+  { date:"2026/02/07", name:"ヒヤシンスステークス", grade:"L", venue:"東京", dist:1600, age:"3歳", exchange:false, type:"race", winner:"" },
   { date:"2026/02/07", name:"3歳ダート1勝クラス", grade:"1勝", venue:"小倉・中山・阪神", dist:null, age:"3歳", exchange:false, type:"meeting", winner:"" },
   { date:"2026/02/14", name:"3歳ダート1勝クラス", grade:"1勝", venue:"東京・小倉・阪神", dist:null, age:"3歳", exchange:false, type:"meeting", winner:"" },
   { date:"2026/02/18", name:"雲取賞", grade:"JpnIII", venue:"大井", dist:2100, age:"3歳", exchange:true, type:"race", winner:"" },
@@ -621,11 +621,11 @@ const RACE_CALENDAR = [
   // ── 2026年3月 ─────────────────────────────────────────────
   { date:"2026/03/04", name:"伏竜S", grade:"L", venue:"中山", dist:1800, age:"3歳", exchange:false, type:"race", winner:"" },
   { date:"2026/03/07", name:"3歳ダート1勝クラス", grade:"1勝", venue:"中山・阪神・中京", dist:null, age:"3歳", exchange:false, type:"meeting", winner:"" },
-  { date:"2026/03/14", name:"バイオレットS", grade:"OP", venue:"阪神", dist:1400, age:"3歳", exchange:false, type:"race", winner:"" },
+  { date:"2026/03/14", name:"バイオレットステークス", grade:"OP", venue:"阪神", dist:1400, age:"3歳", exchange:false, type:"race", winner:"" },
   { date:"2026/03/14", name:"3歳ダート1勝クラス", grade:"1勝", venue:"中山・阪神・中京", dist:null, age:"3歳", exchange:false, type:"meeting", winner:"" },
   { date:"2026/03/21", name:"3歳ダート1勝クラス", grade:"1勝", venue:"中山・阪神・中京", dist:null, age:"3歳", exchange:false, type:"meeting", winner:"" },
   { date:"2026/03/25", name:"京浜盃", grade:"JpnII", venue:"大井", dist:1800, age:"3歳", exchange:true, type:"race", winner:"" },
-  { date:"2026/03/28", name:"昇竜S", grade:"L", venue:"中京", dist:1400, age:"3歳", exchange:false, type:"race", winner:"" },
+  { date:"2026/03/28", name:"昇竜ステークス", grade:"L", venue:"中京", dist:1400, age:"3歳", exchange:false, type:"race", winner:"" },
   { date:"2026/03/28", name:"3歳ダート1勝クラス", grade:"1勝", venue:"中山・阪神", dist:null, age:"3歳", exchange:false, type:"meeting", winner:"" },
 
   // ── 2026年4月 ── 東京・京都・阪神 春競馬 ────────────────────
@@ -633,7 +633,7 @@ const RACE_CALENDAR = [
   { date:"2026/04/11", name:"3歳ダート1勝クラス", grade:"1勝", venue:"東京・京都・阪神", dist:null, age:"3歳", exchange:false, type:"meeting", winner:"" },
   { date:"2026/04/15", name:"東京プリンセス賞", grade:"JpnII", venue:"大井", dist:1800, age:"3歳牝", exchange:true, type:"race", winner:"" },
   { date:"2026/04/18", name:"3歳ダート1勝クラス", grade:"1勝", venue:"東京・京都", dist:null, age:"3歳", exchange:false, type:"meeting", winner:"" },
-  { date:"2026/04/25", name:"鳳雛S", grade:"L", venue:"京都", dist:1800, age:"3歳", exchange:false, type:"race", winner:"" },
+  { date:"2026/04/25", name:"鳳雛ステークス", grade:"L", venue:"京都", dist:1800, age:"3歳", exchange:false, type:"race", winner:"" },
   { date:"2026/04/25", name:"3歳ダート1勝クラス", grade:"1勝", venue:"東京・京都", dist:null, age:"3歳", exchange:false, type:"meeting", winner:"" },
   { date:"2026/04/29", name:"羽田盃", grade:"JpnI", venue:"大井", dist:2000, age:"3歳", exchange:true, type:"race", winner:"" },
 
@@ -642,8 +642,8 @@ const RACE_CALENDAR = [
   { date:"2026/05/03", name:"ユニコーンS", grade:"GⅢ", venue:"京都", dist:1900, age:"3歳", exchange:false, type:"race", winner:"", note:"2025年より京都移設・ダ1900m" },
   { date:"2026/05/06", name:"兵庫チャンピオンシップ", grade:"JpnII", venue:"園田", dist:1870, age:"3歳", exchange:true, type:"race", winner:"" },
   { date:"2026/05/09", name:"3歳ダート1勝クラス", grade:"1勝", venue:"東京・京都", dist:null, age:"3歳", exchange:false, type:"meeting", winner:"" },
-  { date:"2026/05/16", name:"青竜S", grade:"OP", venue:"東京", dist:1600, age:"3歳", exchange:false, type:"race", winner:"" },
-  { date:"2026/05/16", name:"端午S", grade:"OP", venue:"京都", dist:1400, age:"3歳", exchange:false, type:"race", winner:"" },
+  { date:"2026/05/16", name:"青竜ステークス", grade:"OP", venue:"東京", dist:1600, age:"3歳", exchange:false, type:"race", winner:"" },
+  { date:"2026/05/16", name:"端午ステークス", grade:"OP", venue:"京都", dist:1400, age:"3歳", exchange:false, type:"race", winner:"" },
   { date:"2026/05/23", name:"3歳ダート1勝クラス", grade:"1勝", venue:"東京・京都", dist:null, age:"3歳", exchange:false, type:"meeting", winner:"" },
   { date:"2026/05/30", name:"3歳ダート1勝クラス", grade:"1勝", venue:"東京・京都", dist:null, age:"3歳", exchange:false, type:"meeting", winner:"" },
 
@@ -1660,12 +1660,15 @@ function CalendarScreen({ pogHorses = new Set() }) {
                       borderRadius:3, padding:"1px 5px", flexShrink:0,
                     }}>{r.grade}</span>
                     <div style={{ flex:1, minWidth:0 }}>
-                      <span style={{ fontSize:11, color: past?"#aaa":"#444", fontWeight:600 }}>
+                      <span translate="no" style={{ fontSize:11, color: past?"#aaa":"#444", fontWeight:600 }}>
                         {r.name}
                       </span>
                       {r.note && <span style={{ fontSize:9, color:"#bbb", marginLeft:6 }}>{r.note}</span>}
                     </div>
-                    <div style={{ fontSize:9, color:"#bbb", flexShrink:0 }}>{r.venue}</div>
+                    <div style={{ fontSize:9, color:"#bbb", flexShrink:0, textAlign:"right" }}>
+                      <div>{r.venue}</div>
+                      {r.dists && <div style={{ color:"#aaa" }}>{r.dists}</div>}
+                    </div>
                   </div>
                 );
               }
@@ -1694,7 +1697,7 @@ function CalendarScreen({ pogHorses = new Set() }) {
                       <span style={{ fontSize:9, color:G.local, fontWeight:800, border:`1px solid ${G.local}`, borderRadius:3, padding:"1px 4px", flexShrink:0 }}>交流</span>
                     )}
                     {/* レース名 */}
-                    <div style={{ flex:1, minWidth:0, fontWeight:800, fontSize:14, color: r.goal?G.dirtDark: past?"#999":"#222", whiteSpace:"nowrap", overflow:"hidden", textOverflow:"ellipsis" }}>
+                    <div translate="no" style={{ flex:1, minWidth:0, fontWeight:800, fontSize:14, color: r.goal?G.dirtDark: past?"#999":"#222", whiteSpace:"nowrap", overflow:"hidden", textOverflow:"ellipsis" }}>
                       {r.name}
                     </div>
                     {/* 状態 */}
