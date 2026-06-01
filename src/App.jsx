@@ -505,6 +505,113 @@ const SEASON_AWARDS = [
 ];
 
 // ================================================================
+// レーシングカレンダー（2025-26シーズン ダート2歳・3歳全日程）
+// grade: "JpnI"|"JpnII"|"JpnIII"|"GⅢ"|"L"|"OP"|"1勝"|"未勝利"|"新馬"
+// type: "race" | "meeting"（開催開始マーカー）
+// exchange: 交流重賞フラグ
+// age: "2歳"|"3歳"|"3歳牝"|"3歳以上"|"3歳以上牝"
+// ================================================================
+const RACE_CALENDAR = [
+  // ── 2025年 ───────────────────────────────────────────────
+  // 7月：函館・小倉で2歳ダート新馬解禁
+  { date:"2025/07/05", name:"2歳ダート新馬戦 初日", grade:"新馬", venue:"函館/小倉", dist:null, age:"2歳", exchange:false, type:"meeting", note:"各場でダート新馬戦スタート。土日ごとに複数レース" },
+  { date:"2025/07/12", name:"函館・小倉 2歳ダート未勝利戦", grade:"未勝利", venue:"函館/小倉", dist:null, age:"2歳", exchange:false, type:"meeting" },
+  { date:"2025/07/19", name:"函館・小倉 2歳ダート条件戦", grade:"未勝利/1勝", venue:"函館/小倉", dist:null, age:"2歳", exchange:false, type:"meeting" },
+  { date:"2025/07/26", name:"函館・小倉 2歳ダート条件戦", grade:"未勝利/1勝", venue:"函館/小倉", dist:null, age:"2歳", exchange:false, type:"meeting" },
+
+  // 8月：新潟・小倉・札幌も加わる
+  { date:"2025/08/02", name:"新潟・小倉・札幌 2歳ダート開幕", grade:"新馬/未勝利", venue:"新潟/小倉/札幌", dist:null, age:"2歳", exchange:false, type:"meeting", note:"3場同時開幕。新馬戦含む" },
+  { date:"2025/08/09", name:"新潟・小倉・札幌 2歳ダート", grade:"未勝利/1勝", venue:"新潟/小倉/札幌", dist:null, age:"2歳", exchange:false, type:"meeting" },
+  { date:"2025/08/16", name:"新潟・小倉・札幌 2歳ダート", grade:"未勝利/1勝", venue:"新潟/小倉/札幌", dist:null, age:"2歳", exchange:false, type:"meeting" },
+  { date:"2025/08/23", name:"新潟・小倉・札幌 2歳ダート", grade:"未勝利/1勝", venue:"新潟/小倉/札幌", dist:null, age:"2歳", exchange:false, type:"meeting" },
+  { date:"2025/08/30", name:"新潟・小倉・札幌 2歳ダート（最終）", grade:"未勝利/1勝", venue:"新潟/小倉/札幌", dist:null, age:"2歳", exchange:false, type:"meeting" },
+
+  // 9月：中山・中京・阪神開幕
+  { date:"2025/09/06", name:"中山・中京 2歳ダート開幕", grade:"新馬/未勝利", venue:"中山/中京", dist:null, age:"2歳", exchange:false, type:"meeting", note:"中山・中京で新馬戦含む2歳ダート本格化" },
+  { date:"2025/09/13", name:"中山・中京・阪神 2歳ダート", grade:"未勝利/1勝", venue:"中山/中京/阪神", dist:null, age:"2歳", exchange:false, type:"meeting" },
+  { date:"2025/09/20", name:"中山・中京・阪神 2歳ダート", grade:"未勝利/1勝", venue:"中山/中京/阪神", dist:null, age:"2歳", exchange:false, type:"meeting" },
+  { date:"2025/09/27", name:"中山・中京・阪神 2歳ダート", grade:"未勝利/1勝", venue:"中山/中京/阪神", dist:null, age:"2歳", exchange:false, type:"meeting" },
+
+  // 10月：東京・京都開幕、主要OP戦
+  { date:"2025/10/04", name:"東京・京都 2歳ダート新馬戦 開始", grade:"新馬/未勝利", venue:"東京/京都", dist:null, age:"2歳", exchange:false, type:"meeting", note:"東京・京都で2歳ダート新馬戦スタート。最大級の舞台" },
+  { date:"2025/10/11", name:"ベゴニア賞", grade:"OP", venue:"東京", dist:1800, age:"2歳", exchange:false, type:"race" },
+  { date:"2025/10/11", name:"東京・阪神・中京 2歳ダート", grade:"未勝利/1勝", venue:"東京/阪神/中京", dist:null, age:"2歳", exchange:false, type:"meeting" },
+  { date:"2025/10/18", name:"東京・阪神・中京 2歳ダート", grade:"未勝利/1勝", venue:"東京/阪神/中京", dist:null, age:"2歳", exchange:false, type:"meeting" },
+  { date:"2025/10/25", name:"プラタナス賞", grade:"OP", venue:"東京", dist:1800, age:"2歳", exchange:false, type:"race" },
+  { date:"2025/10/25", name:"東京・阪神 2歳ダート", grade:"未勝利/1勝", venue:"東京/阪神", dist:null, age:"2歳", exchange:false, type:"meeting" },
+
+  // 11月：重要重賞集中
+  { date:"2025/11/01", name:"東京・阪神 2歳ダート", grade:"未勝利/1勝", venue:"東京/阪神", dist:null, age:"2歳", exchange:false, type:"meeting" },
+  { date:"2025/11/08", name:"カトレアS", grade:"L", venue:"東京", dist:1600, age:"2歳", exchange:false, type:"race" },
+  { date:"2025/11/08", name:"東京・阪神 2歳ダート", grade:"未勝利/1勝", venue:"東京/阪神", dist:null, age:"2歳", exchange:false, type:"meeting" },
+  { date:"2025/11/15", name:"東京・中京 2歳ダート", grade:"未勝利/1勝", venue:"東京/中京", dist:null, age:"2歳", exchange:false, type:"meeting" },
+  { date:"2025/11/19", name:"兵庫ジュニアグランプリ", grade:"JpnII", venue:"園田", dist:1400, age:"2歳", exchange:true, type:"race" },
+  { date:"2025/11/22", name:"東京・中京 2歳ダート", grade:"未勝利/1勝", venue:"東京/中京", dist:null, age:"2歳", exchange:false, type:"meeting" },
+  { date:"2025/11/29", name:"中山・中京 2歳ダート", grade:"未勝利/1勝", venue:"中山/中京", dist:null, age:"2歳", exchange:false, type:"meeting" },
+
+  // 12月
+  { date:"2025/12/06", name:"中山・阪神 2歳ダート", grade:"未勝利/1勝", venue:"中山/阪神", dist:null, age:"2歳", exchange:false, type:"meeting" },
+  { date:"2025/12/10", name:"全日本2歳優駿", grade:"JpnI", venue:"川崎", dist:1600, age:"2歳", exchange:true, type:"race" },
+  { date:"2025/12/13", name:"中山・阪神 2歳ダート", grade:"未勝利/1勝", venue:"中山/阪神", dist:null, age:"2歳", exchange:false, type:"meeting" },
+  { date:"2025/12/20", name:"中山・阪神 2歳ダート", grade:"未勝利/1勝", venue:"中山/阪神", dist:null, age:"2歳", exchange:false, type:"meeting" },
+  { date:"2025/12/27", name:"中山・阪神 2歳ダート（年内最終）", grade:"未勝利/1勝", venue:"中山/阪神", dist:null, age:"2歳", exchange:false, type:"meeting" },
+
+  // ── 2026年 ───────────────────────────────────────────────
+  // 1月：3歳ダート本格化
+  { date:"2026/01/05", name:"中山・京都 3歳ダート開幕", grade:"未勝利/1勝", venue:"中山/京都", dist:null, age:"3歳", exchange:false, type:"meeting", note:"3歳初戦。中山ダ1800・京都ダ1800が中心" },
+  { date:"2026/01/10", name:"中山・京都 3歳ダート", grade:"未勝利/1勝", venue:"中山/京都", dist:null, age:"3歳", exchange:false, type:"meeting" },
+  { date:"2026/01/17", name:"中山・京都 3歳ダート", grade:"未勝利/1勝", venue:"中山/京都", dist:null, age:"3歳", exchange:false, type:"meeting" },
+  { date:"2026/01/21", name:"ブルーバードC", grade:"L", venue:"中山", dist:1200, age:"3歳", exchange:false, type:"race" },
+  { date:"2026/01/24", name:"中山・京都 3歳ダート", grade:"未勝利/1勝", venue:"中山/京都", dist:null, age:"3歳", exchange:false, type:"meeting" },
+  { date:"2026/01/31", name:"中山・京都 3歳ダート", grade:"未勝利/1勝", venue:"中山/京都", dist:null, age:"3歳", exchange:false, type:"meeting" },
+
+  // 2月
+  { date:"2026/02/07", name:"ヒヤシンスS", grade:"L", venue:"東京", dist:1600, age:"3歳", exchange:false, type:"race" },
+  { date:"2026/02/07", name:"小倉・中山 3歳ダート", grade:"未勝利/1勝", venue:"小倉/中山", dist:null, age:"3歳", exchange:false, type:"meeting" },
+  { date:"2026/02/14", name:"東京・小倉 3歳ダート開幕", grade:"未勝利/1勝", venue:"東京/小倉", dist:null, age:"3歳", exchange:false, type:"meeting", note:"東京ダート1600・1400mでOP候補多数" },
+  { date:"2026/02/18", name:"雲取賞", grade:"JpnIII", venue:"大井", dist:2100, age:"3歳", exchange:true, type:"race" },
+  { date:"2026/02/21", name:"東京・小倉 3歳ダート", grade:"未勝利/1勝", venue:"東京/小倉", dist:null, age:"3歳", exchange:false, type:"meeting" },
+  { date:"2026/02/28", name:"東京・阪神 3歳ダート", grade:"未勝利/1勝", venue:"東京/阪神", dist:null, age:"3歳", exchange:false, type:"meeting" },
+
+  // 3月
+  { date:"2026/03/04", name:"伏竜S", grade:"L", venue:"中山", dist:1800, age:"3歳", exchange:false, type:"race" },
+  { date:"2026/03/07", name:"中山・阪神 3歳ダート", grade:"未勝利/1勝", venue:"中山/阪神", dist:null, age:"3歳", exchange:false, type:"meeting" },
+  { date:"2026/03/11", name:"エンプレス杯", grade:"JpnII", venue:"川崎", dist:2100, age:"3歳以上牝", exchange:true, type:"race" },
+  { date:"2026/03/14", name:"中山・阪神 3歳ダート", grade:"未勝利/1勝", venue:"中山/阪神", dist:null, age:"3歳", exchange:false, type:"meeting" },
+  { date:"2026/03/18", name:"ダイオライト記念", grade:"JpnII", venue:"船橋", dist:2400, age:"3歳以上", exchange:true, type:"race" },
+  { date:"2026/03/21", name:"中山・阪神 3歳ダート", grade:"未勝利/1勝", venue:"中山/阪神", dist:null, age:"3歳", exchange:false, type:"meeting" },
+  { date:"2026/03/25", name:"京浜盃", grade:"JpnII", venue:"大井", dist:1800, age:"3歳", exchange:true, type:"race" },
+  { date:"2026/03/28", name:"黒船賞", grade:"JpnIII", venue:"高知", dist:1400, age:"3歳以上", exchange:true, type:"race" },
+  { date:"2026/03/28", name:"中山・阪神 3歳ダート（春競馬開幕）", grade:"未勝利/1勝", venue:"中山/阪神", dist:null, age:"3歳", exchange:false, type:"meeting", note:"東京・京都・阪神春開催スタート" },
+
+  // 4月
+  { date:"2026/04/04", name:"東京・阪神 3歳ダート", grade:"未勝利/1勝", venue:"東京/阪神", dist:null, age:"3歳", exchange:false, type:"meeting" },
+  { date:"2026/04/08", name:"かきつばた記念", grade:"JpnIII", venue:"笠松", dist:1400, age:"3歳以上", exchange:true, type:"race" },
+  { date:"2026/04/11", name:"東京・阪神 3歳ダート", grade:"未勝利/1勝", venue:"東京/阪神", dist:null, age:"3歳", exchange:false, type:"meeting" },
+  { date:"2026/04/15", name:"東京プリンセス賞", grade:"JpnII", venue:"大井", dist:1800, age:"3歳牝", exchange:true, type:"race" },
+  { date:"2026/04/18", name:"東京・京都 3歳ダート", grade:"未勝利/1勝", venue:"東京/京都", dist:null, age:"3歳", exchange:false, type:"meeting" },
+  { date:"2026/04/25", name:"鳳雛S", grade:"L", venue:"京都", dist:1800, age:"3歳", exchange:false, type:"race" },
+  { date:"2026/04/25", name:"東京・京都 3歳ダート", grade:"未勝利/1勝", venue:"東京/京都", dist:null, age:"3歳", exchange:false, type:"meeting" },
+  { date:"2026/04/29", name:"羽田盃", grade:"JpnI", venue:"大井", dist:2000, age:"3歳", exchange:true, type:"race" },
+
+  // 5月
+  { date:"2026/05/02", name:"東京・京都 3歳ダート", grade:"未勝利/1勝", venue:"東京/京都", dist:null, age:"3歳", exchange:false, type:"meeting" },
+  { date:"2026/05/03", name:"ユニコーンS", grade:"GⅢ", venue:"東京", dist:1600, age:"3歳", exchange:false, type:"race" },
+  { date:"2026/05/06", name:"兵庫チャンピオンシップ", grade:"JpnII", venue:"園田", dist:1870, age:"3歳", exchange:true, type:"race" },
+  { date:"2026/05/09", name:"東京・京都 3歳ダート", grade:"未勝利/1勝", venue:"東京/京都", dist:null, age:"3歳", exchange:false, type:"meeting" },
+  { date:"2026/05/10", name:"かしわ記念", grade:"JpnI", venue:"船橋", dist:1600, age:"3歳以上", exchange:true, type:"race" },
+  { date:"2026/05/16", name:"端午S", grade:"OP", venue:"京都", dist:1400, age:"3歳", exchange:false, type:"race" },
+  { date:"2026/05/16", name:"東京・京都 3歳ダート", grade:"未勝利/1勝", venue:"東京/京都", dist:null, age:"3歳", exchange:false, type:"meeting" },
+  { date:"2026/05/23", name:"東京・京都 3歳ダート", grade:"未勝利/1勝", venue:"東京/京都", dist:null, age:"3歳", exchange:false, type:"meeting" },
+  { date:"2026/05/30", name:"東京・京都 3歳ダート（最終週）", grade:"未勝利/1勝", venue:"東京/京都", dist:null, age:"3歳", exchange:false, type:"meeting" },
+
+  // 6月：シーズン最終章
+  { date:"2026/06/03", name:"関東オークス", grade:"JpnII", venue:"川崎", dist:2100, age:"3歳牝", exchange:true, type:"race" },
+  { date:"2026/06/06", name:"東京・阪神 3歳ダート", grade:"未勝利/1勝", venue:"東京/阪神", dist:null, age:"3歳", exchange:false, type:"meeting" },
+  { date:"2026/06/11", name:"東京ダービー 🏆", grade:"JpnI", venue:"大井", dist:2000, age:"3歳", exchange:true, type:"race", goal:true },
+];
+
+// ================================================================
 // ユーティリティ
 // ================================================================
 const fmt = (n) => n.toLocaleString("ja-JP");
@@ -1396,6 +1503,165 @@ function NewsScreen({ news }) {
   );
 }
 
+// ================================================================
+// タブ5: レーシングカレンダー
+// ================================================================
+
+function CalendarScreen() {
+  const TODAY = "2026/06/01";
+  const [filter, setFilter] = useState("all");
+
+  const gradeColor = (g) =>
+    g==="JpnI"||g==="GⅠ"  ? G.gi  :
+    g==="JpnII"||g==="GⅡ" ? G.g2  :
+    g==="JpnIII"||g==="GⅢ"? G.g3  :
+    g==="L"                ? "#2e86ab" :
+    g==="OP"               ? G.dirt :
+    "#999";
+
+  const gradeWeight = (g) =>
+    ["JpnI","GⅠ","JpnII","GⅡ","JpnIII","GⅢ","L","OP"].includes(g) ? "race" : "cond";
+
+  const filtered = RACE_CALENDAR.filter(r => {
+    if (filter === "age2")     return r.age.includes("2歳");
+    if (filter === "age3")     return r.age.includes("3歳");
+    if (filter === "exchange") return r.exchange;
+    if (filter === "race")     return gradeWeight(r.grade) === "race";
+    return true;
+  });
+
+  // 月ごとにグループ化
+  const months = [];
+  let cur = null;
+  for (const r of filtered) {
+    const m = r.date.slice(0, 7);
+    if (!cur || cur.month !== m) {
+      const [y, mo] = m.split("/");
+      cur = { month:m, label:`${y}年 ${parseInt(mo)}月`, rows:[] };
+      months.push(cur);
+    }
+    cur.rows.push(r);
+  }
+
+  const isPast    = d => d < TODAY;
+  const isToday   = d => d === TODAY;
+
+  return (
+    <div style={{ background:"#eef2f0", minHeight:"100%" }}>
+      {/* フィルター */}
+      <div style={{ display:"flex", gap:5, padding:"12px 12px 0", flexWrap:"wrap" }}>
+        {[
+          { key:"all",      label:"全て" },
+          { key:"race",     label:"🏆 重賞・OP" },
+          { key:"exchange", label:"🤝 交流" },
+          { key:"age2",     label:"2歳" },
+          { key:"age3",     label:"3歳" },
+        ].map(f => (
+          <button key={f.key} onClick={() => setFilter(f.key)} style={{
+            padding:"5px 12px", borderRadius:16, cursor:"pointer",
+            background: filter===f.key ? G.dirt : "#fff",
+            color: filter===f.key ? "#fff" : "#555",
+            border: `1px solid ${filter===f.key ? G.dirt : "#ddd"}`,
+            fontSize:11, fontWeight:700,
+          }}>{f.label}</button>
+        ))}
+      </div>
+
+      <div style={{ padding:"10px 12px 24px" }}>
+        {months.map(m => (
+          <div key={m.month} style={{ marginBottom:16 }}>
+            {/* 月ヘッダー */}
+            <div style={{
+              fontSize:13, fontWeight:900, color:G.dirtDark,
+              borderBottom:`2px solid ${G.dirt}`, paddingBottom:5,
+              marginBottom:8, display:"flex", alignItems:"center", gap:6,
+            }}>
+              📅 {m.label}
+            </div>
+
+            {m.rows.map((r, i) => {
+              const past = isPast(r.date);
+              const today = isToday(r.date);
+              const isCond = gradeWeight(r.grade) === "cond";
+              const gc = gradeColor(r.grade);
+
+              if (isCond) {
+                // 条件戦・新馬戦：コンパクトな帯
+                return (
+                  <div key={i} style={{
+                    display:"flex", alignItems:"center", gap:8,
+                    padding:"5px 10px", marginBottom:4,
+                    background: past ? "#f5f5f5" : "#fff",
+                    borderRadius:8, borderLeft:`3px solid ${past?"#ddd":"#b0cfc4"}`,
+                    opacity: past ? 0.55 : 1,
+                  }}>
+                    <div style={{ fontSize:10, color:"#aaa", flexShrink:0, width:40 }}>
+                      {r.date.slice(5).replace("/","/")}
+                    </div>
+                    <span style={{
+                      fontSize:9, fontWeight:700, color:"#fff",
+                      background: r.grade==="新馬" ? "#e67e22" : r.grade==="未勝利" ? "#888" : "#5c7a6e",
+                      borderRadius:3, padding:"1px 5px", flexShrink:0,
+                    }}>{r.grade}</span>
+                    <div style={{ flex:1, minWidth:0 }}>
+                      <span style={{ fontSize:11, color: past?"#aaa":"#444", fontWeight:600 }}>{r.name}</span>
+                      {r.note && <span style={{ fontSize:9, color:"#bbb", marginLeft:6 }}>{r.note}</span>}
+                    </div>
+                    <div style={{ fontSize:9, color:"#bbb", flexShrink:0 }}>{r.venue}</div>
+                  </div>
+                );
+              }
+
+              // 重賞・OP・L：メインカード
+              return (
+                <div key={i} style={{
+                  background: r.goal ? `linear-gradient(135deg,#fffbe6,#fff3b0)` : past ? "#f5f5f5" : "#fff",
+                  border: r.goal ? `2px solid ${G.gold}` : today ? `2px solid ${G.green}` : `1px solid ${past?"#e0e0e0":"#e4e9e6"}`,
+                  borderRadius:10, padding:"10px 12px", marginBottom:6,
+                  opacity: past ? 0.65 : 1,
+                  boxShadow: r.goal ? "0 2px 12px rgba(201,162,39,0.2)" : "none",
+                }}>
+                  <div style={{ display:"flex", alignItems:"center", gap:8 }}>
+                    {/* 日付 */}
+                    <div style={{ fontSize:11, color: past?"#bbb":"#777", flexShrink:0, width:38, fontWeight:700 }}>
+                      {r.date.slice(5)}
+                    </div>
+                    {/* グレードバッジ */}
+                    <span translate="no" style={{
+                      fontSize:10, fontWeight:800, color:"#fff",
+                      background: gc, borderRadius:4, padding:"2px 7px", flexShrink:0,
+                    }}>{r.grade}</span>
+                    {/* 交流マーク */}
+                    {r.exchange && (
+                      <span style={{ fontSize:9, color:G.local, fontWeight:800, border:`1px solid ${G.local}`, borderRadius:3, padding:"1px 4px", flexShrink:0 }}>交流</span>
+                    )}
+                    {/* レース名 */}
+                    <div style={{ flex:1, minWidth:0, fontWeight:800, fontSize:14, color: r.goal?G.dirtDark: past?"#aaa":"#222", whiteSpace:"nowrap", overflow:"hidden", textOverflow:"ellipsis" }}>
+                      {r.name}
+                    </div>
+                    {/* 今日マーク */}
+                    {today && <span style={{ fontSize:10, color:G.green, fontWeight:800 }}>▶ 本日</span>}
+                    {past && <span style={{ fontSize:10, color:"#bbb" }}>終了</span>}
+                  </div>
+                  {/* 詳細行 */}
+                  <div style={{ display:"flex", gap:12, marginTop:5, paddingLeft:46, fontSize:11, color:"#888" }}>
+                    <span>🏟 {r.venue}</span>
+                    {r.dist && <span>ダ{r.dist}m</span>}
+                    <span style={{ color: r.age.includes("牝")?"#e91e8c":"#888" }}>{r.age}</span>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        ))}
+        <div style={{ textAlign:"center", fontSize:11, color:"#bbb", marginTop:8 }}>
+          ※日程は目安。交流重賞の開催日は主催者発表を確認してください
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // ルール画面
 // ================================================================
 
@@ -1498,6 +1764,9 @@ export default function App() {
       darkHeader = true;
       content = <HallScreen onSelectHallPlayer={setSHallP} />;
     }
+  } else if (tab === "calendar") {
+    title = "砂遊びカレンダー";
+    content = <CalendarScreen />;
   } else {
     title = "砂遊びルール";
     content = <RulesScreen />;
@@ -1506,11 +1775,12 @@ export default function App() {
   const headerBg = darkHeader ? G.dirtDark : G.green;
 
   const navItems = [
-    { key:"ranking", label:"2025-26", icon:"🏆" },
-    { key:"results", label:"最新結果", icon:"📋" },
-    { key:"news",    label:"ニュース", icon:"📰" },
-    { key:"hall",    label:"殿堂DB",   icon:"🏟️" },
-    { key:"rules",   label:"ルール",   icon:"📖" },
+    { key:"ranking",  label:"順位",   icon:"🏆" },
+    { key:"results",  label:"結果",   icon:"📋" },
+    { key:"news",     label:"ニュース",icon:"📰" },
+    { key:"calendar", label:"日程",   icon:"📅" },
+    { key:"hall",     label:"殿堂",   icon:"🏟️" },
+    { key:"rules",    label:"ルール", icon:"📖" },
   ];
 
   return (
@@ -1556,8 +1826,8 @@ export default function App() {
             display:"flex", flexDirection:"column", alignItems:"center", gap:3,
             opacity: tab===it.key ? 1 : 0.7,
           }}>
-            <span style={{ fontSize:18 }}>{it.icon}</span>
-            <span style={{ fontSize:10, fontWeight:600 }}>{it.label}</span>
+            <span style={{ fontSize:16 }}>{it.icon}</span>
+            <span style={{ fontSize:9, fontWeight:600 }}>{it.label}</span>
           </button>
         ))}
       </div>
