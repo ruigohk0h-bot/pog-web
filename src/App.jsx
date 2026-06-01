@@ -606,8 +606,10 @@ const RACE_CALENDAR = [
   { date:"2026/05/30", name:"東京・京都 3歳ダート（最終週）", grade:"未勝利/1勝", venue:"東京/京都", dist:null, age:"3歳", exchange:false, type:"meeting" },
 
   // 6月：シーズン最終章
+  { date:"2026/06/01", name:"東京・阪神・中京 3歳ダート", grade:"未勝利/1勝", venue:"東京/阪神/中京", dist:null, age:"3歳", exchange:false, type:"meeting", note:"東京ダ1400・1600・1800m 条件戦" },
   { date:"2026/06/03", name:"関東オークス", grade:"JpnII", venue:"川崎", dist:2100, age:"3歳牝", exchange:true, type:"race" },
-  { date:"2026/06/06", name:"東京・阪神 3歳ダート", grade:"未勝利/1勝", venue:"東京/阪神", dist:null, age:"3歳", exchange:false, type:"meeting" },
+  { date:"2026/06/06", name:"東京・阪神・中京 3歳ダート", grade:"未勝利/1勝", venue:"東京/阪神/中京", dist:null, age:"3歳", exchange:false, type:"meeting", note:"東京ダービー週前最後の条件戦" },
+  { date:"2026/06/07", name:"東京・阪神・中京 3歳ダート", grade:"未勝利/1勝", venue:"東京/阪神/中京", dist:null, age:"3歳", exchange:false, type:"meeting" },
   { date:"2026/06/11", name:"東京ダービー 🏆", grade:"JpnI", venue:"大井", dist:2000, age:"3歳", exchange:true, type:"race", goal:true },
 ];
 
