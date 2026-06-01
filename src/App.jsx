@@ -397,53 +397,54 @@ function PlayerDetailScreen({ userId, onBack, onSelectHorse, kettonums }) {
           </div>
         )}
       </div>
+      <div style={{ background:"#fff", borderRadius:10, overflow:"hidden", border:"1px solid #e4e9e6" }}>
       {horses.map(h => {
         const netkeibaUrl = kettonums[h.name]
           ? `https://db.netkeiba.com/horse/${kettonums[h.name]}/`
           : `https://www.google.com/search?q=netkeiba+${encodeURIComponent(h.name)}`;
         return (
           <div key={h.no} style={{
-            background:"#fff", border:"1px solid #e4e9e6", borderRadius:10,
-            padding:"10px 12px", marginBottom:8,
+            background:"#fff", borderBottom:"1px solid #f0f0f0",
+            padding:"7px 10px", display:"flex", alignItems:"center", gap:8,
           }}>
-            <div style={{ display:"flex", alignItems:"center", gap:10 }}>
-              <div style={{
-                width:26, height:26, borderRadius:6, background:G.greenDark,
-                color:"#fff", display:"flex", alignItems:"center", justifyContent:"center",
-                fontSize:13, fontWeight:700, flexShrink:0,
-              }}>{h.no}</div>
-              <div style={{ flex:1, minWidth:0, cursor:"pointer" }} onClick={() => onSelectHorse(h)}>
-                <div style={{ fontWeight:700, fontSize:14, display:"flex", alignItems:"center", gap:6 }}>
-                  {h.name}
-                  {h.active && (
-                    <span style={{ fontSize:10, color:G.green, border:`1px solid ${G.green}`, borderRadius:4, padding:"0 4px" }}>
-                      在厩
-                    </span>
-                  )}
-                </div>
-                <div style={{ fontSize:11, color:"#888", marginTop:2 }}>
-                  成績 {h.record}
-                  {h.sire && <span style={{ marginLeft:8 }}>父 {h.sire}</span>}
-                  {h.dam  && <span style={{ marginLeft:6 }}>母 {h.dam}</span>}
-                </div>
+            {/* 番号 */}
+            <div style={{
+              width:20, height:20, borderRadius:4, background:G.greenDark,
+              color:"#fff", display:"flex", alignItems:"center", justifyContent:"center",
+              fontSize:11, fontWeight:700, flexShrink:0,
+            }}>{h.no}</div>
+            {/* 馬名・在厩 */}
+            <div style={{ flex:1, minWidth:0, cursor:"pointer" }} onClick={() => onSelectHorse(h)}>
+              <div style={{ fontWeight:700, fontSize:13, display:"flex", alignItems:"center", gap:4, whiteSpace:"nowrap", overflow:"hidden", textOverflow:"ellipsis" }}>
+                {h.name}
+                {h.active && (
+                  <span style={{ fontSize:9, color:G.green, border:`1px solid ${G.green}`, borderRadius:3, padding:"0 3px", flexShrink:0 }}>
+                    在厩
+                  </span>
+                )}
               </div>
-              <div style={{ display:"flex", flexDirection:"column", alignItems:"flex-end", gap:4 }}>
-                <div style={{ textAlign:"right" }}>
-                  <div style={{ fontWeight:800, fontSize:15 }}>{fmt(h.pt)}</div>
-                  <div style={{ fontSize:10, color:"#999" }}>pt</div>
-                </div>
-                <a href={netkeibaUrl} target="_blank" rel="noopener noreferrer"
-                  style={{
-                    fontSize:10, fontWeight:700, color:"#1a56c4",
-                    textDecoration:"none", whiteSpace:"nowrap",
-                  }}>
-                  🔍 netkeiba
-                </a>
+              <div style={{ fontSize:10, color:"#aaa" }}>
+                {h.record}
+                {h.sire && <span style={{ marginLeft:6 }}>父{h.sire}</span>}
               </div>
             </div>
+            {/* pt */}
+            <div style={{ textAlign:"right", flexShrink:0 }}>
+              <span style={{ fontWeight:800, fontSize:14 }}>{fmt(h.pt)}</span>
+              <span style={{ fontSize:10, color:"#999", marginLeft:2 }}>pt</span>
+            </div>
+            {/* netkeiba */}
+            <a href={netkeibaUrl} target="_blank" rel="noopener noreferrer"
+              style={{
+                fontSize:10, fontWeight:700, color:"#1a56c4",
+                textDecoration:"none", whiteSpace:"nowrap", flexShrink:0,
+              }}>
+              KB
+            </a>
           </div>
         );
       })}
+      </div>
     </div>
   );
 }
@@ -500,10 +501,10 @@ function HorseDetailScreen({ horse, playerId, results, kettonums }) {
           </div>
         )}
       </div>
-      <div style={{ fontSize:13, fontWeight:700, color:"#555", margin:"4px 4px 8px" }}>レース履歴</div>
+      <div style={{ fontSize:13, fontWeight:700, color:"#555", margin:"4px 4px 8px" }}>レース履歴（直近60日）</div>
       {horseResults.length === 0
-        ? <div style={{ background:"#fff", borderRadius:10, padding:20, textAlign:"center", color:"#aaa", fontSize:13, border:"1px solid #e4e9e6" }}>
-            直近の対象レース履歴はありません
+        ? <div style={{ background:"#fff", borderRadius:10, padding:20, textAlign:"center", color:"#aaa", fontSize:13 }}>
+            直近60日間の出走記録はありません
           </div>
         : horseResults.map((r,i) => <ResultCard key={i} r={r} showPlayer={false} />)
       }

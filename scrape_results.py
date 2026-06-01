@@ -283,7 +283,7 @@ def main():
     os.makedirs(out_dir, exist_ok=True)
 
     with open(os.path.join(out_dir, "results.json"), "w", encoding="utf-8") as f:
-        json.dump(past[:30], f, ensure_ascii=False, indent=2)
+        json.dump(past, f, ensure_ascii=False, indent=2)
 
     with open(os.path.join(out_dir, "upcoming.json"), "w", encoding="utf-8") as f:
         json.dump(upcoming[:10], f, ensure_ascii=False, indent=2)
