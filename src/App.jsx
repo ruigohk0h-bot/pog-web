@@ -183,6 +183,232 @@ const getHorses = (pid) => HORSES_BY_PLAYER[pid] ?? [];
 
 // 最新結果・出走予定はJSONから動的取得（useResultsで管理）
 
+// 過去シーズン馬データ
+const PAST_HORSES = {
+  "2022-23": {
+    "P01": [
+      { no:1,  name:"ユディタム",      record:"4-1-2-10", pt:3950, sire:"Justify",          dam:"ジベッサ" },
+      { no:8,  name:"エクロジャイト",  record:"3-0-2-12", pt:3860, sire:"ヘニーヒューズ",   dam:"オージャイト" },
+      { no:2,  name:"ジュドー",        record:"3-3-3-13", pt:1320, sire:"スモーリス",        dam:"バンデア" },
+      { no:4,  name:"サンデュエル",    record:"1-0-1-5",  pt:728,  sire:"ロードカナロア",    dam:"サンドクイーン" },
+      { no:7,  name:"イエルバブエナ",  record:"1-0-0-12", pt:700,  sire:"マジェスティックウォリアー", dam:"ミンディアー" },
+      { no:6,  name:"ルージュイストリア",record:"2-0-1-13",pt:550, sire:"ドレフォン",        dam:"レッドクラウディア" },
+      { no:5,  name:"ヴォーハンマー",  record:"4-2-1-8",  pt:220,  sire:"リアルインパクト",  dam:"フラーティシャスミス" },
+      { no:3,  name:"ヴァンビスタ",    record:"0-0-0-3",  pt:0,    sire:"Justify",           dam:"Vanquished" },
+      { no:9,  name:"エンブレム",      record:"0-0-0-1",  pt:0,    sire:"シニスターミニスター",dam:"ラグジャリークラス" },
+      { no:10, name:"ランドオブサンド",record:"0-0-0-3",  pt:0,    sire:"American Pharoah",  dam:"Slow Sand" },
+    ],
+    "P02": [
+      { no:6,  name:"スクーパー",      record:"3-3-3-6",  pt:3050, sire:"ヘニーヒューズ",   dam:"ソロダンサー" },
+      { no:1,  name:"ミスティックロア",record:"4-4-2-2",  pt:1570, sire:"Arrogate",          dam:"Folklore" },
+      { no:8,  name:"カレンアルカンタラ",record:"4-1-0-9",pt:1410, sire:"エスポワールシティー",dam:"ラセレシオン" },
+      { no:2,  name:"モズアカボス",    record:"2-0-1-17", pt:698,  sire:"Quality Road",      dam:"India" },
+      { no:5,  name:"バイリヴレ",      record:"1-0-0-9",  pt:620,  sire:"ヘニーヒューズ",   dam:"バイクニャン" },
+      { no:3,  name:"ワインワインレッド",record:"0-0-4-8",pt:548,  sire:"Justify",           dam:"Streaming" },
+      { no:9,  name:"ダグフォース",    record:"0-2-1-10", pt:463,  sire:"ドレフォン",        dam:"アレスウィスバー" },
+      { no:4,  name:"ゴールデンマイク",record:"0-0-2-8",  pt:247,  sire:"Justify",           dam:"Sambuca Classica" },
+      { no:10, name:"カミノモラド",    record:"0-0-0-9",  pt:83,   sire:"ロードカナロア",    dam:"クリスプ" },
+      { no:7,  name:"メガラニカ",      record:"0-0-0-0",  pt:0,    sire:"イスラボニータ",    dam:"リリウム" },
+    ],
+    "P03": [
+      { no:1,  name:"メイクザビート",  record:"3-4-2-11", pt:2320, sire:"マインドユアビスケッツ",dam:"カシノブギ" },
+      { no:5,  name:"メジェド",        record:"2-1-2-10", pt:1798, sire:"キズナ",            dam:"ラヴェリータ" },
+      { no:3,  name:"レイズカイザー",  record:"3-3-0-10", pt:1300, sire:"ヘニーヒューズ",   dam:"バイカータキン" },
+      { no:8,  name:"ナムラテディー",  record:"1-2-1-15", pt:1251, sire:"レッドファルクス",  dam:"ナムラココロ" },
+      { no:7,  name:"サクセスハチハチ",record:"0-5-1-3",  pt:1183, sire:"バイロ",           dam:"カリビアンロマンス" },
+      { no:10, name:"メイショウノブカ",record:"2-3-0-14", pt:890,  sire:"シルバーステート",  dam:"ラッシュカッター" },
+      { no:9,  name:"コバノスタンリー",record:"0-0-1-13", pt:213,  sire:"コバノリッキー",    dam:"ソフィアルージュ" },
+      { no:6,  name:"デュアルモーション",record:"0-0-1-3",pt:140,  sire:"ドレフォン",        dam:"クロフォード" },
+      { no:2,  name:"カーメルビーチ",  record:"0-0-0-11", pt:0,    sire:"サトノアラジン",    dam:"ヴァルタルサイビーチ" },
+      { no:4,  name:"ロジザキア",      record:"0-0-0-1",  pt:0,    sire:"キズナ",            dam:"ザキア" },
+    ],
+    "P04": [
+      { no:5,  name:"ミラクルティアラ",record:"4-6-3-6",  pt:2230, sire:"ヘニーヒューズ",   dam:"ミラクルレジェンド" },
+      { no:7,  name:"ルルシュシュ",    record:"1-1-2-9",  pt:1083, sire:"リオンディーズ",    dam:"マダムチエコキー" },
+      { no:2,  name:"ミラクルキャッツ",record:"2-0-2-11", pt:770,  sire:"キンシャサノキセキ",dam:"ランニングポップキャッツ" },
+      { no:10, name:"ヴァレンティヌス",record:"1-0-0-4",  pt:750,  sire:"レッドファルクス",  dam:"ササンスピード" },
+      { no:6,  name:"スターグロウ",    record:"1-4-1-9",  pt:676,  sire:"アメリカンペイトリオット",dam:"スターライト" },
+      { no:1,  name:"マスグラバイト",  record:"2-1-2-11", pt:660,  sire:"キンシャサノキセキ",dam:"トリプライト" },
+      { no:3,  name:"ジャスティンカプリ",record:"2-2-1-6",pt:515,  sire:"フォンタネットポー",dam:"" },
+      { no:4,  name:"キュビドン",      record:"2-1-0-12", pt:100,  sire:"American Pharoah",  dam:"Chocolate Pop" },
+      { no:8,  name:"ノルドウェスト",  record:"3-2-0-9",  pt:0,    sire:"ロードカナロア",    dam:"マエストラレー" },
+      { no:9,  name:"オンクルヨリ",    record:"0-0-0-0",  pt:0,    sire:"ホコータルマエ",    dam:"コバノニキータ" },
+    ],
+  },
+  "2023-24": {
+    "P01": [
+      { no:6,  name:"サトノフェニックス", record:"2-3-1-8",  pt:3200, sire:"ヘニーヒューズ",   dam:"サトノメイドティアラ" },
+      { no:12, name:"ベンナヴェローチェ", record:"3-10-9-6", pt:1760, sire:"キズナ",            dam:"エンパイアブレイク" },
+      { no:2,  name:"オコタンペ",         record:"2-3-5-16", pt:1757, sire:"ニューイヤーズデイ", dam:"ラーゴブルー" },
+      { no:5,  name:"ノットイナフ",       record:"3-1-3-13", pt:1470, sire:"マジェスティックウォリアー",dam:"クライミングローズ" },
+      { no:8,  name:"ソニックライン",     record:"1-2-6-9",  pt:1380, sire:"オルフェーヴル",    dam:"ルミナスパレード" },
+      { no:4,  name:"アルシミスト",       record:"1-1-0-8",  pt:770,  sire:"オルフェーヴル",    dam:"ミセスワタナベ" },
+      { no:10, name:"フルレゾン",         record:"2-3-2-10", pt:730,  sire:"オルフェーヴル",    dam:"カイカヨソウ" },
+      { no:1,  name:"クラリファイ",       record:"0-1-0-4",  pt:238,  sire:"Justify",           dam:"Quote" },
+      { no:11, name:"ジャンドル",         record:"0-0-1-3",  pt:180,  sire:"エピファネイア",    dam:"ラーブライド" },
+      { no:9,  name:"メネラオス",         record:"0-0-1-12", pt:96,   sire:"アジアエクスプレス", dam:"ラトーナ" },
+      { no:3,  name:"クセノポン",         record:"0-0-0-4",  pt:55,   sire:"ハーツクライ",      dam:"アレイヴィングビューティ" },
+      { no:7,  name:"レイヌドサーブル",   record:"2-2-0-6",  pt:55,   sire:"ヘニーヒューズ",   dam:"レイヌドネージュ" },
+    ],
+    "P02": [
+      { no:2,  name:"エコロガイア",     record:"3-5-2-14", pt:2762, sire:"Speightstown",      dam:"Charge of Angels" },
+      { no:4,  name:"ルディック",       record:"4-11-1-6", pt:1940, sire:"Into Mischief",     dam:"Miss Besilu" },
+      { no:12, name:"メイショウホウレン",record:"5-1-1-6",  pt:1500, sire:"エスポワールシティー",dam:"キンゲンショウ" },
+      { no:9,  name:"エスカル",         record:"4-2-2-13", pt:1460, sire:"American Pharoah",  dam:"Pretty Girl" },
+      { no:7,  name:"ダンツティアラ",   record:"1-4-2-3",  pt:990,  sire:"シニスターミニスター",dam:"ディアレストリックスキ" },
+      { no:3,  name:"インテルメディオ", record:"1-2-1-8",  pt:960,  sire:"ドレフォン",        dam:"メリーウィドウ" },
+      { no:11, name:"ボンピエ",         record:"1-1-3-17", pt:905,  sire:"レッドファルクス",  dam:"アルティメイトラブ" },
+      { no:1,  name:"バリッドキャリア", record:"3-1-0-3",  pt:0,    sire:"ヘニーヒューズ",   dam:"サンライズシェル" },
+      { no:5,  name:"ワインダモ",       record:"0-0-0-0",  pt:0,    sire:"Into Mischief",     dam:"Shopit" },
+      { no:6,  name:"モッドフレイム",   record:"2-0-1-2",  pt:0,    sire:"Uncle Mo",          dam:"インフレイムド" },
+      { no:8,  name:"リムショット",     record:"0-2-1-3",  pt:0,    sire:"ヘニーヒューズ",   dam:"ティンパレス" },
+      { no:10, name:"シングマイブルース",record:"0-0-0-3",  pt:0,    sire:"War Front",         dam:"Solo Piano" },
+    ],
+    "P03": [
+      { no:8,  name:"ビューロマジック",  record:"5-2-1-10", pt:6800, sire:"アジアエクスプレス", dam:"メジェルダ" },
+      { no:7,  name:"カラフルメロディー",record:"1-4-0-6",  pt:1280, sire:"ジェンハイポピー",   dam:"カラフルメロディー" },
+      { no:11, name:"ナファロア",        record:"2-1-0-13", pt:840,  sire:"イスラボニータ",    dam:"ナレラ" },
+      { no:6,  name:"サンダーアラート",  record:"3-3-1-10", pt:690,  sire:"サンダースノー",    dam:"テイクウォーニング" },
+      { no:9,  name:"サウンドアレグリア",record:"4-2-0-10", pt:550,  sire:"キズナ",            dam:"サウンドリアーナ" },
+      { no:1,  name:"メイショウソウタ",  record:"3-4-3-10", pt:523,  sire:"ドレフォン",        dam:"メイショウオウヒ" },
+      { no:4,  name:"ヘニーズネフュー",  record:"0-2-2-11", pt:385,  sire:"キズナ",            dam:"クローバーナイト" },
+      { no:10, name:"リアルモハメド",    record:"1-2-0-6",  pt:155,  sire:"リオンディーズ",    dam:"ジュエルクイーン" },
+      { no:5,  name:"アショカ",          record:"0-0-2-5",  pt:140,  sire:"ドゥラメンテ",      dam:"アメイジングライト" },
+      { no:2,  name:"ハードタック",      record:"0-0-0-0",  pt:0,    sire:"マインドユアビスケッツ",dam:"サトノバーキン" },
+      { no:3,  name:"ソングライター",    record:"0-1-1-4",  pt:0,    sire:"バイロ",            dam:"ギフトオブソング" },
+      { no:12, name:"ウインクリード",    record:"2-2-0-4",  pt:0,    sire:"サンダースノー",    dam:"ベリーフ" },
+    ],
+    "P04": [
+      { no:4,  name:"アンデスビエント",  record:"3-1-1-8",  pt:1940, sire:"ドレフォン",        dam:"アンデスクイーン" },
+      { no:6,  name:"テーオードラッカー",record:"2-4-3-9",  pt:1310, sire:"コバノリッキー",    dam:"マキシムカフェ" },
+      { no:1,  name:"ダノンスウィッチ",  record:"3-3-1-15", pt:1240, sire:"American Pharoah",  dam:"スウィッチインタイム" },
+      { no:11, name:"マックスセレナーデ",record:"1-1-4-12", pt:1016, sire:"ドゥラメンテ",      dam:"シェイクスセレナーデ" },
+      { no:9,  name:"ミッキードラマー",  record:"1-1-0-8",  pt:770,  sire:"ニューイヤーズデイ", dam:"プリオレット" },
+      { no:8,  name:"アタラヨ",          record:"0-1-0-5",  pt:428,  sire:"Justify",           dam:"Magic Fountain" },
+      { no:2,  name:"リルフロスト",      record:"0-0-2-12", pt:306,  sire:"スノードラゴン",    dam:"リルティングインク" },
+      { no:12, name:"キツネノヨメイリ",  record:"0-0-1-4",  pt:140,  sire:"Justify",           dam:"Aloof" },
+      { no:10, name:"タイセイマーシャル",record:"1-0-0-8",  pt:83,   sire:"ヘニーヒューズ",   dam:"ファーストチェア" },
+      { no:3,  name:"プラストパローズ",  record:"0-3-0-2",  pt:0,    sire:"エピファネイア",    dam:"ゴッドフェニックス" },
+      { no:5,  name:"ホウオウラムセス",  record:"3-0-1-9",  pt:0,    sire:"オメガフレグランス", dam:"" },
+      { no:7,  name:"コヴィーニャ",      record:"1-1-1-5",  pt:0,    sire:"マインドユアビスケッツ",dam:"エミーズスマイル" },
+    ],
+    "P05": [
+      { no:10, name:"エルフストラック",  record:"3-5-5-10", pt:1910, sire:"カリフォルニアクローム",dam:"スペルオンミー" },
+      { no:6,  name:"センチュリボンド",  record:"2-0-1-3",  pt:1800, sire:"キズナ",            dam:"マークール" },
+      { no:1,  name:"リューデスハイム",  record:"3-5-0-9",  pt:1353, sire:"ニューイヤーズデイ", dam:"グリューヴァイン" },
+      { no:7,  name:"ヴェルトラウム",    record:"2-0-2-11", pt:1120, sire:"ミッキーロケット",  dam:"ヒルダ" },
+      { no:9,  name:"ケイアイアルタイル",record:"2-2-2-6",  pt:832,  sire:"ニューイヤーズデイ", dam:"カーディナルコーヴ" },
+      { no:12, name:"ウインイメル",      record:"1-1-2-15", pt:803,  sire:"サンダースノー",    dam:"コスモキシン" },
+      { no:2,  name:"アセレラシオン",    record:"2-1-2-11", pt:720,  sire:"ドレフォン",        dam:"クレアドール" },
+      { no:8,  name:"トニーテソーロ",    record:"2-0-0-5",  pt:720,  sire:"ヘニーヒューズ",   dam:"アイライン" },
+      { no:3,  name:"フェリーニ",        record:"1-0-2-14", pt:670,  sire:"ドレフォン",        dam:"リミニ" },
+      { no:5,  name:"リベルテ",          record:"0-1-3-11", pt:407,  sire:"エピカリス",        dam:"クイックステップ" },
+      { no:11, name:"テトラード",        record:"0-2-3-15", pt:378,  sire:"マインドユアビスケッツ",dam:"カラフルマーメイド" },
+      { no:4,  name:"アウトドライブ",    record:"3-0-1-8",  pt:72,   sire:"デクラレーションオブウォー",dam:"キティ" },
+    ],
+    "P07": [
+      { no:4,  name:"アンクエンチャブル",record:"2-5-1-8",  pt:2092, sire:"ディスクリートキャット",dam:"スモーダリング" },
+      { no:10, name:"タンゴバイラリン",  record:"3-2-4-13", pt:1450, sire:"イスラボニータ",    dam:"リベルタンゴ" },
+      { no:7,  name:"ウェットシーズン",  record:"5-1-1-4",  pt:762,  sire:"Mendelssohn",       dam:"Season Maker" },
+      { no:2,  name:"ダノンケイツー",    record:"1-0-0-6",  pt:620,  sire:"Justify",           dam:"エンタイスド" },
+      { no:1,  name:"オペラブラージュ",  record:"3-0-1-6",  pt:550,  sire:"ニューイヤーズデイ", dam:"ベルプラージュ" },
+      { no:12, name:"クリティカルヒット",record:"0-1-0-4",  pt:275,  sire:"American Pharoah",  dam:"Mythical Mission" },
+      { no:9,  name:"ダイシンバースディ",record:"8-2-3-16", pt:245,  sire:"マインドユアビスケッツ",dam:"ルージュエアー" },
+      { no:11, name:"ビスクウィザード",  record:"0-0-1-6",  pt:215,  sire:"マインドユアビスケッツ",dam:"ララベル" },
+      { no:6,  name:"ディフェリ",        record:"0-0-0-3",  pt:72,   sire:"Mendelssohn",       dam:"Heavenly Romance" },
+      { no:8,  name:"ウェイトウゴー",    record:"3-2-2-11", pt:55,   sire:"サンダースノー",    dam:"テラリ" },
+      { no:3,  name:"パルログ",          record:"0-0-0-1",  pt:0,    sire:"ドレフォン",        dam:"アイトマコト" },
+      { no:5,  name:"アイウィル",        record:"3-2-1-14", pt:0,    sire:"ドレフォン",        dam:"ジュリーハーツ" },
+    ],
+  },
+  "2024-25": {
+    "P01": [
+      { no:2,  name:"クレーキング",      record:"2-3-1-1",  pt:7430, sire:"ナイル",            dam:"クインアマランサス" },
+      { no:6,  name:"ジャナドリア",      record:"3-0-1-1",  pt:4900, sire:"ゴールドドリーム",  dam:"ターシャズスター" },
+      { no:7,  name:"グランジョルノ",    record:"1-2-0-5",  pt:2785, sire:"ゴールドドリーム",  dam:"ヴィータアレグリア" },
+      { no:11, name:"アローオブライト",  record:"2-0-0-3",  pt:1502, sire:"ヘニーヒューズ",   dam:"アドマイヤアロー" },
+      { no:3,  name:"ソリスクラヴィス",  record:"2-1-0-4",  pt:1444, sire:"ヘニーヒューズ",   dam:"クローバーセクレタ" },
+      { no:8,  name:"ヤノマスティーロ",  record:"1-1-0-2",  pt:810,  sire:"ロードカナロア",    dam:"スペシャルグルーヴ" },
+      { no:4,  name:"ボヌールキャッツ",  record:"0-1-1-8",  pt:661,  sire:"ニューイヤーズデイ", dam:"ランニングポップキャッツ" },
+      { no:5,  name:"フォンデネージュ",  record:"1-1-2-5",  pt:610,  sire:"ドレフォン",        dam:"コキチャン" },
+      { no:12, name:"ラピッドグロウス",  record:"0-1-1-4",  pt:470,  sire:"キズナ",            dam:"ジベッサ" },
+      { no:1,  name:"エンジェルラダー",  record:"1-2-1-4",  pt:236,  sire:"Nyquist",           dam:"Tiz Miz Sue" },
+      { no:10, name:"ジャスティンロング",record:"0-0-0-7",  pt:128,  sire:"ルヴァンスレーヴ",  dam:"アドマイヤアロング" },
+      { no:9,  name:"フランシュフック",  record:"0-0-1-2",  pt:0,    sire:"ヘニーヒューズ",   dam:"ブルークランス" },
+    ],
+    "P02": [
+      { no:10, name:"ニューファウンド",   record:"2-1-1-8",  pt:1912, sire:"ニューイヤーズデイ", dam:"イルシンヴァゴールド" },
+      { no:6,  name:"シホノベルフェット", record:"2-1-0-11", pt:1748, sire:"マジェスティックウォリアー",dam:"アンソロジー" },
+      { no:4,  name:"クニノハッピー",     record:"1-3-4-8",  pt:1372, sire:"ヘニーヒューズ",   dam:"ルミナスハッピー" },
+      { no:5,  name:"バタール",           record:"2-2-1-2",  pt:1040, sire:"ナダル",            dam:"アデレードヒル" },
+      { no:9,  name:"モレポブラーノ",     record:"2-2-1-6",  pt:975,  sire:"マインドユアビスケッツ",dam:"ハラベーニョペベル" },
+      { no:7,  name:"マーキュリーダイム", record:"1-0-0-3",  pt:560,  sire:"Medaglia d'Oro",   dam:"ラッキーダイム" },
+      { no:11, name:"ホウオウアンジュ",   record:"0-0-2-0",  pt:320,  sire:"オルフェーヴル",    dam:"アンジョシュエット" },
+      { no:3,  name:"タンテドヴィーヴル", record:"2-1-1-7",  pt:80,   sire:"ルヴァンスレーヴ",  dam:"レネットグルーヴ" },
+      { no:1,  name:"ジャスティントレノ", record:"0-0-1-5",  pt:56,   sire:"Into Mischief",     dam:"Pink Sands" },
+      { no:2,  name:"レジェンダイズ",     record:"0-0-0-5",  pt:0,    sire:"マインドユアビスケッツ",dam:"ミラクルレジェンド" },
+      { no:8,  name:"テイエムライダー",   record:"0-0-0-1",  pt:0,    sire:"ルヴァンスレーヴ",  dam:"ドリームライダー" },
+      { no:12, name:"アーロッタレット",   record:"3-1-0-6",  pt:0,    sire:"Practical Joke",    dam:"Folklore" },
+    ],
+    "P03": [
+      { no:10, name:"ミストレス",        record:"2-1-0-13", pt:2160, sire:"キズナ",            dam:"チェロキーメイドン" },
+      { no:2,  name:"レイナデアルシェラ",record:"4-2-1-7",  pt:1242, sire:"ナダル",            dam:"アンデスクイーン" },
+      { no:4,  name:"イガッチ",          record:"4-0-2-4",  pt:1172, sire:"リアルスティール",  dam:"クリーミーボイス" },
+      { no:3,  name:"サンダーロード",    record:"2-1-2-12", pt:1145, sire:"Authentic",          dam:"ダファカモーレ" },
+      { no:5,  name:"チムニートップス",  record:"2-1-0-8",  pt:960,  sire:"Tapit",              dam:"Speedinthruthecity" },
+      { no:12, name:"サニーサルサ",      record:"1-0-0-10", pt:960,  sire:"マインドユアビスケッツ",dam:"チカレグレ" },
+      { no:11, name:"シルフズミスチーフ",record:"2-1-2-10", pt:900,  sire:"Into Mischief",      dam:"Heavenhasmynikki" },
+      { no:7,  name:"ビービーバザーク",  record:"0-5-1-7",  pt:666,  sire:"シニスターミニスター",dam:"カリビアンロマンス" },
+      { no:9,  name:"カルデライト",      record:"0-2-0-6",  pt:593,  sire:"ナダル",             dam:"コーディエライト" },
+      { no:1,  name:"パルジール",        record:"2-3-3-3",  pt:180,  sire:"オルフェーヴル",     dam:"ソロダンサー" },
+      { no:6,  name:"グレインワーク",    record:"0-0-0-2",  pt:72,   sire:"イスラボニータ",     dam:"エスメラルディーナ" },
+      { no:8,  name:"メムエクラ",        record:"0-0-0-4",  pt:0,    sire:"イスラボニータ",     dam:"ディアコメット" },
+    ],
+    "P04": [
+      { no:1,  name:"ルクソールカフェ",  record:"5-1-1-4",  pt:5690, sire:"American Pharoah",  dam:"Mary's Follies" },
+      { no:11, name:"モズナナスター",    record:"3-4-2-11", pt:3600, sire:"モズアスコット",    dam:"グランプリエンゼル" },
+      { no:12, name:"プロミストジーン",  record:"4-3-1-2",  pt:3270, sire:"ナダル",            dam:"プロミストリーブ" },
+      { no:5,  name:"マイネルフーガ",    record:"2-5-2-5",  pt:1400, sire:"ダノンバラード",    dam:"マイネノノ" },
+      { no:7,  name:"マリアイリダータ",  record:"3-3-1-0",  pt:1360, sire:"ドゥラメンテ",      dam:"マルケッサ" },
+      { no:2,  name:"ダノンヴェステル",  record:"1-4-3-1",  pt:1300, sire:"American Pharoah",  dam:"マダムヴェステル" },
+      { no:9,  name:"グレイテストソング",record:"3-2-0-4",  pt:1030, sire:"モズアスコット",    dam:"シネマソングス" },
+      { no:10, name:"ヴィンブルレー",    record:"2-2-0-3",  pt:923,  sire:"グリューヴァイン",  dam:"" },
+      { no:8,  name:"スマートカイロス",  record:"3-1-0-8",  pt:560,  sire:"シニスターミニスター",dam:"スマートバベル" },
+      { no:6,  name:"コスモガラニカ",    record:"0-1-1-7",  pt:429,  sire:"ダノンバラード",    dam:"サウンズスピード" },
+      { no:3,  name:"マリアディオーサ",  record:"1-1-0-4",  pt:0,    sire:"スマートファルコン", dam:"マリアージュ" },
+      { no:4,  name:"ランフォザブライド",record:"0-0-0-3",  pt:0,    sire:"ナダル",            dam:"エミーズブライド" },
+    ],
+    "P05": [
+      { no:2,  name:"カナルビーグル",    record:"3-0-1-2",  pt:5850, sire:"リアルスティール",  dam:"ソプラドリンク" },
+      { no:1,  name:"トリポリタニア",    record:"4-1-1-5",  pt:2560, sire:"ルヴァンスレーヴ",  dam:"トリプライト" },
+      { no:5,  name:"アートレスマインド",record:"2-4-2-6",  pt:1600, sire:"マインドユアビスケッツ",dam:"リチュアルローズ" },
+      { no:9,  name:"ポルトテソーロ",    record:"1-1-1-7",  pt:1160, sire:"サンダースノー",    dam:"カメリアローズ2" },
+      { no:10, name:"ステイクオール",    record:"1-0-2-7",  pt:1000, sire:"ナダル",            dam:"ボールドアテンプト" },
+      { no:11, name:"グレイスザクラウン",record:"2-1-1-10", pt:820,  sire:"リーチザクラウン",  dam:"キトウンズグレイス" },
+      { no:7,  name:"レッドソニード",    record:"0-1-1-4",  pt:483,  sire:"イスラボニータ",    dam:"ダンスグルーヴィ" },
+      { no:3,  name:"ソーツアウト",      record:"0-0-0-0",  pt:0,    sire:"ナダル",            dam:"ブリームス" },
+      { no:4,  name:"パレアレス",        record:"0-0-0-4",  pt:0,    sire:"ナダル",            dam:"チャームザワールド" },
+      { no:6,  name:"ツァイトガイスト",  record:"0-0-0-4",  pt:0,    sire:"シスキン",          dam:"オージャイト" },
+      { no:8,  name:"グランダイト",      record:"0-0-0-4",  pt:0,    sire:"ドレフォン",        dam:"ガーネットチャーム" },
+      { no:12, name:"レッドエソール",    record:"0-0-0-3",  pt:0,    sire:"シスキン",          dam:"アッフェルマーレ" },
+    ],
+    "P07": [
+      { no:5,  name:"ダノンフィーゴ",    record:"6-2-2-2",  pt:1640, sire:"Into Mischief",     dam:"オリーズキャンディ" },
+      { no:1,  name:"グランドプラージュ",record:"4-2-0-0",  pt:1520, sire:"シニスターミニスター",dam:"ベルプラージュ" },
+      { no:3,  name:"ベンヌ",            record:"3-0-1-4",  pt:1520, sire:"バイロ",            dam:"レッドフェザー" },
+      { no:6,  name:"ダニエルバローズ",  record:"1-0-0-9",  pt:688,  sire:"American Pharoah",  dam:"ターフウォー" },
+      { no:8,  name:"オンクラウドナイン",record:"0-1-4-6",  pt:584,  sire:"ラニ",              dam:"シアージュ" },
+      { no:9,  name:"サルタール",        record:"2-1-3-8",  pt:540,  sire:"マジェスティックウォリアー",dam:"イグレット" },
+      { no:10, name:"スキュア",          record:"0-0-0-1",  pt:110,  sire:"トランセンド",      dam:"ランキュラス" },
+      { no:12, name:"ケイアイブイスリー",record:"1-0-0-11", pt:84,   sire:"ルヴァンスレーヴ",  dam:"ケイアイガーベラ" },
+      { no:2,  name:"アインブレーゲン",  record:"0-0-0-2",  pt:56,   sire:"Mendelssohn",       dam:"Heavenly Romance" },
+      { no:4,  name:"チェインズモーカー",record:"0-0-0-4",  pt:0,    sire:"ヘニーヒューズ",   dam:"パワースポット" },
+      { no:7,  name:"チームビルディング",record:"0-0-0-1",  pt:0,    sire:"サトノアラジン",    dam:"サリエル" },
+      { no:11, name:"ブランクシート",    record:"0-1-0-2",  pt:0,    sire:"ディスクリートキャット",dam:"ニューチャプター2" },
+    ],
+  },
+};
+
 // 殿堂データ
 const SEASONS_ALL = [
   { id:"2022-23", label:"2022-23", period:"2022/06/01〜2023/07/17",
@@ -658,12 +884,13 @@ function HallScreen({ onSelectHallPlayer }) {
   );
 }
 
-function HallPlayerScreen({ player, onBack }) {
+function HallPlayerScreen({ player, onBack, kettonums }) {
   const mySeasons = SEASONS_ALL
     .map(s => ({ s, r: s.results.find(r => r.player===player.id) }))
     .filter(x => x.r).reverse();
   const myTrophies = TROPHIES.filter(t => t.player===player.id);
   const [tab, setTab] = useState("seasons");
+  const [openSeason, setOpenSeason] = useState(null);
   const rankLabel = r => r===1?"🥇":r===2?"🥈":r===3?"🥉":`${r}位`;
 
   return (
@@ -713,26 +940,66 @@ function HallPlayerScreen({ player, onBack }) {
       </div>
 
       <div style={{ padding:12 }}>
-        {tab==="seasons" && mySeasons.map(({s,r}) => (
-          <div key={s.id} style={{
-            background:G.hallCard, border:`1px solid ${r.rank===1?G.gold:G.hallBorder}`,
-            borderRadius:10, padding:"12px 14px", marginBottom:8,
-            display:"flex", alignItems:"center", gap:12,
-          }}>
-            <div style={{
-              fontSize:r.rank<=3?22:14, fontWeight:800, width:36, textAlign:"center",
-              color:r.rank===1?G.gold:r.rank===2?G.silver:r.rank===3?G.bronze:G.hallDim,
-            }}>{rankLabel(r.rank)}</div>
-            <div style={{ flex:1 }}>
-              <div style={{ fontWeight:700, fontSize:14, color:G.hallText }}>砂遊び {s.label}</div>
-              <div style={{ fontSize:11, color:G.hallDim, marginTop:2 }}>{s.period}</div>
+        {tab==="seasons" && mySeasons.map(({s,r}) => {
+          const seasonHorses = (PAST_HORSES[s.id]?.[player.id] || []).sort((a,b)=>b.pt-a.pt);
+          const isOpen = openSeason === s.id;
+          return (
+            <div key={s.id} style={{ marginBottom:8 }}>
+              {/* シーズンカード（タップで開閉） */}
+              <div onClick={()=>setOpenSeason(isOpen?null:s.id)} style={{
+                background:G.hallCard, border:`1px solid ${r.rank===1?G.gold:G.hallBorder}`,
+                borderRadius:isOpen?"10px 10px 0 0":10, padding:"12px 14px",
+                display:"flex", alignItems:"center", gap:12, cursor:"pointer",
+              }}>
+                <div style={{
+                  fontSize:r.rank<=3?22:14, fontWeight:800, width:36, textAlign:"center",
+                  color:r.rank===1?G.gold:r.rank===2?G.silver:r.rank===3?G.bronze:G.hallDim,
+                }}>{rankLabel(r.rank)}</div>
+                <div style={{ flex:1 }}>
+                  <div style={{ fontWeight:700, fontSize:14, color:G.hallText }}>砂遊び {s.label}</div>
+                  <div style={{ fontSize:11, color:G.hallDim, marginTop:2 }}>{s.period}</div>
+                </div>
+                <div style={{ textAlign:"right" }}>
+                  <div style={{ fontSize:16, fontWeight:900, color:r.rank===1?G.gold:G.dirtLight }}>{fmt(r.pt)}</div>
+                  <div style={{ fontSize:10, color:G.hallDim }}>pt</div>
+                </div>
+                <div style={{ fontSize:12, color:G.hallDim }}>{isOpen?"▲":"▼"}</div>
+              </div>
+              {/* 馬一覧（展開時） */}
+              {isOpen && (
+                <div style={{ background:G.hallBg, border:`1px solid ${G.hallBorder}`, borderTop:"none", borderRadius:"0 0 10px 10px", overflow:"hidden" }}>
+                  {seasonHorses.length===0
+                    ? <div style={{ padding:12, textAlign:"center", color:G.hallDim, fontSize:12 }}>馬データなし</div>
+                    : seasonHorses.map(h => {
+                        const kId = kettonums?.[h.name];
+                        const url = kId ? `https://db.netkeiba.com/horse/${kId}/` : null;
+                        return (
+                          <div key={h.no} style={{
+                            display:"flex", alignItems:"center", gap:8,
+                            padding:"7px 12px", borderBottom:`1px solid ${G.hallBorder}`,
+                          }}>
+                            <div style={{ width:18, height:18, borderRadius:3, background:G.greenDark, color:"#fff", display:"flex", alignItems:"center", justifyContent:"center", fontSize:10, fontWeight:700, flexShrink:0 }}>{h.no}</div>
+                            <div style={{ flex:1, minWidth:0 }}>
+                              <div style={{ fontWeight:700, fontSize:13, color:G.hallText }}>{h.name}</div>
+                              <div style={{ fontSize:10, color:G.hallDim }}>
+                                {h.record}
+                                {h.sire && <span style={{ marginLeft:6 }} translate="no">父{h.sire}</span>}
+                              </div>
+                            </div>
+                            <div style={{ fontSize:13, fontWeight:800, color:G.dirtLight, flexShrink:0 }}>{fmt(h.pt)}</div>
+                            {url
+                              ? <a href={url} target="_blank" rel="noopener noreferrer" style={{ fontSize:10, fontWeight:700, color:"#1a56c4", textDecoration:"none", flexShrink:0 }}>KB</a>
+                              : <span style={{ fontSize:10, color:G.hallDim, flexShrink:0 }}>—</span>
+                            }
+                          </div>
+                        );
+                      })
+                  }
+                </div>
+              )}
             </div>
-            <div style={{ textAlign:"right" }}>
-              <div style={{ fontSize:16, fontWeight:900, color:r.rank===1?G.gold:G.dirtLight }}>{fmt(r.pt)}</div>
-              <div style={{ fontSize:10, color:G.hallDim }}>pt</div>
-            </div>
-          </div>
-        ))}
+          );
+        })}
 
         {tab==="trophies" && (() => {
           // ダート重賞勝ち馬（order===1・馬名確定・芝除外）をまとめる
@@ -895,7 +1162,7 @@ export default function App() {
       title = selectedHallP.name;
       onBack = () => setSHallP(null);
       darkHeader = true;
-      content = <HallPlayerScreen player={selectedHallP} onBack={()=>setSHallP(null)} />;
+      content = <HallPlayerScreen player={selectedHallP} onBack={()=>setSHallP(null)} kettonums={kettonums} />;
     } else {
       title = "砂遊び殿堂";
       darkHeader = true;
