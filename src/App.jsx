@@ -512,13 +512,13 @@ function GradeTag({ grade, local }) {
 
 // テーブル行スタイル（スタリオン風）
 const COL = {
-  venue:  { flex:"0 0 68px",  fontSize:11, color:"#666" },
-  race:   { flex:"0 0 72px",  fontSize:10, color:"#888", whiteSpace:"nowrap", overflow:"hidden", textOverflow:"ellipsis" },
-  course: { flex:"0 0 52px" },
+  venue:  { flex:"0 0 56px",  fontSize:10, color:"#666" },
+  race:   { flex:"0 0 62px",  fontSize:10, color:"#888", whiteSpace:"nowrap", overflow:"hidden", textOverflow:"ellipsis" },
+  course: { flex:"0 0 46px" },
   horse:  { flex:1,           fontSize:13, fontWeight:700, whiteSpace:"nowrap", overflow:"hidden", textOverflow:"ellipsis" },
-  order:  { flex:"0 0 26px",  textAlign:"center", fontWeight:800, fontSize:12 },
-  player: { flex:"0 0 60px",  fontSize:10, color:"#999", whiteSpace:"nowrap", overflow:"hidden", textOverflow:"ellipsis" },
-  pt:     { flex:"0 0 52px",  textAlign:"right", fontWeight:800, fontSize:12 },
+  order:  { flex:"0 0 28px",  textAlign:"center", fontWeight:800, fontSize:12 },
+  player: { flex:"0 0 24px",  fontSize:14, textAlign:"center" },
+  pt:     { flex:"0 0 48px",  textAlign:"right", fontWeight:800, fontSize:12 },
 };
 
 function ResultRow({ r, showPlayer=true }) {
@@ -536,7 +536,7 @@ function ResultRow({ r, showPlayer=true }) {
       <span style={COL.course}><SurfaceTag surface={r.surface} dist={r.dist} small /></span>
       <span style={COL.horse}>{r.horse}</span>
       <span style={{...COL.order, color:orderColor}}>{r.order}着</span>
-      {showPlayer && <span style={COL.player}>{playerEmoji(r.player)}{playerName(r.player)}</span>}
+      {showPlayer && <span style={COL.player} title={playerName(r.player)}>{playerEmoji(r.player)}</span>}
       <span style={{...COL.pt, color: zero?"#ccc":"#d33"}}>
         {zero ? (r.surface==="turf"?"芝":"-") : `+${fmt(dPt)}`}
       </span>
@@ -780,14 +780,14 @@ function ResultsScreen({ results, upcoming, loaded }) {
               return (
                 <div style={{ background:"#fff", border:"1px solid #e4e9e6", borderRadius:10, overflow:"hidden" }}>
                   {/* ヘッダー */}
-                  <div style={{ display:"flex", gap:4, padding:"4px 8px", background:"#f0f0f0", borderBottom:"2px solid #ddd", fontSize:10, fontWeight:700, color:"#888" }}>
-                    <span style={{ flex:"0 0 68px" }}>競走</span>
-                    <span style={{ flex:"0 0 72px" }}>レース名</span>
-                    <span style={{ flex:"0 0 52px" }}>コース</span>
+                  <div translate="no" style={{ display:"flex", gap:4, padding:"4px 8px", background:"#f0f0f0", borderBottom:"2px solid #ddd", fontSize:10, fontWeight:700, color:"#888" }}>
+                    <span style={{ flex:"0 0 56px" }}>競走</span>
+                    <span style={{ flex:"0 0 62px" }}>レース名</span>
+                    <span style={{ flex:"0 0 46px" }}>コース</span>
                     <span style={{ flex:1 }}>馬名</span>
-                    <span style={{ flex:"0 0 26px", textAlign:"center" }}>着順</span>
-                    <span style={{ flex:"0 0 60px" }}>所有者</span>
-                    <span style={{ flex:"0 0 52px", textAlign:"right" }}>獲得pt</span>
+                    <span style={{ flex:"0 0 28px", textAlign:"center" }}>着順</span>
+                    <span style={{ flex:"0 0 24px" }}>厩舎</span>
+                    <span style={{ flex:"0 0 48px", textAlign:"right" }}>獲得ポイント</span>
                   </div>
                   {groups.map(g => (
                     <div key={g.date}>
