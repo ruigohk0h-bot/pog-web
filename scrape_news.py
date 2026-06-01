@@ -1,12 +1,15 @@
 #!/usr/bin/env python3
 # scrape_news.py
-# POG砂遊び 指名馬ニュースをGoogle News RSSから取得
+# POG砂遊び 指名馬ニュースを取得
+# ① Google News RSS（馬名検索 + netkeiba/SPAIA絞り込み）
+# ② 専門メディアRSSフィード直接購読
 # 生成: public/data/news.json
 
 import requests
 import json
 import os
 import re
+import time
 import urllib.parse
 from datetime import datetime, timedelta
 from xml.etree import ElementTree as ET
@@ -22,26 +25,39 @@ HEADERS = {
     "Accept-Language": "ja-JP,ja;q=0.9",
 }
 
-def fetch_news_for_horse(horse_name, days=30):
-    """Google News RSSで馬名を検索してニュース一覧を返す"""
-    query = urllib.parse.quote(f"{horse_name} 競馬")
-    url = f"https://news.google.com/rss/search?q={query}&hl=ja&gl=JP&ceid=JP:ja"
-    try:
-        resp = requests.get(url, headers=HEADERS, timeout=15)
-        resp.raise_for_status()
-        root = ET.fromstring(resp.content)
-    except Exception as e:
-        print(f"  NG {horse_name}: {e}", flush=True)
-        return []
+# 2026-27シーズン馬セット（90日取得）
+HORSES_2627 = {
+    "ミクニプレイブ","トゥザファイナル","ソメデイストワール",
+    "スターフラッシュ","ラキアーヴェ","ミシェルバローズ","レッジェランツァ","ヴェルバニア","エスクアドラ","コナバームス",
+    "マイクストーリー","アトミックリーチ","ヤングリッチ","ダノンチャンピオン","コーズダヴィンチ","セイルトゥグローリー","デミアン",
+    "クロダテ","ツキノエ","マーゴットセレッツォ","セドゥクトーラ","ゼットターム","エクレアカミング","オールベット","ムーンベリル","ボードゥロレーヌ",
+    "ディーヴァレギオン","ヴィルダースヴィル","ディルイーヤ","ブックオブケルズ","ケンシロウワールド","ハイウェイワン","トルヴァスト","オメガマサヤ",
+    "ホウオウシュウ","オールシティキング","デュガビー","ウラノグラフィア","ヴェトロテンペスタ","ホーフアイゼン",
+    "ウィンタープリーズ","ソルテヴェローチェ","トリプルウィン","タクティシアン","テンブレイクワン","アンドレバローズ","イレイザー",
+}
 
+# ----------------------------------------------------------------
+# 専門メディアRSSフィード一覧（案B）
+# ----------------------------------------------------------------
+MEDIA_RSS_FEEDS = [
+    { "url": "https://rss.netkeiba.com/?pid=rss_netkeiba&site=netkeiba", "source": "netkeiba" },
+    { "url": "https://uma-furusato.com/st/rss/horse_news.xml",           "source": "うまふる"  },
+    { "url": "https://uma-furusato.com/st/rss/winner_info.xml",          "source": "うまふる重賞" },
+]
+
+def parse_rss_items(content, source_name, horse_names_set, days):
+    """RSSのXMLをパースして指名馬に関係する記事を返す"""
     cutoff = datetime.now() - timedelta(days=days)
     results = []
+    try:
+        root = ET.fromstring(content)
+    except Exception:
+        return []
 
     for item in root.findall(".//item"):
         title_el   = item.find("title")
         link_el    = item.find("link")
         pubdate_el = item.find("pubDate")
-        source_el  = item.find("source")
         desc_el    = item.find("description")
 
         if title_el is None or link_el is None:
@@ -49,15 +65,10 @@ def fetch_news_for_horse(horse_name, days=30):
 
         title = title_el.text or ""
         link  = link_el.text or ""
-
-        # ソース名（媒体）
-        source = source_el.text if source_el is not None else ""
-
-        # description（記事抜粋）をHTMLタグ除去してテキスト化
         desc_raw = desc_el.text if desc_el is not None else ""
         desc = re.sub(r'<[^>]+>', '', desc_raw).strip() if desc_raw else ""
+        full_text = title + " " + desc
 
-        # 日付パース（例: "Wed, 07 May 2026 12:34:56 GMT"）
         pub_str = pubdate_el.text if pubdate_el is not None else ""
         pub_dt = None
         try:
@@ -72,22 +83,120 @@ def fetch_news_for_horse(horse_name, days=30):
             continue
 
         date_label = pub_dt.strftime("%Y/%m/%d") if pub_dt else ""
+        ts = pub_dt.strftime("%Y-%m-%d %H:%M") if pub_dt else "0000-00-00 00:00"
 
-        # 馬名がタイトルまたはdescriptionに含まれているか確認
-        full_text = title + " " + desc
-        if horse_name not in full_text:
+        # どの指名馬の記事か判定
+        for horse_name in horse_names_set:
+            if horse_name in full_text:
+                results.append({
+                    "horse":  horse_name,
+                    "player": HORSE_PLAYER.get(horse_name, ""),
+                    "title":  title,
+                    "desc":   desc,
+                    "source": source_name,
+                    "date":   date_label,
+                    "url":    link,
+                    "_ts":    ts,
+                })
+                break  # 1記事で複数馬ヒットしても1件だけ登録
+
+    return results
+
+
+def fetch_media_rss(horse_names_set, days=90):
+    """専門メディアRSSを直接購読して指名馬関連記事を返す"""
+    all_items = []
+    for feed in MEDIA_RSS_FEEDS:
+        try:
+            resp = requests.get(feed["url"], headers=HEADERS, timeout=15)
+            resp.raise_for_status()
+            items = parse_rss_items(resp.content, feed["source"], horse_names_set, days)
+            if items:
+                print(f"  [{feed['source']}] {len(items)}件", flush=True)
+            all_items.extend(items)
+            time.sleep(0.5)
+        except Exception as e:
+            print(f"  [{feed['source']}] NG: {e}", flush=True)
+    return all_items
+
+
+def fetch_news_for_horse(horse_name, days=30):
+    """Google News RSSで馬名を検索してニュース一覧を返す"""
+    cutoff = datetime.now() - timedelta(days=days)
+    results = []
+
+    # クエリ①: 通常検索
+    # クエリ②: netkeiba絞り込み
+    # クエリ③: SPAIA絞り込み（2026-27馬のみ追加）
+    queries = [
+        f"{horse_name} 競馬",
+        f"{horse_name} site:netkeiba.com",
+    ]
+    if horse_name in HORSES_2627:
+        queries.append(f"{horse_name} site:spaia-keiba.com")
+
+    seen_in_horse = set()
+    for query in queries:
+        encoded = urllib.parse.quote(query)
+        url = f"https://news.google.com/rss/search?q={encoded}&hl=ja&gl=JP&ceid=JP:ja"
+        try:
+            resp = requests.get(url, headers=HEADERS, timeout=15)
+            resp.raise_for_status()
+            root = ET.fromstring(resp.content)
+        except Exception as e:
+            print(f"  NG {horse_name}: {e}", flush=True)
             continue
 
-        results.append({
-            "horse":  horse_name,
-            "player": HORSE_PLAYER.get(horse_name, ""),
-            "title":  title,
-            "desc":   desc,
-            "source": source,
-            "date":   date_label,
-            "url":    link,
-            "_ts":    pub_dt.strftime("%Y-%m-%d %H:%M") if pub_dt else "0000-00-00 00:00",
-        })
+        for item in root.findall(".//item"):
+            title_el   = item.find("title")
+            link_el    = item.find("link")
+            pubdate_el = item.find("pubDate")
+            source_el  = item.find("source")
+            desc_el    = item.find("description")
+
+            if title_el is None or link_el is None:
+                continue
+
+            title = title_el.text or ""
+            link  = link_el.text or ""
+            if title in seen_in_horse:
+                continue
+
+            source = source_el.text if source_el is not None else ""
+            desc_raw = desc_el.text if desc_el is not None else ""
+            desc = re.sub(r'<[^>]+>', '', desc_raw).strip() if desc_raw else ""
+
+            pub_str = pubdate_el.text if pubdate_el is not None else ""
+            pub_dt = None
+            try:
+                pub_dt = datetime.strptime(pub_str, "%a, %d %b %Y %H:%M:%S %Z")
+            except:
+                try:
+                    pub_dt = datetime.strptime(pub_str[:25], "%a, %d %b %Y %H:%M:%S")
+                except:
+                    pass
+
+            if pub_dt and pub_dt < cutoff:
+                continue
+
+            date_label = pub_dt.strftime("%Y/%m/%d") if pub_dt else ""
+            full_text = title + " " + desc
+            if horse_name not in full_text:
+                continue
+
+            seen_in_horse.add(title)
+            results.append({
+                "horse":  horse_name,
+                "player": HORSE_PLAYER.get(horse_name, ""),
+                "title":  title,
+                "desc":   desc,
+                "source": source,
+                "date":   date_label,
+                "url":    link,
+                "_ts":    pub_dt.strftime("%Y-%m-%d %H:%M") if pub_dt else "0000-00-00 00:00",
+            })
+
+        time.sleep(0.3)
 
     return results
 
@@ -99,25 +208,19 @@ def main():
     all_news = []
     horse_names = list(HORSE_PLAYER.keys())
 
-    # 2026-27シーズン馬は90日、それ以外は30日
-    horses_2627 = {
-        "ミクニプレイブ","トゥザファイナル","ソメデイストワール",
-        "スターフラッシュ","ラキアーヴェ","ミシェルバローズ","レッジェランツァ","ヴェルバニア","エスクアドラ","コナバームス",
-        "マイクストーリー","アトミックリーチ","ヤングリッチ","ダノンチャンピオン","コーズダヴィンチ","セイルトゥグローリー","デミアン",
-        "クロダテ","ツキノエ","マーゴットセレッツォ","セドゥクトーラ","ゼットターム","エクレアカミング","オールベット","ムーンベリル","ボードゥロレーヌ",
-        "ディーヴァレギオン","ヴィルダースヴィル","ディルイーヤ","ブックオブケルズ","ケンシロウワールド","ハイウェイワン","トルヴァスト","オメガマサヤ",
-        "ホウオウシュウ","オールシティキング","デュガビー","ウラノグラフィア","ヴェトロテンペスタ","ホーフアイゼン",
-        "ウィンタープリーズ","ソルテヴェローチェ","トリプルウィン","タクティシアン","テンブレイクワン","アンドレバローズ","イレイザー",
-    }
-
-    for i, name in enumerate(horse_names):
-        days = 90 if name in horses_2627 else 30
+    # ① Google News RSS（馬名別）
+    print("--- Google News RSS ---", flush=True)
+    for name in horse_names:
+        days = 90 if name in HORSES_2627 else 30
         items = fetch_news_for_horse(name, days=days)
         if items:
             print(f"  {name}: {len(items)}件", flush=True)
             all_news.extend(items)
-        else:
-            print(f"  {name}: 0件", flush=True)
+
+    # ② 専門メディアRSS直接購読
+    print("\n--- 専門メディアRSS ---", flush=True)
+    media_items = fetch_media_rss(set(horse_names), days=90)
+    all_news.extend(media_items)
 
     # 日付降順ソート・重複除去（同タイトル）
     seen_titles = set()
