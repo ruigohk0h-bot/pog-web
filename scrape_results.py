@@ -219,16 +219,16 @@ def main():
             import time as _time
             with sync_playwright() as p:
                 browser = p.chromium.launch(headless=True)
+                page = browser.new_page()
                 for name in missing:
                     try:
-                        page = browser.new_page()
+                        # 毎回検索ページに戻る（同一ページを使い回す）
                         page.goto("https://db.netkeiba.com/horse/search/", timeout=30000, wait_until="load")
-                        _time.sleep(1)
+                        page.wait_for_selector("input[name=word]", timeout=10000)
                         page.fill("input[name=word]", name)
                         page.click("input[name=submit]")
-                        _time.sleep(2)
+                        _time.sleep(3)
                         content = page.content()
-                        page.close()
                         soup = BeautifulSoup(content, "lxml")
                         found = None
                         # 完全一致優先
@@ -248,6 +248,7 @@ def main():
                     except Exception as e:
                         print(f"  ✗ {name}: {e}", flush=True)
                         cache[name] = None
+                page.close()
                 browser.close()
         except Exception as e:
             print(f"  Playwright エラー: {e}", flush=True)
