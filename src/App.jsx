@@ -512,8 +512,20 @@ const SEASON_AWARDS = [
 // age: "2歳"|"3歳"|"3歳牝"|"3歳以上"|"3歳以上牝"
 // ================================================================
 const RACE_CALENDAR_2526 = [
+  // ── 2025年6月 ── 東京・阪神で2歳新馬戦解禁（シーズン開幕）──────────────
+  { date:"2025/06/07", name:"2歳新馬戦", grade:"新馬", venue:"東京", dist:null, dists:"ダ1400・1600・1800m", age:"2歳", exchange:false, type:"meeting", winner:"", note:"2歳新馬戦シーズン開幕（東京・阪神）" },
+  { date:"2025/06/07", name:"2歳新馬戦", grade:"新馬", venue:"阪神", dist:null, dists:"ダ1200・1400・1800m", age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/06/14", name:"2歳新馬戦", grade:"新馬", venue:"東京", dist:null, dists:"ダ1400・1600・1800m", age:"2歳", exchange:false, type:"meeting", winner:"", note:"福島も開幕" },
+  { date:"2025/06/14", name:"2歳新馬戦", grade:"新馬", venue:"阪神", dist:null, dists:"ダ1200・1400・1800m", age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/06/14", name:"2歳新馬戦", grade:"新馬", venue:"福島", dist:null, dists:"ダ1150m", age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/06/21", name:"2歳新馬戦", grade:"新馬", venue:"東京", dist:null, dists:"ダ1400・1600・1800m", age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/06/21", name:"2歳新馬戦", grade:"新馬", venue:"阪神", dist:null, dists:"ダ1200・1400・1800m", age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/06/21", name:"2歳新馬戦", grade:"新馬", venue:"福島", dist:null, dists:"ダ1150m", age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/06/28", name:"2歳新馬戦", grade:"新馬", venue:"東京", dist:null, dists:"ダ1400・1600・1800m", age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/06/28", name:"2歳新馬戦", grade:"新馬", venue:"阪神", dist:null, dists:"ダ1200・1400・1800m", age:"2歳", exchange:false, type:"meeting", winner:"" },
+  { date:"2025/06/28", name:"2歳新馬戦", grade:"新馬", venue:"福島", dist:null, dists:"ダ1150m", age:"2歳", exchange:false, type:"meeting", winner:"" },
   // ── 2025年7月 ── 函館・小倉で2歳ダート新馬解禁 ──────────────
-  { date:"2025/07/05", name:"2歳新馬戦", grade:"新馬", venue:"函館", dist:null, dists:"ダ1000m", age:"2歳", exchange:false, type:"meeting", winner:"", note:"今シーズン初の2歳ダート新馬戦" },
+  { date:"2025/07/05", name:"2歳新馬戦", grade:"新馬", venue:"函館", dist:null, dists:"ダ1000m", age:"2歳", exchange:false, type:"meeting", winner:"", note:"函館・小倉開幕" },
   { date:"2025/07/05", name:"2歳新馬戦", grade:"新馬", venue:"小倉", dist:null, dists:"ダ1000・1700m", age:"2歳", exchange:false, type:"meeting", winner:"" },
   { date:"2025/07/12", name:"2歳新馬戦", grade:"新馬", venue:"函館", dist:null, dists:"ダ1000m", age:"2歳", exchange:false, type:"meeting", winner:"" },
   { date:"2025/07/12", name:"2歳新馬戦", grade:"新馬", venue:"小倉", dist:null, dists:"ダ1000・1700m", age:"2歳", exchange:false, type:"meeting", winner:"" },
