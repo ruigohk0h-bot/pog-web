@@ -511,7 +511,7 @@ const SEASON_AWARDS = [
 // exchange: 交流重賞フラグ
 // age: "2歳"|"3歳"|"3歳牝"|"3歳以上"|"3歳以上牝"
 // ================================================================
-const RACE_CALENDAR = [
+const RACE_CALENDAR_2526 = [
   // ── 2025年7月 ── 函館・小倉で2歳ダート新馬解禁 ──────────────
   { date:"2025/07/05", name:"2歳新馬戦", grade:"新馬", venue:"函館", dist:null, dists:"ダ1000m", age:"2歳", exchange:false, type:"meeting", winner:"", note:"今シーズン初の2歳ダート新馬戦" },
   { date:"2025/07/05", name:"2歳新馬戦", grade:"新馬", venue:"小倉", dist:null, dists:"ダ1000・1700m", age:"2歳", exchange:false, type:"meeting", winner:"" },
@@ -652,6 +652,14 @@ const RACE_CALENDAR = [
   { date:"2026/06/06", name:"3歳ダート1勝クラス", grade:"1勝", venue:"東京・阪神・中京", dist:null, age:"3歳", exchange:false, type:"meeting", winner:"", note:"東京ダービー週前・未勝利馬の最後の機会" },
   { date:"2026/06/11", name:"東京ダービー 🏆", grade:"JpnI", venue:"大井", dist:2000, age:"3歳", exchange:true, type:"race", winner:"", goal:true },
 ];
+
+// 2026-27シーズン用カレンダー（日付を1年ずらして自動生成）
+// ※ 開催日は例年のスケジュール基準の目安です。公式発表で変わる場合があります
+const RACE_CALENDAR_2627 = RACE_CALENDAR_2526.map(r => ({
+  ...r,
+  date: `${parseInt(r.date.slice(0, 4)) + 1}${r.date.slice(4)}`,
+  winner: "",  // 未来のレースはリセット
+}));
 
 // ================================================================
 // ユーティリティ
@@ -1554,8 +1562,10 @@ function CalendarScreen({ pogHorses = new Set() }) {
     const d = new Date();
     return `${d.getFullYear()}/${String(d.getMonth()+1).padStart(2,"0")}/${String(d.getDate()).padStart(2,"0")}`;
   })();
+  const [season, setSeason] = useState("2627");
   const [filters, setFilters] = useState(new Set());
   const [hideShinma, setHideShinma] = useState(false);
+  const BASE_CALENDAR = season === "2526" ? RACE_CALENDAR_2526 : RACE_CALENDAR_2627;
 
   const toggleFilter = (key) => {
     setFilters(prev => {
@@ -1577,7 +1587,7 @@ function CalendarScreen({ pogHorses = new Set() }) {
   const gradeWeight = (g) =>
     ["JpnI","GⅠ","JpnII","GⅡ","JpnIII","GⅢ","L","OP","1勝"].includes(g) ? "race" : "cond";
 
-  const filtered = RACE_CALENDAR.filter(r => {
+  const filtered = BASE_CALENDAR.filter(r => {
     if (hideShinma && r.grade === "新馬") return false;
     if (filters.size === 0) return true;
     // 複数フィルターは OR 条件
@@ -1606,8 +1616,28 @@ function CalendarScreen({ pogHorses = new Set() }) {
 
   return (
     <div style={{ background:"#eef2f0", minHeight:"100%" }}>
+      {/* シーズン切り替え */}
+      <div style={{ display:"flex", gap:0, padding:"10px 12px 0" }}>
+        {[
+          { key:"2526", label:"2025-26" },
+          { key:"2627", label:"2026-27" },
+        ].map((s, i) => (
+          <button key={s.key} onClick={() => { setSeason(s.key); setFilters(new Set()); }} style={{
+            flex:1, padding:"7px 0", cursor:"pointer", fontWeight:800, fontSize:12,
+            background: season===s.key ? G.dirtDark : "#ddd",
+            color: season===s.key ? "#fff" : "#888",
+            border:"none",
+            borderRadius: i===0 ? "8px 0 0 8px" : "0 8px 8px 0",
+          }}>{s.label} シーズン</button>
+        ))}
+      </div>
+      {season === "2627" && (
+        <div style={{ fontSize:10, color:"#bbb", padding:"4px 14px", textAlign:"right" }}>
+          ※ 2026-27の日程は例年スケジュール基準の目安です
+        </div>
+      )}
       {/* フィルター */}
-      <div style={{ display:"flex", gap:5, padding:"12px 12px 0", flexWrap:"wrap", alignItems:"center" }}>
+      <div style={{ display:"flex", gap:5, padding:"8px 12px 0", flexWrap:"wrap", alignItems:"center" }}>
         {[
           { key:"race",     label:"🏆 重賞・OP" },
           { key:"exchange", label:"🤝 交流" },
