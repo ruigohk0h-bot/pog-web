@@ -591,43 +591,105 @@ function ResultCard({ r, showPlayer=true }) {
 // タブ1: ランキング
 // ================================================================
 
-function RankingScreen({ onSelectPlayer }) {
+function RankingScreen({ onSelectPlayer, updated }) {
   const sorted = [...CURRENT_SEASON.users].sort((a,b) => b.pt - a.pt);
   const max = sorted[0].pt;
+  const topPt = sorted[0].pt;
+
+  const handleShare = async () => {
+    const text = sorted.map((u, i) => {
+      const player = PLAYERS.find(p => p.id === u.id);
+      const medal = ["🥇","🥈","🥉"][i] ?? `${i+1}位`;
+      return `${medal} ${player?.name} ${fmt(u.pt)}pt`;
+    }).join("\n");
+    const shareText = `🐴 POG砂遊び 2025-26 現在のランキング\n\n${text}\n\n${window.location.href}`;
+    if (navigator.share) {
+      try { await navigator.share({ text: shareText }); } catch {}
+    } else {
+      await navigator.clipboard.writeText(shareText);
+      alert("ランキングをコピーしました！");
+    }
+  };
+
   return (
     <div style={{ padding:12 }}>
+      {/* 期間・更新バー */}
       <div style={{
         background:"#fff", borderRadius:12, padding:"10px 14px",
-        marginBottom:12, fontSize:12, color:"#555", border:"1px solid #e4e9e6",
+        marginBottom:12, border:"1px solid #e4e9e6",
+        display:"flex", alignItems:"center", justifyContent:"space-between",
       }}>
-        🏁 {CURRENT_SEASON.period} ／ {sorted.length}名参加
+        <div style={{ fontSize:12, color:"#555" }}>
+          🏁 {CURRENT_SEASON.period} ／ {sorted.length}名参加
+        </div>
+        <div style={{ display:"flex", alignItems:"center", gap:10 }}>
+          {updated && (
+            <div style={{ fontSize:10, color:"#bbb" }}>🔄 {updated}</div>
+          )}
+          <button onClick={handleShare} style={{
+            background:G.green, color:"#fff", border:"none",
+            borderRadius:16, padding:"4px 12px", fontSize:11,
+            fontWeight:700, cursor:"pointer",
+          }}>シェア</button>
+        </div>
       </div>
+
       {sorted.map((u, i) => {
+        const isTop = i === 0;
+        const ptGap = topPt - u.pt;
         const medal = ["🥇","🥈","🥉"][i];
         const player = PLAYERS.find(p => p.id === u.id);
+
+        const cardStyle = isTop ? {
+          background:"linear-gradient(135deg, #fffbe6 0%, #fff3b0 60%, #ffe066 100%)",
+          border:"2px solid #c9a227",
+          boxShadow:"0 4px 16px rgba(201,162,39,0.25)",
+        } : {
+          background:"#fff",
+          border:"1px solid #e4e9e6",
+          boxShadow:"0 1px 3px rgba(0,0,0,0.05)",
+        };
+
         return (
           <button key={u.id} onClick={() => onSelectPlayer(u)}
             style={{
-              width:"100%", textAlign:"left", background:"#fff",
-              border:"1px solid #e4e9e6", borderRadius:12,
+              width:"100%", textAlign:"left", borderRadius:12,
               padding:"12px 14px", marginBottom:10, cursor:"pointer",
               display:"flex", alignItems:"center", gap:12,
-              boxShadow:"0 1px 3px rgba(0,0,0,0.05)",
+              ...cardStyle,
             }}>
-            <div style={{ width:34, textAlign:"center", fontSize: i<3?22:16, fontWeight:800, color: i<3?"inherit":"#888" }}>
-              {medal ?? `${i+1}`}
+            {/* 順位 */}
+            <div style={{ width:36, textAlign:"center", flexShrink:0 }}>
+              {isTop ? (
+                <div style={{ fontSize:28, lineHeight:1 }}>👑</div>
+              ) : (
+                <div style={{ fontSize: i<3?22:16, fontWeight:800, color: i<3?"inherit":"#888" }}>
+                  {medal ?? `${i+1}`}
+                </div>
+              )}
             </div>
+            {/* 名前・バー */}
             <div style={{ flex:1, minWidth:0 }}>
-              <div style={{ fontWeight:700, fontSize:15, marginBottom:5 }}>
+              <div style={{ fontWeight:700, fontSize: isTop?16:15, marginBottom:5 }}>
                 {player?.emoji} {player?.name}
               </div>
               <div style={{ height:6, background:"#eef2f0", borderRadius:3, overflow:"hidden" }}>
-                <div style={{ width:`${(u.pt/max)*100}%`, height:"100%", background:G.green }} />
+                <div style={{
+                  width:`${(u.pt/max)*100}%`, height:"100%",
+                  background: isTop ? "linear-gradient(90deg, #c9a227, #f5d060)" : G.green,
+                }} />
               </div>
+              {/* ポイント差 */}
+              {!isTop && (
+                <div style={{ fontSize:10, color:"#aaa", marginTop:3 }}>
+                  1位まで <span style={{ fontWeight:700, color:"#888" }}>▲{fmt(ptGap)}</span> pt
+                </div>
+              )}
             </div>
-            <div style={{ textAlign:"right" }}>
-              <div style={{ fontWeight:800, fontSize:17 }}>{fmt(u.pt)}</div>
-              <div style={{ fontSize:11, color:"#999" }}>pt</div>
+            {/* pt */}
+            <div style={{ textAlign:"right", flexShrink:0 }}>
+              <div style={{ fontWeight:800, fontSize: isTop?19:17, color: isTop?G.dirtDark:"#222" }}>{fmt(u.pt)}</div>
+              <div style={{ fontSize:11, color: isTop?"#b8841e":"#999" }}>pt</div>
               {u.diff>0 && <div style={{ fontSize:11, color:"#d33", fontWeight:700 }}>+{fmt(u.diff)}</div>}
             </div>
           </button>
@@ -901,8 +963,7 @@ function ResultsScreen({ results, upcoming, loaded, news }) {
 // タブ3: 殿堂DB
 // ================================================================
 
-function RankGraph({ playerId }) {
-  const W = 88, H = 36, PAD = 6;
+function RankGraphSvg({ playerId, W, H, PAD, bg }) {
   const maxRank = 7;
   const seasons = SEASONS_ALL.filter(s => !s.period.endsWith("〜")).map(s => {
     const r = s.results.find(r => r.player===playerId);
@@ -924,24 +985,20 @@ function RankGraph({ playerId }) {
 
   return (
     <svg width={W} height={H} style={{ display:"block", overflow:"visible" }}>
-      {/* 上部ガイドライン（1位） */}
       <line x1={PAD} y1={yFor(1)} x2={W-PAD} y2={yFor(1)} stroke="#ffffff18" strokeWidth={1} strokeDasharray="3,3"/>
-      {/* ライン */}
       {pts.length > 1 && (
         <polyline points={polyline} fill="none" stroke={G.dirtLight} strokeWidth={1.5} strokeOpacity={0.6}/>
       )}
-      {/* ドット */}
       {pts.map((p,i) => (
         <g key={i}>
-          <circle cx={p.x} cy={p.y} r={5} fill={rankColor(p.rank)} stroke={G.hallBg} strokeWidth={1.5}/>
-          <text x={p.x} y={p.y-8} textAnchor="middle" fontSize={9} fill={rankColor(p.rank)} fontWeight="800">
+          <circle cx={p.x} cy={p.y} r={W>200?9:5} fill={rankColor(p.rank)} stroke={bg||G.hallBg} strokeWidth={1.5}/>
+          <text x={p.x} y={p.y-(W>200?14:8)} textAnchor="middle" fontSize={W>200?13:9} fill={rankColor(p.rank)} fontWeight="800">
             {p.rank===1?"🥇":p.rank===2?"🥈":p.rank===3?"🥉":`${p.rank}位`}
           </text>
         </g>
       ))}
-      {/* 年ラベル */}
       {pts.map((p,i) => (
-        <text key={`l${i}`} x={p.x} y={H+2} textAnchor="middle" fontSize={8} fill={G.hallDim}>
+        <text key={`l${i}`} x={p.x} y={H+(W>200?4:2)} textAnchor="middle" fontSize={W>200?12:8} fill={G.hallDim}>
           {seasons[i].label.replace("2022-23","22").replace("2023-24","23").replace("2024-25","24").replace("2025-26","25↑")}
         </text>
       ))}
@@ -949,7 +1006,48 @@ function RankGraph({ playerId }) {
   );
 }
 
+function RankGraph({ playerId, playerName: pname, onTap }) {
+  const W = 88, H = 36, PAD = 6;
+  const seasons = SEASONS_ALL.filter(s => !s.period.endsWith("〜")).map(s => {
+    const r = s.results.find(r => r.player===playerId);
+    return r ? r : null;
+  }).filter(Boolean);
+  if (seasons.length === 0) return null;
+
+  return (
+    <div onClick={e => { e.stopPropagation(); onTap && onTap(); }} style={{ cursor:"pointer" }}>
+      <RankGraphSvg playerId={playerId} W={W} H={H} PAD={PAD} />
+    </div>
+  );
+}
+
+function RankGraphModal({ playerId, playerName: pname, onClose }) {
+  const W = 300, H = 130, PAD = 20;
+  return (
+    <div onClick={onClose} style={{
+      position:"fixed", inset:0, background:"rgba(0,0,0,0.7)", zIndex:100,
+      display:"flex", alignItems:"center", justifyContent:"center",
+    }}>
+      <div onClick={e => e.stopPropagation()} style={{
+        background:G.hallCard, border:`1px solid ${G.hallBorder}`,
+        borderRadius:16, padding:"20px 20px 32px", minWidth:340,
+      }}>
+        <div style={{ fontSize:13, fontWeight:800, color:G.dirtLight, marginBottom:16 }}>
+          📈 {pname} 順位推移
+        </div>
+        <RankGraphSvg playerId={playerId} W={W} H={H} PAD={PAD} bg={G.hallCard} />
+        <button onClick={onClose} style={{
+          marginTop:20, width:"100%", padding:"10px 0", borderRadius:10,
+          background:G.dirt, border:"none", color:"#fff",
+          fontSize:13, fontWeight:700, cursor:"pointer",
+        }}>閉じる</button>
+      </div>
+    </div>
+  );
+}
+
 function HallScreen({ onSelectHallPlayer }) {
+  const [graphModal, setGraphModal] = useState(null); // { playerId, playerName }
   const stats = PLAYERS.map(p => {
     const mySeasons = SEASONS_ALL.filter(s => s.results.find(r => r.player===p.id));
     const wins = mySeasons.filter(s => s.period.includes("〜") && !s.period.endsWith("〜") && s.results.find(r => r.player===p.id)?.rank===1);
@@ -994,10 +1092,20 @@ function HallScreen({ onSelectHallPlayer }) {
           </div>
           {/* 順位グラフ */}
           <div style={{ flexShrink:0, paddingBottom:12 }}>
-            <RankGraph playerId={p.id} />
+            <RankGraph playerId={p.id} playerName={p.name}
+              onTap={() => setGraphModal({ playerId:p.id, playerName:p.name })} />
           </div>
         </button>
       ))}
+
+      {/* グラフ拡大モーダル */}
+      {graphModal && (
+        <RankGraphModal
+          playerId={graphModal.playerId}
+          playerName={graphModal.playerName}
+          onClose={() => setGraphModal(null)}
+        />
+      )}
 
       {/* ===== シーズン表彰 ===== */}
       <div style={{ marginTop:20 }}>
@@ -1340,12 +1448,14 @@ export default function App() {
   const [resultsLoaded, setResultsLoaded] = useState(false);
   const [kettonums, setKettonums] = useState({});
   const [news, setNews] = useState([]);
+  const [updated, setUpdated] = useState("");
 
   useEffect(() => {
     fetch("/data/results.json").then(r => r.json()).then(d => { setResults(d); setResultsLoaded(true); }).catch(() => setResultsLoaded(true));
     fetch("/data/upcoming.json").then(r => r.json()).then(setUpcoming).catch(() => {});
     fetch("/data/kettonums.json").then(r => r.json()).then(setKettonums).catch(() => {});
     fetch("/data/news.json").then(r => r.json()).then(setNews).catch(() => {});
+    fetch("/data/updated.json").then(r => r.json()).then(d => setUpdated(d.updated || "")).catch(() => {});
   }, []);
 
   const switchTab = (t) => {
@@ -1369,7 +1479,7 @@ export default function App() {
       content = <PlayerDetailScreen userId={selectedPlayerId} onBack={()=>setSPId(null)}
                   onSelectHorse={h => { setSHorse(h); }} kettonums={kettonums} />;
     } else {
-      content = <RankingScreen onSelectPlayer={u => setSPId(u.id)} />;
+      content = <RankingScreen onSelectPlayer={u => setSPId(u.id)} updated={updated} />;
     }
   } else if (tab === "results") {
     title = "最新結果";

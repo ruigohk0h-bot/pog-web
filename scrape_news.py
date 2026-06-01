@@ -127,5 +127,16 @@ def main():
     print(f"  → public/data/news.json", flush=True)
 
 
+def write_updated_json():
+    """更新日時をpublic/data/updated.jsonに書き込む"""
+    from datetime import timezone
+    jst = datetime.now(timezone(timedelta(hours=9)))
+    ts = jst.strftime("%Y/%m/%d %H:%M")
+    out = os.path.join(os.path.dirname(__file__), "public", "data", "updated.json")
+    with open(out, "w", encoding="utf-8") as f:
+        json.dump({"updated": ts}, f, ensure_ascii=False)
+    print(f"  → updated.json ({ts})", flush=True)
+
 if __name__ == "__main__":
     main()
+    write_updated_json()

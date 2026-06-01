@@ -1,0 +1,24 @@
+{
+  "name": "POG砂遊び",
+  "short_name": "砂遊び",
+  "description": "ダート馬専門POGリーグ 砂遊び",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a7a5c",
+  "theme_color": "#0a7a5c",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
