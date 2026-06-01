@@ -1633,7 +1633,7 @@ function CalendarScreen({ pogHorses = new Set() }) {
       </div>
       {season === "2627" && (
         <div style={{ fontSize:10, color:"#bbb", padding:"4px 14px", textAlign:"right" }}>
-          ※ 〜2026/12はJRA公式発表準拠、2027/1以降は例年スケジュール基準の目安
+          ※ 2026-27の日程は例年スケジュール基準の目安です。正確な日程はJRA公式サイトをご確認ください
         </div>
       )}
       {/* フィルター */}
