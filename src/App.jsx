@@ -621,19 +621,15 @@ const RACE_CALENDAR = [
   // ── 2026年3月 ─────────────────────────────────────────────
   { date:"2026/03/04", name:"伏竜S", grade:"L", venue:"中山", dist:1800, age:"3歳", exchange:false, type:"race", winner:"" },
   { date:"2026/03/07", name:"3歳ダート1勝クラス", grade:"1勝", venue:"中山・阪神・中京", dist:null, age:"3歳", exchange:false, type:"meeting", winner:"" },
-  { date:"2026/03/11", name:"エンプレス杯", grade:"JpnII", venue:"川崎", dist:2100, age:"3歳以上牝", exchange:true, type:"race", winner:"" },
   { date:"2026/03/14", name:"バイオレットS", grade:"OP", venue:"阪神", dist:1400, age:"3歳", exchange:false, type:"race", winner:"" },
   { date:"2026/03/14", name:"3歳ダート1勝クラス", grade:"1勝", venue:"中山・阪神・中京", dist:null, age:"3歳", exchange:false, type:"meeting", winner:"" },
-  { date:"2026/03/18", name:"ダイオライト記念", grade:"JpnII", venue:"船橋", dist:2400, age:"3歳以上", exchange:true, type:"race", winner:"" },
   { date:"2026/03/21", name:"3歳ダート1勝クラス", grade:"1勝", venue:"中山・阪神・中京", dist:null, age:"3歳", exchange:false, type:"meeting", winner:"" },
   { date:"2026/03/25", name:"京浜盃", grade:"JpnII", venue:"大井", dist:1800, age:"3歳", exchange:true, type:"race", winner:"" },
   { date:"2026/03/28", name:"昇竜S", grade:"L", venue:"中京", dist:1400, age:"3歳", exchange:false, type:"race", winner:"" },
-  { date:"2026/03/28", name:"黒船賞", grade:"JpnIII", venue:"高知", dist:1400, age:"3歳以上", exchange:true, type:"race", winner:"" },
   { date:"2026/03/28", name:"3歳ダート1勝クラス", grade:"1勝", venue:"中山・阪神", dist:null, age:"3歳", exchange:false, type:"meeting", winner:"" },
 
   // ── 2026年4月 ── 東京・京都・阪神 春競馬 ────────────────────
   { date:"2026/04/04", name:"3歳ダート1勝クラス", grade:"1勝", venue:"東京・京都・阪神", dist:null, age:"3歳", exchange:false, type:"meeting", winner:"", note:"東京・京都春開催スタート" },
-  { date:"2026/04/08", name:"かきつばた記念", grade:"JpnIII", venue:"笠松", dist:1400, age:"3歳以上", exchange:true, type:"race", winner:"" },
   { date:"2026/04/11", name:"3歳ダート1勝クラス", grade:"1勝", venue:"東京・京都・阪神", dist:null, age:"3歳", exchange:false, type:"meeting", winner:"" },
   { date:"2026/04/15", name:"東京プリンセス賞", grade:"JpnII", venue:"大井", dist:1800, age:"3歳牝", exchange:true, type:"race", winner:"" },
   { date:"2026/04/18", name:"3歳ダート1勝クラス", grade:"1勝", venue:"東京・京都", dist:null, age:"3歳", exchange:false, type:"meeting", winner:"" },
@@ -646,7 +642,6 @@ const RACE_CALENDAR = [
   { date:"2026/05/03", name:"ユニコーンS", grade:"GⅢ", venue:"京都", dist:1900, age:"3歳", exchange:false, type:"race", winner:"", note:"2025年より京都移設・ダ1900m" },
   { date:"2026/05/06", name:"兵庫チャンピオンシップ", grade:"JpnII", venue:"園田", dist:1870, age:"3歳", exchange:true, type:"race", winner:"" },
   { date:"2026/05/09", name:"3歳ダート1勝クラス", grade:"1勝", venue:"東京・京都", dist:null, age:"3歳", exchange:false, type:"meeting", winner:"" },
-  { date:"2026/05/10", name:"かしわ記念", grade:"JpnI", venue:"船橋", dist:1600, age:"3歳以上", exchange:true, type:"race", winner:"" },
   { date:"2026/05/16", name:"青竜S", grade:"OP", venue:"東京", dist:1600, age:"3歳", exchange:false, type:"race", winner:"" },
   { date:"2026/05/16", name:"端午S", grade:"OP", venue:"京都", dist:1400, age:"3歳", exchange:false, type:"race", winner:"" },
   { date:"2026/05/23", name:"3歳ダート1勝クラス", grade:"1勝", venue:"東京・京都", dist:null, age:"3歳", exchange:false, type:"meeting", winner:"" },
@@ -1560,6 +1555,7 @@ function CalendarScreen({ pogHorses = new Set() }) {
     return `${d.getFullYear()}/${String(d.getMonth()+1).padStart(2,"0")}/${String(d.getDate()).padStart(2,"0")}`;
   })();
   const [filter, setFilter] = useState("all");
+  const [hideShinma, setHideShinma] = useState(false);
 
   const gradeColor = (g) =>
     g==="JpnI"||g==="GⅠ"  ? G.gi  :
@@ -1574,6 +1570,7 @@ function CalendarScreen({ pogHorses = new Set() }) {
     ["JpnI","GⅠ","JpnII","GⅡ","JpnIII","GⅢ","L","OP","1勝"].includes(g) ? "race" : "cond";
 
   const filtered = RACE_CALENDAR.filter(r => {
+    if (hideShinma && r.grade === "新馬") return false;
     if (filter === "age2")     return r.age.includes("2歳");
     if (filter === "age3")     return r.age.includes("3歳");
     if (filter === "exchange") return r.exchange;
@@ -1616,6 +1613,13 @@ function CalendarScreen({ pogHorses = new Set() }) {
             fontSize:11, fontWeight:700,
           }}>{f.label}</button>
         ))}
+        <button onClick={() => setHideShinma(h => !h)} style={{
+          padding:"5px 12px", borderRadius:16, cursor:"pointer",
+          background: hideShinma ? "#555" : "#fff",
+          color: hideShinma ? "#fff" : "#888",
+          border: `1px solid ${hideShinma ? "#555" : "#ddd"}`,
+          fontSize:11, fontWeight:700, marginLeft:"auto",
+        }}>{hideShinma ? "新馬戦: 非表示" : "新馬戦: 表示中"}</button>
       </div>
 
       <div style={{ padding:"10px 12px 24px" }}>
