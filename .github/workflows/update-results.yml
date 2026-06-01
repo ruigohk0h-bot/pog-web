@@ -23,10 +23,7 @@ jobs:
           python-version: '3.11'
 
       - name: ライブラリインストール
-        run: pip install requests beautifulsoup4 lxml playwright
-
-      - name: Playwright ブラウザインストール
-        run: playwright install chromium --with-deps
+        run: pip install requests beautifulsoup4 lxml
 
       - name: スクレイピング実行
         run: python scrape_results.py
@@ -35,7 +32,7 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add public/data/results.json public/data/upcoming.json public/data/kettonums.json kettonum_cache.json
+          git add public/data/results.json public/data/upcoming.json public/data/kettonums.json public/data/news.json public/data/updated.json kettonum_cache.json
           git diff --staged --quiet || git commit -m "自動更新: 最新レース結果 $(date '+%Y/%m/%d %H:%M')"
           git pull --rebase origin main
           git push

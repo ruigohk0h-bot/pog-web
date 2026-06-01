@@ -39,6 +39,35 @@ HORSES_2627 = {
 # ----------------------------------------------------------------
 # 専門メディアRSSフィード一覧（案B）
 # ----------------------------------------------------------------
+# ----------------------------------------------------------------
+# 低品質記事の除外ルール
+# ----------------------------------------------------------------
+# 除外するソース（馬名データベース系・中身なし）
+EXCLUDE_SOURCES = {"UMATOKU", "馬トク", "競馬ラボ", "競走馬データベース"}
+# タイトルに含まれていたら除外するキーワード
+EXCLUDE_TITLE_KEYWORDS = ["競走馬データベース", "血統表", "競走馬情報", "馬データベース"]
+
+def is_low_quality(title, desc, source, horse_name):
+    """中身のない記事を除外するフィルター"""
+    # 除外ソース
+    for ex in EXCLUDE_SOURCES:
+        if ex in source:
+            return True
+    # タイトルNGワード
+    for kw in EXCLUDE_TITLE_KEYWORDS:
+        if kw in title:
+            return True
+    # タイトルが馬名だけ（＝データベースの馬ページ）
+    if title.strip() == horse_name:
+        return True
+    # 「馬名 (英語表記)」パターン（＝netkeibaのデータベース馬ページ）
+    if re.match(r'^' + re.escape(horse_name) + r'\s*\([A-Za-z\s]+\)\s*$', title):
+        return True
+    # 本文なしかつタイトルが極端に短い（15文字未満）
+    if not desc and len(title) < 15:
+        return True
+    return False
+
 MEDIA_RSS_FEEDS = [
     { "url": "https://rss.netkeiba.com/?pid=rss_netkeiba&site=netkeiba", "source": "netkeiba" },
     { "url": "https://uma-furusato.com/st/rss/horse_news.xml",           "source": "うまふる"  },
@@ -88,6 +117,8 @@ def parse_rss_items(content, source_name, horse_names_set, days):
         # どの指名馬の記事か判定
         for horse_name in horse_names_set:
             if horse_name in full_text:
+                if is_low_quality(title, desc, source_name, horse_name):
+                    break
                 results.append({
                     "horse":  horse_name,
                     "player": HORSE_PLAYER.get(horse_name, ""),
@@ -183,6 +214,8 @@ def fetch_news_for_horse(horse_name, days=30):
             full_text = title + " " + desc
             if horse_name not in full_text:
                 continue
+            if is_low_quality(title, desc, source, horse_name):
+                continue
 
             seen_in_horse.add(title)
             results.append({
@@ -222,12 +255,21 @@ def main():
     media_items = fetch_media_rss(set(horse_names), days=90)
     all_news.extend(media_items)
 
-    # 日付降順ソート・重複除去（同タイトル）
+    def normalize_title(title):
+        """タイトル末尾のサイト名・セクション名を除去して正規化（重複チェック用）"""
+        # Step1: 末尾の「| ～」を除去（例: "| 競馬写真ニュース"）
+        t = re.sub(r'\s*\|.*$', '', title)
+        # Step2: 末尾の「- サイト名/セクション名」を除去
+        t = re.sub(r'\s*[-–—]\s*(netkeiba|SPAIA|サンスポ|デイリー|日刊スポーツ|競馬ニュース|競馬|うまふる|２歳馬特集|競馬写真|スポーツ報知|馬三郎)[^\s／]*.*$', '', t, flags=re.IGNORECASE)
+        return t.strip()
+
+    # 日付降順ソート・重複除去（正規化タイトルで比較）
     seen_titles = set()
     unique_news = []
     for n in sorted(all_news, key=lambda x: x["_ts"], reverse=True):
-        if n["title"] not in seen_titles:
-            seen_titles.add(n["title"])
+        key = normalize_title(n["title"])
+        if key not in seen_titles:
+            seen_titles.add(key)
             del n["_ts"]
             unique_news.append(n)
 

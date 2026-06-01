@@ -94,30 +94,26 @@ def save_cache(cache):
     with open(CACHE_FILE, "w", encoding="utf-8") as f:
         json.dump(cache, f, ensure_ascii=False, indent=2)
 
-def get_kettonum_browser(name):
-    """Playwright でフォーム検索して kettonum を取得"""
-    from playwright.sync_api import sync_playwright
-    import time as _time
-    with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True)
-        page = browser.new_page()
-        page.goto("https://db.netkeiba.com/horse/search/", timeout=30000, wait_until="load")
-        _time.sleep(2)
-        page.fill("input[name=word]", name)
-        page.click("input[name=submit]")
-        _time.sleep(3)
-        content = page.content()
-        browser.close()
-    soup = BeautifulSoup(content, "lxml")
-    for a in soup.find_all("a", href=re.compile(r"/horse/202[0-3]\d+")):
-        m = re.search(r"/horse/(202[0-3]\d+)", a["href"])
-        if m and a.get_text(strip=True) == name:
-            return m.group(1)
-    # 完全一致がなければ先頭
-    for a in soup.find_all("a", href=re.compile(r"/horse/202[0-3]\d+")):
-        m = re.search(r"/horse/(202[0-3]\d+)", a["href"])
-        if m:
-            return m.group(1)
+def get_kettonum_by_url(name):
+    """requests でURL直打ち検索して kettonum を取得（Playwright不要）"""
+    encoded = urllib.parse.quote(name)
+    url = f"https://db.netkeiba.com/horse/search/?word={encoded}&pid=horse_list"
+    try:
+        resp = requests.get(url, headers=HEADERS, timeout=20)
+        resp.raise_for_status()
+        soup = BeautifulSoup(resp.content, "lxml")
+        # 完全一致を優先
+        for a in soup.find_all("a", href=re.compile(r"/horse/202[0-4]\d+")):
+            m = re.search(r"/horse/(202[0-4]\d+)", a["href"])
+            if m and a.get_text(strip=True) == name:
+                return m.group(1)
+        # 完全一致がなければ先頭ヒット
+        for a in soup.find_all("a", href=re.compile(r"/horse/202[0-4]\d+")):
+            m = re.search(r"/horse/(202[0-4]\d+)", a["href"])
+            if m:
+                return m.group(1)
+    except Exception as e:
+        raise e
     return None
 
 def get_kettonum(name, cache):
@@ -125,13 +121,13 @@ def get_kettonum(name, cache):
     if name in cache and cache[name] is not None:
         return cache[name]
     try:
-        result = get_kettonum_browser(name)
+        result = get_kettonum_by_url(name)
         if result:
             cache[name] = result
-            print(f"  OK{name}: {result}", flush=True)
+            print(f"  OK {name}: {result}", flush=True)
             return result
     except Exception as e:
-        print(f"  NG{name}: エラー {e}", flush=True)
+        print(f"  NG {name}: エラー {e}", flush=True)
     cache[name] = None
     print(f"  -- {name}: not found", flush=True)
     return None
@@ -227,75 +223,35 @@ def main():
 
     cache = load_cache()
 
-    from playwright.sync_api import sync_playwright
-    import time as _time
-
     all_results = []
 
-    with sync_playwright() as p:
-        browser = p.chromium.launch(
-            headless=True,
-            args=["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage"]
-        )
-        ctx = browser.new_context(
-            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
-            viewport={"width": 1280, "height": 800},
-            locale="ja-JP",
-        )
-        page = ctx.new_page()
+    # Step1: kettonum取得（未キャッシュ分のみ）
+    missing = [name for name in HORSE_PLAYER if name not in cache or cache.get(name) is None]
+    if missing:
+        print(f"【Step1】{len(missing)}頭のkettonum取得...", flush=True)
+        for name in missing:
+            get_kettonum(name, cache)
+            time.sleep(0.5)
+        save_cache(cache)
+        print("キャッシュ保存完了\n", flush=True)
+    else:
+        print("【Step1】kettonum取得済み（スキップ）", flush=True)
 
-        # Step1: kettonum取得
-        missing = [name for name in HORSE_PLAYER if name not in cache or cache.get(name) is None]
-        if missing:
-            print(f"【Step1】{len(missing)}頭のkettonum取得...", flush=True)
-            for name in missing:
-                try:
-                    page.goto("https://db.netkeiba.com/horse/search/", timeout=30000, wait_until="load")
-                    page.wait_for_selector("input[name=word]", timeout=20000)
-                    page.fill("input[name=word]", name)
-                    page.click("input[name=submit]")
-                    _time.sleep(3)
-                    content = page.content()
-                    soup = BeautifulSoup(content, "lxml")
-                    found = None
-                    for a in soup.find_all("a", href=re.compile(r"/horse/202[0-3]\d+")):
-                        if a.get_text(strip=True) == name:
-                            found = re.search(r"/horse/(202[0-3]\d+)", a["href"]).group(1)
-                            break
-                    if not found:
-                        a = soup.find("a", href=re.compile(r"/horse/202[0-3]\d+"))
-                        if a:
-                            found = re.search(r"/horse/(202[0-3]\d+)", a["href"]).group(1)
-                    cache[name] = found
-                    if found:
-                        print(f"  OK{name}: {found}", flush=True)
-                    else:
-                        print(f"  -- {name}: not found", flush=True)
-                except Exception as e:
-                    print(f"  NG{name}: {e}", flush=True)
-                    cache[name] = None
-            save_cache(cache)
-            print("キャッシュ保存完了\n", flush=True)
-        else:
-            print("【Step1】kettonum取得済み（スキップ）", flush=True)
-
-        # Step2: 最新レース結果取得（Playwright）
-        targets = [(name, cache[name]) for name in HORSE_PLAYER if cache.get(name)]
-        print(f"【Step2】{len(targets)}頭のレース結果取得...", flush=True)
-        for name, kettonum in targets:
-            try:
-                url = f"https://db.netkeiba.com/horse/{kettonum}/"
-                page.goto(url, timeout=30000, wait_until="load")
-                _time.sleep(2)
-                html = page.content()
-                res = get_results_from_html(html, name, days=60)
-                all_results.extend(res)
+    # Step2: 最新レース結果取得（requests）
+    targets = [(name, cache[name]) for name in HORSE_PLAYER if cache.get(name)]
+    print(f"【Step2】{len(targets)}頭のレース結果取得...", flush=True)
+    for name, kettonum in targets:
+        try:
+            url = f"https://db.netkeiba.com/horse/{kettonum}/"
+            resp = requests.get(url, headers=HEADERS, timeout=20)
+            resp.raise_for_status()
+            res = get_results_from_html(resp.content, name, days=60)
+            all_results.extend(res)
+            if res:
                 print(f"  {name}: {len(res)}件", flush=True)
-            except Exception as e:
-                print(f"  {name}: エラー {e}", flush=True)
-
-        ctx.close()
-        browser.close()
+            time.sleep(0.5)
+        except Exception as e:
+            print(f"  {name}: エラー {e}", flush=True)
 
     # 日付降順ソート
     all_results.sort(key=lambda x: x["_ts"], reverse=True)
