@@ -1335,7 +1335,7 @@ export default function App() {
     title = "最新結果";
     content = <ResultsScreen results={results} upcoming={upcoming} loaded={resultsLoaded} />;
   } else if (tab === "news") {
-    title = "指名馬ニュース";
+    title = "砂遊びニュース";
     content = <NewsScreen news={news} />;
   } else if (tab === "hall") {
     if (selectedHallP) {
