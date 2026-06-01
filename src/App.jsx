@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 // ============================================================
 // POG砂遊び 統合アプリ
@@ -2124,6 +2124,362 @@ function RulesScreen() {
 }
 
 // ================================================================
+// タブ: ミニゲーム
+// ================================================================
+
+function GameScreen() {
+  const [game, setGame] = useState(() => sessionStorage.getItem("pog_game") || "dash");
+  const select = (k) => { setGame(k); sessionStorage.setItem("pog_game", k); };
+  return (
+    <div style={{ padding:12 }}>
+      <div style={{ display:"flex", gap:6, marginBottom:12 }}>
+        {[
+          { key:"dash", label:"🏇 ハードルダッシュ" },
+          { key:"bet",  label:"🎫 架空馬券" },
+        ].map(t => (
+          <button key={t.key} onClick={() => select(t.key)} style={{
+            flex:1, padding:"8px 0", borderRadius:8, cursor:"pointer", fontWeight:700, fontSize:12,
+            background: game===t.key ? G.green : "#fff",
+            color: game===t.key ? "#fff" : "#666",
+            border: `1.5px solid ${game===t.key ? G.green : "#ddd"}`,
+          }}>{t.label}</button>
+        ))}
+      </div>
+      {game === "dash" ? <HurdleDashGame /> : <BettingGame />}
+    </div>
+  );
+}
+
+// ── アクションゲーム：ハードルダッシュ ──────────────────────
+function HurdleDashGame() {
+  const AREA_W = 320, AREA_H = 180, GROUND = 14;
+  const HORSE_X = 34, HORSE_SIZE = 30;
+  const [state, setState] = useState("ready"); // ready / playing / over
+  const [score, setScore] = useState(0);
+  const [hi, setHi] = useState(() => Number(localStorage.getItem("pog_dash_hi") || 0));
+  const g = useRef({ horseY:0, vy:0, obstacles:[], speed:4.2, frame:0, score:0 });
+  const [, forceTick] = useState(0);
+
+  const start = () => {
+    g.current = { horseY:0, vy:0, obstacles:[], speed:4.2, frame:0, score:0 };
+    setScore(0);
+    setState("playing");
+  };
+
+  const tap = () => {
+    if (state === "ready") return start();
+    if (state === "over")  return start();
+    if (g.current.horseY <= 0.5) g.current.vy = 9.4; // ジャンプ
+  };
+
+  useEffect(() => {
+    if (state !== "playing") return;
+    let raf;
+    const GRAVITY = 0.62;
+    const loop = () => {
+      const s = g.current;
+      s.frame++;
+      // 物理：重力＋ジャンプ
+      s.vy -= GRAVITY;
+      s.horseY += s.vy;
+      if (s.horseY < 0) { s.horseY = 0; s.vy = 0; }
+      // 徐々に加速
+      s.speed = 4.2 + s.frame / 700;
+      // 障害物移動
+      for (const o of s.obstacles) o.x -= s.speed;
+      s.obstacles = s.obstacles.filter(o => o.x > -30);
+      // 障害物生成
+      const last = s.obstacles[s.obstacles.length - 1];
+      if (!last || last.x < AREA_W - (150 + Math.random() * 110)) {
+        s.obstacles.push({ x: AREA_W + 20, h: 24 + Math.random() * 18, passed:false });
+      }
+      // 通過スコア
+      for (const o of s.obstacles) {
+        if (!o.passed && o.x + 16 < HORSE_X) { o.passed = true; s.score++; }
+      }
+      // 衝突判定
+      for (const o of s.obstacles) {
+        const hit = o.x < HORSE_X + HORSE_SIZE * 0.55 && o.x + 16 > HORSE_X + HORSE_SIZE * 0.15;
+        if (hit && s.horseY < o.h - 5) {
+          setState("over");
+          setHi(prev => {
+            const nh = Math.max(prev, s.score);
+            localStorage.setItem("pog_dash_hi", String(nh));
+            return nh;
+          });
+          return;
+        }
+      }
+      setScore(s.score);
+      forceTick(t => t + 1);
+      raf = requestAnimationFrame(loop);
+    };
+    raf = requestAnimationFrame(loop);
+    return () => cancelAnimationFrame(raf);
+  }, [state]);
+
+  const s = g.current;
+  return (
+    <div>
+      <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:8, padding:"0 2px" }}>
+        <div style={{ fontSize:13, fontWeight:800, color:G.dirtDark }}>スコア {score}</div>
+        <div style={{ fontSize:12, color:"#999" }}>🏆 ベスト {hi}</div>
+      </div>
+      <div
+        onClick={tap}
+        style={{
+          position:"relative", width:AREA_W, maxWidth:"100%", height:AREA_H,
+          margin:"0 auto", overflow:"hidden", cursor:"pointer",
+          background:"linear-gradient(#cfe9ff 0%, #eaf6ff 60%)",
+          borderRadius:12, border:"1px solid #d8c4a0", userSelect:"none",
+        }}>
+        {/* 地面 */}
+        <div style={{ position:"absolute", left:0, right:0, bottom:0, height:GROUND, background:G.dirtLight, borderTop:`2px solid ${G.dirt}` }} />
+        {/* 馬 */}
+        <div style={{
+          position:"absolute", left:HORSE_X, bottom:GROUND + s.horseY,
+          fontSize:HORSE_SIZE, lineHeight:1, transition:"none",
+          transform:"scaleX(-1)",
+        }}>🏇</div>
+        {/* 障害物 */}
+        {s.obstacles.map((o,i) => (
+          <div key={i} style={{
+            position:"absolute", left:o.x, bottom:GROUND, width:14, height:o.h,
+            background:G.dirt, borderRadius:"2px 2px 0 0", borderTop:"3px solid #fff",
+          }} />
+        ))}
+        {/* オーバーレイ */}
+        {state !== "playing" && (
+          <div style={{
+            position:"absolute", inset:0, display:"flex", flexDirection:"column",
+            alignItems:"center", justifyContent:"center", gap:6,
+            background:"rgba(255,255,255,0.55)", textAlign:"center",
+          }}>
+            {state === "over" && <div style={{ fontSize:18, fontWeight:900, color:G.gi }}>ゴール失敗！ スコア {score}</div>}
+            <div style={{ fontSize:14, fontWeight:800, color:G.dirtDark }}>
+              {state === "ready" ? "タップでスタート" : "タップでもう一度"}
+            </div>
+            <div style={{ fontSize:11, color:"#777" }}>画面タップでジャンプ 🦘</div>
+          </div>
+        )}
+      </div>
+      <div style={{ fontSize:11, color:"#999", textAlign:"center", marginTop:8 }}>
+        ハードルをタップでジャンプして避けよう！
+      </div>
+    </div>
+  );
+}
+
+// ── 架空馬券ゲーム ─────────────────────────────────────────
+const FAKE_HORSES = [
+  "スナケムリ","ダートキング","ゴールデンサンド","デザートアロー","ミラクルダッシュ",
+  "サンドストーム","ブラウンボルト","マッドフラッシュ","ナイトギャロップ","クレイジーホース",
+  "サバクノオウ","ターフキラー","ホコリマミレ","イチモクサン","ダイバクハツ",
+];
+
+function makeRace() {
+  const names = [...FAKE_HORSES].sort(() => Math.random() - 0.5).slice(0, 5);
+  const horses = names.map((name, i) => ({
+    no: i + 1, name,
+    strength: 0.7 + Math.random() * 0.9, // 隠し能力
+  }));
+  const totalInv = horses.reduce((a, h) => a + 1 / h.strength, 0);
+  for (const h of horses) {
+    const prob = (1 / h.strength) / totalInv;
+    h.odds = Math.max(1.2, Math.round((1 / prob) * 0.75 * 10) / 10); // 控除率込み
+  }
+  return horses;
+}
+
+function BettingGame() {
+  const FINISH = 280;
+  const [coins, setCoins] = useState(() => Number(localStorage.getItem("pog_bet_coins") || 1000));
+  const [race, setRace] = useState(() => makeRace());
+  const [pick, setPick] = useState(null);
+  const [bet, setBet] = useState(100);
+  const [phase, setPhase] = useState("bet"); // bet / racing / result
+  const [pos, setPos] = useState([]); // 各馬の進行位置
+  const [result, setResult] = useState(null); // {winner, payout}
+  const rafRef = useRef(null);
+
+  useEffect(() => {
+    localStorage.setItem("pog_bet_coins", String(coins));
+  }, [coins]);
+
+  const startRace = () => {
+    if (pick == null || bet > coins || bet <= 0) return;
+    setCoins(c => c - bet);
+    setPhase("racing");
+    setResult(null);
+    const positions = race.map(() => 0);
+    setPos(positions);
+    const run = () => {
+      let finished = -1;
+      for (let i = 0; i < race.length; i++) {
+        positions[i] += Math.random() * 2.4 * race[i].strength + 0.3;
+        if (positions[i] >= FINISH && finished < 0) finished = i;
+      }
+      setPos([...positions]);
+      if (finished >= 0) {
+        const winner = race[finished];
+        const won = winner.no === pick;
+        const payout = won ? Math.round(bet * winner.odds) : 0;
+        if (payout > 0) setCoins(c => c + payout);
+        setResult({ winner, won, payout });
+        setPhase("result");
+        return;
+      }
+      rafRef.current = requestAnimationFrame(run);
+    };
+    rafRef.current = requestAnimationFrame(run);
+  };
+
+  useEffect(() => () => cancelAnimationFrame(rafRef.current), []);
+
+  const nextRace = () => {
+    setRace(makeRace());
+    setPick(null);
+    setPhase("bet");
+    setResult(null);
+    setPos([]);
+  };
+
+  const refill = () => setCoins(1000);
+
+  return (
+    <div>
+      {/* コイン残高 */}
+      <div style={{
+        background:G.green, color:"#fff", borderRadius:12, padding:"12px 16px",
+        marginBottom:12, display:"flex", alignItems:"center", justifyContent:"space-between",
+      }}>
+        <div style={{ fontSize:12, opacity:0.9 }}>🪙 所持コイン</div>
+        <div style={{ fontSize:24, fontWeight:900 }}>{fmt(coins)}</div>
+      </div>
+
+      {/* 出走表／レース */}
+      <div style={{ background:"#fff", borderRadius:12, border:"1px solid #e4e9e6", overflow:"hidden", marginBottom:12 }}>
+        <div style={{ background:G.dirtDark, color:"#fff", padding:"8px 12px", fontSize:13, fontWeight:800 }}>
+          🏟️ 第{race.length}頭立て ダートレース
+        </div>
+        {race.map((h, i) => {
+          const selected = pick === h.no;
+          const isWinner = result && result.winner.no === h.no;
+          return (
+            <div key={h.no}
+              onClick={() => phase === "bet" && setPick(h.no)}
+              style={{
+                padding:"8px 12px", borderBottom:"1px solid #f0f0f0",
+                cursor: phase === "bet" ? "pointer" : "default",
+                background: isWinner ? "#fff7e0" : selected ? "#eafaf4" : "#fff",
+              }}>
+              <div style={{ display:"flex", alignItems:"center", gap:8 }}>
+                <div style={{
+                  width:22, height:22, borderRadius:4, flexShrink:0,
+                  background: selected ? G.green : "#e8e8e8",
+                  color: selected ? "#fff" : "#888",
+                  display:"flex", alignItems:"center", justifyContent:"center",
+                  fontSize:12, fontWeight:800,
+                }}>{h.no}</div>
+                <div style={{ flex:1, fontSize:13, fontWeight:700 }}>
+                  {h.name} {isWinner && "👑"}
+                </div>
+                <div style={{ fontSize:12, color:G.dirt, fontWeight:800 }}>{h.odds.toFixed(1)}倍</div>
+              </div>
+              {/* レーン */}
+              {phase !== "bet" && (
+                <div style={{ position:"relative", height:18, marginTop:4, background:"#f5efe4", borderRadius:9, overflow:"hidden" }}>
+                  <div style={{ position:"absolute", right:0, top:0, bottom:0, width:3, background:G.gi }} />
+                  <div style={{
+                    position:"absolute", top:0, fontSize:15, lineHeight:"18px",
+                    left:`${Math.min(100, ((pos[i] || 0) / FINISH) * 100)}%`,
+                    transform:"translateX(-50%) scaleX(-1)",
+                  }}>🏇</div>
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
+
+      {/* 操作エリア */}
+      {phase === "bet" && (
+        <div style={{ background:"#fff", borderRadius:12, border:"1px solid #e4e9e6", padding:"12px 14px" }}>
+          <div style={{ fontSize:12, color:"#666", marginBottom:8 }}>
+            {pick ? `${race.find(h=>h.no===pick).name} に賭ける` : "👆 馬を選んでください"}
+          </div>
+          <div style={{ display:"flex", alignItems:"center", gap:8, marginBottom:10 }}>
+            <span style={{ fontSize:12, color:"#888" }}>賭け金</span>
+            <div style={{ fontSize:20, fontWeight:900, flex:1 }}>{fmt(bet)} <span style={{ fontSize:11, fontWeight:600 }}>コイン</span></div>
+          </div>
+          <div style={{ display:"flex", gap:6, marginBottom:10, flexWrap:"wrap" }}>
+            {[100, 500, 1000].map(v => (
+              <button key={v} onClick={() => setBet(Math.min(coins, v))} style={{
+                flex:1, padding:"6px 0", borderRadius:8, border:"1px solid #ddd",
+                background:"#fff", fontSize:12, fontWeight:700, cursor:"pointer", minWidth:60,
+              }}>{v}</button>
+            ))}
+            <button onClick={() => setBet(coins)} style={{
+              flex:1, padding:"6px 0", borderRadius:8, border:`1px solid ${G.dirt}`,
+              background:"#fff", color:G.dirt, fontSize:12, fontWeight:700, cursor:"pointer", minWidth:60,
+            }}>全額</button>
+          </div>
+          <button
+            onClick={startRace}
+            disabled={pick == null || bet <= 0 || bet > coins}
+            style={{
+              width:"100%", padding:"12px 0", borderRadius:10, border:"none",
+              background: (pick != null && bet > 0 && bet <= coins) ? G.green : "#ccc",
+              color:"#fff", fontSize:15, fontWeight:800,
+              cursor: (pick != null && bet > 0 && bet <= coins) ? "pointer" : "default",
+            }}>
+            🎫 馬券を買ってスタート
+          </button>
+          {coins <= 0 && (
+            <button onClick={refill} style={{
+              width:"100%", marginTop:8, padding:"10px 0", borderRadius:10,
+              border:`1px solid ${G.dirt}`, background:"#fff", color:G.dirt,
+              fontSize:13, fontWeight:700, cursor:"pointer",
+            }}>コインを1000まで補充する</button>
+          )}
+        </div>
+      )}
+
+      {phase === "racing" && (
+        <div style={{ textAlign:"center", fontSize:14, fontWeight:800, color:G.dirtDark, padding:"8px 0" }}>
+          🏁 レース中...
+        </div>
+      )}
+
+      {phase === "result" && result && (
+        <div style={{
+          background: result.won ? "#fff7e0" : "#fff", borderRadius:12,
+          border:`1px solid ${result.won ? G.gold : "#e4e9e6"}`, padding:"14px", textAlign:"center",
+        }}>
+          <div style={{ fontSize:18, fontWeight:900, color: result.won ? G.gold : "#666" }}>
+            {result.won ? `🎉 的中！ +${fmt(result.payout)}コイン` : "😢 ハズレ…"}
+          </div>
+          <div style={{ fontSize:12, color:"#888", marginTop:4 }}>
+            勝ち馬：{result.winner.no} {result.winner.name}（{result.winner.odds.toFixed(1)}倍）
+          </div>
+          <button onClick={nextRace} style={{
+            width:"100%", marginTop:12, padding:"12px 0", borderRadius:10, border:"none",
+            background:G.green, color:"#fff", fontSize:15, fontWeight:800, cursor:"pointer",
+          }}>次のレースへ ▶</button>
+          {coins <= 0 && (
+            <button onClick={refill} style={{
+              width:"100%", marginTop:8, padding:"10px 0", borderRadius:10,
+              border:`1px solid ${G.dirt}`, background:"#fff", color:G.dirt,
+              fontSize:13, fontWeight:700, cursor:"pointer",
+            }}>コインを1000まで補充する</button>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ================================================================
 // App本体
 // ================================================================
 
@@ -2195,6 +2551,9 @@ export default function App() {
   } else if (tab === "next") {
     title = "2026-27 指名馬";
     content = <Season2627Screen />;
+  } else if (tab === "game") {
+    title = "砂遊びゲーム";
+    content = <GameScreen />;
   } else {
     title = "砂遊びルール";
     content = <RulesScreen />;
@@ -2209,6 +2568,7 @@ export default function App() {
     { key:"next",     label:"次季",   icon:"🆕" },
     { key:"calendar", label:"日程",   icon:"📅" },
     { key:"hall",     label:"殿堂",   icon:"🏟️" },
+    { key:"game",     label:"ゲーム", icon:"🎮" },
     { key:"rules",    label:"ルール", icon:"📖" },
   ];
 
