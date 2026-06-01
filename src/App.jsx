@@ -466,6 +466,42 @@ const TROPHIES = [
 ];
 
 // ================================================================
+// シーズン表彰データ
+// ================================================================
+const SEASON_AWARDS = [
+  {
+    season: "2024-25",
+    items: [
+      { title:"最優砂遊び馬", stable:"前田厩舎",   horse:"クレーキング",     note:"G1東京ダービー2着" },
+      { title:"最優秀牝馬",   stable:"ミリオン厩舎", horse:"フロミストジーン", note:"OPヒヤシンス2着" },
+      { title:"最優秀短距離", stable:"ミリオン厩舎", horse:"ルクソールカフェ", note:"OPヒヤシンス1着" },
+      { title:"最優秀中距離", stable:"田崎厩舎",    horse:"カナルビーグル",   note:"G3ユニコーン1着" },
+      { title:"最優秀芝馬",   stable:"ミリオン厩舎", horse:"モズナナスター",   note:"G3ファンタジー2着" },
+    ],
+  },
+  {
+    season: "2023-24",
+    items: [
+      { title:"最優砂遊び馬", stable:"前田厩舎",    horse:"サトノフェニックス", note:"" },
+      { title:"最優秀短距離", stable:"前田厩舎",    horse:"サトノフェニックス", note:"" },
+      { title:"最優秀中距離", stable:"ミリオン厩舎", horse:"アンデスビエント",   note:"" },
+      { title:"最優秀牝馬",   stable:"ミリオン厩舎", horse:"アンデスビエント",   note:"" },
+      { title:"最優秀芝馬",   stable:"長谷部厩舎",   horse:"ピューロマジック",   note:"" },
+    ],
+  },
+  {
+    season: "2022-23",
+    items: [
+      { title:"最優砂遊び馬", stable:"前田厩舎",   horse:"ユティタムJ",       note:"" },
+      { title:"最優秀中距離", stable:"前田厩舎",   horse:"ユティタム",        note:"" },
+      { title:"最優秀短距離", stable:"山田厩舎",   horse:"サンライズフレイム", note:"" },
+      { title:"最優秀牝馬",   stable:"ミリオン厩舎", horse:"ミラクルティアラ",  note:"" },
+      { title:"最優秀芝馬",   stable:"じゃが厩舎", horse:"フルメタルボディー", note:"" },
+    ],
+  },
+];
+
+// ================================================================
 // ユーティリティ
 // ================================================================
 const fmt = (n) => n.toLocaleString("ja-JP");
@@ -906,6 +942,35 @@ function HallScreen({ onSelectHallPlayer }) {
           </div>
         </button>
       ))}
+
+      {/* ===== シーズン表彰 ===== */}
+      <div style={{ marginTop:20 }}>
+        <div style={{
+          fontSize:14, fontWeight:900, color:G.gold, letterSpacing:1,
+          marginBottom:10, paddingBottom:6, borderBottom:`1px solid ${G.hallBorder}`,
+        }}>🏅 シーズン表彰</div>
+        {SEASON_AWARDS.map(sa => (
+          <div key={sa.season} style={{
+            background:G.hallCard, border:`1px solid ${G.hallBorder}`,
+            borderRadius:10, padding:"12px 14px", marginBottom:10,
+          }}>
+            <div style={{ fontSize:12, fontWeight:900, color:G.dirtLight, marginBottom:8 }}>
+              砂遊び {sa.season}シーズン
+            </div>
+            {sa.items.map((item, i) => (
+              <div key={i} style={{
+                display:"flex", alignItems:"baseline", gap:8,
+                padding:"5px 0", borderBottom: i<sa.items.length-1 ? `1px solid ${G.hallBorder}` : "none",
+              }}>
+                <div style={{ flex:"0 0 90px", fontSize:10, color:G.gold, fontWeight:700 }}>{item.title}</div>
+                <div style={{ flex:"0 0 70px", fontSize:10, color:G.hallDim }}>{item.stable}</div>
+                <div style={{ flex:1, fontSize:13, fontWeight:800, color:G.hallText }}>{item.horse}</div>
+                {item.note ? <div style={{ fontSize:9, color:G.hallDim }}>{item.note}</div> : null}
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
