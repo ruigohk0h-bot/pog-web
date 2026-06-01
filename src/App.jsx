@@ -503,7 +503,7 @@ function GradeTag({ grade, local }) {
     : local ? G.local : "#888";
   const label = local && !grade ? "地方" : grade;
   return (
-    <span style={{
+    <span translate="no" style={{
       fontSize:10, fontWeight:800, color:"#fff",
       background:bg, borderRadius:4, padding:"1px 5px", marginRight:4,
     }}>{label}</span>
