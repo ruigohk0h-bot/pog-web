@@ -889,7 +889,23 @@ function ResultCard({ r, showPlayer=true }) {
 // タブ1: ランキング
 // ================================================================
 
-function RankingScreen({ onSelectPlayer, updated }) {
+function RankingScreen({ onSelectPlayer, updated, results }) {
+  // 直近7日間のダート入着ptをプレイヤー別に集計
+  const weeklyPt = (() => {
+    const today = new Date();
+    const cutoff = new Date(today); cutoff.setDate(today.getDate() - 7);
+    const mm = (d) => String(d.getMonth()+1).padStart(2,"0");
+    const dd = (d) => String(d.getDate()).padStart(2,"0");
+    const cutLabel = `${mm(cutoff)}/${dd(cutoff)}`;
+    const map = {};
+    for (const r of results) {
+      if (r.surface !== "dirt" || r.rawPt <= 0) continue;
+      if (r.date < cutLabel) continue;
+      map[r.player] = (map[r.player] || 0) + r.rawPt;
+    }
+    return map;
+  })();
+
   const sorted = [...CURRENT_SEASON.users].sort((a,b) => b.pt - a.pt);
   const max = sorted[0].pt;
   const topPt = sorted[0].pt;
@@ -972,7 +988,7 @@ function RankingScreen({ onSelectPlayer, updated }) {
             <div style={{ textAlign:"right", flexShrink:0 }}>
               <div style={{ fontWeight:800, fontSize: isTop?19:17, color: isTop?G.dirtDark:"#222" }}>{fmt(u.pt)}</div>
               <div style={{ fontSize:11, color: isTop?"#b8841e":"#999" }}>pt</div>
-              {u.diff>0 && <div style={{ fontSize:11, color:"#d33", fontWeight:700 }}>+{fmt(u.diff)}</div>}
+              {(weeklyPt[u.id]||0)>0 && <div style={{ fontSize:11, color:"#d33", fontWeight:700 }}>+{fmt(weeklyPt[u.id])}</div>}
             </div>
           </button>
         );
@@ -2153,7 +2169,7 @@ export default function App() {
       content = <PlayerDetailScreen userId={selectedPlayerId} onBack={()=>setSPId(null)}
                   onSelectHorse={h => { setSHorse(h); }} kettonums={kettonums} />;
     } else {
-      content = <RankingScreen onSelectPlayer={u => setSPId(u.id)} updated={updated} />;
+      content = <RankingScreen onSelectPlayer={u => setSPId(u.id)} updated={updated} results={results} />;
     }
   } else if (tab === "results") {
     title = "最新結果";
