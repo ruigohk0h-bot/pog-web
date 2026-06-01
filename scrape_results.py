@@ -271,7 +271,8 @@ def get_results_from_html(html, horse_name, days=60):
             "dist": dist,
             "horse": horse_name,
             "order": order,
-            "rawPt": 0,  # 後でレースページから更新
+            "rawPt": 0,   # ダート5着以内: 後でレースページから更新
+            "turfPt": 0,  # 芝5着以内: 参考表示用
             "player": player,
             "_ts": race_date.strftime("%Y-%m-%d"),
             "_race_link": race_link,  # 賞金取得用（保存時に削除）
@@ -315,12 +316,13 @@ def main():
         except Exception as e:
             print(f"  {name}: エラー {e}", flush=True)
 
-    # Step2.5: ダート5着以内の賞金をレースページから取得
+    # Step2.5: 5着以内（ダート・芝とも）の賞金をレースページから取得
+    # ダート→rawPt（得点計算に使用）、芝→turfPt（参考表示用）
     race_prize_cache = {}  # race_link → [1着賞金, 2着, 3着, 4着, 5着]
-    dirt_targets = [r for r in all_results if r["surface"] == "dirt" and 1 <= r["order"] <= 5 and r["_race_link"]]
-    if dirt_targets:
-        print(f"\n【Step2.5】{len(dirt_targets)}件のダート入着賞金取得...", flush=True)
-        for r in dirt_targets:
+    prize_targets = [r for r in all_results if 1 <= r["order"] <= 5 and r["_race_link"]]
+    if prize_targets:
+        print(f"\n【Step2.5】{len(prize_targets)}件の入着賞金取得（ダート+芝）...", flush=True)
+        for r in prize_targets:
             link = r["_race_link"]
             if link not in race_prize_cache:
                 prizes = fetch_race_prizes(link)
@@ -328,8 +330,13 @@ def main():
                 time.sleep(0.4)
             prizes = race_prize_cache.get(link, [])
             if prizes and r["order"] <= len(prizes):
-                r["rawPt"] = prizes[r["order"] - 1]
-                print(f"  {r['horse']} {r['order']}着 {r['race']}: {r['rawPt']}万pt", flush=True)
+                prize = prizes[r["order"] - 1]
+                if r["surface"] == "dirt":
+                    r["rawPt"] = prize
+                    print(f"  [ダ] {r['horse']} {r['order']}着 {r['race']}: {prize}万pt", flush=True)
+                else:
+                    r["turfPt"] = prize
+                    print(f"  [芝] {r['horse']} {r['order']}着 {r['race']}: {prize}万 (参考)", flush=True)
 
     # 日付降順ソート
     all_results.sort(key=lambda x: x["_ts"], reverse=True)

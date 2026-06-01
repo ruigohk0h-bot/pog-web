@@ -859,6 +859,7 @@ function ResultRow({ r, showPlayer=true }) {
   const dPt = displayPt(r);
   const zero = dPt === 0;
   const orderColor = r.order===1?"#c9a227":r.order===2?"#9aa0a6":r.order===3?"#cd7f32":"inherit";
+  const turfRef = r.surface === "turf" && r.turfPt > 0 && r.order <= 5;
   return (
     <div style={{
       display:"flex", alignItems:"center", gap:4,
@@ -871,8 +872,10 @@ function ResultRow({ r, showPlayer=true }) {
       <span style={COL.horse}>{r.horse}</span>
       <span style={{...COL.order, color:orderColor}}>{r.order}着</span>
       {showPlayer && <span style={COL.player}>{playerName(r.player)}</span>}
-      <span style={{...COL.pt, color: zero?"#ccc":"#d33"}}>
-        {zero ? (r.surface==="turf"?"芝":"-") : `+${fmt(dPt)}`}
+      <span style={{...COL.pt, color: zero ? (turfRef ? "#aaa" : "#ccc") : "#d33"}}>
+        {zero
+          ? (turfRef ? `-${fmt(r.turfPt)}` : (r.surface==="turf" ? "芝" : "-"))
+          : `+${fmt(dPt)}`}
       </span>
     </div>
   );
@@ -1020,34 +1023,34 @@ function PlayerDetailScreen({ userId, onBack, onSelectHorse, kettonums }) {
         return (
           <div key={h.no} style={{
             background:"#fff", borderBottom:"1px solid #f0f0f0",
-            padding:"7px 10px", display:"flex", alignItems:"center", gap:8,
+            padding:"4px 10px", display:"flex", alignItems:"center", gap:6,
           }}>
             {/* 番号 */}
             <div style={{
-              width:20, height:20, borderRadius:4, background:G.greenDark,
+              width:18, height:18, borderRadius:3, background:G.greenDark,
               color:"#fff", display:"flex", alignItems:"center", justifyContent:"center",
-              fontSize:11, fontWeight:700, flexShrink:0,
+              fontSize:10, fontWeight:700, flexShrink:0,
             }}>{h.no}</div>
             {/* 馬名・在厩 */}
             <div style={{ flex:1, minWidth:0, cursor:"pointer" }} onClick={() => onSelectHorse(h)}>
-              <div style={{ fontWeight:700, fontSize:13, display:"flex", alignItems:"center", gap:4, whiteSpace:"nowrap", overflow:"hidden", textOverflow:"ellipsis" }}>
+              <div style={{ fontWeight:700, fontSize:12, display:"flex", alignItems:"center", gap:3, whiteSpace:"nowrap", overflow:"hidden", textOverflow:"ellipsis" }}>
                 {h.name}
                 {h.active && (
-                  <span style={{ fontSize:9, color:G.green, border:`1px solid ${G.green}`, borderRadius:3, padding:"0 3px", flexShrink:0 }}>
+                  <span style={{ fontSize:8, color:G.green, border:`1px solid ${G.green}`, borderRadius:3, padding:"0 2px", flexShrink:0 }}>
                     在厩
                   </span>
                 )}
               </div>
-              <div style={{ fontSize:10, color:"#aaa" }}>
+              <div style={{ fontSize:9, color:"#aaa", lineHeight:1.2 }}>
                 {h.record}
-                {h.sire && <span style={{ marginLeft:6 }}>父<span translate="no">{h.sire}</span></span>}
-                {h.dam  && <span style={{ marginLeft:4 }}>母<span translate="no">{h.dam}</span></span>}
+                {h.sire && <span style={{ marginLeft:4 }}>父<span translate="no">{h.sire}</span></span>}
+                {h.dam  && <span style={{ marginLeft:3 }}>母<span translate="no">{h.dam}</span></span>}
               </div>
             </div>
             {/* pt */}
             <div style={{ textAlign:"right", flexShrink:0 }}>
-              <span style={{ fontWeight:800, fontSize:14 }}>{fmt(h.pt)}</span>
-              <span style={{ fontSize:10, color:"#999", marginLeft:2 }}>pt</span>
+              <span style={{ fontWeight:800, fontSize:13 }}>{fmt(h.pt)}</span>
+              <span style={{ fontSize:9, color:"#999", marginLeft:2 }}>pt</span>
             </div>
             {/* netkeiba */}
             <a href={netkeibaUrl} target="_blank" rel="noopener noreferrer"
@@ -1134,7 +1137,7 @@ function HorseDetailScreen({ horse, playerId, results, kettonums }) {
 
 
 function ResultsScreen({ results, upcoming, loaded, news }) {
-  const [subTab, setSubTab] = useState("upcoming");
+  const [subTab, setSubTab] = useState("results");
 
   // 出走予定：日付グループ
   const upGroups = (() => {
@@ -1152,8 +1155,8 @@ function ResultsScreen({ results, upcoming, loaded, news }) {
       {/* サブタブ */}
       <div style={{ display:"flex", gap:6, marginBottom:12 }}>
         {[
-          { key:"upcoming", label:`🏁 出走予定`, count: upcoming.length },
           { key:"results",  label:`📋 確定結果`, count: null },
+          { key:"upcoming", label:`🏁 出走予定`, count: upcoming.length },
         ].map(t => (
           <button key={t.key} onClick={() => setSubTab(t.key)} style={{
             flex:1, padding:"8px 0", borderRadius:8, cursor:"pointer", fontWeight:700, fontSize:13,
@@ -2125,7 +2128,7 @@ function RulesScreen() {
 // ================================================================
 
 export default function App() {
-  const [tab, setTab]               = useState("ranking");
+  const [tab, setTab]               = useState(() => sessionStorage.getItem("pog_tab") || "ranking");
   const [selectedPlayerId, setSPId] = useState(null);
   const [selectedHorse, setSHorse]  = useState(null);
   const [selectedHallP, setSHallP]  = useState(null);
@@ -2145,6 +2148,7 @@ export default function App() {
   }, []);
 
   const switchTab = (t) => {
+    sessionStorage.setItem("pog_tab", t);
     setTab(t); setSPId(null); setSHorse(null); setSHallP(null);
   };
 
