@@ -133,76 +133,73 @@ def get_kettonum(name, cache):
     return None
 
 def parse_grade(race_name):
-    """レース名からグレードを判定"""
-    if re.search(r'GⅠ|G1|ジャパンカップ|有馬記念|天皇賞|宝塚記念|菊花賞|桜花賞|オークス|皐月賞|ダービー', race_name):
+    """レース名からグレードを判定（半角・全角両対応）"""
+    if re.search(r'[GＧ][Ⅰ１1]|ジャパンカップ|有馬記念|天皇賞|宝塚記念|菊花賞|桜花賞|オークス|皐月賞|ダービー|東京優駿|ホープフルS|阪神ジュベナイル|朝日杯FS', race_name):
         return "GⅠ"
-    if re.search(r'GⅡ|G2', race_name): return "GⅡ"
-    if re.search(r'GⅢ|G3', race_name): return "GⅢ"
+    if re.search(r'[GＧ][Ⅱ２2]', race_name): return "GⅡ"
+    if re.search(r'[GＧ][Ⅲ３3]', race_name): return "GⅢ"
     if re.search(r'JpnI|Jpn1|Jpn１', race_name): return "JpnI"
     if re.search(r'JpnII|Jpn2|Jpn２', race_name): return "JpnII"
     if re.search(r'JpnIII|Jpn3|Jpn３', race_name): return "JpnIII"
     return ""
 
 def get_results_from_html(html, horse_name, days=60):
-    """HTML文字列からレース結果を解析"""
+    """keibalab HTMLからレース結果を解析
+    列: 年月日/場/コース/天気/馬場/レース/人気/着/騎手/斤量/頭数/枠番/馬番/タイム/着差/...
+    """
     soup = BeautifulSoup(html, "lxml")
     today = datetime.today()
     cutoff = today - timedelta(days=days)
     results = []
 
-    # 新テーブルクラス: db_h_race_results（旧: race_table_01）
-    table = soup.find("table", class_="db_h_race_results") or soup.find("table", class_="race_table_01")
-    if not table:
+    # keibalab: 3番目のテーブルがレース結果
+    tables = soup.find_all("table")
+    if len(tables) < 3:
         return []
+    table = tables[2]
 
-    for row in table.find_all("tr")[1:]:
-        cells = [td.get_text(strip=True) for td in row.find_all("td")]
-        if len(cells) < 15:
+    for row in table.find_all("tr")[1:]:  # ヘッダー行をスキップ
+        cells = [td.get_text(strip=True) for td in row.find_all(["th", "td"])]
+        if len(cells) < 8:
             continue
 
-        # 日付（例: 2026/04/29）
+        # 日付パターンで始まる行のみ処理（サブ行をスキップ）
         m = re.match(r'(\d{4})[./](\d{2})[./](\d{2})', cells[0])
         if not m:
             continue
+
         race_date = datetime(int(m.group(1)), int(m.group(2)), int(m.group(3)))
         if race_date < cutoff:
             continue
 
         date_label = f"{int(m.group(2)):02d}/{int(m.group(3)):02d}"
 
-        venue_raw = cells[1]
-        venue_name = re.sub(r'\d+回|\d+日目?', '', venue_raw).strip()
-        r_num = cells[3]
-        venue = f"{venue_name}{r_num}R" if r_num.isdigit() else venue_name
+        # 場（例: "2回東京12" → "東京"）
+        venue_raw = cells[1] if len(cells) > 1 else ""
+        venue_name = re.sub(r'\d+回|\d+$', '', venue_raw).strip()
 
-        race_name = cells[4]
-        grade = parse_grade(race_name)
-
-        course = cells[14] if len(cells) > 14 else ""
+        # コース（例: "芝2400"）
+        course = cells[2] if len(cells) > 2 else ""
         surface = "dirt" if course.startswith("ダ") else "turf"
         dist_m = re.search(r'\d+', course)
         dist = int(dist_m.group()) if dist_m else 0
 
-        order_str = re.sub(r'[^\d]', '', cells[11]) if len(cells) > 11 else ""
-        order = int(order_str) if order_str else 0
+        race_name = cells[5] if len(cells) > 5 else ""
+        grade = parse_grade(race_name)
 
-        # 賞金列: 新テーブルは末尾（32列目）
-        prize_idx = len(cells) - 1
-        prize_str = re.sub(r'[^\d.]', '', cells[prize_idx]) if cells else "0"
-        try:
-            prize_man = float(prize_str or "0")
-            raw_pt = int(prize_man) if surface == "dirt" and 1 <= order <= 5 else 0
-        except:
-            raw_pt = 0
+        # 着順（数字でない場合はスキップ：中止・除外など）
+        order_str = cells[7] if len(cells) > 7 else ""
+        if not re.match(r'^\d+$', order_str):
+            continue
+        order = int(order_str)
 
         # 地方競馬判定
         local = venue_name in LOCAL_VENUES
-
         player = HORSE_PLAYER.get(horse_name, "")
 
         results.append({
             "date": date_label,
-            "venue": venue,
+            "venue": venue_name,
             "grade": grade,
             "local": local,
             "race": race_name,
@@ -210,7 +207,7 @@ def get_results_from_html(html, horse_name, days=60):
             "dist": dist,
             "horse": horse_name,
             "order": order,
-            "rawPt": raw_pt,
+            "rawPt": 0,
             "player": player,
             "_ts": race_date.strftime("%Y-%m-%d"),
         })
@@ -242,7 +239,7 @@ def main():
     print(f"【Step2】{len(targets)}頭のレース結果取得...", flush=True)
     for name, kettonum in targets:
         try:
-            url = f"https://db.netkeiba.com/horse/{kettonum}/"
+            url = f"https://www.keibalab.jp/db/horse/{kettonum}/"
             resp = requests.get(url, headers=HEADERS, timeout=20)
             resp.raise_for_status()
             res = get_results_from_html(resp.content, name, days=60)
