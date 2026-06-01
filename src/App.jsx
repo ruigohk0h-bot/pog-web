@@ -815,8 +815,6 @@ function extractNewsUpcoming(news) {
 function ResultsScreen({ results, upcoming, loaded, news }) {
   const [subTab, setSubTab] = useState("upcoming");
 
-  const newsUpcoming = extractNewsUpcoming(news || []);
-
   // 出走予定：日付グループ
   const upGroups = (() => {
     const groups = [];
@@ -854,81 +852,35 @@ function ResultsScreen({ results, upcoming, loaded, news }) {
       {/* 出走予定タブ */}
       {subTab === "upcoming" && (
         <>
-          {/* 確定出走（netkeiba） */}
-          {upGroups.length > 0 && (
-            <div style={{ marginBottom:16 }}>
-              <div style={{ fontSize:11, fontWeight:800, color:"#888", marginBottom:8, paddingLeft:2 }}>
-                ✅ 確定出走
-              </div>
-              {upGroups.map(g => (
-                <div key={g.date} style={{ marginBottom:10 }}>
-                  <div style={{ fontSize:11, fontWeight:800, color:G.green, marginBottom:5, paddingLeft:2 }}>📅 {g.date}</div>
-                  {g.rows.map((u, i) => (
-                    <div key={i} style={{
-                      background:"#f0f8f4", border:`1.5px solid ${G.green}`,
-                      borderRadius:10, padding:"10px 12px", marginBottom:6,
-                      display:"flex", alignItems:"center", gap:8,
-                    }}>
-                      <SurfaceTag surface={u.surface} dist={u.dist} small />
-                      <div style={{ flex:1, minWidth:0 }}>
-                        <div style={{ fontSize:15, fontWeight:800, color:"#222" }}>{u.horse}</div>
-                        <div style={{ fontSize:10, color:"#888", marginTop:3, display:"flex", alignItems:"center", gap:4 }}>
-                          <span>{u.venue}</span><GradeTag grade={u.grade} local={u.local} />
-                        </div>
-                      </div>
-                      <div style={{ fontSize:10, color:"#777", textAlign:"right", flexShrink:0 }}>
-                        <div style={{ fontSize:14 }}>{playerEmoji(u.player)}</div>
-                        <div>{playerName(u.player)}</div>
-                      </div>
+          {upGroups.length === 0 ? (
+            <div style={{ textAlign:"center", color:"#aaa", marginTop:40, fontSize:14 }}>
+              出走予定はありません<br/>
+              <span style={{ fontSize:12, marginTop:8, display:"block" }}>📰 ニュースタブの「次走予定」もチェック</span>
+            </div>
+          ) : upGroups.map(g => (
+            <div key={g.date} style={{ marginBottom:10 }}>
+              <div style={{ fontSize:11, fontWeight:800, color:G.green, marginBottom:5, paddingLeft:2 }}>📅 {g.date}</div>
+              {g.rows.map((u, i) => (
+                <div key={i} style={{
+                  background:"#f0f8f4", border:`1.5px solid ${G.green}`,
+                  borderRadius:10, padding:"10px 12px", marginBottom:6,
+                  display:"flex", alignItems:"center", gap:8,
+                }}>
+                  <SurfaceTag surface={u.surface} dist={u.dist} small />
+                  <div style={{ flex:1, minWidth:0 }}>
+                    <div style={{ fontSize:15, fontWeight:800, color:"#222" }}>{u.horse}</div>
+                    <div style={{ fontSize:10, color:"#888", marginTop:3, display:"flex", alignItems:"center", gap:4 }}>
+                      <span>{u.venue}</span><GradeTag grade={u.grade} local={u.local} />
                     </div>
-                  ))}
+                  </div>
+                  <div style={{ fontSize:10, color:"#777", textAlign:"right", flexShrink:0 }}>
+                    <div style={{ fontSize:14 }}>{playerEmoji(u.player)}</div>
+                    <div>{playerName(u.player)}</div>
+                  </div>
                 </div>
               ))}
             </div>
-          )}
-
-          {/* ニュース由来の出走情報 */}
-          {newsUpcoming.length > 0 && (
-            <div>
-              <div style={{ fontSize:11, fontWeight:800, color:"#888", marginBottom:8, paddingLeft:2 }}>
-                📰 ニュース情報（各媒体より）
-              </div>
-              {newsUpcoming.map((n, i) => (
-                <a key={i} href={n.url} target="_blank" rel="noopener noreferrer" style={{ textDecoration:"none", display:"block", marginBottom:8 }}>
-                  <div style={{
-                    background:"#fffbf0", border:`1.5px solid #e8c040`,
-                    borderRadius:10, padding:"10px 12px",
-                    display:"flex", alignItems:"flex-start", gap:8,
-                  }}>
-                    <div style={{ flex:1, minWidth:0 }}>
-                      <div style={{ display:"flex", alignItems:"center", gap:6, marginBottom:4 }}>
-                        <span style={{
-                          fontSize:11, fontWeight:800, color:"#fff",
-                          background: PLAYER_COLORS[n.player] || "#999",
-                          borderRadius:4, padding:"1px 6px",
-                        }}>{n.horse}</span>
-                        {n.raceHit && <span style={{ fontSize:10, color:"#c08000", fontWeight:700 }}>{n.raceHit}</span>}
-                        <span style={{ fontSize:10, color:"#bbb", marginLeft:"auto" }}>{n.date}</span>
-                      </div>
-                      <div style={{ fontSize:12, color:"#333", lineHeight:1.4 }}>
-                        {n.title.replace(/\s*[-—]\s*[^-—]+$/, "")}
-                      </div>
-                      {n.desc && (
-                        <div style={{ fontSize:10, color:"#888", marginTop:4, lineHeight:1.4 }}>
-                          {n.desc.slice(0, 80)}{n.desc.length > 80 ? "…" : ""}
-                        </div>
-                      )}
-                      <div style={{ fontSize:10, color:"#aaa", marginTop:4 }}>{n.source} ↗</div>
-                    </div>
-                  </div>
-                </a>
-              ))}
-            </div>
-          )}
-
-          {upGroups.length === 0 && newsUpcoming.length === 0 && (
-            <div style={{ textAlign:"center", color:"#aaa", marginTop:40, fontSize:14 }}>出走予定の情報はありません</div>
-          )}
+          ))}
         </>
       )}
 
@@ -1316,71 +1268,155 @@ const PLAYER_COLORS = {
   P04:"#8e44ad", P05:"#d68910", P06:"#e91e8c", P07:"#555",
 };
 
-function NewsScreen({ news }) {
+function NewsScreen({ news, results }) {
+  const [subTab, setSubTab] = useState("next");
   const [filterPlayer, setFilterPlayer] = useState("ALL");
 
+  const cleanTitle = (title) => title.replace(/\s*[-—]\s*[^-—]+$/, "");
+  const activePlayers = PLAYERS.filter(p => news.some(n => n.player === p.id));
+
+  // 次走予定：ニュースから抽出（馬ごとに最新1件）
+  const nextRaces = extractNewsUpcoming(news);
+
+  // 前走：results から馬名ごとに最新1件
+  const lastRace = {};
+  for (const r of results) {
+    if (!lastRace[r.horse]) lastRace[r.horse] = r;
+  }
+
+  // ニュース一覧フィルター
   const filtered = filterPlayer === "ALL"
     ? news
     : news.filter(n => n.player === filterPlayer);
 
-  // プレイヤーフィルターに使う厩舎（ニュースが1件以上あるもの）
-  const activePlayers = PLAYERS.filter(p => news.some(n => n.player === p.id));
-
-  // タイトルから「- 媒体名」を除去して見やすくする
-  const cleanTitle = (title) => title.replace(/\s*[-—]\s*[^-—]+$/, "");
-
   return (
-    <div style={{ padding:12, background:"#eef2f0", minHeight:"100%" }}>
-      {/* フィルター */}
-      <div style={{ display:"flex", gap:6, flexWrap:"wrap", marginBottom:12 }}>
-        <button onClick={() => setFilterPlayer("ALL")} style={{
-          fontSize:11, fontWeight:700, padding:"4px 10px", borderRadius:20, cursor:"pointer",
-          background: filterPlayer==="ALL" ? G.green : "#fff",
-          color: filterPlayer==="ALL" ? "#fff" : "#555",
-          border: `1px solid ${filterPlayer==="ALL" ? G.green : "#ddd"}`,
-        }}>すべて</button>
-        {activePlayers.map(p => (
-          <button key={p.id} onClick={() => setFilterPlayer(p.id)} style={{
-            fontSize:11, fontWeight:700, padding:"4px 10px", borderRadius:20, cursor:"pointer",
-            background: filterPlayer===p.id ? PLAYER_COLORS[p.id] : "#fff",
-            color: filterPlayer===p.id ? "#fff" : "#555",
-            border: `1px solid ${filterPlayer===p.id ? PLAYER_COLORS[p.id] : "#ddd"}`,
-          }}>{p.name}</button>
+    <div style={{ background:"#eef2f0", minHeight:"100%" }}>
+      {/* サブタブ */}
+      <div style={{ display:"flex", gap:6, padding:"12px 12px 0" }}>
+        {[
+          { key:"next",  label:"🏁 次走予定" },
+          { key:"list",  label:"📰 ニュース一覧" },
+        ].map(t => (
+          <button key={t.key} onClick={() => setSubTab(t.key)} style={{
+            flex:1, padding:"8px 0", borderRadius:8, cursor:"pointer", fontWeight:700, fontSize:13,
+            background: subTab===t.key ? G.green : "#fff",
+            color: subTab===t.key ? "#fff" : "#666",
+            border: `1.5px solid ${subTab===t.key ? G.green : "#ddd"}`,
+          }}>{t.label}</button>
         ))}
       </div>
 
-      {/* ニュース一覧 */}
-      {filtered.length === 0 ? (
-        <div style={{ textAlign:"center", color:"#aaa", marginTop:40, fontSize:14 }}>ニュースがありません</div>
-      ) : (
-        filtered.map((n, i) => (
-          <a key={i} href={n.url} target="_blank" rel="noopener noreferrer"
-            style={{ textDecoration:"none", display:"block", marginBottom:8 }}>
-            <div style={{
-              background:"#fff", borderRadius:10, padding:"10px 12px",
-              borderLeft:`4px solid ${PLAYER_COLORS[n.player] || "#999"}`,
-              boxShadow:"0 1px 3px rgba(0,0,0,0.07)",
-            }}>
-              <div style={{ display:"flex", alignItems:"center", gap:6, marginBottom:4 }}>
-                <span style={{
-                  fontSize:10, fontWeight:800, color:"#fff",
-                  background: PLAYER_COLORS[n.player] || "#999",
-                  borderRadius:4, padding:"1px 6px",
-                }}>{n.horse}</span>
-                <span style={{ fontSize:10, color:"#aaa" }}>{playerName(n.player)}</span>
-                <span style={{ fontSize:10, color:"#bbb", marginLeft:"auto" }}>{n.date}</span>
+      {/* ===== 次走予定タブ ===== */}
+      {subTab === "next" && (
+        <div style={{ padding:12 }}>
+          {nextRaces.length === 0 ? (
+            <div style={{ textAlign:"center", color:"#aaa", marginTop:40, fontSize:14 }}>次走予定の情報はありません</div>
+          ) : (
+            <div style={{ background:"#fff", borderRadius:10, overflow:"hidden", border:"1px solid #e0e0e0" }}>
+              {/* テーブルヘッダー */}
+              <div style={{ display:"flex", padding:"6px 10px", background:"#f5f5f5", borderBottom:"2px solid #ddd", fontSize:10, fontWeight:800, color:"#888" }}>
+                <span style={{ flex:"0 0 80px" }}>馬名</span>
+                <span style={{ flex:"0 0 100px" }}>前走</span>
+                <span style={{ flex:1 }}>次走予定・ソース</span>
               </div>
-              <div style={{ fontSize:13, fontWeight:600, color:"#222", lineHeight:1.4 }}>
-                {cleanTitle(n.title)}
-              </div>
-              <div style={{ fontSize:10, color:"#aaa", marginTop:4 }}>{n.source} ↗</div>
+              {nextRaces.map((n, i) => {
+                const prev = lastRace[n.horse];
+                return (
+                  <div key={i} style={{
+                    display:"flex", alignItems:"flex-start", padding:"8px 10px",
+                    borderBottom: i < nextRaces.length-1 ? "1px solid #f0f0f0" : "none",
+                    gap:4,
+                  }}>
+                    {/* 馬名 */}
+                    <div style={{ flex:"0 0 80px" }}>
+                      <div style={{ fontSize:12, fontWeight:800, color:"#222" }}>{n.horse}</div>
+                      <div style={{ fontSize:9, color: PLAYER_COLORS[n.player]||"#999", fontWeight:700, marginTop:2 }}>
+                        {playerName(n.player)}
+                      </div>
+                    </div>
+                    {/* 前走 */}
+                    <div style={{ flex:"0 0 100px" }}>
+                      {prev ? (
+                        <>
+                          <div style={{ fontSize:9, color:"#888" }}>{prev.date} {prev.venue}</div>
+                          <div style={{ fontSize:10, color:"#555", marginTop:1 }}>
+                            {prev.race.length > 8 ? prev.race.slice(0,8)+"…" : prev.race}
+                          </div>
+                          <div style={{ fontSize:10, fontWeight:700, color: prev.order<=3?"#c9a227":"#888", marginTop:1 }}>
+                            {prev.order}着
+                          </div>
+                        </>
+                      ) : <span style={{ fontSize:10, color:"#ccc" }}>—</span>}
+                    </div>
+                    {/* 次走予定・ソース */}
+                    <a href={n.url} target="_blank" rel="noopener noreferrer"
+                      style={{ flex:1, textDecoration:"none", minWidth:0 }}>
+                      <div style={{ fontSize:10, color:"#333", lineHeight:1.4 }}>
+                        {n.raceHit && (
+                          <span style={{ fontSize:10, fontWeight:800, color:G.green, marginRight:4 }}>{n.raceHit}</span>
+                        )}
+                        {cleanTitle(n.title).length > 40
+                          ? cleanTitle(n.title).slice(0,40)+"…"
+                          : cleanTitle(n.title)}
+                      </div>
+                      <div style={{ fontSize:9, color:"#aaa", marginTop:3 }}>{n.source} · {n.date} ↗</div>
+                    </a>
+                  </div>
+                );
+              })}
             </div>
-          </a>
-        ))
+          )}
+          <div style={{ textAlign:"center", fontSize:10, color:"#bbb", marginTop:10 }}>
+            ニュース記事から自動抽出（毎日複数回更新）
+          </div>
+        </div>
       )}
-      <div style={{ textAlign:"center", fontSize:10, color:"#bbb", marginTop:8 }}>
-        毎日17:00自動更新（直近30日分）
-      </div>
+
+      {/* ===== ニュース一覧タブ ===== */}
+      {subTab === "list" && (
+        <div style={{ padding:12 }}>
+          {/* 厩舎フィルター */}
+          <div style={{ display:"flex", gap:6, flexWrap:"wrap", marginBottom:12 }}>
+            <button onClick={() => setFilterPlayer("ALL")} style={{
+              fontSize:11, fontWeight:700, padding:"4px 10px", borderRadius:20, cursor:"pointer",
+              background: filterPlayer==="ALL" ? G.green : "#fff",
+              color: filterPlayer==="ALL" ? "#fff" : "#555",
+              border: `1px solid ${filterPlayer==="ALL" ? G.green : "#ddd"}`,
+            }}>すべて</button>
+            {activePlayers.map(p => (
+              <button key={p.id} onClick={() => setFilterPlayer(p.id)} style={{
+                fontSize:11, fontWeight:700, padding:"4px 10px", borderRadius:20, cursor:"pointer",
+                background: filterPlayer===p.id ? PLAYER_COLORS[p.id] : "#fff",
+                color: filterPlayer===p.id ? "#fff" : "#555",
+                border: `1px solid ${filterPlayer===p.id ? PLAYER_COLORS[p.id] : "#ddd"}`,
+              }}>{p.name}</button>
+            ))}
+          </div>
+          {filtered.length === 0 ? (
+            <div style={{ textAlign:"center", color:"#aaa", marginTop:40, fontSize:14 }}>ニュースがありません</div>
+          ) : filtered.map((n, i) => (
+            <a key={i} href={n.url} target="_blank" rel="noopener noreferrer"
+              style={{ textDecoration:"none", display:"block", marginBottom:8 }}>
+              <div style={{
+                background:"#fff", borderRadius:10, padding:"10px 12px",
+                borderLeft:`4px solid ${PLAYER_COLORS[n.player] || "#999"}`,
+                boxShadow:"0 1px 3px rgba(0,0,0,0.07)",
+              }}>
+                <div style={{ display:"flex", alignItems:"center", gap:6, marginBottom:4 }}>
+                  <span style={{ fontSize:10, fontWeight:800, color:"#fff", background:PLAYER_COLORS[n.player]||"#999", borderRadius:4, padding:"1px 6px" }}>{n.horse}</span>
+                  <span style={{ fontSize:10, color:"#aaa" }}>{playerName(n.player)}</span>
+                  <span style={{ fontSize:10, color:"#bbb", marginLeft:"auto" }}>{n.date}</span>
+                </div>
+                <div style={{ fontSize:13, fontWeight:600, color:"#222", lineHeight:1.4 }}>{cleanTitle(n.title)}</div>
+                <div style={{ fontSize:10, color:"#aaa", marginTop:4 }}>{n.source} ↗</div>
+              </div>
+            </a>
+          ))}
+          <div style={{ textAlign:"center", fontSize:10, color:"#bbb", marginTop:8 }}>
+            毎日複数回自動更新（直近30日分）
+          </div>
+        </div>
+      )}
     </div>
   );
 }
@@ -1473,7 +1509,7 @@ export default function App() {
     content = <ResultsScreen results={results} upcoming={upcoming} loaded={resultsLoaded} news={news} />;
   } else if (tab === "news") {
     title = "砂遊びニュース";
-    content = <NewsScreen news={news} />;
+    content = <NewsScreen news={news} results={results} />;
   } else if (tab === "hall") {
     if (selectedHallP) {
       title = selectedHallP.name;
