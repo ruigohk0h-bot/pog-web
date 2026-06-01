@@ -2213,6 +2213,7 @@ function BettingGame() {
   const [pos, setPos] = useState([]); // 各馬の進行位置
   const [result, setResult] = useState(null); // {winner, payout, upset}
   const [call, setCall] = useState(""); // 実況テロップ
+  const [fx, setFx] = useState([]); // 各馬のアクシデント状態 {label, fallen}
   const rafRef = useRef(null);
 
   useEffect(() => {
@@ -2233,26 +2234,76 @@ function BettingGame() {
 
     const positions = race.map(() => 0);
     setPos(positions);
+
+    // ── アクシデント抽選 ──────────────────────────
+    // acc[i] = { delay, fallAt, stumbleAt, surge, fallen, stumbled, surged, label }
+    const acc = race.map(() => ({ delay:0, fallAt:0, stumbleAt:0, surge:false,
+                                  fallen:false, stumbled:false, stumbleUntil:0, label:"" }));
+    race.forEach((h, i) => {
+      if (h.no === winnerNo) {
+        // 勝ち馬は軽い出遅れ程度（回復して差してくる演出）
+        if (Math.random() < 0.3) acc[i].delay = 12 + Math.random() * 14;
+        return;
+      }
+      const roll = Math.random();
+      if (roll < 0.07)      acc[i].fallAt    = FINISH * (0.2 + Math.random() * 0.45); // 落馬 7%
+      else if (roll < 0.22) acc[i].delay     = 22 + Math.random() * 34;              // 出遅れ
+      else if (roll < 0.40) acc[i].stumbleAt = FINISH * (0.3 + Math.random() * 0.4); // 躓き
+      else if (roll < 0.50) acc[i].surge     = true;                                 // 一気に好スタート
+    });
+    setFx(acc.map(() => ({ label:"", fallen:false })));
+
     let frame = 0;
     let calledMid = false, calledLast = false;
+    const announce = (msg) => setCall(msg);
 
     const run = () => {
       frame++;
+      let fxChanged = false;
       for (let i = 0; i < race.length; i++) {
         const h = race[i];
+        const a = acc[i];
+
+        if (a.fallen) continue; // 落馬した馬は止まる
+
+        // 出遅れ：ゲートで足踏み
+        if (frame < a.delay) {
+          if (frame === 1) { a.label = "出遅れ…"; fxChanged = true;
+            if (h.no !== winnerNo) announce(`⚠️ ${h.no}番 ${h.name} 出遅れた！`); }
+          continue;
+        }
+        if (a.label === "出遅れ…" && frame >= a.delay) { a.label = ""; fxChanged = true; }
+
         // 基本ペース（ばらつきあり）。勝率で少しだけ差をつける
         let step = 0.8 + Math.random() * 1.8 + h.winProb * 1.2;
+        if (a.surge && positions[i] < FINISH * 0.4) step *= 1.7; // 好スタートでハナを切る
+        if (a.stumbleUntil > frame) step *= 0.2;                 // 躓き中は失速
+
         if (h.no === winnerNo) {
-          // 勝ち馬は最終的に必ず先頭でゴール。穴馬は後方から差す演出
           const progress = positions[i] / FINISH;
-          if (upset && progress < 0.55) step *= 0.7;      // 序盤は抑える
-          else if (progress > 0.7) step *= upset ? 2.2 : 1.5; // 直線で爆発
+          if (upset && progress < 0.55) step *= 0.7;
+          else if (progress > 0.7) step *= upset ? 2.2 : 1.5;
         }
         positions[i] += step;
+
+        // 落馬発生
+        if (a.fallAt && positions[i] >= a.fallAt && !a.fallen) {
+          a.fallen = true; a.label = "落馬！"; fxChanged = true;
+          announce(`💥 ${h.no}番 ${h.name} 落馬ーっ！！`);
+        }
+        // 躓き発生
+        if (a.stumbleAt && positions[i] >= a.stumbleAt && !a.stumbled) {
+          a.stumbled = true; a.stumbleUntil = frame + 16; a.label = "躓いた"; fxChanged = true;
+          announce(`😵 ${h.no}番 ${h.name} 躓いた！`);
+        }
+        if (a.label === "躓いた" && a.stumbleUntil <= frame) { a.label = ""; fxChanged = true; }
       }
+      if (fxChanged) setFx(acc.map(a => ({ label:a.label, fallen:a.fallen })));
 
       // 勝ち馬を確実に最後だけ先頭へ
-      const sorted = [...positions.keys()].sort((a, b) => positions[b] - positions[a]);
+      const sorted = [...positions.keys()]
+        .filter(i => !acc[i].fallen)
+        .sort((a, b) => positions[b] - positions[a]);
       const winnerIdx = race.findIndex(h => h.no === winnerNo);
       const leadIdx = sorted[0];
       if (positions[winnerIdx] >= FINISH * 0.85 && leadIdx !== winnerIdx) {
@@ -2263,11 +2314,11 @@ function BettingGame() {
       const lead = race[sorted[0]];
       if (!calledMid && positions[winnerIdx] > FINISH * 0.5) {
         calledMid = true;
-        setCall(`先頭は ${lead.no}番 ${lead.name}！`);
+        announce(`先頭は ${lead.no}番 ${lead.name}！`);
       }
       if (!calledLast && positions[winnerIdx] > FINISH * 0.78) {
         calledLast = true;
-        setCall(upset ? `🔥 外から ${winner.no}番 ${winner.name} が強襲ーっ！！` : `🏇 ${winner.name} 先頭！残り少ない！`);
+        announce(upset ? `🔥 外から ${winner.no}番 ${winner.name} が強襲ーっ！！` : `🏇 ${winner.name} 先頭！残り少ない！`);
       }
 
       // ゴール判定（勝ち馬がゴールしたら確定）
@@ -2296,6 +2347,7 @@ function BettingGame() {
     setPhase("bet");
     setResult(null);
     setPos([]);
+    setFx([]);
   };
 
   const refill = () => setCoins(1000);
@@ -2345,16 +2397,26 @@ function BettingGame() {
                 </div>
               </div>
               {/* レーン */}
-              {phase !== "bet" && (
-                <div style={{ position:"relative", height:18, marginTop:4, background:"#f5efe4", borderRadius:9, overflow:"hidden" }}>
-                  <div style={{ position:"absolute", right:0, top:0, bottom:0, width:3, background:G.gi }} />
-                  <div style={{
-                    position:"absolute", top:0, fontSize:15, lineHeight:"18px",
-                    left:`${Math.min(100, ((pos[i] || 0) / FINISH) * 100)}%`,
-                    transform:"translateX(-50%) scaleX(-1)",
-                  }}>🏇</div>
-                </div>
-              )}
+              {phase !== "bet" && (() => {
+                const st = fx[i] || { label:"", fallen:false };
+                return (
+                  <div style={{ position:"relative", height:18, marginTop:4, background: st.fallen ? "#f3e1e1" : "#f5efe4", borderRadius:9, overflow:"hidden" }}>
+                    <div style={{ position:"absolute", right:0, top:0, bottom:0, width:3, background:G.gi }} />
+                    <div style={{
+                      position:"absolute", top:0, fontSize:15, lineHeight:"18px",
+                      left:`${Math.min(100, ((pos[i] || 0) / FINISH) * 100)}%`,
+                      transform: st.fallen ? "translateX(-50%) scaleX(-1) rotate(70deg)" : "translateX(-50%) scaleX(-1)",
+                      filter: st.fallen ? "grayscale(1)" : "none",
+                    }}>{st.fallen ? "💥" : "🏇"}</div>
+                    {st.label && (
+                      <div style={{
+                        position:"absolute", right:6, top:0, lineHeight:"18px",
+                        fontSize:9, fontWeight:800, color:G.gi,
+                      }}>{st.label}</div>
+                    )}
+                  </div>
+                );
+              })()}
             </div>
           );
         })}
