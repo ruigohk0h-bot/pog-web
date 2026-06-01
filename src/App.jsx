@@ -461,8 +461,8 @@ const TROPHIES = [
   { season:"2024-25", player:"P05", grade:"GIII",   race:"ユニコーンS",          horse:"パントルナイーフ", order:1, date:"2025/05/03" },
   // ===== 2023-24シーズン（〜2024/06東京ダービーまで） =====
   // ※ レパードS(8月)・不来方賞(9月)・関東オークス(6/12)はPOG期間外のため除外
-  { season:"2023-24", player:"P02", grade:"JpnIII", race:"ブルーバードC",        horse:"(確認中)",         order:2, date:"2024/01/17" },
-  { season:"2023-24", player:"P01", grade:"JpnII",  race:"兵庫ジュニアグランプリ",horse:"(確認中)",        order:2, date:"2023/11/22" },
+  { season:"2023-24", player:"P02", grade:"JpnIII", race:"ブルーバードC",         horse:"エコロガイア",     order:2, date:"2024/01/17" },
+  { season:"2023-24", player:"P01", grade:"JpnII",  race:"兵庫ジュニアグランプリ",horse:"サトノフェニックス",order:2, date:"2023/11/22" },
 ];
 
 // ================================================================
