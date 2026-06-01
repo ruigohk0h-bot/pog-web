@@ -988,7 +988,7 @@ function ResultsScreen({ results, upcoming, loaded, news }) {
 function RankGraph({ playerId }) {
   const W = 88, H = 36, PAD = 6;
   const maxRank = 7;
-  const seasons = SEASONS_ALL.map(s => {
+  const seasons = SEASONS_ALL.filter(s => !s.period.endsWith("〜")).map(s => {
     const r = s.results.find(r => r.player===playerId);
     return r ? { label:s.label, rank:r.rank } : null;
   }).filter(Boolean);
