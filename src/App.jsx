@@ -486,7 +486,7 @@ const SEASON_AWARDS = [
       { title:"最優秀厩舎",   stable:"川村厩舎",    horse:"",                  note:"シーズン優勝" },
       { title:"最優砂遊び馬", stable:"前田厩舎",    horse:"サトノフェニックス", note:"" },
       { title:"最優秀短距離", stable:"前田厩舎",    horse:"サトノフェニックス", note:"" },
-      { title:"最優秀中距離", stable:"ミリオン厩舎", horse:"アンデスビエント",   note:"" },
+      { title:"最優秀中距離", stable:"川村厩舎",    horse:"エコロガイア",      note:"" },
       { title:"最優秀牝馬",   stable:"ミリオン厩舎", horse:"アンデスビエント",   note:"" },
       { title:"最優秀芝馬",   stable:"長谷部厩舎",   horse:"ピューロマジック",   note:"" },
     ],
@@ -899,7 +899,7 @@ function RankGraph({ playerId }) {
 function HallScreen({ onSelectHallPlayer }) {
   const stats = PLAYERS.map(p => {
     const mySeasons = SEASONS_ALL.filter(s => s.results.find(r => r.player===p.id));
-    const wins = mySeasons.filter(s => s.results.find(r => r.player===p.id)?.rank===1);
+    const wins = mySeasons.filter(s => s.period.includes("〜") && !s.period.endsWith("〜") && s.results.find(r => r.player===p.id)?.rank===1);
     const totalPt = mySeasons.reduce((sum,s) => {
       const r = s.results.find(r => r.player===p.id);
       return sum + (r?.pt??0);
