@@ -2173,14 +2173,14 @@ function makeRace() {
     if (picked.length >= 5) break;
   }
 
-  // 強さ＝獲得pt（賞金）ベース。ptの差をほどよく圧縮（√）して馬力に
+  // 強さ＝獲得pt（賞金）ベース。差を強調するため累乗で広げる
   const horses = picked.map((h, i) => ({
     no: i + 1,
     name: h.name,
     stable: h.stable,
     season: h.season,
     pt: h.pt,
-    strength: 0.6 + Math.sqrt(h.pt) / 60, // ptが大きいほど強い
+    strength: Math.pow(h.pt + 1, 1.5), // ptが大きいほど一気に強く
   }));
 
   // 勝つ確率 ∝ 強さ。確率からオッズを算出（控除率0.8込み）
@@ -2240,8 +2240,8 @@ function BettingGame() {
       frame++;
       for (let i = 0; i < race.length; i++) {
         const h = race[i];
-        // 基本ペース（ばらつきあり）
-        let step = 0.6 + Math.random() * 1.8 + h.strength * 0.5;
+        // 基本ペース（ばらつきあり）。勝率で少しだけ差をつける
+        let step = 0.8 + Math.random() * 1.8 + h.winProb * 1.2;
         if (h.no === winnerNo) {
           // 勝ち馬は最終的に必ず先頭でゴール。穴馬は後方から差す演出
           const progress = positions[i] / FINISH;
