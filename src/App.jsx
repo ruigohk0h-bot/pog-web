@@ -1710,7 +1710,7 @@ function NewsScreen({ news }) {
             }}>
               <div style={{ display:"flex", alignItems:"center", gap:6, marginBottom:4 }}>
                 <span style={{ fontSize:10, fontWeight:800, color:"#fff", background:PLAYER_COLORS[n.player]||"#999", borderRadius:4, padding:"1px 6px" }}>{n.horse}</span>
-                <span style={{ fontSize:10, color:"#aaa" }}>{playerName(n.player)}</span>
+                <span style={{ fontSize:11, color:"#444", fontWeight:700 }}>{playerName(n.player)}</span>
                 <span style={{ fontSize:10, color:"#bbb", marginLeft:"auto" }}>{n.date}</span>
               </div>
               <div style={{ fontSize:13, fontWeight:600, color:"#222", lineHeight:1.4 }}>{cleanTitle(n.title)}</div>
