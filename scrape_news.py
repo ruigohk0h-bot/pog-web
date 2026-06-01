@@ -42,6 +42,7 @@ def fetch_news_for_horse(horse_name, days=30):
         link_el    = item.find("link")
         pubdate_el = item.find("pubDate")
         source_el  = item.find("source")
+        desc_el    = item.find("description")
 
         if title_el is None or link_el is None:
             continue
@@ -51,6 +52,10 @@ def fetch_news_for_horse(horse_name, days=30):
 
         # ソース名（媒体）
         source = source_el.text if source_el is not None else ""
+
+        # description（記事抜粋）をHTMLタグ除去してテキスト化
+        desc_raw = desc_el.text if desc_el is not None else ""
+        desc = re.sub(r'<[^>]+>', '', desc_raw).strip() if desc_raw else ""
 
         # 日付パース（例: "Wed, 07 May 2026 12:34:56 GMT"）
         pub_str = pubdate_el.text if pubdate_el is not None else ""
@@ -68,14 +73,16 @@ def fetch_news_for_horse(horse_name, days=30):
 
         date_label = pub_dt.strftime("%Y/%m/%d") if pub_dt else ""
 
-        # 馬名がタイトルに含まれているか確認（ノイズ除去）
-        if horse_name not in title:
+        # 馬名がタイトルまたはdescriptionに含まれているか確認
+        full_text = title + " " + desc
+        if horse_name not in full_text:
             continue
 
         results.append({
             "horse":  horse_name,
             "player": HORSE_PLAYER.get(horse_name, ""),
             "title":  title,
+            "desc":   desc,
             "source": source,
             "date":   date_label,
             "url":    link,

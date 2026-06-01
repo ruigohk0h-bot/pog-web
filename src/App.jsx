@@ -775,8 +775,47 @@ function HorseDetailScreen({ horse, playerId, results, kettonums }) {
 // タブ2: 最新結果
 // ================================================================
 
-function ResultsScreen({ results, upcoming, loaded }) {
+// ニュースから出走予定を抽出するキーワード
+const RACE_KEYWORDS = [
+  "東京ダービー","羽田盃","東京プリンセス賞","ユニコーンS","ユニコーンステークス",
+  "兵庫チャンピオンシップ","かきつばた記念","かしわ記念","帝王賞","スパーキングレディー",
+  "関東オークス","北海道スプリントC","サッポロクラシック","JBC","ジャパンダートクラシック",
+  "出走","参戦","登録","始動","始め","目標","狙う","予定","向かう","臨む","挑む",
+];
+
+function extractNewsUpcoming(news) {
+  const result = [];
+  const seen = new Set();
+  for (const n of news) {
+    const text = (n.title || "") + " " + (n.desc || "");
+    const matched = RACE_KEYWORDS.filter(kw =>
+      ["出走","参戦","登録","始動","始め","目標","狙う","予定","向かう","臨む","挑む"].includes(kw)
+        ? text.includes(kw)
+        : text.includes(kw)
+    );
+    // レース名が含まれているか or 出走系ワードが含まれているか
+    const hasRace = RACE_KEYWORDS.slice(0, 13).some(r => text.includes(r));
+    const hasAction = RACE_KEYWORDS.slice(13).some(a => text.includes(a));
+    if (!hasRace && !hasAction) continue;
+    const key = n.horse + "|" + n.title;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    // マッチしたレース名を抽出
+    const raceHit = RACE_KEYWORDS.slice(0, 13).find(r => text.includes(r)) || "";
+    result.push({ ...n, raceHit });
+  }
+  // 馬ごとに最新1件のみ
+  const byHorse = {};
+  for (const r of result) {
+    if (!byHorse[r.horse]) byHorse[r.horse] = r;
+  }
+  return Object.values(byHorse).sort((a,b) => b.date.localeCompare(a.date));
+}
+
+function ResultsScreen({ results, upcoming, loaded, news }) {
   const [subTab, setSubTab] = useState("upcoming");
+
+  const newsUpcoming = extractNewsUpcoming(news || []);
 
   // 出走予定：日付グループ
   const upGroups = (() => {
@@ -814,35 +853,83 @@ function ResultsScreen({ results, upcoming, loaded }) {
 
       {/* 出走予定タブ */}
       {subTab === "upcoming" && (
-        upcoming.length === 0
-          ? <div style={{ textAlign:"center", color:"#aaa", marginTop:40, fontSize:14 }}>出走予定はありません</div>
-          : upGroups.map(g => (
-              <div key={g.date} style={{ marginBottom:14 }}>
-                <div style={{ fontSize:12, fontWeight:800, color:G.green, marginBottom:6, paddingLeft:2 }}>
-                  📅 {g.date}
-                </div>
-                {g.rows.map((u, i) => (
-                  <div key={i} style={{
-                    background:"#f0f8f4", border:`1.5px solid ${G.green}`,
-                    borderRadius:10, padding:"10px 12px", marginBottom:6,
-                    display:"flex", alignItems:"center", gap:8,
-                  }}>
-                    <SurfaceTag surface={u.surface} dist={u.dist} small />
-                    <div style={{ flex:1, minWidth:0 }}>
-                      <div style={{ fontSize:15, fontWeight:800, color:"#222" }}>{u.horse}</div>
-                      <div style={{ fontSize:10, color:"#888", marginTop:3, display:"flex", alignItems:"center", gap:4 }}>
-                        <span>{u.venue}</span>
-                        <GradeTag grade={u.grade} local={u.local} />
+        <>
+          {/* 確定出走（netkeiba） */}
+          {upGroups.length > 0 && (
+            <div style={{ marginBottom:16 }}>
+              <div style={{ fontSize:11, fontWeight:800, color:"#888", marginBottom:8, paddingLeft:2 }}>
+                ✅ 確定出走
+              </div>
+              {upGroups.map(g => (
+                <div key={g.date} style={{ marginBottom:10 }}>
+                  <div style={{ fontSize:11, fontWeight:800, color:G.green, marginBottom:5, paddingLeft:2 }}>📅 {g.date}</div>
+                  {g.rows.map((u, i) => (
+                    <div key={i} style={{
+                      background:"#f0f8f4", border:`1.5px solid ${G.green}`,
+                      borderRadius:10, padding:"10px 12px", marginBottom:6,
+                      display:"flex", alignItems:"center", gap:8,
+                    }}>
+                      <SurfaceTag surface={u.surface} dist={u.dist} small />
+                      <div style={{ flex:1, minWidth:0 }}>
+                        <div style={{ fontSize:15, fontWeight:800, color:"#222" }}>{u.horse}</div>
+                        <div style={{ fontSize:10, color:"#888", marginTop:3, display:"flex", alignItems:"center", gap:4 }}>
+                          <span>{u.venue}</span><GradeTag grade={u.grade} local={u.local} />
+                        </div>
+                      </div>
+                      <div style={{ fontSize:10, color:"#777", textAlign:"right", flexShrink:0 }}>
+                        <div style={{ fontSize:14 }}>{playerEmoji(u.player)}</div>
+                        <div>{playerName(u.player)}</div>
                       </div>
                     </div>
-                    <div style={{ fontSize:10, color:"#777", textAlign:"right", flexShrink:0 }}>
-                      <div style={{ fontSize:14 }}>{playerEmoji(u.player)}</div>
-                      <div>{playerName(u.player)}</div>
+                  ))}
+                </div>
+              ))}
+            </div>
+          )}
+
+          {/* ニュース由来の出走情報 */}
+          {newsUpcoming.length > 0 && (
+            <div>
+              <div style={{ fontSize:11, fontWeight:800, color:"#888", marginBottom:8, paddingLeft:2 }}>
+                📰 ニュース情報（各媒体より）
+              </div>
+              {newsUpcoming.map((n, i) => (
+                <a key={i} href={n.url} target="_blank" rel="noopener noreferrer" style={{ textDecoration:"none", display:"block", marginBottom:8 }}>
+                  <div style={{
+                    background:"#fffbf0", border:`1.5px solid #e8c040`,
+                    borderRadius:10, padding:"10px 12px",
+                    display:"flex", alignItems:"flex-start", gap:8,
+                  }}>
+                    <div style={{ flex:1, minWidth:0 }}>
+                      <div style={{ display:"flex", alignItems:"center", gap:6, marginBottom:4 }}>
+                        <span style={{
+                          fontSize:11, fontWeight:800, color:"#fff",
+                          background: PLAYER_COLORS[n.player] || "#999",
+                          borderRadius:4, padding:"1px 6px",
+                        }}>{n.horse}</span>
+                        {n.raceHit && <span style={{ fontSize:10, color:"#c08000", fontWeight:700 }}>{n.raceHit}</span>}
+                        <span style={{ fontSize:10, color:"#bbb", marginLeft:"auto" }}>{n.date}</span>
+                      </div>
+                      <div style={{ fontSize:12, color:"#333", lineHeight:1.4 }}>
+                        {n.title.replace(/\s*[-—]\s*[^-—]+$/, "")}
+                      </div>
+                      {n.desc && (
+                        <div style={{ fontSize:10, color:"#888", marginTop:4, lineHeight:1.4 }}>
+                          {n.desc.slice(0, 80)}{n.desc.length > 80 ? "…" : ""}
+                        </div>
+                      )}
+                      <div style={{ fontSize:10, color:"#aaa", marginTop:4 }}>{n.source} ↗</div>
                     </div>
                   </div>
-                ))}
-              </div>
-            ))
+                </a>
+              ))}
+            </div>
+          )}
+
+          {upGroups.length === 0 && newsUpcoming.length === 0 && (
+            <div style={{ textAlign:"center", color:"#aaa", marginTop:40, fontSize:14 }}>出走予定の情報はありません</div>
+          )}
+        </>
       )}
 
       {/* 確定結果タブ */}
@@ -1383,7 +1470,7 @@ export default function App() {
     }
   } else if (tab === "results") {
     title = "最新結果";
-    content = <ResultsScreen results={results} upcoming={upcoming} loaded={resultsLoaded} />;
+    content = <ResultsScreen results={results} upcoming={upcoming} loaded={resultsLoaded} news={news} />;
   } else if (tab === "news") {
     title = "砂遊びニュース";
     content = <NewsScreen news={news} />;
