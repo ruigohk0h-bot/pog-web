@@ -472,6 +472,7 @@ const SEASON_AWARDS = [
   {
     season: "2024-25",
     items: [
+      { title:"最優秀厩舎",   stable:"前田厩舎",   horse:"",                 note:"シーズン優勝" },
       { title:"最優砂遊び馬", stable:"前田厩舎",   horse:"クレーキング",     note:"G1東京ダービー2着" },
       { title:"最優秀牝馬",   stable:"ミリオン厩舎", horse:"フロミストジーン", note:"OPヒヤシンス2着" },
       { title:"最優秀短距離", stable:"ミリオン厩舎", horse:"ルクソールカフェ", note:"OPヒヤシンス1着" },
@@ -482,6 +483,7 @@ const SEASON_AWARDS = [
   {
     season: "2023-24",
     items: [
+      { title:"最優秀厩舎",   stable:"川村厩舎",    horse:"",                  note:"シーズン優勝" },
       { title:"最優砂遊び馬", stable:"前田厩舎",    horse:"サトノフェニックス", note:"" },
       { title:"最優秀短距離", stable:"前田厩舎",    horse:"サトノフェニックス", note:"" },
       { title:"最優秀中距離", stable:"ミリオン厩舎", horse:"アンデスビエント",   note:"" },
@@ -492,11 +494,12 @@ const SEASON_AWARDS = [
   {
     season: "2022-23",
     items: [
-      { title:"最優砂遊び馬", stable:"前田厩舎",   horse:"ユティタムJ",       note:"" },
-      { title:"最優秀中距離", stable:"前田厩舎",   horse:"ユティタム",        note:"" },
-      { title:"最優秀短距離", stable:"山田厩舎",   horse:"サンライズフレイム", note:"" },
-      { title:"最優秀牝馬",   stable:"ミリオン厩舎", horse:"ミラクルティアラ",  note:"" },
-      { title:"最優秀芝馬",   stable:"じゃが厩舎", horse:"フルメタルボディー", note:"" },
+      { title:"最優秀厩舎",   stable:"前田厩舎",    horse:"",                  note:"シーズン優勝" },
+      { title:"最優砂遊び馬", stable:"前田厩舎",    horse:"ユティタム",         note:"" },
+      { title:"最優秀中距離", stable:"前田厩舎",    horse:"ユティタム",         note:"" },
+      { title:"最優秀短距離", stable:"山田厩舎",    horse:"サンライズフレイム",  note:"" },
+      { title:"最優秀牝馬",   stable:"ミリオン厩舎", horse:"ミラクルティアラ",   note:"" },
+      { title:"最優秀芝馬",   stable:"じゃが厩舎",  horse:"フルメタルボディー", note:"" },
     ],
   },
 ];
@@ -964,7 +967,9 @@ function HallScreen({ onSelectHallPlayer }) {
               }}>
                 <div style={{ flex:"0 0 90px", fontSize:10, color:G.gold, fontWeight:700 }}>{item.title}</div>
                 <div style={{ flex:"0 0 70px", fontSize:10, color:G.hallDim }}>{item.stable}</div>
-                <div style={{ flex:1, fontSize:13, fontWeight:800, color:G.hallText }}>{item.horse}</div>
+                <div style={{ flex:1, fontSize:13, fontWeight:800, color: item.horse ? G.hallText : G.dirtLight }}>
+                  {item.horse || item.stable}
+                </div>
                 {item.note ? <div style={{ fontSize:9, color:G.hallDim }}>{item.note}</div> : null}
               </div>
             ))}
