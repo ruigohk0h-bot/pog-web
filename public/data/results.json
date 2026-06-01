@@ -9,7 +9,7 @@
     "dist": 1800,
     "horse": "ウンナターシャ",
     "order": 2,
-    "rawPt": 0,
+    "rawPt": 240,
     "player": "P01"
   },
   {
@@ -61,7 +61,7 @@
     "dist": 1600,
     "horse": "モンスターラッシュ",
     "order": 2,
-    "rawPt": 0,
+    "rawPt": 240,
     "player": "P05"
   },
   {
@@ -139,7 +139,7 @@
     "dist": 1400,
     "horse": "ヘリテージブルーム",
     "order": 1,
-    "rawPt": 0,
+    "rawPt": 820,
     "player": "P03"
   },
   {
@@ -152,7 +152,7 @@
     "dist": 1800,
     "horse": "フィデリス",
     "order": 4,
-    "rawPt": 0,
+    "rawPt": 89,
     "player": "P04"
   },
   {
@@ -178,7 +178,7 @@
     "dist": 1200,
     "horse": "アーガイルショア",
     "order": 1,
-    "rawPt": 0,
+    "rawPt": 590,
     "player": "P07"
   },
   {
@@ -191,7 +191,7 @@
     "dist": 1800,
     "horse": "ホウオウストライク",
     "order": 1,
-    "rawPt": 0,
+    "rawPt": 590,
     "player": "P07"
   },
   {
@@ -217,7 +217,7 @@
     "dist": 1600,
     "horse": "ゴールドバローズ",
     "order": 2,
-    "rawPt": 0,
+    "rawPt": 330,
     "player": "P03"
   },
   {
@@ -295,7 +295,7 @@
     "dist": 1800,
     "horse": "メイショウコシュウ",
     "order": 3,
-    "rawPt": 0,
+    "rawPt": 150,
     "player": "P07"
   },
   {
@@ -308,7 +308,7 @@
     "dist": 2100,
     "horse": "ネイティヴプライド",
     "order": 3,
-    "rawPt": 0,
+    "rawPt": 150,
     "player": "P01"
   },
   {
@@ -321,7 +321,7 @@
     "dist": 2100,
     "horse": "エクストラプッシュ",
     "order": 1,
-    "rawPt": 0,
+    "rawPt": 590,
     "player": "P03"
   },
   {
@@ -386,7 +386,7 @@
     "dist": 1200,
     "horse": "エコログロウ",
     "order": 1,
-    "rawPt": 0,
+    "rawPt": 590,
     "player": "P05"
   },
   {
@@ -412,7 +412,7 @@
     "dist": 1600,
     "horse": "チュウワカーネギー",
     "order": 4,
-    "rawPt": 0,
+    "rawPt": 290,
     "player": "P03"
   },
   {
@@ -425,7 +425,7 @@
     "dist": 1600,
     "horse": "アルデトップガン",
     "order": 5,
-    "rawPt": 0,
+    "rawPt": 190,
     "player": "P04"
   },
   {
@@ -438,7 +438,7 @@
     "dist": 1400,
     "horse": "アーガイルショア",
     "order": 5,
-    "rawPt": 0,
+    "rawPt": 59,
     "player": "P07"
   },
   {
@@ -490,7 +490,7 @@
     "dist": 1400,
     "horse": "ヘリテージブルーム",
     "order": 2,
-    "rawPt": 0,
+    "rawPt": 330,
     "player": "P03"
   },
   {
@@ -516,7 +516,7 @@
     "dist": 1200,
     "horse": "エコロボルト",
     "order": 1,
-    "rawPt": 0,
+    "rawPt": 590,
     "player": "P03"
   },
   {
@@ -555,7 +555,7 @@
     "dist": 1800,
     "horse": "スマイルガーデン",
     "order": 3,
-    "rawPt": 0,
+    "rawPt": 150,
     "player": "P01"
   },
   {
@@ -607,7 +607,7 @@
     "dist": 1300,
     "horse": "アニマレイ",
     "order": 3,
-    "rawPt": 0,
+    "rawPt": 150,
     "player": "P02"
   },
   {
@@ -646,7 +646,7 @@
     "dist": 1700,
     "horse": "ゴールドバローズ",
     "order": 1,
-    "rawPt": 0,
+    "rawPt": 590,
     "player": "P03"
   },
   {
@@ -659,7 +659,7 @@
     "dist": 1800,
     "horse": "セスティーナ",
     "order": 2,
-    "rawPt": 0,
+    "rawPt": 240,
     "player": "P03"
   },
   {
@@ -698,7 +698,7 @@
     "dist": 1150,
     "horse": "ゲレイロ",
     "order": 4,
-    "rawPt": 0,
+    "rawPt": 89,
     "player": "P03"
   },
   {
@@ -711,7 +711,7 @@
     "dist": 1700,
     "horse": "マルシュボヌール",
     "order": 3,
-    "rawPt": 0,
+    "rawPt": 150,
     "player": "P04"
   },
   {
@@ -750,7 +750,7 @@
     "dist": 1800,
     "horse": "イナズマダイモン",
     "order": 4,
-    "rawPt": 0,
+    "rawPt": 120,
     "player": "P06"
   },
   {
@@ -763,7 +763,7 @@
     "dist": 1800,
     "horse": "キセログラフィカ",
     "order": 3,
-    "rawPt": 0,
+    "rawPt": 150,
     "player": "P01"
   },
   {
@@ -789,7 +789,7 @@
     "dist": 2000,
     "horse": "エクストラプッシュ",
     "order": 4,
-    "rawPt": 0,
+    "rawPt": 89,
     "player": "P03"
   },
   {
@@ -828,7 +828,7 @@
     "dist": 1200,
     "horse": "エコログロウ",
     "order": 3,
-    "rawPt": 0,
+    "rawPt": 150,
     "player": "P05"
   },
   {
@@ -841,7 +841,7 @@
     "dist": 1200,
     "horse": "エコロボルト",
     "order": 2,
-    "rawPt": 0,
+    "rawPt": 240,
     "player": "P03"
   },
   {
@@ -867,7 +867,7 @@
     "dist": 1800,
     "horse": "チュウワカーネギー",
     "order": 1,
-    "rawPt": 0,
+    "rawPt": 820,
     "player": "P03"
   },
   {
@@ -919,7 +919,7 @@
     "dist": 1800,
     "horse": "アイデアユー",
     "order": 4,
-    "rawPt": 0,
+    "rawPt": 89,
     "player": "P07"
   },
   {
@@ -971,7 +971,7 @@
     "dist": 1400,
     "horse": "アニマレイ",
     "order": 5,
-    "rawPt": 0,
+    "rawPt": 59,
     "player": "P02"
   },
   {
@@ -997,7 +997,7 @@
     "dist": 1800,
     "horse": "ペトリコール",
     "order": 1,
-    "rawPt": 0,
+    "rawPt": 590,
     "player": "P04"
   },
   {

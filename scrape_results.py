@@ -81,6 +81,50 @@ HORSE_PLAYER = {
 # 地方競馬場リスト
 LOCAL_VENUES = {"大井","船橋","川崎","浦和","門別","盛岡","水沢","金沢","笠松","名古屋","園田","姫路","高知","佐賀","荒尾","福山","帯広"}
 
+# 主要場（東京・阪神・中山・京都）以外は賞金が約80%
+MAJOR_VENUES = {"東京","阪神","中山","京都"}
+
+# JRA標準本賞金テーブル（万円・1着〜5着、主要場基準）
+PRIZE_TABLE = {
+    "新馬":   [270,  89,  57,  35,  23],
+    "未勝利": [270,  89,  57,  35,  23],
+    "1勝":    [530, 210, 133,  80,  53],
+    "2勝":    [880, 353, 224, 134,  89],
+    "3勝":   [1400, 567, 360, 216, 144],
+    "OP":    [2000, 800, 510, 306, 204],
+    "L":     [3500,1400, 890, 534, 356],
+    "GⅢ":   [5000,2000,1270, 762, 508],
+    "GⅡ":   [9000,3600,2290,1370, 914],
+    "GⅠ":  [20000,8000,5080,3050,2030],
+    "JpnI":  [8000,3200,2030,1220, 810],
+    "JpnII": [4000,1600,1020, 610, 406],
+    "JpnIII":[2000, 800, 510, 305, 203],
+}
+
+def calc_rawpt(race_name, grade, venue, surface, order):
+    """ダートレースの本賞金（万円）を概算。芝・5着外は0"""
+    if surface != "dirt" or order < 1 or order > 5:
+        return 0
+    idx = order - 1
+    if grade in PRIZE_TABLE:
+        prize = PRIZE_TABLE[grade][idx]
+    elif "新馬" in race_name:
+        prize = PRIZE_TABLE["新馬"][idx]
+    elif "未勝利" in race_name:
+        prize = PRIZE_TABLE["未勝利"][idx]
+    elif "1勝" in race_name:
+        prize = PRIZE_TABLE["1勝"][idx]
+    elif "2勝" in race_name:
+        prize = PRIZE_TABLE["2勝"][idx]
+    elif "3勝" in race_name:
+        prize = PRIZE_TABLE["3勝"][idx]
+    else:
+        prize = PRIZE_TABLE["OP"][idx]
+    # 小会場（函館・福島・小倉・新潟・中京等）は80%
+    if venue not in MAJOR_VENUES and venue not in LOCAL_VENUES:
+        prize = int(prize * 0.8)
+    return prize
+
 HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
 CACHE_FILE = os.path.join(os.path.dirname(__file__), "kettonum_cache.json")
 
@@ -143,6 +187,21 @@ def parse_grade(race_name):
     if re.search(r'JpnIII|Jpn3|Jpn３', race_name): return "JpnIII"
     return ""
 
+def fetch_race_prizes(race_path):
+    """keibalab レースページから本賞金リスト（万円, 1〜5着）を取得"""
+    url = f"https://www.keibalab.jp{race_path}"
+    try:
+        resp = requests.get(url, headers=HEADERS, timeout=15)
+        resp.raise_for_status()
+        text = resp.text
+        m = re.search(r'本賞金[\s　]+(\d[\d,万\s　]+)', text)
+        if m:
+            prizes = re.findall(r'(\d[\d,]+)万', m.group(0))
+            return [int(p.replace(',','')) for p in prizes[:5]]
+    except Exception:
+        pass
+    return []
+
 def get_results_from_html(html, horse_name, days=60):
     """keibalab HTMLからレース結果を解析
     列: 年月日/場/コース/天気/馬場/レース/人気/着/騎手/斤量/頭数/枠番/馬番/タイム/着差/...
@@ -193,7 +252,12 @@ def get_results_from_html(html, horse_name, days=60):
             continue
         order = int(order_str)
 
-        # 地方競馬判定
+        # レースページURLを取得（ダート5着以内のみ後で賞金取得）
+        race_link = ""
+        first_a = row.find("a", href=re.compile(r'/db/race/\d+/'))
+        if first_a:
+            race_link = first_a["href"]
+
         local = venue_name in LOCAL_VENUES
         player = HORSE_PLAYER.get(horse_name, "")
 
@@ -207,9 +271,10 @@ def get_results_from_html(html, horse_name, days=60):
             "dist": dist,
             "horse": horse_name,
             "order": order,
-            "rawPt": 0,
+            "rawPt": 0,  # 後でレースページから更新
             "player": player,
             "_ts": race_date.strftime("%Y-%m-%d"),
+            "_race_link": race_link,  # 賞金取得用（保存時に削除）
         })
 
     return results
@@ -250,6 +315,22 @@ def main():
         except Exception as e:
             print(f"  {name}: エラー {e}", flush=True)
 
+    # Step2.5: ダート5着以内の賞金をレースページから取得
+    race_prize_cache = {}  # race_link → [1着賞金, 2着, 3着, 4着, 5着]
+    dirt_targets = [r for r in all_results if r["surface"] == "dirt" and 1 <= r["order"] <= 5 and r["_race_link"]]
+    if dirt_targets:
+        print(f"\n【Step2.5】{len(dirt_targets)}件のダート入着賞金取得...", flush=True)
+        for r in dirt_targets:
+            link = r["_race_link"]
+            if link not in race_prize_cache:
+                prizes = fetch_race_prizes(link)
+                race_prize_cache[link] = prizes
+                time.sleep(0.4)
+            prizes = race_prize_cache.get(link, [])
+            if prizes and r["order"] <= len(prizes):
+                r["rawPt"] = prizes[r["order"] - 1]
+                print(f"  {r['horse']} {r['order']}着 {r['race']}: {r['rawPt']}万pt", flush=True)
+
     # 日付降順ソート
     all_results.sort(key=lambda x: x["_ts"], reverse=True)
     today_str = datetime.today().strftime("%Y-%m-%d")
@@ -259,6 +340,7 @@ def main():
 
     for r in past + upcoming:
         del r["_ts"]
+        r.pop("_race_link", None)  # 内部フィールドを削除
 
     # 保存
     out_dir = os.path.join(os.path.dirname(__file__), "public", "data")
