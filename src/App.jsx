@@ -2003,7 +2003,7 @@ function Season2627Screen() {
                   background: G.dirtDark, color:"#fff",
                   padding:"10px 14px", display:"flex", alignItems:"center", justifyContent:"space-between",
                 }}>
-                  <div style={{ fontWeight:800, fontSize:15 }}>{player.emoji} {player.name}</div>
+                  <div style={{ fontWeight:800, fontSize:15 }}>{player.name}</div>
                   <div style={{ fontSize:11, opacity:0.85 }}>登録済 {registered}/12頭</div>
                 </div>
                 {/* 馬リスト（指名順・2列グリッド） */}
