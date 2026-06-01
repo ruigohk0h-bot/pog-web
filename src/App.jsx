@@ -480,12 +480,15 @@ function displayPt(r) {
 // 共通コンポーネント
 // ================================================================
 
-function SurfaceTag({ surface, dist }) {
+function SurfaceTag({ surface, dist, small=false }) {
   return (
     <span style={{
-      display:"inline-block", fontSize:11, fontWeight:700, color:"#fff",
+      display:"inline-block", fontWeight:700, color:"#fff",
       background: surface==="dirt" ? G.dirt : G.green,
-      borderRadius:4, padding:"2px 6px", marginRight:6,
+      borderRadius:4,
+      fontSize: small ? 9 : 11,
+      padding: small ? "1px 4px" : "2px 6px",
+      marginRight: small ? 0 : 6,
     }}>
       {surface==="dirt" ? "ダ" : "芝"}{dist}
     </span>
@@ -510,38 +513,43 @@ function GradeTag({ grade, local }) {
 function ResultCard({ r, showPlayer=true }) {
   const dPt = displayPt(r);
   const zero = dPt === 0;
+  const orderColor = r.order===1 ? G.gold : r.order===2 ? G.silver : r.order===3 ? G.bronze : "#999";
   return (
     <div style={{
       background:"#fff", border:"1px solid #e4e9e6",
-      borderRadius:10, padding:"10px 12px", marginBottom:8,
-      opacity: zero ? 0.72 : 1,
+      borderRadius:8, padding:"7px 10px", marginBottom:5,
+      opacity: zero ? 0.65 : 1,
+      display:"flex", alignItems:"center", gap:7,
     }}>
-      <div style={{ display:"flex", alignItems:"center", gap:6, marginBottom:6, flexWrap:"wrap" }}>
-        <span style={{ fontSize:12, color:"#888", fontWeight:600 }}>{r.date}</span>
-        <span style={{ fontSize:12, fontWeight:700 }}>{r.venue}</span>
-        <GradeTag grade={r.grade} local={r.local} />
-      </div>
-      <div style={{ display:"flex", alignItems:"center", gap:8 }}>
-        <SurfaceTag surface={r.surface} dist={r.dist} />
-        <span style={{ fontSize:14, fontWeight:700, flex:1 }}>{r.horse}</span>
-        <span style={{ fontSize:13, fontWeight:800, color: r.order<=3 ? G.green : "#666" }}>
-          {r.order}着
-        </span>
-      </div>
+      {/* 左：着順バッジ */}
       <div style={{
-        display:"flex", justifyContent:"space-between", alignItems:"center",
-        marginTop:8, paddingTop:8, borderTop:"1px dashed #eee",
-      }}>
-        <span style={{ fontSize:11, color:"#999" }}>
-          {r.race}{showPlayer && ` ／ ${playerEmoji(r.player)} ${playerName(r.player)}`}
-        </span>
+        width:28, height:28, borderRadius:6, flexShrink:0,
+        background: r.order<=3 ? orderColor : "#eee",
+        color: r.order<=3 ? "#fff" : "#999",
+        display:"flex", alignItems:"center", justifyContent:"center",
+        fontWeight:800, fontSize:13,
+      }}>{r.order}</div>
+
+      {/* 中央：馬名・レース情報 */}
+      <div style={{ flex:1, minWidth:0 }}>
+        <div style={{ display:"flex", alignItems:"center", gap:5 }}>
+          <span style={{ fontSize:13, fontWeight:700, whiteSpace:"nowrap", overflow:"hidden", textOverflow:"ellipsis" }}>{r.horse}</span>
+          <GradeTag grade={r.grade} local={r.local} />
+        </div>
+        <div style={{ fontSize:10, color:"#999", marginTop:1, display:"flex", gap:5, flexWrap:"wrap" }}>
+          <span>{r.date}</span>
+          <span>{r.venue}</span>
+          <SurfaceTag surface={r.surface} dist={r.dist} small />
+          {showPlayer && <span>{playerEmoji(r.player)} {playerName(r.player)}</span>}
+        </div>
+        <div style={{ fontSize:10, color:"#bbb", marginTop:1, whiteSpace:"nowrap", overflow:"hidden", textOverflow:"ellipsis" }}>{r.race}</div>
+      </div>
+
+      {/* 右：ポイント */}
+      <div style={{ textAlign:"right", flexShrink:0 }}>
         {zero
-          ? <span style={{ fontSize:12, fontWeight:700, color:"#bbb" }}>
-              0 pt{r.surface==="turf" ? "（芝）" : ""}
-            </span>
-          : <span style={{ fontSize:14, fontWeight:800, color:"#d33" }}>
-              +{fmt(dPt)} pt
-            </span>
+          ? <span style={{ fontSize:11, color:"#ccc" }}>0pt{r.surface==="turf"?"(芝)":""}</span>
+          : <span style={{ fontSize:13, fontWeight:800, color:"#d33" }}>+{fmt(dPt)}</span>
         }
       </div>
     </div>
@@ -1170,7 +1178,7 @@ export default function App() {
   const headerBg = darkHeader ? G.dirtDark : G.green;
 
   const navItems = [
-    { key:"ranking", label:"ランキング", icon:"🏆" },
+    { key:"ranking", label:"2025-26", icon:"🏆" },
     { key:"results", label:"最新結果",   icon:"📋" },
     { key:"hall",    label:"殿堂DB",     icon:"🏟️" },
     { key:"rules",   label:"ルール",     icon:"📖" },
