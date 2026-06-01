@@ -442,34 +442,27 @@ const SEASONS_ALL = [
 // トロフィーデータ（scrape_trophies_v2.py で生成）
 // ================================================================
 const TROPHIES = [
+  // ===== 2025-26シーズン（〜2026/06東京ダービーまで） =====
   { season:"2025-26", player:"P03", grade:"JpnI",   race:"羽田盃競走",           horse:"フィンガー",       order:1, date:"2026/04/29" },
   { season:"2025-26", player:"P03", grade:"JpnII",  race:"京浜盃競走",           horse:"フィンガー",       order:2, date:"2026/03/25" },
   { season:"2025-26", player:"P03", grade:"JpnIII", race:"ブルーバードC",        horse:"フィンガー",       order:1, date:"2026/01/21" },
-  { season:"2025-26", player:"P05", grade:"JpnII",  race:"兵庫チャンピオンシッ", horse:"サトノボヤージュ", order:1, date:"2026/05/06" },
+  { season:"2025-26", player:"P05", grade:"JpnII",  race:"兵庫チャンピオンシップ",horse:"サトノボヤージュ", order:1, date:"2026/05/06" },
   { season:"2025-26", player:"P05", grade:"GIII",   race:"サウジダービー",        horse:"サトノボヤージュ", order:3, date:"2026/02/14" },
   { season:"2025-26", player:"P06", grade:"JpnI",   race:"羽田盃競走",           horse:"ロックターミガン", order:2, date:"2026/04/29" },
   { season:"2025-26", player:"P06", grade:"JpnII",  race:"京浜盃競走",           horse:"ロックターミガン", order:1, date:"2026/03/25" },
   { season:"2025-26", player:"P06", grade:"JpnIII", race:"雲取賞競走",           horse:"トリグラフヒル",   order:2, date:"2026/02/18" },
+  // ===== 2024-25シーズン（〜2025/06東京ダービーまで） =====
   { season:"2024-25", player:"P01", grade:"JpnI",   race:"東京ダービー競走",     horse:"クレーキング",     order:2, date:"2025/06/11" },
   { season:"2024-25", player:"P01", grade:"GIII",   race:"ユニコーンS",          horse:"クレーキング",     order:2, date:"2025/05/03" },
   { season:"2024-25", player:"P01", grade:"JpnI",   race:"羽田盃競走",           horse:"ジャナドリア",     order:3, date:"2025/04/29" },
   { season:"2024-25", player:"P01", grade:"JpnIII", race:"雲取賞競走",           horse:"ジャナドリア",     order:1, date:"2025/02/19" },
   { season:"2024-25", player:"P01", grade:"JpnIII", race:"雲取賞競走",           horse:"グランジョルノ",   order:2, date:"2025/02/19" },
   { season:"2024-25", player:"P01", grade:"JpnIII", race:"JBC2歳優駿",           horse:"グランジョルノ",   order:2, date:"2024/11/04" },
-  { season:"2024-25", player:"P04", grade:"GIII",   race:"武蔵野S",              horse:"ルクソールカフェ", order:1, date:"2025/11/15" },
-  { season:"2024-25", player:"P04", grade:"JpnI",   race:"ジャパンダートクラシ", horse:"ルクソールカフェ", order:3, date:"2025/10/08" },
-  { season:"2024-25", player:"P04", grade:"JpnIII", race:"兵庫女王盃",           horse:"(確認中)",         order:2, date:"2026/04/01" },
-  { season:"2024-25", player:"P04", grade:"JpnIII", race:"マリーンC",            horse:"(確認中)",         order:3, date:"2025/10/02" },
   { season:"2024-25", player:"P05", grade:"GIII",   race:"ユニコーンS",          horse:"パントルナイーフ", order:1, date:"2025/05/03" },
-  { season:"2024-25", player:"P03", grade:"JpnII",  race:"エンプレス杯キヨフジ", horse:"(確認中)",         order:3, date:"2026/05/13" },
-  { season:"2024-25", player:"P07", grade:"JpnIII", race:"黒船賞[指定交流]",     horse:"かきつばた記念馬", order:2, date:"2026/03/24" },
-  { season:"2024-25", player:"P07", grade:"JpnIII", race:"かきつばた記念",       horse:"かきつばた記念馬", order:1, date:"2026/02/23" },
-  { season:"2024-25", player:"P07", grade:"GIII",   race:"根岸S",                horse:"かきつばた記念馬", order:3, date:"2026/02/01" },
+  // ===== 2023-24シーズン（〜2024/06東京ダービーまで） =====
+  // ※ レパードS(8月)・不来方賞(9月)・関東オークス(6/12)はPOG期間外のため除外
   { season:"2023-24", player:"P02", grade:"JpnIII", race:"ブルーバードC",        horse:"(確認中)",         order:2, date:"2024/01/17" },
-  { season:"2023-24", player:"P01", grade:"JpnII",  race:"不来方賞",             horse:"(確認中)",         order:3, date:"2024/09/03" },
-  { season:"2023-24", player:"P01", grade:"GIII",   race:"レパードS",            horse:"(確認中)",         order:2, date:"2024/08/04" },
-  { season:"2023-24", player:"P01", grade:"JpnII",  race:"兵庫ジュニアグランプ", horse:"(確認中)",         order:2, date:"2023/11/22" },
-  { season:"2023-24", player:"P04", grade:"JpnII",  race:"関東オークス[指定交]", horse:"(確認中)",         order:1, date:"2024/06/12" },
+  { season:"2023-24", player:"P01", grade:"JpnII",  race:"兵庫ジュニアグランプリ",horse:"(確認中)",        order:2, date:"2023/11/22" },
 ];
 
 // ================================================================
@@ -983,7 +976,8 @@ function HallPlayerScreen({ player, onBack, kettonums }) {
                               <div style={{ fontWeight:700, fontSize:13, color:G.hallText }}>{h.name}</div>
                               <div style={{ fontSize:10, color:G.hallDim }}>
                                 {h.record}
-                                {h.sire && <span style={{ marginLeft:6 }} translate="no">父{h.sire}</span>}
+                                {h.sire && <span style={{ marginLeft:6 }}><span translate="no">父{h.sire}</span></span>}
+                                {h.dam  && <span style={{ marginLeft:4 }}><span translate="no">母{h.dam}</span></span>}
                               </div>
                             </div>
                             <div style={{ fontSize:13, fontWeight:800, color:G.dirtLight, flexShrink:0 }}>{fmt(h.pt)}</div>
