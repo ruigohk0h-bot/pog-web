@@ -118,32 +118,25 @@ def parse_grade(race_name):
     if re.search(r'JpnIII|Jpn3|Jpn３', race_name): return "JpnIII"
     return ""
 
-def get_results(kettonum, horse_name, days=60):
-    """馬の最近のレース結果を取得"""
-    url = f"https://db.netkeiba.com/horse/{kettonum}/"
-    try:
-        r = requests.get(url, headers=HEADERS, timeout=10)
-        soup = BeautifulSoup(r.content, "lxml", from_encoding="euc-jp")
-    except Exception as e:
-        print(f"    取得エラー: {e}")
-        return []
-
+def get_results_from_html(html, horse_name, days=60):
+    """HTML文字列からレース結果を解析"""
+    soup = BeautifulSoup(html, "lxml")
     today = datetime.today()
     cutoff = today - timedelta(days=days)
     results = []
 
-    # レース結果テーブルを探す（class="race_table_01"）
-    table = soup.find("table", class_="race_table_01")
+    # 新テーブルクラス: db_h_race_results（旧: race_table_01）
+    table = soup.find("table", class_="db_h_race_results") or soup.find("table", class_="race_table_01")
     if not table:
         return []
 
     for row in table.find_all("tr")[1:]:
         cells = [td.get_text(strip=True) for td in row.find_all("td")]
-        if len(cells) < 20:
+        if len(cells) < 15:
             continue
 
-        # 日付（例: 2025.05.31）
-        m = re.match(r'(\d{4})\.(\d{2})\.(\d{2})', cells[0])
+        # 日付（例: 2026/04/29）
+        m = re.match(r'(\d{4})[./](\d{2})[./](\d{2})', cells[0])
         if not m:
             continue
         race_date = datetime(int(m.group(1)), int(m.group(2)), int(m.group(3)))
@@ -152,29 +145,25 @@ def get_results(kettonum, horse_name, days=60):
 
         date_label = f"{int(m.group(2)):02d}/{int(m.group(3)):02d}"
 
-        # 開催地（例: "2回東京3日" → "東京"）
         venue_raw = cells[1]
         venue_name = re.sub(r'\d+回|\d+日目?', '', venue_raw).strip()
-        # R番号
-        r_num = cells[3]  # 例 "11"
+        r_num = cells[3]
         venue = f"{venue_name}{r_num}R" if r_num.isdigit() else venue_name
 
-        # レース名
         race_name = cells[4]
         grade = parse_grade(race_name)
 
-        # コース（例: "ダ1600"）
         course = cells[14] if len(cells) > 14 else ""
         surface = "dirt" if course.startswith("ダ") else "turf"
         dist_m = re.search(r'\d+', course)
         dist = int(dist_m.group()) if dist_m else 0
 
-        # 着順
         order_str = re.sub(r'[^\d]', '', cells[11]) if len(cells) > 11 else ""
         order = int(order_str) if order_str else 0
 
-        # 賞金（万円 → 円）→ ポイント
-        prize_str = re.sub(r'[^\d.]', '', cells[27]) if len(cells) > 27 else "0"
+        # 賞金列: 新テーブルは末尾（32列目）
+        prize_idx = len(cells) - 1
+        prize_str = re.sub(r'[^\d.]', '', cells[prize_idx]) if cells else "0"
         try:
             prize_man = float(prize_str or "0")
             raw_pt = int(prize_man) if surface == "dirt" and 1 <= order <= 5 else 0
@@ -209,64 +198,67 @@ def main():
 
     cache = load_cache()
 
-    # Step1: kettonum取得
-    print("【Step1】kettonum取得...", flush=True)
-    missing = [name for name in HORSE_PLAYER if name not in cache or cache.get(name) is None]
-    if missing:
-        print(f"  {len(missing)}頭を検索します...", flush=True)
-        try:
-            from playwright.sync_api import sync_playwright
-            import time as _time
-            with sync_playwright() as p:
-                browser = p.chromium.launch(headless=True)
-                page = browser.new_page()
-                for name in missing:
-                    try:
-                        # 毎回検索ページに戻る（同一ページを使い回す）
-                        page.goto("https://db.netkeiba.com/horse/search/", timeout=30000, wait_until="load")
-                        page.wait_for_selector("input[name=word]", timeout=10000)
-                        page.fill("input[name=word]", name)
-                        page.click("input[name=submit]")
-                        _time.sleep(3)
-                        content = page.content()
-                        soup = BeautifulSoup(content, "lxml")
-                        found = None
-                        # 完全一致優先
-                        for a in soup.find_all("a", href=re.compile(r"/horse/2023\d+")):
-                            if a.get_text(strip=True) == name:
-                                found = re.search(r"/horse/(2023\d+)", a["href"]).group(1)
-                                break
-                        if not found:
-                            a = soup.find("a", href=re.compile(r"/horse/2023\d+"))
-                            if a:
-                                found = re.search(r"/horse/(2023\d+)", a["href"]).group(1)
-                        cache[name] = found
-                        if found:
-                            print(f"  ✓ {name}: {found}", flush=True)
-                        else:
-                            print(f"  ? {name}: 見つからず", flush=True)
-                    except Exception as e:
-                        print(f"  ✗ {name}: {e}", flush=True)
-                        cache[name] = None
-                page.close()
-                browser.close()
-        except Exception as e:
-            print(f"  Playwright エラー: {e}", flush=True)
-        save_cache(cache)
-        print(f"キャッシュ保存完了\n", flush=True)
+    from playwright.sync_api import sync_playwright
+    import time as _time
 
-    # Step2: 最新レース結果取得
-    print("【Step2】直近60日のレース結果取得...")
     all_results = []
 
-    for name, player in HORSE_PLAYER.items():
-        kettonum = cache.get(name)
-        if not kettonum:
-            continue
-        print(f"  {name}...")
-        res = get_results(kettonum, name, days=60)
-        all_results.extend(res)
-        time.sleep(0.6)
+    with sync_playwright() as p:
+        browser = p.chromium.launch(headless=True)
+        page = browser.new_page()
+
+        # Step1: kettonum取得
+        missing = [name for name in HORSE_PLAYER if name not in cache or cache.get(name) is None]
+        if missing:
+            print(f"【Step1】{len(missing)}頭のkettonum取得...", flush=True)
+            for name in missing:
+                try:
+                    page.goto("https://db.netkeiba.com/horse/search/", timeout=30000, wait_until="load")
+                    page.wait_for_selector("input[name=word]", timeout=10000)
+                    page.fill("input[name=word]", name)
+                    page.click("input[name=submit]")
+                    _time.sleep(3)
+                    content = page.content()
+                    soup = BeautifulSoup(content, "lxml")
+                    found = None
+                    for a in soup.find_all("a", href=re.compile(r"/horse/2023\d+")):
+                        if a.get_text(strip=True) == name:
+                            found = re.search(r"/horse/(2023\d+)", a["href"]).group(1)
+                            break
+                    if not found:
+                        a = soup.find("a", href=re.compile(r"/horse/2023\d+"))
+                        if a:
+                            found = re.search(r"/horse/(2023\d+)", a["href"]).group(1)
+                    cache[name] = found
+                    if found:
+                        print(f"  ✓ {name}: {found}", flush=True)
+                    else:
+                        print(f"  ? {name}: 見つからず", flush=True)
+                except Exception as e:
+                    print(f"  ✗ {name}: {e}", flush=True)
+                    cache[name] = None
+            save_cache(cache)
+            print("キャッシュ保存完了\n", flush=True)
+        else:
+            print("【Step1】kettonum取得済み（スキップ）", flush=True)
+
+        # Step2: 最新レース結果取得（Playwright）
+        targets = [(name, cache[name]) for name in HORSE_PLAYER if cache.get(name)]
+        print(f"【Step2】{len(targets)}頭のレース結果取得...", flush=True)
+        for name, kettonum in targets:
+            try:
+                url = f"https://db.netkeiba.com/horse/{kettonum}/"
+                page.goto(url, timeout=30000, wait_until="load")
+                _time.sleep(2)
+                html = page.content()
+                res = get_results_from_html(html, name, days=60)
+                all_results.extend(res)
+                print(f"  {name}: {len(res)}件", flush=True)
+            except Exception as e:
+                print(f"  {name}: エラー {e}", flush=True)
+
+        page.close()
+        browser.close()
 
     # 日付降順ソート
     all_results.sort(key=lambda x: x["_ts"], reverse=True)
