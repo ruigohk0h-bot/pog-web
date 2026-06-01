@@ -43,117 +43,127 @@ const PLAYERS = [
 ];
 
 // ================================================================
-// 2026-27シーズン 指名馬データ
+// 2026-27シーズン 指名馬データ（指名順No.付き）
+// name:null = JRA馬名未登録（名前未定）
 // ================================================================
 const PLAYERS_2627 = [
   {
     id:"P04", name:"ミリオン厩舎", emoji:"💰",
-    named:[
-      { name:"ミクニプレイブ",     sire:"ナダル",               dam:"アンティミルト" },
-      { name:"トゥザファイナル",   sire:"ナダル",               dam:"スパークオンアイス" },
-      { name:"ソメデイストワール", sire:"マインドユアビスケッツ", dam:"ミラクルレジェンド" },
-    ],
-    unnamed:[
-      { dam:"ブリディカメント" }, { dam:"タヒチアンダンス" }, { dam:"ラテュロス" },
-      { dam:"Stellar Wind" },   { dam:"エリーズスマイル" }, { dam:"レッドアネラ" },
-      { dam:"アンデスクイーン" }, { dam:"ラタンドレス" },    { dam:"ロッテンマイヤー" },
+    horses:[
+      { no:1,  name:null,               dam:"ブリディカメント" },
+      { no:2,  name:"ミクニプレイブ",     sire:"ナダル",               dam:"アンティミルト" },
+      { no:3,  name:null,               dam:"タヒチアンダンス" },
+      { no:4,  name:"トゥザファイナル",   sire:"ナダル",               dam:"スパークオンアイス" },
+      { no:5,  name:null,               dam:"ラテュロス" },
+      { no:6,  name:null,               dam:"Stellar Wind" },
+      { no:7,  name:"ソメデイストワール", sire:"マインドユアビスケッツ", dam:"ミラクルレジェンド" },
+      { no:8,  name:null,               dam:"エリーズスマイル" },
+      { no:9,  name:null,               dam:"レッドアネラ" },
+      { no:10, name:null,               dam:"アンデスクイーン" },
+      { no:11, name:null,               dam:"ラタンドレス" },
+      { no:12, name:null,               dam:"ロッテンマイヤー" },
     ],
   },
   {
     id:"P01", name:"前田厩舎", emoji:"🏇",
-    named:[
-      { name:"スターフラッシュ",  sire:"Yaupon",          dam:"Shanghai Starlet" },
-      { name:"ラキアーヴェ",     sire:"ルヴァンスレーヴ", dam:"クラーベセクレタ" },
-      { name:"ミシェルバローズ", sire:"ナダル",           dam:"メリッサーニ" },
-      { name:"レッジェランツァ", sire:"シスキン",         dam:"エレヴァテッツァ" },
-      { name:"ヴェルバニア",     sire:"キタサンブラック", dam:"アドマイヤローザ" },
-      { name:"エスクアドラ",     sire:"レイデオロ",       dam:"ジューニャエコール" },
-      { name:"コナバームス",     sire:"アドマイヤマーズ", dam:"コナプリュウーズ" },
-    ],
-    unnamed:[
-      { dam:"スープレット" }, { dam:"オーサムウィンド" }, { sire:"プロミストリーブ" },
-      { dam:"クインアマランサス" }, { dam:"シンプリーグロリアス" },
+    horses:[
+      { no:1,  name:null,               dam:"スープレット" },
+      { no:2,  name:"スターフラッシュ",  sire:"Yaupon",          dam:"Shanghai Starlet" },
+      { no:3,  name:"ラキアーヴェ",     sire:"ルヴァンスレーヴ", dam:"クラーベセクレタ" },
+      { no:4,  name:"ミシェルバローズ", sire:"ナダル",           dam:"メリッサーニ" },
+      { no:5,  name:null,               dam:"オーサムウィンド" },
+      { no:6,  name:null,               sire:"プロミストリーブ" },
+      { no:7,  name:"レッジェランツァ", sire:"シスキン",         dam:"エレヴァテッツァ" },
+      { no:8,  name:"ヴェルバニア",     sire:"キタサンブラック", dam:"アドマイヤローザ" },
+      { no:9,  name:"エスクアドラ",     sire:"レイデオロ",       dam:"ジューニャエコール" },
+      { no:10, name:null,               dam:"クインアマランサス" },
+      { no:11, name:"コナバームス",     sire:"アドマイヤマーズ", dam:"コナプリュウーズ" },
+      { no:12, name:null,               dam:"シンプリーグロリアス" },
     ],
   },
   {
     id:"P02", name:"川村厩舎", emoji:"🐎",
-    named:[
-      { name:"マイクストーリー",    sire:"Flightline",           dam:"シャムロックローズ" },
-      { name:"アトミックリーチ",    sire:"コントレイル",         dam:"バリスビキニ" },
-      { name:"ヤングリッチ",        sire:"レイデオロ",           dam:"フォエヴァーダーリング" },
-      { name:"ダノンチャンピオン",  sire:"ホットロッドチャーリー", dam:"トップデザイル" },
-      { name:"コーズダヴィンチ",    sire:"マインドユアビスケッツ", dam:"プリモダヴィンチ" },
-      { name:"セイルトゥグローリー", sire:"エフフォーリア",       dam:"セイリングホーム" },
-      { name:"デミアン",            sire:"Flightline",           dam:"Mira Alta" },
-    ],
-    unnamed:[
-      { dam:"Champagne Lady" }, { dam:"ギルデッドミラー" }, { dam:"セントリフュージ" },
-      { dam:"ナターレ" }, { dam:"フェータルローズ" },
+    horses:[
+      { no:1,  name:null,                dam:"Champagne Lady" },
+      { no:2,  name:"マイクストーリー",    sire:"Flightline",           dam:"シャムロックローズ" },
+      { no:3,  name:null,                dam:"ギルデッドミラー" },
+      { no:4,  name:"アトミックリーチ",    sire:"コントレイル",         dam:"バリスビキニ" },
+      { no:5,  name:"ヤングリッチ",        sire:"レイデオロ",           dam:"フォエヴァーダーリング" },
+      { no:6,  name:"ダノンチャンピオン",  sire:"ホットロッドチャーリー", dam:"トップデザイル" },
+      { no:7,  name:"コーズダヴィンチ",    sire:"マインドユアビスケッツ", dam:"プリモダヴィンチ" },
+      { no:8,  name:null,                dam:"セントリフュージ" },
+      { no:9,  name:null,                dam:"ナターレ" },
+      { no:10, name:null,                dam:"フェータルローズ" },
+      { no:11, name:"セイルトゥグローリー", sire:"エフフォーリア",       dam:"セイリングホーム" },
+      { no:12, name:"デミアン",            sire:"Flightline",           dam:"Mira Alta" },
     ],
   },
   {
     id:"P07", name:"成田厩舎", emoji:"🎯",
-    named:[
-      { name:"ウィンタープリーズ", sire:"ホットロッドチャーリー", dam:"アイスバスティル" },
-      { name:"ソルテヴェローチェ", sire:"マテラスカイ",          dam:"ミニーアイル" },
-      { name:"トリプルウィン",     sire:"ドレフォン",            dam:"ラヴェリータ" },
-      { name:"タクティシアン",     sire:"サリオス",              dam:"モルシアナ" },
-      { name:"テンブレイクワン",   sire:"Volatile",              dam:"Nothing But Tom" },
-      { name:"アンドレバローズ",   sire:"ルヴァンスレーヴ",      dam:"ジェラスキャット" },
-      { name:"イレイザー",         sire:"ヘニーヒューズ",        dam:"アーサーズシスター" },
-    ],
-    unnamed:[
-      { dam:"ブランクチェック" }, { dam:"アーモーニーズエンジェル" },
-      { dam:"ミスエンパイアメント" }, { dam:"アストロロジカル" }, { dam:"スターリーウィンド" },
+    horses:[
+      { no:1,  name:null,               dam:"ブランクチェック" },
+      { no:2,  name:"ウィンタープリーズ", sire:"ホットロッドチャーリー", dam:"アイスバスティル" },
+      { no:3,  name:null,               dam:"アーモーニーズエンジェル" },
+      { no:4,  name:"ソルテヴェローチェ", sire:"マテラスカイ",          dam:"ミニーアイル" },
+      { no:5,  name:"トリプルウィン",     sire:"ドレフォン",            dam:"ラヴェリータ" },
+      { no:6,  name:"タクティシアン",     sire:"サリオス",              dam:"モルシアナ" },
+      { no:7,  name:null,               dam:"スターリーウィンド" },
+      { no:8,  name:"テンブレイクワン",   sire:"Volatile",              dam:"Nothing But Tom" },
+      { no:9,  name:null,               dam:"ミスエンパイアメント" },
+      { no:10, name:"アンドレバローズ",   sire:"ルヴァンスレーヴ",      dam:"ジェラスキャット" },
+      { no:11, name:null,               dam:"アストロロジカル" },
+      { no:12, name:"イレイザー",         sire:"ヘニーヒューズ",        dam:"アーサーズシスター" },
     ],
   },
   {
     id:"P06", name:"涼子厩舎", emoji:"🌸",
-    named:[
-      { name:"ホウオウシュウ",      sire:"レイデオロ",       dam:"スペシャルグルーヴ" },
-      { name:"オールシティキング",  sire:"Flightline",       dam:"セルフレスリー" },
-      { name:"デュガビー",          sire:"クリソベリル",     dam:"エスメラルディーナ" },
-      { name:"ウラノグラフィア",    sire:"ナダル",           dam:"リュラ" },
-      { name:"ヴェトロテンペスタ",  sire:"コントレイル",     dam:"シャンパンエイワン" },
-      { name:"ホーフアイゼン",      sire:"American Pharoah", dam:"Chain of Love" },
-    ],
-    unnamed:[
-      { dam:"パラダイスコープ" }, { dam:"ショウサンウルル" }, { dam:"ドリームライター" },
-      { dam:"スターリーウィンド" }, { dam:"シャイナーネット" }, { dam:"フェータルローズ" },
+    horses:[
+      { no:1,  name:"ホウオウシュウ",      sire:"レイデオロ",       dam:"スペシャルグルーヴ" },
+      { no:2,  name:"オールシティキング",  sire:"Flightline",       dam:"セルフレスリー" },
+      { no:3,  name:"デュガビー",          sire:"クリソベリル",     dam:"エスメラルディーナ" },
+      { no:4,  name:"ウラノグラフィア",    sire:"ナダル",           dam:"リュラ" },
+      { no:5,  name:null,               dam:"パラダイスコープ" },
+      { no:6,  name:null,               dam:"ショウサンウルル" },
+      { no:7,  name:null,               dam:"ドリームライター" },
+      { no:8,  name:null,               dam:"スターリーウィンド" },
+      { no:9,  name:"ヴェトロテンペスタ",  sire:"コントレイル",     dam:"シャンパンエイワン" },
+      { no:10, name:null,               dam:"フェータルローズ" },
+      { no:11, name:"ホーフアイゼン",      sire:"American Pharoah", dam:"Chain of Love" },
+      { no:12, name:null,               dam:"シャイナーネット" },
     ],
   },
   {
     id:"P05", name:"田崎厩舎", emoji:"⚡",
-    named:[
-      { name:"ディーヴァレギオン", sire:"ナダル",               dam:"シャドウディーヴァ" },
-      { name:"ヴィルダースヴィル", sire:"ドレフォン",           dam:"セラドン" },
-      { name:"ディルイーヤ",       sire:"コントレイル",         dam:"メントモリ" },
-      { name:"ブックオブケルズ",   sire:"リアルスティール",     dam:"シャンブルドット" },
-      { name:"ケンシロウワールド", sire:"Violence",             dam:"Colby Cakes" },
-      { name:"ハイウェイワン",     sire:"カリフォルニアクローム", dam:"シルバーポジー" },
-      { name:"トルヴァスト",       sire:"スマートファルコン",   dam:"コントレイルイン" },
-      { name:"オメガマサヤ",       sire:"オメガパフューム",     dam:"スターズパース" },
-    ],
-    unnamed:[
-      { dam:"コンバルティシオン" }, { dam:"アーモーニーズエンジェル" },
-      { dam:"グロリアーナ" }, { dam:"カピトス" },
+    horses:[
+      { no:1,  name:null,               dam:"コンバルティシオン" },
+      { no:2,  name:"ディーヴァレギオン", sire:"ナダル",               dam:"シャドウディーヴァ" },
+      { no:3,  name:null,               dam:"アーモーニーズエンジェル" },
+      { no:4,  name:"ヴィルダースヴィル", sire:"ドレフォン",           dam:"セラドン" },
+      { no:5,  name:"ディルイーヤ",       sire:"コントレイル",         dam:"メントモリ" },
+      { no:6,  name:"ブックオブケルズ",   sire:"リアルスティール",     dam:"シャンブルドット" },
+      { no:7,  name:"ケンシロウワールド", sire:"Violence",             dam:"Colby Cakes" },
+      { no:8,  name:"ハイウェイワン",     sire:"カリフォルニアクローム", dam:"シルバーポジー" },
+      { no:9,  name:null,               dam:"グロリアーナ" },
+      { no:10, name:"トルヴァスト",       sire:"スマートファルコン",   dam:"コントレイルイン" },
+      { no:11, name:"オメガマサヤ",       sire:"オメガパフューム",     dam:"スターズパース" },
+      { no:12, name:null,               dam:"カピトス" },
     ],
   },
   {
     id:"P03", name:"長谷部厩舎", emoji:"🏆",
-    named:[
-      { name:"クロダテ",           sire:"キタサンブラック",    dam:"ファッションスタ" },
-      { name:"ツキノエ",           sire:"シスターミニスター",  dam:"メイショウトモビ" },
-      { name:"マーゴットセレッツォ", sire:"ニューイヤーズデイ", dam:"サリネロ" },
-      { name:"セドゥクトーラ",     sire:"ナダル",             dam:"アンヴァル" },
-      { name:"ゼットターム",       sire:"ニューイヤーズデイ", dam:"アンヴァルゼット" },
-      { name:"エクレアカミング",   sire:"ドレフォン",          dam:"エクレアサンライズ" },
-      { name:"オールベット",       sire:"キズナ",              dam:"エスティロタレントーソ" },
-      { name:"ムーンベリル",       sire:"クリソベリル",        dam:"クインズムーン" },
-      { name:"ボードゥロレーヌ",   sire:"クリソベリル",        dam:"サイモンミラベル" },
-    ],
-    unnamed:[
-      { dam:"オムニプレゼンス" }, { dam:"カラルデイズ" }, { dam:"スズカモナミ" },
+    horses:[
+      { no:1,  name:"クロダテ",           sire:"キタサンブラック",    dam:"ファッションスタ" },
+      { no:2,  name:null,               dam:"オムニプレゼンス" },
+      { no:3,  name:"ツキノエ",           sire:"シスターミニスター",  dam:"メイショウトモビ" },
+      { no:4,  name:"マーゴットセレッツォ", sire:"ニューイヤーズデイ", dam:"サリネロ" },
+      { no:5,  name:null,               dam:"カラルデイズ" },
+      { no:6,  name:"セドゥクトーラ",     sire:"ナダル",             dam:"アンヴァル" },
+      { no:7,  name:"ゼットターム",       sire:"ニューイヤーズデイ", dam:"アンヴァルゼット" },
+      { no:8,  name:"エクレアカミング",   sire:"ドレフォン",          dam:"エクレアサンライズ" },
+      { no:9,  name:"オールベット",       sire:"キズナ",              dam:"エスティロタレントーソ" },
+      { no:10, name:"ムーンベリル",       sire:"クリソベリル",        dam:"クインズムーン" },
+      { no:11, name:null,               dam:"スズカモナミ" },
+      { no:12, name:"ボードゥロレーヌ",   sire:"クリソベリル",        dam:"サイモンミラベル" },
     ],
   },
 ];
@@ -1954,62 +1964,60 @@ function Season2627Screen() {
       {view === "roster" && (
         <div style={{ padding:"10px 12px" }}>
           {PLAYERS_2627.map(player => {
-            const total = player.named.length + player.unnamed.length;
-            const registered = player.named.length;
+            const registered = player.horses.filter(h => h.name).length;
             return (
               <div key={player.id} style={{
                 background:"#fff", borderRadius:12, marginBottom:12,
-                boxShadow:"0 1px 4px rgba(0,0,0,0.08)",
-                overflow:"hidden",
+                boxShadow:"0 1px 4px rgba(0,0,0,0.08)", overflow:"hidden",
               }}>
                 {/* プレイヤーヘッダー */}
                 <div style={{
                   background: G.dirtDark, color:"#fff",
                   padding:"10px 14px", display:"flex", alignItems:"center", justifyContent:"space-between",
                 }}>
-                  <div style={{ fontWeight:800, fontSize:15 }}>
-                    {player.emoji} {player.name}
-                  </div>
-                  <div style={{ fontSize:11, opacity:0.85 }}>
-                    登録済 {registered}/{total}頭
-                  </div>
+                  <div style={{ fontWeight:800, fontSize:15 }}>{player.emoji} {player.name}</div>
+                  <div style={{ fontSize:11, opacity:0.85 }}>登録済 {registered}/12頭</div>
                 </div>
-                {/* 馬リスト */}
-                <div style={{ padding:"10px 12px", display:"flex", flexDirection:"column", gap:6 }}>
-                  {/* 登録済み馬 */}
-                  {player.named.map((h,i) => (
-                    <div key={i} style={{ display:"flex", alignItems:"center", gap:8 }}>
-                      <span style={{ fontSize:10, color:G.dirtDark, fontWeight:800, minWidth:16 }}>▶</span>
-                      <div style={{ flex:1 }}>
-                        <div translate="no" style={{ fontWeight:800, fontSize:14, color:"#222" }}>{h.name}</div>
-                        <div style={{ fontSize:10, color:"#aaa", marginTop:1 }}>
-                          {h.sire && <span>父{h.sire}</span>}
-                          {h.sire && h.dam && <span>　</span>}
-                          {h.dam && <span>母{h.dam}</span>}
+                {/* 馬リスト（指名順） */}
+                <div style={{ padding:"8px 12px", display:"flex", flexDirection:"column", gap:0 }}>
+                  {player.horses.map(h => {
+                    const isNamed = !!h.name;
+                    return (
+                      <div key={h.no} style={{
+                        display:"flex", alignItems:"center", gap:8,
+                        padding:"6px 0",
+                        borderBottom:"1px solid #f0f0f0",
+                      }}>
+                        {/* 指名順バッジ */}
+                        <div style={{
+                          minWidth:32, height:22, borderRadius:6,
+                          background: isNamed ? G.dirt : "#e8e8e8",
+                          color: isNamed ? "#fff" : "#bbb",
+                          display:"flex", alignItems:"center", justifyContent:"center",
+                          fontSize:11, fontWeight:800, flexShrink:0,
+                        }}>{h.no}位</div>
+                        {/* 馬情報 */}
+                        <div style={{ flex:1, minWidth:0 }}>
+                          {isNamed ? (
+                            <div translate="no" style={{ fontWeight:800, fontSize:14, color:"#222" }}>{h.name}</div>
+                          ) : (
+                            <div style={{ fontWeight:700, fontSize:13, color:"#bbb" }}>名前未定</div>
+                          )}
+                          <div style={{ fontSize:10, color: isNamed ? "#aaa" : "#ccc", marginTop:1 }}>
+                            {h.sire && <span>父{h.sire}</span>}
+                            {h.sire && h.dam && <span>　</span>}
+                            {h.dam && <span>母{h.dam}</span>}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  ))}
-                  {/* 名前未定馬 */}
-                  {player.unnamed.map((h,i) => (
-                    <div key={`u${i}`} style={{ display:"flex", alignItems:"center", gap:8 }}>
-                      <span style={{ fontSize:10, color:"#ccc", fontWeight:800, minWidth:16 }}>—</span>
-                      <div style={{ flex:1 }}>
-                        <div style={{ fontWeight:700, fontSize:13, color:"#bbb" }}>名前未定</div>
-                        <div style={{ fontSize:10, color:"#ccc", marginTop:1 }}>
-                          {h.sire && <span>父{h.sire}</span>}
-                          {h.sire && h.dam && <span>　</span>}
-                          {h.dam && <span>母{h.dam}</span>}
-                        </div>
-                      </div>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
             );
           })}
           <div style={{ fontSize:10, color:"#bbb", textAlign:"center", marginTop:4 }}>
-            ※ グレーアウトの馬はJRA馬名未登録。血統のみ掲載
+            ※ 名前未定はJRA馬名未登録。血統のみ掲載
           </div>
         </div>
       )}
@@ -2028,23 +2036,24 @@ function Season2627Screen() {
             </div>
           </div>
           {/* プレイヤー一覧（0pt） */}
-          {PLAYERS_2627.map((player, idx) => (
-            <div key={player.id} style={{
-              background:"#fff", borderRadius:10, marginBottom:8,
-              padding:"12px 14px", display:"flex", alignItems:"center", gap:12,
-              boxShadow:"0 1px 3px rgba(0,0,0,0.06)",
-            }}>
-              <div style={{ fontSize:18, fontWeight:800, color:"#ddd", minWidth:24, textAlign:"center" }}>{idx+1}</div>
-              <div style={{ fontSize:20 }}>{player.emoji}</div>
-              <div style={{ flex:1 }}>
-                <div style={{ fontWeight:800, fontSize:14, color:"#555" }}>{player.name}</div>
-                <div style={{ fontSize:11, color:"#bbb", marginTop:2 }}>
-                  {player.named.length}頭登録済（全{player.named.length + player.unnamed.length}頭）
+          {PLAYERS_2627.map((player, idx) => {
+            const registered = player.horses.filter(h => h.name).length;
+            return (
+              <div key={player.id} style={{
+                background:"#fff", borderRadius:10, marginBottom:8,
+                padding:"12px 14px", display:"flex", alignItems:"center", gap:12,
+                boxShadow:"0 1px 3px rgba(0,0,0,0.06)",
+              }}>
+                <div style={{ fontSize:18, fontWeight:800, color:"#ddd", minWidth:24, textAlign:"center" }}>{idx+1}</div>
+                <div style={{ fontSize:20 }}>{player.emoji}</div>
+                <div style={{ flex:1 }}>
+                  <div style={{ fontWeight:800, fontSize:14, color:"#555" }}>{player.name}</div>
+                  <div style={{ fontSize:11, color:"#bbb", marginTop:2 }}>登録済 {registered}/12頭</div>
                 </div>
+                <div style={{ fontSize:18, fontWeight:800, color:"#ddd" }}>0 pt</div>
               </div>
-              <div style={{ fontSize:18, fontWeight:800, color:"#ddd" }}>0 pt</div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       )}
     </div>
