@@ -556,6 +556,54 @@ function ResultsScreen({ results, upcoming, loaded }) {
 // タブ3: 殿堂DB
 // ================================================================
 
+function RankGraph({ playerId }) {
+  const W = 88, H = 36, PAD = 6;
+  const maxRank = 7;
+  const seasons = SEASONS_ALL.map(s => {
+    const r = s.results.find(r => r.player===playerId);
+    return r ? { label:s.label, rank:r.rank } : null;
+  }).filter(Boolean);
+  if (seasons.length === 0) return null;
+
+  const xStep = (W - PAD*2) / Math.max(seasons.length - 1, 1);
+  const yFor = rank => PAD + (rank - 1) / (maxRank - 1) * (H - PAD*2);
+  const rankColor = r => r===1?G.gold:r===2?G.silver:r===3?G.bronze:"#888";
+
+  const pts = seasons.map((s,i) => ({
+    x: seasons.length===1 ? W/2 : PAD + i*xStep,
+    y: yFor(s.rank),
+    rank: s.rank,
+    label: s.label,
+  }));
+  const polyline = pts.map(p=>`${p.x},${p.y}`).join(" ");
+
+  return (
+    <svg width={W} height={H} style={{ display:"block", overflow:"visible" }}>
+      {/* 上部ガイドライン（1位） */}
+      <line x1={PAD} y1={yFor(1)} x2={W-PAD} y2={yFor(1)} stroke="#ffffff18" strokeWidth={1} strokeDasharray="3,3"/>
+      {/* ライン */}
+      {pts.length > 1 && (
+        <polyline points={polyline} fill="none" stroke={G.dirtLight} strokeWidth={1.5} strokeOpacity={0.6}/>
+      )}
+      {/* ドット */}
+      {pts.map((p,i) => (
+        <g key={i}>
+          <circle cx={p.x} cy={p.y} r={5} fill={rankColor(p.rank)} stroke={G.hallBg} strokeWidth={1.5}/>
+          <text x={p.x} y={p.y-8} textAnchor="middle" fontSize={9} fill={rankColor(p.rank)} fontWeight="800">
+            {p.rank===1?"🥇":p.rank===2?"🥈":p.rank===3?"🥉":`${p.rank}位`}
+          </text>
+        </g>
+      ))}
+      {/* 年ラベル */}
+      {pts.map((p,i) => (
+        <text key={`l${i}`} x={p.x} y={H+2} textAnchor="middle" fontSize={8} fill={G.hallDim}>
+          {seasons[i].label.replace("2022-23","22").replace("2023-24","23").replace("2024-25","24").replace("2025-26","25↑")}
+        </text>
+      ))}
+    </svg>
+  );
+}
+
 function HallScreen({ onSelectHallPlayer }) {
   const stats = PLAYERS.map(p => {
     const mySeasons = SEASONS_ALL.filter(s => s.results.find(r => r.player===p.id));
@@ -585,24 +633,23 @@ function HallScreen({ onSelectHallPlayer }) {
             width:"100%", textAlign:"left",
             background:G.hallCard, border:`1px solid ${G.hallBorder}`,
             borderRadius:12, padding:"12px 14px", marginBottom:10, cursor:"pointer",
-            display:"flex", alignItems:"center", gap:12,
+            display:"flex", alignItems:"center", gap:10,
           }}>
-          <div style={{ fontSize:24, width:32, textAlign:"center" }}>
+          <div style={{ fontSize:22, width:28, textAlign:"center", flexShrink:0 }}>
             {i===0?"👑":i===1?"🥈":i===2?"🥉":
               <span style={{ fontSize:14, color:G.hallDim, fontWeight:700 }}>{i+1}</span>}
           </div>
-          <div style={{ fontSize:22 }}>{p.emoji}</div>
-          <div style={{ flex:1 }}>
-            <div style={{ fontWeight:800, fontSize:15, color:G.hallText }}>{p.name}</div>
-            <div style={{ fontSize:11, color:G.hallDim, marginTop:3, display:"flex", gap:10 }}>
-              <span>出場 {p.seasons}S</span>
-              <span style={{ color: p.wins>0?G.gold:G.hallDim }}>優勝 {p.wins}回{p.wins>=2?" 👑":""}</span>
-              <span>重賞 {p.trophies.length}勝</span>
+          <div style={{ fontSize:20, flexShrink:0 }}>{p.emoji}</div>
+          <div style={{ flex:1, minWidth:0 }}>
+            <div style={{ fontWeight:800, fontSize:14, color:G.hallText }}>{p.name}</div>
+            <div style={{ fontSize:11, color:G.hallDim, marginTop:2, display:"flex", gap:8 }}>
+              <span style={{ color: p.wins>0?G.gold:G.hallDim }}>優勝{p.wins}回{p.wins>=2?"👑":""}</span>
+              <span>重賞{p.trophies.length}勝</span>
             </div>
           </div>
-          <div style={{ textAlign:"right" }}>
-            <div style={{ fontSize:16, fontWeight:900, color:G.dirtLight }}>{fmt(p.totalPt)}</div>
-            <div style={{ fontSize:10, color:G.hallDim }}>通算pt</div>
+          {/* 順位グラフ */}
+          <div style={{ flexShrink:0, paddingBottom:12 }}>
+            <RankGraph playerId={p.id} />
           </div>
         </button>
       ))}
@@ -686,8 +733,32 @@ function HallPlayerScreen({ player, onBack }) {
           </div>
         ))}
 
-        {tab==="trophies" && (
-          myTrophies.length===0
+        {tab==="trophies" && (() => {
+          // 重賞勝ち馬（order===1）をまとめる
+          const gradeWins = myTrophies.filter(t=>t.order===1);
+          const horseNames = [...new Set(gradeWins.map(t=>t.horse))];
+          return (<>
+            {horseNames.length>0 && (
+              <div style={{ background:G.hallCard, border:`1px solid ${G.gold}`, borderRadius:10, padding:"10px 14px", marginBottom:12 }}>
+                <div style={{ fontSize:11, color:G.gold, fontWeight:800, marginBottom:8 }}>🐴 主な活躍指名馬</div>
+                {horseNames.map(name => {
+                  const wins = gradeWins.filter(t=>t.horse===name);
+                  const best = wins.find(t=>t.grade.includes("I")&&!t.grade.includes("II")&&!t.grade.includes("III")) || wins[0];
+                  return (
+                    <div key={name} style={{ display:"flex", alignItems:"center", gap:8, marginBottom:6 }}>
+                      <span style={{ fontSize:16 }}>🏆</span>
+                      <div style={{ flex:1 }}>
+                        <span style={{ fontWeight:800, fontSize:14, color:G.hallText }}>{name}</span>
+                        <span style={{ fontSize:11, color:G.hallDim, marginLeft:8 }}>重賞{wins.length}勝</span>
+                      </div>
+                      <span style={{ fontSize:10, fontWeight:700, color:"#fff", background:best.grade.includes("JpnI")&&!best.grade.includes("II")&&!best.grade.includes("III")?G.gold:best.grade.includes("GⅠ")||best.grade==="GI"?G.gold:G.silver, borderRadius:3, padding:"1px 5px" }}>{best.grade}</span>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+          <div style={{ fontSize:11, color:G.hallDim, marginBottom:8, fontWeight:700 }}>全重賞成績</div>
+          {myTrophies.length===0
             ? <div style={{ background:G.hallCard, borderRadius:10, padding:24, textAlign:"center", color:G.hallDim, fontSize:13 }}>
                 重賞成績はまだ確認中です🐴
               </div>
@@ -718,8 +789,9 @@ function HallPlayerScreen({ player, onBack }) {
                     </div>
                   </div>
                 );
-              })
-        )}
+              })}
+          </>);
+        })()}
       </div>
     </div>
   );
