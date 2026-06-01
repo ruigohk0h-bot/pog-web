@@ -912,25 +912,9 @@ function RankingScreen({ onSelectPlayer, updated }) {
   return (
     <div style={{ padding:12 }}>
       {/* 期間・更新バー */}
-      <div style={{
-        background:"#fff", borderRadius:12, padding:"10px 14px",
-        marginBottom:12, border:"1px solid #e4e9e6",
-        display:"flex", alignItems:"center", justifyContent:"space-between",
-      }}>
-        <div style={{ fontSize:12, color:"#555" }}>
-          🏁 {CURRENT_SEASON.period} ／ {sorted.length}名参加
-        </div>
-        <div style={{ display:"flex", alignItems:"center", gap:10 }}>
-          {updated && (
-            <div style={{ fontSize:10, color:"#bbb" }}>🔄 {updated}</div>
-          )}
-          <button onClick={handleShare} style={{
-            background:G.green, color:"#fff", border:"none",
-            borderRadius:16, padding:"4px 12px", fontSize:11,
-            fontWeight:700, cursor:"pointer",
-          }}>シェア</button>
-        </div>
-      </div>
+      {updated && (
+        <div style={{ fontSize:10, color:"#bbb", textAlign:"right", marginBottom:8, paddingRight:4 }}>🔄 {updated}</div>
+      )}
 
       {sorted.map((u, i) => {
         const isTop = i === 0;
@@ -969,7 +953,7 @@ function RankingScreen({ onSelectPlayer, updated }) {
             {/* 名前・バー */}
             <div style={{ flex:1, minWidth:0 }}>
               <div style={{ fontWeight:700, fontSize: isTop?16:15, marginBottom:5 }}>
-                {player?.emoji} {player?.name}
+                {player?.name}
               </div>
               <div style={{ height:6, background:"#eef2f0", borderRadius:3, overflow:"hidden" }}>
                 <div style={{
