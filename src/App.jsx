@@ -1170,6 +1170,84 @@ function HallPlayerScreen({ player, onBack, kettonums }) {
 }
 
 // ================================================================
+// ================================================================
+// ニュース画面
+// ================================================================
+
+const PLAYER_COLORS = {
+  P01:"#c0392b", P02:"#2471a3", P03:"#0a7a5c",
+  P04:"#8e44ad", P05:"#d68910", P06:"#e91e8c", P07:"#555",
+};
+
+function NewsScreen({ news }) {
+  const [filterPlayer, setFilterPlayer] = useState("ALL");
+
+  const filtered = filterPlayer === "ALL"
+    ? news
+    : news.filter(n => n.player === filterPlayer);
+
+  // プレイヤーフィルターに使う厩舎（ニュースが1件以上あるもの）
+  const activePlayers = PLAYERS.filter(p => news.some(n => n.player === p.id));
+
+  // タイトルから「- 媒体名」を除去して見やすくする
+  const cleanTitle = (title) => title.replace(/\s*[-—]\s*[^-—]+$/, "");
+
+  return (
+    <div style={{ padding:12, background:"#eef2f0", minHeight:"100%" }}>
+      {/* フィルター */}
+      <div style={{ display:"flex", gap:6, flexWrap:"wrap", marginBottom:12 }}>
+        <button onClick={() => setFilterPlayer("ALL")} style={{
+          fontSize:11, fontWeight:700, padding:"4px 10px", borderRadius:20, cursor:"pointer",
+          background: filterPlayer==="ALL" ? G.green : "#fff",
+          color: filterPlayer==="ALL" ? "#fff" : "#555",
+          border: `1px solid ${filterPlayer==="ALL" ? G.green : "#ddd"}`,
+        }}>すべて</button>
+        {activePlayers.map(p => (
+          <button key={p.id} onClick={() => setFilterPlayer(p.id)} style={{
+            fontSize:11, fontWeight:700, padding:"4px 10px", borderRadius:20, cursor:"pointer",
+            background: filterPlayer===p.id ? PLAYER_COLORS[p.id] : "#fff",
+            color: filterPlayer===p.id ? "#fff" : "#555",
+            border: `1px solid ${filterPlayer===p.id ? PLAYER_COLORS[p.id] : "#ddd"}`,
+          }}>{p.name}</button>
+        ))}
+      </div>
+
+      {/* ニュース一覧 */}
+      {filtered.length === 0 ? (
+        <div style={{ textAlign:"center", color:"#aaa", marginTop:40, fontSize:14 }}>ニュースがありません</div>
+      ) : (
+        filtered.map((n, i) => (
+          <a key={i} href={n.url} target="_blank" rel="noopener noreferrer"
+            style={{ textDecoration:"none", display:"block", marginBottom:8 }}>
+            <div style={{
+              background:"#fff", borderRadius:10, padding:"10px 12px",
+              borderLeft:`4px solid ${PLAYER_COLORS[n.player] || "#999"}`,
+              boxShadow:"0 1px 3px rgba(0,0,0,0.07)",
+            }}>
+              <div style={{ display:"flex", alignItems:"center", gap:6, marginBottom:4 }}>
+                <span style={{
+                  fontSize:10, fontWeight:800, color:"#fff",
+                  background: PLAYER_COLORS[n.player] || "#999",
+                  borderRadius:4, padding:"1px 6px",
+                }}>{n.horse}</span>
+                <span style={{ fontSize:10, color:"#aaa" }}>{playerName(n.player)}</span>
+                <span style={{ fontSize:10, color:"#bbb", marginLeft:"auto" }}>{n.date}</span>
+              </div>
+              <div style={{ fontSize:13, fontWeight:600, color:"#222", lineHeight:1.4 }}>
+                {cleanTitle(n.title)}
+              </div>
+              <div style={{ fontSize:10, color:"#aaa", marginTop:4 }}>{n.source} ↗</div>
+            </div>
+          </a>
+        ))
+      )}
+      <div style={{ textAlign:"center", fontSize:10, color:"#bbb", marginTop:8 }}>
+        毎日17:00自動更新（直近30日分）
+      </div>
+    </div>
+  );
+}
+
 // ルール画面
 // ================================================================
 
@@ -1221,11 +1299,13 @@ export default function App() {
   const [upcoming, setUpcoming] = useState([]);
   const [resultsLoaded, setResultsLoaded] = useState(false);
   const [kettonums, setKettonums] = useState({});
+  const [news, setNews] = useState([]);
 
   useEffect(() => {
     fetch("/data/results.json").then(r => r.json()).then(d => { setResults(d); setResultsLoaded(true); }).catch(() => setResultsLoaded(true));
     fetch("/data/upcoming.json").then(r => r.json()).then(setUpcoming).catch(() => {});
     fetch("/data/kettonums.json").then(r => r.json()).then(setKettonums).catch(() => {});
+    fetch("/data/news.json").then(r => r.json()).then(setNews).catch(() => {});
   }, []);
 
   const switchTab = (t) => {
@@ -1254,6 +1334,9 @@ export default function App() {
   } else if (tab === "results") {
     title = "最新結果";
     content = <ResultsScreen results={results} upcoming={upcoming} loaded={resultsLoaded} />;
+  } else if (tab === "news") {
+    title = "指名馬ニュース";
+    content = <NewsScreen news={news} />;
   } else if (tab === "hall") {
     if (selectedHallP) {
       title = selectedHallP.name;
@@ -1274,9 +1357,10 @@ export default function App() {
 
   const navItems = [
     { key:"ranking", label:"2025-26", icon:"🏆" },
-    { key:"results", label:"最新結果",   icon:"📋" },
-    { key:"hall",    label:"殿堂DB",     icon:"🏟️" },
-    { key:"rules",   label:"ルール",     icon:"📖" },
+    { key:"results", label:"最新結果", icon:"📋" },
+    { key:"news",    label:"ニュース", icon:"📰" },
+    { key:"hall",    label:"殿堂DB",   icon:"🏟️" },
+    { key:"rules",   label:"ルール",   icon:"📖" },
   ];
 
   return (

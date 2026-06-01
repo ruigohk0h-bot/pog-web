@@ -304,3 +304,10 @@ def main():
 
 if __name__ == "__main__":
     main()
+    # ニュース取得（Google News RSS）
+    print("\n【Step3】指名馬ニュース取得...", flush=True)
+    try:
+        import scrape_news
+        scrape_news.main()
+    except Exception as e:
+        print(f"  ニュース取得エラー: {e}", flush=True)
