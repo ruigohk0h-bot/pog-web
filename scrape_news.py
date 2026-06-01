@@ -63,8 +63,14 @@ def is_low_quality(title, desc, source, horse_name):
     # 「馬名 (英語表記)」パターン（＝netkeibaのデータベース馬ページ）
     if re.match(r'^' + re.escape(horse_name) + r'\s*\([A-Za-z\s]+\)\s*$', title):
         return True
-    # 本文なしかつタイトルが極端に短い（15文字未満）
-    if not desc and len(title) < 15:
+    # 「馬名 (英語表記) | 競走馬データ」などの完全なデータベースタイトル
+    if re.match(r'^' + re.escape(horse_name) + r'\s*\([A-Za-z\s]+\)', title):
+        return True
+    # 「馬名の掲示板」パターン（＝ファンの掲示板ページ、本文なし）
+    if re.match(r'^' + re.escape(horse_name) + r'の掲示板', title):
+        return True
+    # 本文なし
+    if not desc:
         return True
     return False
 

@@ -1733,7 +1733,7 @@ function CalendarScreen({ pogHorses = new Set() }) {
   })();
   const [season, setSeason] = useState("2627");
   const [filters, setFilters] = useState(new Set());
-  const [hideShinma, setHideShinma] = useState(false);
+  const [hideShinma, setHideShinma] = useState(true);
   const BASE_CALENDAR = season === "2526" ? RACE_CALENDAR_2526 : RACE_CALENDAR_2627;
 
   const toggleFilter = (key) => {
@@ -1828,13 +1828,6 @@ function CalendarScreen({ pogHorses = new Set() }) {
             border:"1px solid #ddd", fontSize:11,
           }}>✕ リセット</button>
         )}
-        <button onClick={() => setHideShinma(h => !h)} style={{
-          padding:"5px 12px", borderRadius:16, cursor:"pointer",
-          background: hideShinma ? "#555" : "#fff",
-          color: hideShinma ? "#fff" : "#aaa",
-          border: `1px solid ${hideShinma ? "#555" : "#ddd"}`,
-          fontSize:11, fontWeight:700, marginLeft:"auto",
-        }}>{hideShinma ? "新馬: 非表示" : "新馬: 表示"}</button>
       </div>
 
       <div style={{ padding:"10px 12px 24px" }}>
@@ -2009,34 +2002,32 @@ function Season2627Screen() {
                   <div style={{ fontWeight:800, fontSize:15 }}>{player.emoji} {player.name}</div>
                   <div style={{ fontSize:11, opacity:0.85 }}>登録済 {registered}/12頭</div>
                 </div>
-                {/* 馬リスト（指名順） */}
-                <div style={{ padding:"8px 12px", display:"flex", flexDirection:"column", gap:0 }}>
+                {/* 馬リスト（指名順・2列グリッド） */}
+                <div style={{ padding:"6px 10px 8px", display:"grid", gridTemplateColumns:"1fr 1fr", gap:"2px 4px" }}>
                   {player.horses.map(h => {
                     const isNamed = !!h.name;
                     return (
                       <div key={h.no} style={{
-                        display:"flex", alignItems:"center", gap:8,
-                        padding:"6px 0",
-                        borderBottom:"1px solid #f0f0f0",
+                        display:"flex", alignItems:"center", gap:5,
+                        padding:"4px 2px",
+                        borderBottom:"1px solid #f5f5f5",
                       }}>
                         {/* 指名順バッジ */}
                         <div style={{
-                          minWidth:32, height:22, borderRadius:6,
+                          minWidth:26, height:18, borderRadius:4,
                           background: isNamed ? G.dirt : "#e8e8e8",
                           color: isNamed ? "#fff" : "#bbb",
                           display:"flex", alignItems:"center", justifyContent:"center",
-                          fontSize:11, fontWeight:800, flexShrink:0,
-                        }}>{h.no}位</div>
+                          fontSize:10, fontWeight:800, flexShrink:0,
+                        }}>{h.no}</div>
                         {/* 馬情報 */}
-                        <div style={{ flex:1, minWidth:0 }}>
+                        <div style={{ flex:1, minWidth:0, overflow:"hidden" }}>
                           {isNamed ? (
-                            <div translate="no" style={{ fontWeight:800, fontSize:14, color:"#222" }}>{h.name}</div>
+                            <div translate="no" style={{ fontWeight:800, fontSize:12, color:"#222", whiteSpace:"nowrap", overflow:"hidden", textOverflow:"ellipsis" }}>{h.name}</div>
                           ) : (
-                            <div style={{ fontWeight:700, fontSize:13, color:"#bbb" }}>名前未定</div>
+                            <div style={{ fontWeight:700, fontSize:11, color:"#bbb" }}>名前未定</div>
                           )}
-                          <div style={{ fontSize:10, color: isNamed ? "#aaa" : "#ccc", marginTop:1 }}>
-                            {h.sire && <span>父{h.sire}</span>}
-                            {h.sire && h.dam && <span>　</span>}
+                          <div style={{ fontSize:9, color: isNamed ? "#aaa" : "#ccc", whiteSpace:"nowrap", overflow:"hidden", textOverflow:"ellipsis" }}>
                             {h.dam && <span>母{h.dam}</span>}
                           </div>
                         </div>
