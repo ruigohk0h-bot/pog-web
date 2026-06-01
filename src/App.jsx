@@ -778,29 +778,56 @@ function HorseDetailScreen({ horse, playerId, results, kettonums }) {
 function ResultsScreen({ results, upcoming, loaded }) {
   return (
     <div style={{ padding:12 }}>
+      {/* ===== 今後の出走 ===== */}
       {upcoming.length > 0 && (
-        <>
-          <div style={{ fontSize:13, fontWeight:700, color:"#555", margin:"2px 4px 8px" }}>出走予定</div>
-          {upcoming.map((u,i) => (
-            <div key={i} style={{
-              background:"#f0f6f3", border:`1px dashed ${G.green}`,
-              borderRadius:10, padding:"10px 12px", marginBottom:8,
-            }}>
-              <div style={{ display:"flex", alignItems:"center", gap:6, marginBottom:6, flexWrap:"wrap" }}>
-                <span style={{ fontSize:12, color:"#888", fontWeight:600 }}>{u.date}</span>
-                <span style={{ fontSize:12, fontWeight:700 }}>{u.venue}</span>
-                <GradeTag grade={u.grade} local={u.local} />
+        <div style={{ marginBottom:16 }}>
+          <div style={{ display:"flex", alignItems:"center", gap:6, margin:"2px 4px 10px" }}>
+            <span style={{ fontSize:16 }}>🏁</span>
+            <span style={{ fontSize:14, fontWeight:800, color:G.green }}>今後の出走予定</span>
+            <span style={{ fontSize:11, background:G.green, color:"#fff", borderRadius:10, padding:"1px 8px", fontWeight:700 }}>{upcoming.length}頭</span>
+          </div>
+          {/* 日付グループ化 */}
+          {(() => {
+            const groups = [];
+            let cur = null;
+            for (const u of upcoming) {
+              if (!cur || cur.date !== u.date) {
+                cur = { date: u.date, rows: [] };
+                groups.push(cur);
+              }
+              cur.rows.push(u);
+            }
+            return groups.map(g => (
+              <div key={g.date} style={{ marginBottom:10 }}>
+                <div style={{ fontSize:11, fontWeight:800, color:G.green, marginBottom:5, paddingLeft:4 }}>
+                  📅 {g.date}
+                </div>
+                {g.rows.map((u, i) => (
+                  <div key={i} style={{
+                    background:"#f0f8f4", border:`1.5px solid ${G.green}`,
+                    borderRadius:10, padding:"9px 12px", marginBottom:6,
+                    display:"flex", alignItems:"center", gap:8,
+                  }}>
+                    <SurfaceTag surface={u.surface} dist={u.dist} small />
+                    <div style={{ flex:1, minWidth:0 }}>
+                      <div style={{ fontSize:14, fontWeight:800, color:"#222" }}>{u.horse}</div>
+                      <div style={{ fontSize:10, color:"#888", marginTop:2 }}>
+                        {u.venue}　<GradeTag grade={u.grade} local={u.local} />
+                      </div>
+                    </div>
+                    <div style={{ fontSize:10, color:"#777", textAlign:"right", flexShrink:0 }}>
+                      <div>{playerEmoji(u.player)}</div>
+                      <div>{playerName(u.player)}</div>
+                    </div>
+                  </div>
+                ))}
               </div>
-              <div style={{ display:"flex", alignItems:"center", gap:8 }}>
-                <SurfaceTag surface={u.surface} dist={u.dist} />
-                <span style={{ fontSize:14, fontWeight:700, flex:1 }}>{u.horse}</span>
-                <span style={{ fontSize:11, color:"#999" }}>{playerEmoji(u.player)} {playerName(u.player)}</span>
-              </div>
-            </div>
-          ))}
-        </>
+            ));
+          })()}
+        </div>
       )}
-      <div style={{ fontSize:13, fontWeight:700, color:"#555", margin:"14px 4px 8px" }}>確定・結果</div>
+
+      <div style={{ fontSize:13, fontWeight:700, color:"#555", margin:"4px 4px 8px" }}>確定・結果</div>
       {!loaded
         ? <div style={{ background:"#fff", borderRadius:10, padding:24, textAlign:"center", color:"#aaa", fontSize:13, border:"1px solid #e4e9e6" }}>読み込み中...</div>
         : results.length === 0
