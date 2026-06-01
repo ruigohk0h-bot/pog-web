@@ -735,24 +735,31 @@ function HallPlayerScreen({ player, onBack }) {
         ))}
 
         {tab==="trophies" && (() => {
-          // 重賞勝ち馬（order===1・馬名確定済み）をまとめる
-          const gradeWins = myTrophies.filter(t=>t.order===1 && !t.horse.includes("確認中"));
+          // ダート重賞勝ち馬（order===1・馬名確定・芝除外）をまとめる
+          const gradeWins = myTrophies.filter(t=>t.order===1 && !t.horse.includes("確認中") && !t.turf);
           const horseNames = [...new Set(gradeWins.map(t=>t.horse))];
+          const gradeRank = g => g.includes("I")&&!g.includes("II")&&!g.includes("III")?1:g.includes("II")&&!g.includes("III")?2:3;
+          const gradeColor = g => gradeRank(g)===1?G.gold:gradeRank(g)===2?G.silver:G.bronze;
           return (<>
             {horseNames.length>0 && (
               <div style={{ background:G.hallCard, border:`1px solid ${G.gold}`, borderRadius:10, padding:"10px 14px", marginBottom:12 }}>
-                <div style={{ fontSize:11, color:G.gold, fontWeight:800, marginBottom:8 }}>🐴 主な活躍指名馬</div>
+                <div style={{ fontSize:11, color:G.gold, fontWeight:800, marginBottom:10 }}>🐴 主な活躍指名馬</div>
                 {horseNames.map(name => {
-                  const wins = gradeWins.filter(t=>t.horse===name);
-                  const best = wins.find(t=>t.grade.includes("I")&&!t.grade.includes("II")&&!t.grade.includes("III")) || wins[0];
+                  const wins = gradeWins.filter(t=>t.horse===name).sort((a,b)=>gradeRank(a.grade)-gradeRank(b.grade));
                   return (
-                    <div key={name} style={{ display:"flex", alignItems:"center", gap:8, marginBottom:6 }}>
-                      <span style={{ fontSize:16 }}>🏆</span>
-                      <div style={{ flex:1 }}>
-                        <span style={{ fontWeight:800, fontSize:14, color:G.hallText }}>{name}</span>
-                        <span style={{ fontSize:11, color:G.hallDim, marginLeft:8 }}>重賞{wins.length}勝</span>
+                    <div key={name} style={{ marginBottom:10, paddingBottom:10, borderBottom:`1px solid ${G.hallBorder}` }}>
+                      <div style={{ fontWeight:800, fontSize:14, color:G.hallText, marginBottom:5 }}>
+                        🏆 <span translate="no">{name}</span>
+                        <span style={{ fontSize:11, color:G.hallDim, fontWeight:400, marginLeft:8 }}>ダート重賞{wins.length}勝</span>
                       </div>
-                      <span translate="no" style={{ fontSize:10, fontWeight:700, color:"#fff", background:best.grade.includes("JpnI")&&!best.grade.includes("II")&&!best.grade.includes("III")?G.gold:best.grade.includes("GⅠ")||best.grade==="GI"?G.gold:G.silver, borderRadius:3, padding:"1px 5px" }}>{best.grade}</span>
+                      <div style={{ display:"flex", flexDirection:"column", gap:3 }}>
+                        {wins.map((t,i) => (
+                          <div key={i} style={{ display:"flex", alignItems:"center", gap:6 }}>
+                            <span translate="no" style={{ fontSize:9, fontWeight:800, color:"#fff", background:gradeColor(t.grade), borderRadius:3, padding:"1px 5px", flexShrink:0 }}>{t.grade}</span>
+                            <span style={{ fontSize:12, color:G.hallText }}>{t.race}</span>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   );
                 })}
