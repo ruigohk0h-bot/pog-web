@@ -99,12 +99,12 @@ def get_kettonum(name, cache):
         result = get_kettonum_browser(name)
         if result:
             cache[name] = result
-            print(f"  ✓ {name}: {result}", flush=True)
+            print(f"  OK{name}: {result}", flush=True)
             return result
     except Exception as e:
-        print(f"  ✗ {name}: エラー {e}", flush=True)
+        print(f"  NG{name}: エラー {e}", flush=True)
     cache[name] = None
-    print(f"  ? {name}: 見つからず", flush=True)
+    print(f"  -- {name}: not found", flush=True)
     return None
 
 def parse_grade(race_name):
@@ -204,8 +204,16 @@ def main():
     all_results = []
 
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True)
-        page = browser.new_page()
+        browser = p.chromium.launch(
+            headless=True,
+            args=["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage"]
+        )
+        ctx = browser.new_context(
+            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            viewport={"width": 1280, "height": 800},
+            locale="ja-JP",
+        )
+        page = ctx.new_page()
 
         # Step1: kettonum取得
         missing = [name for name in HORSE_PLAYER if name not in cache or cache.get(name) is None]
@@ -214,7 +222,7 @@ def main():
             for name in missing:
                 try:
                     page.goto("https://db.netkeiba.com/horse/search/", timeout=30000, wait_until="load")
-                    page.wait_for_selector("input[name=word]", timeout=10000)
+                    page.wait_for_selector("input[name=word]", timeout=20000)
                     page.fill("input[name=word]", name)
                     page.click("input[name=submit]")
                     _time.sleep(3)
@@ -231,11 +239,11 @@ def main():
                             found = re.search(r"/horse/(2023\d+)", a["href"]).group(1)
                     cache[name] = found
                     if found:
-                        print(f"  ✓ {name}: {found}", flush=True)
+                        print(f"  OK{name}: {found}", flush=True)
                     else:
-                        print(f"  ? {name}: 見つからず", flush=True)
+                        print(f"  -- {name}: not found", flush=True)
                 except Exception as e:
-                    print(f"  ✗ {name}: {e}", flush=True)
+                    print(f"  NG{name}: {e}", flush=True)
                     cache[name] = None
             save_cache(cache)
             print("キャッシュ保存完了\n", flush=True)
@@ -257,7 +265,7 @@ def main():
             except Exception as e:
                 print(f"  {name}: エラー {e}", flush=True)
 
-        page.close()
+        ctx.close()
         browser.close()
 
     # 日付降順ソート
@@ -285,7 +293,7 @@ def main():
     with open(os.path.join(out_dir, "kettonums.json"), "w", encoding="utf-8") as f:
         json.dump(kettonums_for_front, f, ensure_ascii=False, indent=2)
 
-    print(f"\n✓ 完了！ 確定結果: {len(past)}件 / 出走予定: {len(upcoming)}件")
+    print(f"\n完了！ 確定結果: {len(past)}件 / 出走予定: {len(upcoming)}件")
     print(f"  → public/data/results.json")
     print(f"  → public/data/upcoming.json")
 
