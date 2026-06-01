@@ -425,7 +425,8 @@ function PlayerDetailScreen({ userId, onBack, onSelectHorse, kettonums }) {
               </div>
               <div style={{ fontSize:10, color:"#aaa" }}>
                 {h.record}
-                {h.sire && <span style={{ marginLeft:6 }}>父{h.sire}</span>}
+                {h.sire && <span style={{ marginLeft:6 }}>父<span translate="no">{h.sire}</span></span>}
+                {h.dam  && <span style={{ marginLeft:4 }}>母<span translate="no">{h.dam}</span></span>}
               </div>
             </div>
             {/* pt */}
@@ -489,13 +490,13 @@ function HorseDetailScreen({ horse, playerId, results, kettonums }) {
             {horse.sire && (
               <div>
                 <div style={{ fontSize:10, color:"#999" }}>父</div>
-                <div style={{ fontSize:13, fontWeight:700 }}>{horse.sire}</div>
+                <div style={{ fontSize:13, fontWeight:700 }} translate="no">{horse.sire}</div>
               </div>
             )}
             {horse.dam && (
               <div>
                 <div style={{ fontSize:10, color:"#999" }}>母</div>
-                <div style={{ fontSize:13, fontWeight:700 }}>{horse.dam}</div>
+                <div style={{ fontSize:13, fontWeight:700 }} translate="no">{horse.dam}</div>
               </div>
             )}
           </div>
