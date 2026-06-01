@@ -1554,8 +1554,16 @@ function CalendarScreen({ pogHorses = new Set() }) {
     const d = new Date();
     return `${d.getFullYear()}/${String(d.getMonth()+1).padStart(2,"0")}/${String(d.getDate()).padStart(2,"0")}`;
   })();
-  const [filter, setFilter] = useState("all");
+  const [filters, setFilters] = useState(new Set());
   const [hideShinma, setHideShinma] = useState(false);
+
+  const toggleFilter = (key) => {
+    setFilters(prev => {
+      const next = new Set(prev);
+      next.has(key) ? next.delete(key) : next.add(key);
+      return next;
+    });
+  };
 
   const gradeColor = (g) =>
     g==="JpnI"||g==="GⅠ"  ? G.gi  :
@@ -1571,11 +1579,13 @@ function CalendarScreen({ pogHorses = new Set() }) {
 
   const filtered = RACE_CALENDAR.filter(r => {
     if (hideShinma && r.grade === "新馬") return false;
-    if (filter === "age2")     return r.age.includes("2歳");
-    if (filter === "age3")     return r.age.includes("3歳");
-    if (filter === "exchange") return r.exchange;
-    if (filter === "race")     return gradeWeight(r.grade) === "race";
-    return true;
+    if (filters.size === 0) return true;
+    // 複数フィルターは OR 条件
+    if (filters.has("age2")     && r.age.includes("2歳"))            return true;
+    if (filters.has("age3")     && r.age.includes("3歳"))            return true;
+    if (filters.has("exchange") && r.exchange)                        return true;
+    if (filters.has("race")     && gradeWeight(r.grade) === "race")   return true;
+    return false;
   });
 
   // 月ごとにグループ化
@@ -1597,29 +1607,35 @@ function CalendarScreen({ pogHorses = new Set() }) {
   return (
     <div style={{ background:"#eef2f0", minHeight:"100%" }}>
       {/* フィルター */}
-      <div style={{ display:"flex", gap:5, padding:"12px 12px 0", flexWrap:"wrap" }}>
+      <div style={{ display:"flex", gap:5, padding:"12px 12px 0", flexWrap:"wrap", alignItems:"center" }}>
         {[
-          { key:"all",      label:"全て" },
           { key:"race",     label:"🏆 重賞・OP" },
           { key:"exchange", label:"🤝 交流" },
           { key:"age2",     label:"2歳" },
           { key:"age3",     label:"3歳" },
         ].map(f => (
-          <button key={f.key} onClick={() => setFilter(f.key)} style={{
+          <button key={f.key} onClick={() => toggleFilter(f.key)} style={{
             padding:"5px 12px", borderRadius:16, cursor:"pointer",
-            background: filter===f.key ? G.dirt : "#fff",
-            color: filter===f.key ? "#fff" : "#555",
-            border: `1px solid ${filter===f.key ? G.dirt : "#ddd"}`,
+            background: filters.has(f.key) ? G.dirt : "#fff",
+            color: filters.has(f.key) ? "#fff" : "#555",
+            border: `1px solid ${filters.has(f.key) ? G.dirt : "#ddd"}`,
             fontSize:11, fontWeight:700,
           }}>{f.label}</button>
         ))}
+        {filters.size > 0 && (
+          <button onClick={() => setFilters(new Set())} style={{
+            padding:"5px 10px", borderRadius:16, cursor:"pointer",
+            background:"transparent", color:"#aaa",
+            border:"1px solid #ddd", fontSize:11,
+          }}>✕ リセット</button>
+        )}
         <button onClick={() => setHideShinma(h => !h)} style={{
           padding:"5px 12px", borderRadius:16, cursor:"pointer",
           background: hideShinma ? "#555" : "#fff",
-          color: hideShinma ? "#fff" : "#888",
+          color: hideShinma ? "#fff" : "#aaa",
           border: `1px solid ${hideShinma ? "#555" : "#ddd"}`,
           fontSize:11, fontWeight:700, marginLeft:"auto",
-        }}>{hideShinma ? "新馬戦: 非表示" : "新馬戦: 表示中"}</button>
+        }}>{hideShinma ? "新馬: 非表示" : "新馬: 表示"}</button>
       </div>
 
       <div style={{ padding:"10px 12px 24px" }}>
