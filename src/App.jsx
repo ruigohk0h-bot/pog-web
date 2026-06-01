@@ -42,6 +42,122 @@ const PLAYERS = [
   { id:"P07", name:"成田厩舎",   emoji:"🎯" },
 ];
 
+// ================================================================
+// 2026-27シーズン 指名馬データ
+// ================================================================
+const PLAYERS_2627 = [
+  {
+    id:"P04", name:"ミリオン厩舎", emoji:"💰",
+    named:[
+      { name:"ミクニプレイブ",     sire:"ナダル",               dam:"アンティミルト" },
+      { name:"トゥザファイナル",   sire:"ナダル",               dam:"スパークオンアイス" },
+      { name:"ソメデイストワール", sire:"マインドユアビスケッツ", dam:"ミラクルレジェンド" },
+    ],
+    unnamed:[
+      { dam:"ブリディカメント" }, { dam:"タヒチアンダンス" }, { dam:"ラテュロス" },
+      { dam:"Stellar Wind" },   { dam:"エリーズスマイル" }, { dam:"レッドアネラ" },
+      { dam:"アンデスクイーン" }, { dam:"ラタンドレス" },    { dam:"ロッテンマイヤー" },
+    ],
+  },
+  {
+    id:"P01", name:"前田厩舎", emoji:"🏇",
+    named:[
+      { name:"スターフラッシュ",  sire:"Yaupon",          dam:"Shanghai Starlet" },
+      { name:"ラキアーヴェ",     sire:"ルヴァンスレーヴ", dam:"クラーベセクレタ" },
+      { name:"ミシェルバローズ", sire:"ナダル",           dam:"メリッサーニ" },
+      { name:"レッジェランツァ", sire:"シスキン",         dam:"エレヴァテッツァ" },
+      { name:"ヴェルバニア",     sire:"キタサンブラック", dam:"アドマイヤローザ" },
+      { name:"エスクアドラ",     sire:"レイデオロ",       dam:"ジューニャエコール" },
+      { name:"コナバームス",     sire:"アドマイヤマーズ", dam:"コナプリュウーズ" },
+    ],
+    unnamed:[
+      { dam:"スープレット" }, { dam:"オーサムウィンド" }, { sire:"プロミストリーブ" },
+      { dam:"クインアマランサス" }, { dam:"シンプリーグロリアス" },
+    ],
+  },
+  {
+    id:"P02", name:"川村厩舎", emoji:"🐎",
+    named:[
+      { name:"マイクストーリー",    sire:"Flightline",           dam:"シャムロックローズ" },
+      { name:"アトミックリーチ",    sire:"コントレイル",         dam:"バリスビキニ" },
+      { name:"ヤングリッチ",        sire:"レイデオロ",           dam:"フォエヴァーダーリング" },
+      { name:"ダノンチャンピオン",  sire:"ホットロッドチャーリー", dam:"トップデザイル" },
+      { name:"コーズダヴィンチ",    sire:"マインドユアビスケッツ", dam:"プリモダヴィンチ" },
+      { name:"セイルトゥグローリー", sire:"エフフォーリア",       dam:"セイリングホーム" },
+      { name:"デミアン",            sire:"Flightline",           dam:"Mira Alta" },
+    ],
+    unnamed:[
+      { dam:"Champagne Lady" }, { dam:"ギルデッドミラー" }, { dam:"セントリフュージ" },
+      { dam:"ナターレ" }, { dam:"フェータルローズ" },
+    ],
+  },
+  {
+    id:"P07", name:"成田厩舎", emoji:"🎯",
+    named:[
+      { name:"ウィンタープリーズ", sire:"ホットロッドチャーリー", dam:"アイスバスティル" },
+      { name:"ソルテヴェローチェ", sire:"マテラスカイ",          dam:"ミニーアイル" },
+      { name:"トリプルウィン",     sire:"ドレフォン",            dam:"ラヴェリータ" },
+      { name:"タクティシアン",     sire:"サリオス",              dam:"モルシアナ" },
+      { name:"テンブレイクワン",   sire:"Volatile",              dam:"Nothing But Tom" },
+      { name:"アンドレバローズ",   sire:"ルヴァンスレーヴ",      dam:"ジェラスキャット" },
+      { name:"イレイザー",         sire:"ヘニーヒューズ",        dam:"アーサーズシスター" },
+    ],
+    unnamed:[
+      { dam:"ブランクチェック" }, { dam:"アーモーニーズエンジェル" },
+      { dam:"ミスエンパイアメント" }, { dam:"アストロロジカル" }, { dam:"スターリーウィンド" },
+    ],
+  },
+  {
+    id:"P06", name:"涼子厩舎", emoji:"🌸",
+    named:[
+      { name:"ホウオウシュウ",      sire:"レイデオロ",       dam:"スペシャルグルーヴ" },
+      { name:"オールシティキング",  sire:"Flightline",       dam:"セルフレスリー" },
+      { name:"デュガビー",          sire:"クリソベリル",     dam:"エスメラルディーナ" },
+      { name:"ウラノグラフィア",    sire:"ナダル",           dam:"リュラ" },
+      { name:"ヴェトロテンペスタ",  sire:"コントレイル",     dam:"シャンパンエイワン" },
+      { name:"ホーフアイゼン",      sire:"American Pharoah", dam:"Chain of Love" },
+    ],
+    unnamed:[
+      { dam:"パラダイスコープ" }, { dam:"ショウサンウルル" }, { dam:"ドリームライター" },
+      { dam:"スターリーウィンド" }, { dam:"シャイナーネット" }, { dam:"フェータルローズ" },
+    ],
+  },
+  {
+    id:"P05", name:"田崎厩舎", emoji:"⚡",
+    named:[
+      { name:"ディーヴァレギオン", sire:"ナダル",               dam:"シャドウディーヴァ" },
+      { name:"ヴィルダースヴィル", sire:"ドレフォン",           dam:"セラドン" },
+      { name:"ディルイーヤ",       sire:"コントレイル",         dam:"メントモリ" },
+      { name:"ブックオブケルズ",   sire:"リアルスティール",     dam:"シャンブルドット" },
+      { name:"ケンシロウワールド", sire:"Violence",             dam:"Colby Cakes" },
+      { name:"ハイウェイワン",     sire:"カリフォルニアクローム", dam:"シルバーポジー" },
+      { name:"トルヴァスト",       sire:"スマートファルコン",   dam:"コントレイルイン" },
+      { name:"オメガマサヤ",       sire:"オメガパフューム",     dam:"スターズパース" },
+    ],
+    unnamed:[
+      { dam:"コンバルティシオン" }, { dam:"アーモーニーズエンジェル" },
+      { dam:"グロリアーナ" }, { dam:"カピトス" },
+    ],
+  },
+  {
+    id:"P03", name:"長谷部厩舎", emoji:"🏆",
+    named:[
+      { name:"クロダテ",           sire:"キタサンブラック",    dam:"ファッションスタ" },
+      { name:"ツキノエ",           sire:"シスターミニスター",  dam:"メイショウトモビ" },
+      { name:"マーゴットセレッツォ", sire:"ニューイヤーズデイ", dam:"サリネロ" },
+      { name:"セドゥクトーラ",     sire:"ナダル",             dam:"アンヴァル" },
+      { name:"ゼットターム",       sire:"ニューイヤーズデイ", dam:"アンヴァルゼット" },
+      { name:"エクレアカミング",   sire:"ドレフォン",          dam:"エクレアサンライズ" },
+      { name:"オールベット",       sire:"キズナ",              dam:"エスティロタレントーソ" },
+      { name:"ムーンベリル",       sire:"クリソベリル",        dam:"クインズムーン" },
+      { name:"ボードゥロレーヌ",   sire:"クリソベリル",        dam:"サイモンミラベル" },
+    ],
+    unnamed:[
+      { dam:"オムニプレゼンス" }, { dam:"カラルデイズ" }, { dam:"スズカモナミ" },
+    ],
+  },
+];
+
 const CURRENT_SEASON = {
   id: "2025-26",
   label: "砂遊び 2025-26",
@@ -1804,6 +1920,137 @@ function CalendarScreen({ pogHorses = new Set() }) {
   );
 }
 
+// 2026-27シーズン画面
+// ================================================================
+
+function Season2627Screen() {
+  const [view, setView] = useState("roster"); // "roster" | "ranking"
+
+  return (
+    <div style={{ paddingBottom:16 }}>
+      {/* ヘッダーバナー */}
+      <div style={{ background:"linear-gradient(135deg,#7a4a1e,#b06a2c)", color:"#fff", padding:"16px", textAlign:"center" }}>
+        <div style={{ fontSize:11, opacity:0.8, letterSpacing:1 }}>NEXT SEASON</div>
+        <div style={{ fontSize:20, fontWeight:800, marginTop:2 }}>砂遊び 2026-27</div>
+        <div style={{ fontSize:11, opacity:0.8, marginTop:2 }}>2026/06/07 〜 2027年・東京ダービーまで</div>
+      </div>
+
+      {/* ビュー切替 */}
+      <div style={{ display:"flex", gap:0, padding:"10px 12px 0" }}>
+        {[
+          { key:"roster",  label:"🐴 指名馬一覧" },
+          { key:"ranking", label:"🏆 ランキング" },
+        ].map((v,i) => (
+          <button key={v.key} onClick={() => setView(v.key)} style={{
+            flex:1, padding:"8px 0", cursor:"pointer", fontWeight:800, fontSize:12,
+            background: view===v.key ? G.dirtDark : "#ddd",
+            color: view===v.key ? "#fff" : "#888",
+            border:"none",
+            borderRadius: i===0 ? "8px 0 0 8px" : "0 8px 8px 0",
+          }}>{v.label}</button>
+        ))}
+      </div>
+
+      {view === "roster" && (
+        <div style={{ padding:"10px 12px" }}>
+          {PLAYERS_2627.map(player => {
+            const total = player.named.length + player.unnamed.length;
+            const registered = player.named.length;
+            return (
+              <div key={player.id} style={{
+                background:"#fff", borderRadius:12, marginBottom:12,
+                boxShadow:"0 1px 4px rgba(0,0,0,0.08)",
+                overflow:"hidden",
+              }}>
+                {/* プレイヤーヘッダー */}
+                <div style={{
+                  background: G.dirtDark, color:"#fff",
+                  padding:"10px 14px", display:"flex", alignItems:"center", justifyContent:"space-between",
+                }}>
+                  <div style={{ fontWeight:800, fontSize:15 }}>
+                    {player.emoji} {player.name}
+                  </div>
+                  <div style={{ fontSize:11, opacity:0.85 }}>
+                    登録済 {registered}/{total}頭
+                  </div>
+                </div>
+                {/* 馬リスト */}
+                <div style={{ padding:"10px 12px", display:"flex", flexDirection:"column", gap:6 }}>
+                  {/* 登録済み馬 */}
+                  {player.named.map((h,i) => (
+                    <div key={i} style={{ display:"flex", alignItems:"center", gap:8 }}>
+                      <span style={{ fontSize:10, color:G.dirtDark, fontWeight:800, minWidth:16 }}>▶</span>
+                      <div style={{ flex:1 }}>
+                        <div translate="no" style={{ fontWeight:800, fontSize:14, color:"#222" }}>{h.name}</div>
+                        <div style={{ fontSize:10, color:"#aaa", marginTop:1 }}>
+                          {h.sire && <span>父{h.sire}</span>}
+                          {h.sire && h.dam && <span>　</span>}
+                          {h.dam && <span>母{h.dam}</span>}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                  {/* 名前未定馬 */}
+                  {player.unnamed.map((h,i) => (
+                    <div key={`u${i}`} style={{ display:"flex", alignItems:"center", gap:8 }}>
+                      <span style={{ fontSize:10, color:"#ccc", fontWeight:800, minWidth:16 }}>—</span>
+                      <div style={{ flex:1 }}>
+                        <div style={{ fontWeight:700, fontSize:13, color:"#bbb" }}>名前未定</div>
+                        <div style={{ fontSize:10, color:"#ccc", marginTop:1 }}>
+                          {h.sire && <span>父{h.sire}</span>}
+                          {h.sire && h.dam && <span>　</span>}
+                          {h.dam && <span>母{h.dam}</span>}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            );
+          })}
+          <div style={{ fontSize:10, color:"#bbb", textAlign:"center", marginTop:4 }}>
+            ※ グレーアウトの馬はJRA馬名未登録。血統のみ掲載
+          </div>
+        </div>
+      )}
+
+      {view === "ranking" && (
+        <div style={{ padding:"10px 12px" }}>
+          {/* 開幕前ノーティス */}
+          <div style={{
+            background:"#fff8f0", border:`1px solid ${G.dirtLight}`, borderRadius:10,
+            padding:"14px", textAlign:"center", marginBottom:14,
+          }}>
+            <div style={{ fontSize:22 }}>🏁</div>
+            <div style={{ fontWeight:800, fontSize:14, color:G.dirtDark, marginTop:4 }}>シーズン開幕前</div>
+            <div style={{ fontSize:11, color:"#999", marginTop:4 }}>
+              開幕は 2026年6月7日（予定）<br/>ランキングは開幕後に更新されます
+            </div>
+          </div>
+          {/* プレイヤー一覧（0pt） */}
+          {PLAYERS_2627.map((player, idx) => (
+            <div key={player.id} style={{
+              background:"#fff", borderRadius:10, marginBottom:8,
+              padding:"12px 14px", display:"flex", alignItems:"center", gap:12,
+              boxShadow:"0 1px 3px rgba(0,0,0,0.06)",
+            }}>
+              <div style={{ fontSize:18, fontWeight:800, color:"#ddd", minWidth:24, textAlign:"center" }}>{idx+1}</div>
+              <div style={{ fontSize:20 }}>{player.emoji}</div>
+              <div style={{ flex:1 }}>
+                <div style={{ fontWeight:800, fontSize:14, color:"#555" }}>{player.name}</div>
+                <div style={{ fontSize:11, color:"#bbb", marginTop:2 }}>
+                  {player.named.length}頭登録済（全{player.named.length + player.unnamed.length}頭）
+                </div>
+              </div>
+              <div style={{ fontSize:18, fontWeight:800, color:"#ddd" }}>0 pt</div>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
 // ルール画面
 // ================================================================
 
@@ -1910,6 +2157,9 @@ export default function App() {
     title = "砂遊びカレンダー";
     const pogHorses = new Set(results.map(r => r.horse));
     content = <CalendarScreen pogHorses={pogHorses} />;
+  } else if (tab === "next") {
+    title = "2026-27 指名馬";
+    content = <Season2627Screen />;
   } else {
     title = "砂遊びルール";
     content = <RulesScreen />;
@@ -1920,7 +2170,7 @@ export default function App() {
   const navItems = [
     { key:"ranking",  label:"順位",   icon:"🏆" },
     { key:"results",  label:"結果",   icon:"📋" },
-    { key:"news",     label:"ニュース",icon:"📰" },
+    { key:"next",     label:"次季",   icon:"🆕" },
     { key:"calendar", label:"日程",   icon:"📅" },
     { key:"hall",     label:"殿堂",   icon:"🏟️" },
     { key:"rules",    label:"ルール", icon:"📖" },
