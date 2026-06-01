@@ -2162,15 +2162,26 @@ function buildHorsePool() {
 const HORSE_POOL = buildHorsePool();
 
 function makeRace() {
-  // プールからランダムに5頭を抽出（重複馬名は除外）
+  // プールからランダムに5頭を抽出（重複馬名は除外・なるべく別厩舎）
   const shuffled = [...HORSE_POOL].sort(() => Math.random() - 0.5);
   const picked = [];
   const usedNames = new Set();
+  const usedStables = new Set();
+  // 1周目：厩舎が重ならないように選ぶ
   for (const h of shuffled) {
-    if (usedNames.has(h.name)) continue;
-    usedNames.add(h.name);
+    if (usedNames.has(h.name) || usedStables.has(h.stable)) continue;
+    usedNames.add(h.name); usedStables.add(h.stable);
     picked.push(h);
     if (picked.length >= 5) break;
+  }
+  // 2周目：頭数が足りなければ厩舎重複を許して補充
+  if (picked.length < 5) {
+    for (const h of shuffled) {
+      if (usedNames.has(h.name)) continue;
+      usedNames.add(h.name);
+      picked.push(h);
+      if (picked.length >= 5) break;
+    }
   }
 
   // 強さ＝獲得pt（賞金）ベース。差を強調するため累乗で広げる
@@ -2204,7 +2215,7 @@ function drawWinner(race) {
 }
 
 function BettingGame() {
-  const FINISH = 280;
+  const FINISH = 480;
   const [coins, setCoins] = useState(() => Number(localStorage.getItem("pog_bet_coins") || 1000));
   const [race, setRace] = useState(() => makeRace());
   const [pick, setPick] = useState(null);
