@@ -735,8 +735,8 @@ function HallPlayerScreen({ player, onBack }) {
         ))}
 
         {tab==="trophies" && (() => {
-          // 重賞勝ち馬（order===1）をまとめる
-          const gradeWins = myTrophies.filter(t=>t.order===1);
+          // 重賞勝ち馬（order===1・馬名確定済み）をまとめる
+          const gradeWins = myTrophies.filter(t=>t.order===1 && !t.horse.includes("確認中"));
           const horseNames = [...new Set(gradeWins.map(t=>t.horse))];
           return (<>
             {horseNames.length>0 && (
@@ -752,7 +752,7 @@ function HallPlayerScreen({ player, onBack }) {
                         <span style={{ fontWeight:800, fontSize:14, color:G.hallText }}>{name}</span>
                         <span style={{ fontSize:11, color:G.hallDim, marginLeft:8 }}>重賞{wins.length}勝</span>
                       </div>
-                      <span style={{ fontSize:10, fontWeight:700, color:"#fff", background:best.grade.includes("JpnI")&&!best.grade.includes("II")&&!best.grade.includes("III")?G.gold:best.grade.includes("GⅠ")||best.grade==="GI"?G.gold:G.silver, borderRadius:3, padding:"1px 5px" }}>{best.grade}</span>
+                      <span translate="no" style={{ fontSize:10, fontWeight:700, color:"#fff", background:best.grade.includes("JpnI")&&!best.grade.includes("II")&&!best.grade.includes("III")?G.gold:best.grade.includes("GⅠ")||best.grade==="GI"?G.gold:G.silver, borderRadius:3, padding:"1px 5px" }}>{best.grade}</span>
                     </div>
                   );
                 })}
@@ -779,12 +779,12 @@ function HallPlayerScreen({ player, onBack }) {
                     <span style={{ fontSize:20 }}>{icon}</span>
                     <div style={{ flex:1 }}>
                       <div style={{ display:"flex", alignItems:"center", gap:6, flexWrap:"wrap" }}>
-                        <span style={{ fontSize:10, fontWeight:800, color:"#fff", background:gColor, borderRadius:3, padding:"1px 5px" }}>{t.grade}</span>
+                        <span translate="no" style={{ fontSize:10, fontWeight:800, color:"#fff", background:gColor, borderRadius:3, padding:"1px 5px" }}>{t.grade}</span>
                         <span style={{ fontSize:13, color:G.hallText, fontWeight:700 }}>{t.race}</span>
                         <span style={{ fontSize:10, color:G.hallDim }}>{orderLabel}</span>
                       </div>
                       <div style={{ fontSize:11, color:G.hallDim, marginTop:2 }}>
-                        🐴 {t.horse} ／ {t.season} ／ {t.date}
+                        🐴 <span translate="no">{t.horse}</span> ／ {t.season} ／ {t.date}
                         {t.note && <span style={{ color:G.dirt, marginLeft:6 }}>{t.note}</span>}
                       </div>
                     </div>
