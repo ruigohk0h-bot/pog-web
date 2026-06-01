@@ -10,6 +10,7 @@
     "horse": "ウンナターシャ",
     "order": 2,
     "rawPt": 240,
+    "turfPt": 0,
     "player": "P01"
   },
   {
@@ -23,6 +24,7 @@
     "horse": "エコロボルト",
     "order": 12,
     "rawPt": 0,
+    "turfPt": 0,
     "player": "P03"
   },
   {
@@ -36,6 +38,7 @@
     "horse": "ワンインザスカイ",
     "order": 8,
     "rawPt": 0,
+    "turfPt": 0,
     "player": "P03"
   },
   {
@@ -49,6 +52,7 @@
     "horse": "パントルナイーフ",
     "order": 2,
     "rawPt": 0,
+    "turfPt": 12000,
     "player": "P05"
   },
   {
@@ -62,6 +66,7 @@
     "horse": "モンスターラッシュ",
     "order": 2,
     "rawPt": 240,
+    "turfPt": 0,
     "player": "P05"
   },
   {
@@ -75,6 +80,7 @@
     "horse": "ムスクレスト",
     "order": 5,
     "rawPt": 0,
+    "turfPt": 210,
     "player": "P06"
   },
   {
@@ -88,6 +94,7 @@
     "horse": "アリハム",
     "order": 15,
     "rawPt": 0,
+    "turfPt": 0,
     "player": "P02"
   },
   {
@@ -101,6 +108,7 @@
     "horse": "ブルースプレイヤー",
     "order": 18,
     "rawPt": 0,
+    "turfPt": 0,
     "player": "P06"
   },
   {
@@ -114,6 +122,7 @@
     "horse": "デアヴェローチェ",
     "order": 1,
     "rawPt": 0,
+    "turfPt": 4100,
     "player": "P07"
   },
   {
@@ -127,6 +136,7 @@
     "horse": "ジュピターバローズ",
     "order": 10,
     "rawPt": 0,
+    "turfPt": 0,
     "player": "P07"
   },
   {
@@ -140,6 +150,7 @@
     "horse": "ヘリテージブルーム",
     "order": 1,
     "rawPt": 820,
+    "turfPt": 0,
     "player": "P03"
   },
   {
@@ -153,6 +164,7 @@
     "horse": "フィデリス",
     "order": 4,
     "rawPt": 89,
+    "turfPt": 0,
     "player": "P04"
   },
   {
@@ -166,6 +178,7 @@
     "horse": "リアライズタキオン",
     "order": 12,
     "rawPt": 0,
+    "turfPt": 0,
     "player": "P06"
   },
   {
@@ -179,6 +192,7 @@
     "horse": "アーガイルショア",
     "order": 1,
     "rawPt": 590,
+    "turfPt": 0,
     "player": "P07"
   },
   {
@@ -192,6 +206,7 @@
     "horse": "ホウオウストライク",
     "order": 1,
     "rawPt": 590,
+    "turfPt": 0,
     "player": "P07"
   },
   {
@@ -205,6 +220,7 @@
     "horse": "グラムエッジ",
     "order": 6,
     "rawPt": 0,
+    "turfPt": 0,
     "player": "P02"
   },
   {
@@ -218,6 +234,7 @@
     "horse": "ゴールドバローズ",
     "order": 2,
     "rawPt": 330,
+    "turfPt": 0,
     "player": "P03"
   },
   {
@@ -231,6 +248,7 @@
     "horse": "アンビエントポップ",
     "order": 2,
     "rawPt": 0,
+    "turfPt": 240,
     "player": "P04"
   },
   {
@@ -244,6 +262,7 @@
     "horse": "エコロデュラン",
     "order": 9,
     "rawPt": 0,
+    "turfPt": 0,
     "player": "P04"
   },
   {
@@ -257,6 +276,7 @@
     "horse": "ゾネブルーム",
     "order": 3,
     "rawPt": 0,
+    "turfPt": 150,
     "player": "P05"
   },
   {
@@ -270,6 +290,7 @@
     "horse": "リュウカルネ",
     "order": 14,
     "rawPt": 0,
+    "turfPt": 0,
     "player": "P07"
   },
   {
@@ -283,6 +304,7 @@
     "horse": "アイデアユー",
     "order": 16,
     "rawPt": 0,
+    "turfPt": 0,
     "player": "P07"
   },
   {
@@ -296,6 +318,7 @@
     "horse": "メイショウコシュウ",
     "order": 3,
     "rawPt": 150,
+    "turfPt": 0,
     "player": "P07"
   },
   {
@@ -309,6 +332,7 @@
     "horse": "ネイティヴプライド",
     "order": 3,
     "rawPt": 150,
+    "turfPt": 0,
     "player": "P01"
   },
   {
@@ -322,6 +346,7 @@
     "horse": "エクストラプッシュ",
     "order": 1,
     "rawPt": 590,
+    "turfPt": 0,
     "player": "P03"
   },
   {
@@ -335,6 +360,7 @@
     "horse": "アクアアイ",
     "order": 4,
     "rawPt": 0,
+    "turfPt": 89,
     "player": "P04"
   },
   {
@@ -348,6 +374,7 @@
     "horse": "スマイルガーデン",
     "order": 8,
     "rawPt": 0,
+    "turfPt": 0,
     "player": "P01"
   },
   {
@@ -361,6 +388,7 @@
     "horse": "セスティーナ",
     "order": 8,
     "rawPt": 0,
+    "turfPt": 0,
     "player": "P03"
   },
   {
@@ -374,6 +402,7 @@
     "horse": "アドマイヤクワッズ",
     "order": 3,
     "rawPt": 0,
+    "turfPt": 3300,
     "player": "P05"
   },
   {
@@ -387,6 +416,7 @@
     "horse": "エコログロウ",
     "order": 1,
     "rawPt": 590,
+    "turfPt": 0,
     "player": "P05"
   },
   {
@@ -400,6 +430,7 @@
     "horse": "ミティリーニ",
     "order": 7,
     "rawPt": 0,
+    "turfPt": 0,
     "player": "P07"
   },
   {
@@ -413,6 +444,7 @@
     "horse": "チュウワカーネギー",
     "order": 4,
     "rawPt": 290,
+    "turfPt": 0,
     "player": "P03"
   },
   {
@@ -426,6 +458,7 @@
     "horse": "アルデトップガン",
     "order": 5,
     "rawPt": 190,
+    "turfPt": 0,
     "player": "P04"
   },
   {
@@ -439,6 +472,7 @@
     "horse": "アーガイルショア",
     "order": 5,
     "rawPt": 59,
+    "turfPt": 0,
     "player": "P07"
   },
   {
@@ -452,6 +486,7 @@
     "horse": "サトノボヤージュ",
     "order": 1,
     "rawPt": 0,
+    "turfPt": 0,
     "player": "P05"
   },
   {
@@ -465,6 +500,7 @@
     "horse": "ウンナターシャ",
     "order": 7,
     "rawPt": 0,
+    "turfPt": 0,
     "player": "P01"
   },
   {
@@ -478,6 +514,7 @@
     "horse": "ワンモメンタム",
     "order": 13,
     "rawPt": 0,
+    "turfPt": 0,
     "player": "P01"
   },
   {
@@ -491,6 +528,7 @@
     "horse": "ヘリテージブルーム",
     "order": 2,
     "rawPt": 330,
+    "turfPt": 0,
     "player": "P03"
   },
   {
@@ -504,6 +542,7 @@
     "horse": "エクストラプッシュ",
     "order": 8,
     "rawPt": 0,
+    "turfPt": 0,
     "player": "P03"
   },
   {
@@ -517,6 +556,7 @@
     "horse": "エコロボルト",
     "order": 1,
     "rawPt": 590,
+    "turfPt": 0,
     "player": "P03"
   },
   {
@@ -530,6 +570,7 @@
     "horse": "ヤマニンコルザ",
     "order": 6,
     "rawPt": 0,
+    "turfPt": 0,
     "player": "P04"
   },
   {
@@ -543,6 +584,7 @@
     "horse": "インシオン",
     "order": 10,
     "rawPt": 0,
+    "turfPt": 0,
     "player": "P01"
   },
   {
@@ -556,6 +598,7 @@
     "horse": "スマイルガーデン",
     "order": 3,
     "rawPt": 150,
+    "turfPt": 0,
     "player": "P01"
   },
   {
@@ -569,6 +612,7 @@
     "horse": "ゲレイロ",
     "order": 7,
     "rawPt": 0,
+    "turfPt": 0,
     "player": "P03"
   },
   {
@@ -582,6 +626,7 @@
     "horse": "フィンガー",
     "order": 1,
     "rawPt": 0,
+    "turfPt": 0,
     "player": "P03"
   },
   {
@@ -595,6 +640,7 @@
     "horse": "ロックターミガン",
     "order": 2,
     "rawPt": 0,
+    "turfPt": 0,
     "player": "P06"
   },
   {
@@ -608,6 +654,7 @@
     "horse": "アニマレイ",
     "order": 3,
     "rawPt": 150,
+    "turfPt": 0,
     "player": "P02"
   },
   {
@@ -621,6 +668,7 @@
     "horse": "ネイティヴプライド",
     "order": 8,
     "rawPt": 0,
+    "turfPt": 0,
     "player": "P01"
   },
   {
@@ -634,6 +682,7 @@
     "horse": "ダンジョンヒーロー",
     "order": 8,
     "rawPt": 0,
+    "turfPt": 0,
     "player": "P02"
   },
   {
@@ -647,6 +696,7 @@
     "horse": "ゴールドバローズ",
     "order": 1,
     "rawPt": 590,
+    "turfPt": 0,
     "player": "P03"
   },
   {
@@ -660,6 +710,7 @@
     "horse": "セスティーナ",
     "order": 2,
     "rawPt": 240,
+    "turfPt": 0,
     "player": "P03"
   },
   {
@@ -673,6 +724,7 @@
     "horse": "カットソロ",
     "order": 9,
     "rawPt": 0,
+    "turfPt": 0,
     "player": "P05"
   },
   {
@@ -686,6 +738,7 @@
     "horse": "リアライズタキオン",
     "order": 15,
     "rawPt": 0,
+    "turfPt": 0,
     "player": "P06"
   },
   {
@@ -699,6 +752,7 @@
     "horse": "ゲレイロ",
     "order": 4,
     "rawPt": 89,
+    "turfPt": 0,
     "player": "P03"
   },
   {
@@ -712,6 +766,7 @@
     "horse": "マルシュボヌール",
     "order": 3,
     "rawPt": 150,
+    "turfPt": 0,
     "player": "P04"
   },
   {
@@ -725,6 +780,7 @@
     "horse": "パントルナイーフ",
     "order": 14,
     "rawPt": 0,
+    "turfPt": 0,
     "player": "P05"
   },
   {
@@ -738,6 +794,7 @@
     "horse": "アドマイヤクワッズ",
     "order": 15,
     "rawPt": 0,
+    "turfPt": 0,
     "player": "P05"
   },
   {
@@ -751,6 +808,7 @@
     "horse": "イナズマダイモン",
     "order": 4,
     "rawPt": 120,
+    "turfPt": 0,
     "player": "P06"
   },
   {
@@ -764,6 +822,7 @@
     "horse": "キセログラフィカ",
     "order": 3,
     "rawPt": 150,
+    "turfPt": 0,
     "player": "P01"
   },
   {
@@ -777,6 +836,7 @@
     "horse": "ブロンザイト",
     "order": 11,
     "rawPt": 0,
+    "turfPt": 0,
     "player": "P01"
   },
   {
@@ -790,6 +850,7 @@
     "horse": "エクストラプッシュ",
     "order": 4,
     "rawPt": 89,
+    "turfPt": 0,
     "player": "P03"
   },
   {
@@ -803,6 +864,7 @@
     "horse": "ペトリコール",
     "order": 8,
     "rawPt": 0,
+    "turfPt": 0,
     "player": "P04"
   },
   {
@@ -816,6 +878,7 @@
     "horse": "ホウオウファラオ",
     "order": 8,
     "rawPt": 0,
+    "turfPt": 0,
     "player": "P04"
   },
   {
@@ -829,6 +892,7 @@
     "horse": "エコログロウ",
     "order": 3,
     "rawPt": 150,
+    "turfPt": 0,
     "player": "P05"
   },
   {
@@ -842,6 +906,7 @@
     "horse": "エコロボルト",
     "order": 2,
     "rawPt": 240,
+    "turfPt": 0,
     "player": "P03"
   },
   {
@@ -855,6 +920,7 @@
     "horse": "クラッチスラッガー",
     "order": 12,
     "rawPt": 0,
+    "turfPt": 0,
     "player": "P01"
   },
   {
@@ -868,6 +934,7 @@
     "horse": "チュウワカーネギー",
     "order": 1,
     "rawPt": 820,
+    "turfPt": 0,
     "player": "P03"
   },
   {
@@ -881,6 +948,7 @@
     "horse": "ワンインザスカイ",
     "order": 12,
     "rawPt": 0,
+    "turfPt": 0,
     "player": "P03"
   },
   {
@@ -894,6 +962,7 @@
     "horse": "アルデトップガン",
     "order": 5,
     "rawPt": 0,
+    "turfPt": 540,
     "player": "P04"
   },
   {
@@ -907,6 +976,7 @@
     "horse": "デアヴェローチェ",
     "order": 1,
     "rawPt": 0,
+    "turfPt": 820,
     "player": "P07"
   },
   {
@@ -920,6 +990,7 @@
     "horse": "アイデアユー",
     "order": 4,
     "rawPt": 89,
+    "turfPt": 0,
     "player": "P07"
   },
   {
@@ -933,6 +1004,7 @@
     "horse": "ダンジョンヒーロー",
     "order": 1,
     "rawPt": 0,
+    "turfPt": 0,
     "player": "P02"
   },
   {
@@ -946,6 +1018,7 @@
     "horse": "アンビエントポップ",
     "order": 12,
     "rawPt": 0,
+    "turfPt": 0,
     "player": "P04"
   },
   {
@@ -959,6 +1032,7 @@
     "horse": "テーオーグレーザー",
     "order": 7,
     "rawPt": 0,
+    "turfPt": 0,
     "player": "P05"
   },
   {
@@ -972,6 +1046,7 @@
     "horse": "アニマレイ",
     "order": 5,
     "rawPt": 59,
+    "turfPt": 0,
     "player": "P02"
   },
   {
@@ -985,6 +1060,7 @@
     "horse": "アクアアイ",
     "order": 2,
     "rawPt": 0,
+    "turfPt": 240,
     "player": "P04"
   },
   {
@@ -998,6 +1074,7 @@
     "horse": "ペトリコール",
     "order": 1,
     "rawPt": 590,
+    "turfPt": 0,
     "player": "P04"
   },
   {
@@ -1011,6 +1088,7 @@
     "horse": "カットソロ",
     "order": 3,
     "rawPt": 0,
+    "turfPt": 290,
     "player": "P05"
   }
 ]

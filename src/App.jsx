@@ -711,7 +711,6 @@ const RACE_CALENDAR_2526 = [
   { date:"2025/11/01", name:"2歳新馬戦", grade:"新馬", venue:"東京", dist:null, dists:"ダ1400・1600・1800m", age:"2歳", exchange:false, type:"meeting", winner:"" },
   { date:"2025/11/01", name:"2歳新馬戦", grade:"新馬", venue:"京都", dist:null, dists:"ダ1200・1400・1900m", age:"2歳", exchange:false, type:"meeting", winner:"" },
   { date:"2025/11/01", name:"2歳新馬戦", grade:"新馬", venue:"阪神", dist:null, dists:"ダ1200・1400・1800m", age:"2歳", exchange:false, type:"meeting", winner:"" },
-  { date:"2025/11/02", name:"百日草特別", grade:"1勝", venue:"東京", dist:1800, age:"2歳", exchange:false, type:"race", winner:"" },
   { date:"2025/11/08", name:"カトレアステークス", grade:"OP", venue:"東京", dist:1600, age:"2歳", exchange:false, type:"race", winner:"" },
   { date:"2025/11/08", name:"2歳新馬戦", grade:"新馬", venue:"中京", dist:null, dists:"ダ1400・1800m", age:"2歳", exchange:false, type:"meeting", winner:"" },
   { date:"2025/11/08", name:"2歳新馬戦", grade:"新馬", venue:"阪神", dist:null, dists:"ダ1200・1400・1800m", age:"2歳", exchange:false, type:"meeting", winner:"" },
@@ -1354,7 +1353,9 @@ function HallScreen({ onSelectHallPlayer }) {
       return sum + (r?.pt??0);
     },0);
     const trophies = TROPHIES.filter(t => t.player===p.id && t.order===1);
-    return { ...p, seasons:mySeasons.length, wins:wins.length, totalPt, trophies };
+    const ranks = mySeasons.map(s => s.results.find(r => r.player===p.id)?.rank).filter(r => r != null);
+    const avgRank = ranks.length ? ranks.reduce((a,b)=>a+b,0)/ranks.length : null;
+    return { ...p, seasons:mySeasons.length, wins:wins.length, totalPt, trophies, avgRank };
   }).filter(p => p.seasons>0).sort((a,b)=>b.wins-a.wins||b.totalPt-a.totalPt);
 
   return (
@@ -1380,12 +1381,12 @@ function HallScreen({ onSelectHallPlayer }) {
             {i===0?"👑":i===1?"🥈":i===2?"🥉":
               <span style={{ fontSize:14, color:G.hallDim, fontWeight:700 }}>{i+1}</span>}
           </div>
-          <div style={{ fontSize:20, flexShrink:0 }}>{p.emoji}</div>
           <div style={{ flex:1, minWidth:0 }}>
             <div style={{ fontWeight:800, fontSize:14, color:G.hallText }}>{p.name}</div>
-            <div style={{ fontSize:11, color:G.hallDim, marginTop:2, display:"flex", gap:8 }}>
+            <div style={{ fontSize:11, color:G.hallDim, marginTop:2, display:"flex", gap:8, flexWrap:"wrap" }}>
               <span style={{ color: p.wins>0?G.gold:G.hallDim }}>優勝{p.wins}回{p.wins>=2?"👑":""}</span>
               <span>重賞{p.trophies.length}勝</span>
+              {p.avgRank != null && <span>平均{p.avgRank.toFixed(1)}位</span>}
             </div>
           </div>
           {/* 順位グラフ */}
