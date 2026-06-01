@@ -2170,6 +2170,7 @@ export default function App() {
   const navItems = [
     { key:"ranking",  label:"順位",   icon:"🏆" },
     { key:"results",  label:"結果",   icon:"📋" },
+    { key:"news",     label:"ニュース",icon:"📰" },
     { key:"next",     label:"次季",   icon:"🆕" },
     { key:"calendar", label:"日程",   icon:"📅" },
     { key:"hall",     label:"殿堂",   icon:"🏟️" },
