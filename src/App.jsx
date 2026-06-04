@@ -2680,6 +2680,25 @@ export default function App() {
         <div style={{ marginLeft:"auto", fontSize:22 }}>🐴</div>
       </div>
 
+      {/* テロップ（東京ダービー直前まで表示） */}
+      {new Date() < new Date("2026-06-11T00:00:00+09:00") && (
+        <div style={{
+          background: "linear-gradient(90deg,#7a0000,#c1121f,#7a0000)",
+          color:"#fff", overflow:"hidden", whiteSpace:"nowrap",
+          position:"sticky", top:62, zIndex:9,
+          borderTop:"1px solid rgba(255,255,255,0.2)",
+          borderBottom:"1px solid rgba(0,0,0,0.25)",
+        }}>
+          <style>{`@keyframes pogTelop{0%{transform:translateX(100%)}100%{transform:translateX(-100%)}}`}</style>
+          <div style={{
+            display:"inline-block", padding:"7px 0", fontSize:13, fontWeight:800,
+            animation:"pogTelop 16s linear infinite",
+          }}>
+            🔥 6/10 東京ダービー！フィンガー（長谷部厩舎）× ロックターミガン（涼子厩舎）の直接対決で優勝が決まる大一番！ 🏇🏆
+          </div>
+        </div>
+      )}
+
       {/* コンテンツ */}
       <div style={{ flex:1, overflowY:"auto" }}>{content}</div>
 
