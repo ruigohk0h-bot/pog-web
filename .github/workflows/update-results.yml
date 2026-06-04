@@ -28,11 +28,11 @@ jobs:
       - name: スクレイピング実行（レース結果）
         run: python scrape_results.py
 
+      - name: スクレイピング実行（最新状況・登録馬名）
+        run: python scrape_pogstarion.py
+
       - name: スクレイピング実行（ニュース）
         run: python scrape_news.py
-
-      - name: スクレイピング実行（最新状況）
-        run: python scrape_pogstarion.py
 
       - name: 変更があればコミット＆プッシュ
         run: |

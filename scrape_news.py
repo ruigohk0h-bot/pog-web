@@ -240,9 +240,42 @@ def fetch_news_for_horse(horse_name, days=30):
     return results
 
 
+def load_registered_horses():
+    """pogstarionから取得した登録馬名（regist2627.json）を読み込み、
+    HORSE_PLAYER と HORSES_2627 に新しい馬名を追加する。
+    これにより、新しく馬名登録された馬のニュースも自動で拾えるようになる。
+    形式: { "P03": { "母名": "馬名", ... }, ... }
+    """
+    path = os.path.join(os.path.dirname(__file__), "public", "data", "regist2627.json")
+    if not os.path.exists(path):
+        return
+    try:
+        with open(path, encoding="utf-8") as f:
+            regist = json.load(f)
+    except Exception as e:
+        print(f"  登録馬名の読み込み失敗: {e}", flush=True)
+        return
+    added = 0
+    for pid, mapping in regist.items():
+        for dam, name in mapping.items():
+            name = (name or "").strip()
+            if name and name not in HORSE_PLAYER:
+                HORSE_PLAYER[name] = pid
+                HORSES_2627.add(name)
+                added += 1
+            elif name:
+                # 既存でも2026-27馬として90日窓・SPAIA検索対象にする
+                HORSES_2627.add(name)
+    if added:
+        print(f"  登録馬名を {added}件 追加", flush=True)
+
+
 def main():
     print("=== POG砂遊び ニュース取得 ===", flush=True)
     print(f"実行日時: {datetime.now().strftime('%Y/%m/%d %H:%M')}\n", flush=True)
+
+    # pogstarionの最新登録馬名を検索リストに反映
+    load_registered_horses()
 
     all_news = []
     horse_names = list(HORSE_PLAYER.keys())
