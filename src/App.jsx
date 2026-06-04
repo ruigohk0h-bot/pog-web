@@ -1644,6 +1644,100 @@ const HORSES_2627_SET = new Set(
   PLAYERS_2627.flatMap(p => p.horses.filter(h => h.name).map(h => h.name))
 );
 
+function StatusScreen({ data }) {
+  const [view, setView] = useState("sched"); // "sched" | "regist"
+
+  if (!data) {
+    return <div style={{ textAlign:"center", color:"#aaa", marginTop:40, fontSize:14 }}>読み込み中…</div>;
+  }
+
+  const sched  = data.schedule_results || [];
+  const regist = data.special_regist || [];
+
+  const pick = (rec, keys) => {
+    for (const k of keys) if (rec[k]) return rec[k];
+    return "";
+  };
+  // グレード等（col* に入りがちな短い値）を拾う
+  const grade = (rec) => {
+    for (const k of Object.keys(rec)) {
+      if (k.startsWith("col") && /^(G[ⅠⅡⅢI123]|JpnI*|OP|L|重賞)/.test(rec[k] || "")) return rec[k];
+    }
+    return "";
+  };
+
+  const Card = ({ rec, withResult }) => {
+    const horse = pick(rec, ["馬名"]);
+    const race  = pick(rec, ["レース名","競走"]);
+    const date  = pick(rec, ["日時"]);
+    const dist  = pick(rec, ["距離"]);
+    const owner = pick(rec, ["所有者"]);
+    const jockey= pick(rec, ["騎手"]);
+    const rank  = pick(rec, ["順位"]);
+    const prize = pick(rec, ["賞金"]);
+    const g     = grade(rec);
+    return (
+      <div style={{ background:"#fff", borderRadius:10, padding:"12px 14px", marginBottom:8, boxShadow:"0 1px 4px rgba(0,0,0,0.08)" }}>
+        <div style={{ display:"flex", alignItems:"center", gap:8, marginBottom:4, flexWrap:"wrap" }}>
+          {g && <span style={{ fontSize:10, fontWeight:800, color:"#fff", background:G.green, borderRadius:4, padding:"2px 6px" }}>{g}</span>}
+          <span style={{ fontSize:15, fontWeight:800, color:"#222" }}>{horse || "—"}</span>
+          {owner && <span style={{ fontSize:11, color:"#888" }}>{owner}</span>}
+        </div>
+        <div style={{ fontSize:12, color:"#555" }}>
+          {date && <span style={{ marginRight:10 }}>🗓 {date}</span>}
+          {race && <span style={{ marginRight:10 }}>{race}</span>}
+          {dist && <span style={{ marginRight:10 }}>{dist}</span>}
+        </div>
+        {withResult && (rank || jockey || prize) && (
+          <div style={{ fontSize:12, color:"#333", marginTop:4, fontWeight:700 }}>
+            {jockey && <span style={{ marginRight:10 }}>🏇 {jockey}</span>}
+            {rank && <span style={{ marginRight:10 }}>着順 {rank}</span>}
+            {prize && <span>賞金 {prize}</span>}
+          </div>
+        )}
+      </div>
+    );
+  };
+
+  const list = view === "sched" ? sched : regist;
+
+  return (
+    <div style={{ background:"#eef2f0", minHeight:"100%" }}>
+      <div style={{ display:"flex", padding:"10px 12px 0" }}>
+        {[
+          { key:"sched",  label:`予定・結果 (${sched.length})` },
+          { key:"regist", label:`特別登録 (${regist.length})` },
+        ].map((s, i) => (
+          <button key={s.key} onClick={() => setView(s.key)} style={{
+            flex:1, padding:"8px 0", cursor:"pointer", fontWeight:800, fontSize:12,
+            background: view===s.key ? G.green : "#ddd",
+            color: view===s.key ? "#fff" : "#888",
+            border:"none",
+            borderRadius: i===0 ? "8px 0 0 8px" : "0 8px 8px 0",
+          }}>{s.label}</button>
+        ))}
+      </div>
+
+      <div style={{ padding:"10px 12px" }}>
+        {list.length === 0 ? (
+          <div style={{ textAlign:"center", color:"#aaa", marginTop:40, fontSize:14, lineHeight:1.8 }}>
+            現在表示できる情報はありません<br />
+            <span style={{ fontSize:12 }}>（出走予定・結果は木曜夕方ごろ更新されます）</span>
+          </div>
+        ) : list.map((rec, i) => (
+          <Card key={i} rec={rec} withResult={view === "sched"} />
+        ))}
+      </div>
+
+      {data.updated && (
+        <div style={{ textAlign:"center", color:"#aaa", fontSize:11, padding:"4px 0 16px" }}>
+          最終取得: {data.updated}
+        </div>
+      )}
+    </div>
+  );
+}
+
 function NewsScreen({ news }) {
   const [season, setSeason] = useState("2526"); // "2526" | "2627"
   const [filterPlayer, setFilterPlayer] = useState("ALL");
@@ -2539,6 +2633,7 @@ export default function App() {
   const [kettonums, setKettonums] = useState({});
   const [news, setNews] = useState([]);
   const [updated, setUpdated] = useState("");
+  const [statusData, setStatusData] = useState(null);
 
   useEffect(() => {
     fetch("/data/results.json").then(r => r.json()).then(d => { setResults(d); setResultsLoaded(true); }).catch(() => setResultsLoaded(true));
@@ -2546,6 +2641,7 @@ export default function App() {
     fetch("/data/kettonums.json").then(r => r.json()).then(setKettonums).catch(() => {});
     fetch("/data/news.json").then(r => r.json()).then(setNews).catch(() => {});
     fetch("/data/updated.json").then(r => r.json()).then(d => setUpdated(d.updated || "")).catch(() => {});
+    fetch("/data/pogstarion.json").then(r => r.json()).then(setStatusData).catch(() => {});
   }, []);
 
   const switchTab = (t) => {
@@ -2593,6 +2689,9 @@ export default function App() {
     title = "砂遊びカレンダー";
     const pogHorses = new Set(results.map(r => r.horse));
     content = <CalendarScreen pogHorses={pogHorses} />;
+  } else if (tab === "status") {
+    title = "最新状況";
+    content = <StatusScreen data={statusData} />;
   } else if (tab === "next") {
     title = "2026-27 指名馬";
     content = <Season2627Screen />;
@@ -2610,6 +2709,7 @@ export default function App() {
     { key:"ranking",  label:"順位",   icon:"🏆" },
     { key:"results",  label:"結果",   icon:"📋" },
     { key:"news",     label:"ニュース",icon:"📰" },
+    { key:"status",   label:"状況",   icon:"📡" },
     { key:"next",     label:"次季",   icon:"🆕" },
     { key:"calendar", label:"日程",   icon:"📅" },
     { key:"hall",     label:"殿堂",   icon:"🏟️" },

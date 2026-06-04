@@ -31,11 +31,14 @@ jobs:
       - name: スクレイピング実行（ニュース）
         run: python scrape_news.py
 
+      - name: スクレイピング実行（最新状況）
+        run: python scrape_pogstarion.py
+
       - name: 変更があればコミット＆プッシュ
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add public/data/results.json public/data/upcoming.json public/data/kettonums.json public/data/news.json public/data/updated.json kettonum_cache.json
+          git add public/data/results.json public/data/upcoming.json public/data/kettonums.json public/data/news.json public/data/updated.json public/data/pogstarion.json kettonum_cache.json
           git diff --staged --quiet || git commit -m "自動更新: 最新レース結果 $(date '+%Y/%m/%d %H:%M')"
           git pull --rebase origin main
           git push
