@@ -909,6 +909,13 @@ function RankingScreen({ onSelectPlayer, updated, results }) {
   const max = sorted[0].pt;
   const topPt = sorted[0].pt;
 
+  // 前週ランキング（週間ptを差し引いた順位）
+  const prevSorted = [...CURRENT_SEASON.users]
+    .map(u => ({ ...u, prevPt: u.pt - (weeklyPt[u.id] || 0) }))
+    .sort((a,b) => b.prevPt - a.prevPt);
+  const prevRankMap = {};
+  prevSorted.forEach((u, i) => { prevRankMap[u.id] = i; });
+
   const handleShare = async () => {
     const text = sorted.map((u, i) => {
       const player = PLAYERS.find(p => p.id === u.id);
@@ -936,6 +943,13 @@ function RankingScreen({ onSelectPlayer, updated, results }) {
         const ptGap = topPt - u.pt;
         const medal = ["🥇","🥈","🥉"][i];
         const player = PLAYERS.find(p => p.id === u.id);
+        const prevRank = prevRankMap[u.id] ?? i;
+        const rankChange = prevRank - i;
+        const changeBadge = rankChange > 0
+          ? { text:`↑${rankChange}`, color:"#22a845", bg:"#e8f7ed" }
+          : rankChange < 0
+          ? { text:`↓${Math.abs(rankChange)}`, color:"#d33", bg:"#fdecea" }
+          : { text:"→", color:"#aaa", bg:"#f0f0f0" };
 
         const cardStyle = isTop ? {
           background:"linear-gradient(135deg, #fffbe6 0%, #fff3b0 60%, #ffe066 100%)",
@@ -956,7 +970,7 @@ function RankingScreen({ onSelectPlayer, updated, results }) {
               ...cardStyle,
             }}>
             {/* 順位 */}
-            <div style={{ width:36, textAlign:"center", flexShrink:0 }}>
+            <div style={{ width:36, textAlign:"center", flexShrink:0, display:"flex", flexDirection:"column", alignItems:"center", gap:3 }}>
               {isTop ? (
                 <div style={{ fontSize:28, lineHeight:1 }}>👑</div>
               ) : (
@@ -964,6 +978,10 @@ function RankingScreen({ onSelectPlayer, updated, results }) {
                   {medal ?? `${i+1}`}
                 </div>
               )}
+              <div style={{
+                fontSize:9, fontWeight:700, color:changeBadge.color,
+                background:changeBadge.bg, borderRadius:4, padding:"1px 4px", lineHeight:1.3,
+              }}>{changeBadge.text}</div>
             </div>
             {/* 名前・バー */}
             <div style={{ flex:1, minWidth:0 }}>
@@ -1072,14 +1090,23 @@ function HorseDetailScreen({ horse, playerId, results, kettonums }) {
   const netkeibaUrl = kettonums[horse.name]
     ? `https://db.netkeiba.com/horse/${kettonums[horse.name]}/`
     : `https://www.google.com/search?q=netkeiba+${encodeURIComponent(horse.name)}`;
+
+  // record "3-4-0-7" = 1着-2着-3着-着外 → パース
+  const [w, p, s, o] = (horse.record || "0-0-0-0").split("-").map(Number);
+  const total = w + p + s + o;
+  const winRate  = total > 0 ? Math.round((w / total) * 100) : 0;
+  const rentaiRate = total > 0 ? Math.round(((w + p) / total) * 100) : 0;
+
   return (
     <div style={{ padding:12 }}>
-      <div style={{ background:"#fff", borderRadius:12, padding:"16px 18px", marginBottom:14, border:"1px solid #e4e9e6" }}>
+      {/* ヘッダーカード */}
+      <div style={{ background:"#fff", borderRadius:12, padding:"16px 18px", marginBottom:12, border:"1px solid #e4e9e6" }}>
         <div style={{ display:"flex", alignItems:"flex-start", justifyContent:"space-between", gap:8 }}>
           <div>
             <div style={{ fontSize:22, fontWeight:800 }}>{horse.name}</div>
             <div style={{ fontSize:12, color:"#888", marginTop:4 }}>
               {playerEmoji(playerId)} {playerName(playerId)}
+              {horse.active && <span style={{ marginLeft:6, fontSize:10, color:G.green, border:`1px solid ${G.green}`, borderRadius:3, padding:"0 3px" }}>在厩</span>}
             </div>
           </div>
           <a href={netkeibaUrl} target="_blank" rel="noopener noreferrer"
@@ -1092,16 +1119,51 @@ function HorseDetailScreen({ horse, playerId, results, kettonums }) {
             🔍 netkeiba
           </a>
         </div>
-        <div style={{ display:"flex", gap:16, marginTop:14 }}>
-          <div>
-            <div style={{ fontSize:11, color:"#999" }}>獲得pt</div>
-            <div style={{ fontSize:22, fontWeight:800 }}>{fmt(horse.pt)}</div>
-          </div>
-          <div>
-            <div style={{ fontSize:11, color:"#999" }}>成績</div>
-            <div style={{ fontSize:22, fontWeight:800 }}>{horse.record}</div>
-          </div>
+
+        {/* ポイント + 成績サマリー */}
+        <div style={{ display:"flex", gap:0, marginTop:14, background:"#f8f9fa", borderRadius:10, overflow:"hidden" }}>
+          {[
+            { label:"獲得pt", value:`${fmt(horse.pt)}pt`, big:true },
+            { label:"勝率",   value:`${winRate}%` },
+            { label:"連対率", value:`${rentaiRate}%` },
+            { label:"出走数", value:`${total}戦` },
+          ].map((item, idx) => (
+            <div key={idx} style={{
+              flex:1, textAlign:"center", padding:"10px 4px",
+              borderRight: idx < 3 ? "1px solid #eee" : "none",
+            }}>
+              <div style={{ fontSize:9, color:"#999", marginBottom:2 }}>{item.label}</div>
+              <div style={{ fontSize:item.big?16:14, fontWeight:800, color:item.big?G.dirtDark:"#222" }}>{item.value}</div>
+            </div>
+          ))}
         </div>
+
+        {/* 着順ビジュアルバー */}
+        {total > 0 && (
+          <div style={{ marginTop:12 }}>
+            <div style={{ fontSize:10, color:"#aaa", marginBottom:4 }}>着順内訳（{total}戦）</div>
+            <div style={{ display:"flex", gap:3, alignItems:"center" }}>
+              {[
+                { count:w, label:"1着", color:G.gold },
+                { count:p, label:"2着", color:G.silver },
+                { count:s, label:"3着", color:G.bronze },
+                { count:o, label:"着外", color:"#ddd" },
+              ].map((item, idx) => item.count > 0 && (
+                <div key={idx} style={{ display:"flex", flexDirection:"column", alignItems:"center", gap:2 }}>
+                  <div style={{
+                    width: Math.max(24, item.count * 20), height:14,
+                    background:item.color, borderRadius:3,
+                    display:"flex", alignItems:"center", justifyContent:"center",
+                    fontSize:9, fontWeight:700, color: idx < 2 ? "#333" : idx===2?"#fff":"#aaa",
+                  }}>{item.count}</div>
+                  <div style={{ fontSize:8, color:"#aaa" }}>{item.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* 父・母 */}
         {(horse.sire || horse.dam) && (
           <div style={{ marginTop:12, paddingTop:12, borderTop:"1px dashed #eee", display:"flex", gap:16 }}>
             {horse.sire && (
