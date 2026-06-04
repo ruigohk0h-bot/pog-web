@@ -25,8 +25,11 @@ jobs:
       - name: ライブラリインストール
         run: pip install requests beautifulsoup4 lxml
 
-      - name: スクレイピング実行
+      - name: スクレイピング実行（レース結果）
         run: python scrape_results.py
+
+      - name: スクレイピング実行（ニュース）
+        run: python scrape_news.py
 
       - name: 変更があればコミット＆プッシュ
         run: |
