@@ -1649,6 +1649,7 @@ function StatusScreen({ data }) {
     return <div style={{ textAlign:"center", color:"#aaa", marginTop:40, fontSize:14 }}>読み込み中…</div>;
   }
 
+  const sched  = data.schedule_results || [];
   const regist = data.special_regist || [];
 
   const pick = (rec, keys) => {
@@ -1663,12 +1664,15 @@ function StatusScreen({ data }) {
     return "";
   };
 
-  const Card = ({ rec }) => {
+  const Card = ({ rec, withResult }) => {
     const horse = pick(rec, ["馬名"]);
     const race  = pick(rec, ["レース名","競走"]);
     const date  = pick(rec, ["日時"]);
     const dist  = pick(rec, ["距離"]);
     const owner = pick(rec, ["所有者"]);
+    const jockey= pick(rec, ["騎手"]);
+    const rank  = pick(rec, ["順位"]);
+    const prize = pick(rec, ["賞金"]);
     const g     = grade(rec);
     return (
       <div style={{ background:"#fff", borderRadius:10, padding:"12px 14px", marginBottom:8, boxShadow:"0 1px 4px rgba(0,0,0,0.08)" }}>
@@ -1682,34 +1686,52 @@ function StatusScreen({ data }) {
           {race && <span style={{ marginRight:10 }}>{race}</span>}
           {dist && <span style={{ marginRight:10 }}>{dist}</span>}
         </div>
+        {withResult && (rank || jockey || prize) && (
+          <div style={{ fontSize:12, color:"#333", marginTop:4, fontWeight:700 }}>
+            {jockey && <span style={{ marginRight:10 }}>🏇 {jockey}</span>}
+            {rank && <span style={{ marginRight:10 }}>着順 {rank}</span>}
+            {prize && <span>賞金 {prize}</span>}
+          </div>
+        )}
       </div>
     );
   };
 
+  const Section = ({ icon, title, note, list, empty, withResult }) => (
+    <div style={{ marginBottom:18 }}>
+      <div style={{ fontSize:14, fontWeight:800, color:"#444" }}>
+        {icon} {title} ({list.length})
+      </div>
+      {note && <div style={{ fontSize:11, color:"#999", marginBottom:8 }}>{note}</div>}
+      {list.length === 0 ? (
+        <div style={{ textAlign:"center", color:"#aaa", margin:"14px 0", fontSize:13, lineHeight:1.8 }}>
+          {empty}
+        </div>
+      ) : list.map((rec, i) => (
+        <Card key={i} rec={rec} withResult={withResult} />
+      ))}
+    </div>
+  );
+
   return (
     <div style={{ background:"#eef2f0", minHeight:"100%" }}>
-      <div style={{ padding:"14px 12px 4px" }}>
-        <div style={{ fontSize:14, fontWeight:800, color:"#444", marginBottom:2 }}>
-          🎯 特別登録 ({regist.length})
-        </div>
-        <div style={{ fontSize:11, color:"#999", marginBottom:8 }}>
-          重賞などへの登録状況です。出走予定・結果は「結果」タブをご覧ください。
-        </div>
-      </div>
-
-      <div style={{ padding:"0 12px 10px" }}>
-        {regist.length === 0 ? (
-          <div style={{ textAlign:"center", color:"#aaa", marginTop:30, fontSize:14, lineHeight:1.8 }}>
-            現在、特別登録はありません<br />
-            <span style={{ fontSize:12 }}>（特別レースに登録され次第ここに表示されます）</span>
-          </div>
-        ) : regist.map((rec, i) => (
-          <Card key={i} rec={rec} />
-        ))}
+      <div style={{ padding:"14px 12px 0" }}>
+        <Section
+          icon="🏁" title="出走予定・確定" withResult
+          note="今週の出走予定と確定情報です（木曜18時ごろ確定）。"
+          list={sched}
+          empty={<>今週の出走予定はまだありません<br /><span style={{ fontSize:12 }}>（木曜18時ごろに確定情報が出ます）</span></>}
+        />
+        <Section
+          icon="🎯" title="特別登録"
+          note="重賞などへの登録状況です。"
+          list={regist}
+          empty={<>現在、特別登録はありません<br /><span style={{ fontSize:12 }}>（特別レースに登録され次第表示されます）</span></>}
+        />
       </div>
 
       {data.updated && (
-        <div style={{ textAlign:"center", color:"#aaa", fontSize:11, padding:"4px 0 16px" }}>
+        <div style={{ textAlign:"center", color:"#aaa", fontSize:11, padding:"0 0 16px" }}>
           最終取得: {data.updated}
         </div>
       )}
@@ -2679,7 +2701,7 @@ export default function App() {
     const pogHorses = new Set(results.map(r => r.horse));
     content = <CalendarScreen pogHorses={pogHorses} />;
   } else if (tab === "status") {
-    title = "特別登録";
+    title = "出走予定・登録";
     content = <StatusScreen data={statusData} />;
   } else if (tab === "next") {
     title = "2026-27 指名馬";
@@ -2698,7 +2720,7 @@ export default function App() {
     { key:"ranking",  label:"順位",   icon:"🏆" },
     { key:"results",  label:"結果",   icon:"📋" },
     { key:"news",     label:"ニュース",icon:"📰" },
-    { key:"status",   label:"登録",   icon:"🎯" },
+    { key:"status",   label:"出走",   icon:"🏁" },
     { key:"next",     label:"次季",   icon:"🆕" },
     { key:"calendar", label:"日程",   icon:"📅" },
     { key:"hall",     label:"殿堂",   icon:"🏟️" },
