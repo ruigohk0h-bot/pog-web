@@ -13,7 +13,19 @@ from datetime import datetime, timezone, timedelta
 from bs4 import BeautifulSoup
 
 # 取得対象（最新状況ページ）
-TARGET_URL = "https://pogstarion.com/newresultlist.do?group_num=0601093409"
+GROUP_NUM = "0601093409"
+TARGET_URL = f"https://pogstarion.com/newresultlist.do?group_num={GROUP_NUM}"
+
+# 各厩舎の user_num → アプリのプレイヤーID
+STABLE_USERS = {
+    "P04": "407309",  # ミリオン厩舎
+    "P01": "407310",  # 前田厩舎
+    "P02": "407303",  # 川村厩舎
+    "P07": "407305",  # 成田厩舎
+    "P06": "407306",  # 涼子厩舎
+    "P05": "407307",  # 田崎厩舎
+    "P03": "407304",  # 長谷部厩舎
+}
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
@@ -62,6 +74,59 @@ def parse_table(table):
     return headers, data
 
 
+def scrape_registrations():
+    """各厩舎の登録馬一覧から、母名→馬名の対応を取得する。
+    アプリの2026-27データ（馬名が未登録の馬）を母名で突き合わせて埋めるために使う。
+    戻り値: { "P03": { "ファシネートゼット": "ゼットターム", ... }, ... }
+    """
+    import time
+    result = {}
+    for pid, user_num in STABLE_USERS.items():
+        url = f"https://pogstarion.com/userumalist.do?group_num={GROUP_NUM}&user_num={user_num}"
+        try:
+            resp = requests.get(url, headers=HEADERS, timeout=20)
+            resp.raise_for_status()
+            resp.encoding = resp.apparent_encoding
+        except Exception as e:
+            print(f"  [{pid}] 取得失敗: {e}", flush=True)
+            continue
+
+        soup = BeautifulSoup(resp.text, "html.parser")
+        mapping = {}
+        for t in soup.find_all("table"):
+            rows = t.find_all("tr")
+            if not rows:
+                continue
+            headers = [cell_text(c) for c in rows[0].find_all(["th", "td"])]
+            hjoin = "".join(headers)
+            if "馬名" not in hjoin or "血統" not in hjoin:
+                continue
+            # 列インデックスを特定
+            try:
+                name_idx = headers.index("馬名")
+            except ValueError:
+                continue
+            ped_idx = len(headers) - 1  # 血統は最終列
+            for tr in rows[1:]:
+                cells = [cell_text(c) for c in tr.find_all(["th", "td"])]
+                if len(cells) <= ped_idx:
+                    continue
+                name = cells[name_idx].strip()
+                ped = cells[ped_idx]
+                m = re.search(r"母(.+)$", ped)
+                if not m:
+                    continue
+                dam = m.group(1).strip()
+                if dam and name:
+                    mapping[dam] = name
+            break
+        if mapping:
+            result[pid] = mapping
+            print(f"  [{pid}] 登録馬名 {len(mapping)}件", flush=True)
+        time.sleep(0.5)
+    return result
+
+
 def main():
     print("=== pogstarion 最新状況 取得 ===", flush=True)
     try:
@@ -106,6 +171,15 @@ def main():
 
     print(f"完了: 予定・結果 {len(schedule_results)}件 / 特別登録 {len(special_regist)}件", flush=True)
     print(f"  → public/data/pogstarion.json", flush=True)
+
+    # 各厩舎の馬名登録情報を取得して保存
+    print("--- 登録馬名の取得 ---", flush=True)
+    regist = scrape_registrations()
+    regist_path = os.path.join(out_dir, "regist2627.json")
+    with open(regist_path, "w", encoding="utf-8") as f:
+        json.dump(regist, f, ensure_ascii=False, indent=2)
+    total = sum(len(v) for v in regist.values())
+    print(f"完了: 登録馬名 計{total}件 → public/data/regist2627.json", flush=True)
 
 
 if __name__ == "__main__":

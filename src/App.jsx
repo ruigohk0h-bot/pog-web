@@ -2057,6 +2057,15 @@ function CalendarScreen({ pogHorses = new Set() }) {
 
 function Season2627Screen() {
   const [view, setView] = useState("roster"); // "roster" | "ranking"
+  const [regist, setRegist] = useState({});
+
+  useEffect(() => {
+    fetch("/data/regist2627.json").then(r => r.json()).then(setRegist).catch(() => {});
+  }, []);
+
+  // 静的な馬名が無くても、登録情報（母名→馬名）があればそれを使う
+  const horseName = (player, h) =>
+    h.name || (regist[player.id] && regist[player.id][h.dam]) || null;
 
   return (
     <div style={{ paddingBottom:16 }}>
@@ -2086,7 +2095,7 @@ function Season2627Screen() {
       {view === "roster" && (
         <div style={{ padding:"10px 12px" }}>
           {PLAYERS_2627.map(player => {
-            const registered = player.horses.filter(h => h.name).length;
+            const registered = player.horses.filter(h => horseName(player, h)).length;
             return (
               <div key={player.id} style={{
                 background:"#fff", borderRadius:12, marginBottom:12,
@@ -2103,7 +2112,8 @@ function Season2627Screen() {
                 {/* 馬リスト（指名順・2列グリッド） */}
                 <div style={{ padding:"6px 10px 8px", display:"grid", gridTemplateColumns:"1fr 1fr", gap:"2px 4px" }}>
                   {player.horses.map(h => {
-                    const isNamed = !!h.name;
+                    const nm = horseName(player, h);
+                    const isNamed = !!nm;
                     return (
                       <div key={h.no} style={{
                         display:"flex", alignItems:"center", gap:5,
@@ -2121,7 +2131,7 @@ function Season2627Screen() {
                         {/* 馬情報 */}
                         <div style={{ flex:1, minWidth:0, overflow:"hidden" }}>
                           {isNamed ? (
-                            <div translate="no" style={{ fontWeight:800, fontSize:12, color:"#222", whiteSpace:"nowrap", overflow:"hidden", textOverflow:"ellipsis" }}>{h.name}</div>
+                            <div translate="no" style={{ fontWeight:800, fontSize:12, color:"#222", whiteSpace:"nowrap", overflow:"hidden", textOverflow:"ellipsis" }}>{nm}</div>
                           ) : (
                             <div style={{ fontWeight:700, fontSize:11, color:"#bbb" }}>名前未定</div>
                           )}
