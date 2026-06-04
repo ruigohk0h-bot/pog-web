@@ -1136,80 +1136,8 @@ function HorseDetailScreen({ horse, playerId, results, kettonums }) {
 
 
 function ResultsScreen({ results, upcoming, loaded, news }) {
-  const [subTab, setSubTab] = useState("results");
-
-  // 出走予定：日付グループ
-  const upGroups = (() => {
-    const groups = [];
-    let cur = null;
-    for (const u of upcoming) {
-      if (!cur || cur.date !== u.date) { cur = { date: u.date, rows: [] }; groups.push(cur); }
-      cur.rows.push(u);
-    }
-    return groups;
-  })();
-
   return (
     <div style={{ padding:12 }}>
-      {/* サブタブ */}
-      <div style={{ display:"flex", gap:6, marginBottom:12 }}>
-        {[
-          { key:"results",  label:`📋 確定結果`, count: null },
-          { key:"upcoming", label:`🏁 出走予定`, count: upcoming.length },
-        ].map(t => (
-          <button key={t.key} onClick={() => setSubTab(t.key)} style={{
-            flex:1, padding:"8px 0", borderRadius:8, cursor:"pointer", fontWeight:700, fontSize:13,
-            background: subTab===t.key ? G.green : "#fff",
-            color: subTab===t.key ? "#fff" : "#666",
-            border: `1.5px solid ${subTab===t.key ? G.green : "#ddd"}`,
-          }}>
-            {t.label}
-            {t.count !== null && <span style={{
-              marginLeft:6, fontSize:11, background: subTab===t.key?"rgba(255,255,255,0.3)":"#eee",
-              borderRadius:8, padding:"1px 6px",
-            }}>{t.count}</span>}
-          </button>
-        ))}
-      </div>
-
-      {/* 出走予定タブ */}
-      {subTab === "upcoming" && (
-        <>
-          {upGroups.length === 0 ? (
-            <div style={{ textAlign:"center", color:"#aaa", marginTop:40, fontSize:14 }}>
-              出走予定はありません<br/>
-              <span style={{ fontSize:12, marginTop:8, display:"block" }}>📰 ニュースタブで最新情報をチェック</span>
-            </div>
-          ) : upGroups.map(g => (
-            <div key={g.date} style={{ marginBottom:10 }}>
-              <div style={{ fontSize:11, fontWeight:800, color:G.green, marginBottom:5, paddingLeft:2 }}>📅 {g.date}</div>
-              {g.rows.map((u, i) => (
-                <div key={i} style={{
-                  background:"#f0f8f4", border:`1.5px solid ${G.green}`,
-                  borderRadius:10, padding:"10px 12px", marginBottom:6,
-                  display:"flex", alignItems:"center", gap:8,
-                }}>
-                  <SurfaceTag surface={u.surface} dist={u.dist} small />
-                  <div style={{ flex:1, minWidth:0 }}>
-                    <div style={{ fontSize:15, fontWeight:800, color:"#222" }}>{u.horse}</div>
-                    <div style={{ fontSize:10, color:"#888", marginTop:3, display:"flex", alignItems:"center", gap:4 }}>
-                      <span>{u.venue}</span><GradeTag grade={u.grade} local={u.local} />
-                    </div>
-                  </div>
-                  <div style={{ fontSize:10, color:"#777", textAlign:"right", flexShrink:0 }}>
-                    <div style={{ fontSize:14 }}>{playerEmoji(u.player)}</div>
-                    <div>{playerName(u.player)}</div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          ))}
-        </>
-      )}
-
-      {/* 確定結果タブ */}
-      {subTab === "results" && (
-        <>
         <div style={{ fontSize:13, fontWeight:700, color:"#555", margin:"4px 4px 8px" }}>確定・結果</div>
       {!loaded
         ? <div style={{ background:"#fff", borderRadius:10, padding:24, textAlign:"center", color:"#aaa", fontSize:13, border:"1px solid #e4e9e6" }}>読み込み中...</div>
@@ -1250,8 +1178,6 @@ function ResultsScreen({ results, upcoming, loaded, news }) {
               );
             })()
         }
-        </>
-      )}
     </div>
   );
 }
