@@ -1,6 +1,41 @@
 {
-  "updated": "2026/06/04 10:54",
+  "updated": "2026/06/04 17:38",
   "source": "https://pogstarion.com/newresultlist.do?group_num=0601093409",
-  "schedule_results": [],
+  "schedule_results": [
+    {
+      "日時": "06/06",
+      "競走": "東京05R",
+      "col2": "",
+      "レース名": "新馬",
+      "距離": "芝1600",
+      "馬名": "ウィンターブリーズ",
+      "騎手": "レーン",
+      "順位": "",
+      "賞金": "",
+      "所有者": "成田厩舎",
+      "_links": [
+        "http://race.netkeiba.com/?pid=race&id=c202605030105&mode=shutuba",
+        "umaracelist.do?group_num=0601093409&user_num=407305&kettonum=2024106106",
+        "userumalist.do?group_num=0601093409&user_num=407305"
+      ]
+    },
+    {
+      "日時": "06/07",
+      "競走": "東京05R",
+      "col2": "",
+      "レース名": "新馬",
+      "距離": "芝1800",
+      "馬名": "セイルトゥグローリ",
+      "騎手": "岩田望来",
+      "順位": "",
+      "賞金": "",
+      "所有者": "川村厩舎",
+      "_links": [
+        "http://race.netkeiba.com/?pid=race&id=c202605030205&mode=shutuba",
+        "umaracelist.do?group_num=0601093409&user_num=407303&kettonum=2024107327",
+        "userumalist.do?group_num=0601093409&user_num=407303"
+      ]
+    }
+  ],
   "special_regist": []
 }
