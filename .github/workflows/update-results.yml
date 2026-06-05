@@ -38,7 +38,9 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add public/data/results.json public/data/upcoming.json public/data/kettonums.json public/data/news.json public/data/updated.json public/data/pogstarion.json kettonum_cache.json
+          git add public/data/results.json public/data/upcoming.json public/data/kettonums.json public/data/news.json public/data/updated.json public/data/pogstarion.json public/data/regist2627.json kettonum_cache.json
           git diff --staged --quiet || git commit -m "自動更新: 最新レース結果 $(date '+%Y/%m/%d %H:%M')"
+          git stash || true
           git pull --rebase origin main
+          git stash pop || true
           git push
