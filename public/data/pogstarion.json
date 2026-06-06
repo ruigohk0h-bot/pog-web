@@ -1,5 +1,5 @@
 {
-  "updated": "2026/06/05 20:30",
+  "updated": "2026/06/06 14:22",
   "source": "https://pogstarion.com/newresultlist.do?group_num=0601093409",
   "schedule_results": [
     {
@@ -10,8 +10,8 @@
       "距離": "芝1600",
       "馬名": "ウィンターブリーズ",
       "騎手": "レーン",
-      "順位": "",
-      "賞金": "",
+      "順位": "2",
+      "賞金": "310",
       "所有者": "成田厩舎",
       "_links": [
         "http://race.netkeiba.com/?pid=race&id=c202605030105&mode=shutuba",
