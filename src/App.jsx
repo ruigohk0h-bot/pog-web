@@ -2633,15 +2633,39 @@ export default function App() {
   const [news, setNews] = useState([]);
   const [updated, setUpdated] = useState("");
   const [statusData, setStatusData] = useState(null);
+  const [ptr, setPtr] = useState({ active:false, y:0, pulling:false }); // pull-to-refresh
 
-  useEffect(() => {
-    fetch("/data/results.json").then(r => r.json()).then(d => { setResults(d); setResultsLoaded(true); }).catch(() => setResultsLoaded(true));
-    fetch("/data/upcoming.json").then(r => r.json()).then(setUpcoming).catch(() => {});
-    fetch("/data/kettonums.json").then(r => r.json()).then(setKettonums).catch(() => {});
-    fetch("/data/news.json").then(r => r.json()).then(setNews).catch(() => {});
-    fetch("/data/updated.json").then(r => r.json()).then(d => setUpdated(d.updated || "")).catch(() => {});
-    fetch("/data/pogstarion.json").then(r => r.json()).then(setStatusData).catch(() => {});
-  }, []);
+  const loadAll = (bust = false) => {
+    const q = bust ? `?t=${Date.now()}` : "";
+    fetch(`/data/results.json${q}`).then(r => r.json()).then(d => { setResults(d); setResultsLoaded(true); }).catch(() => setResultsLoaded(true));
+    fetch(`/data/upcoming.json${q}`).then(r => r.json()).then(setUpcoming).catch(() => {});
+    fetch(`/data/kettonums.json${q}`).then(r => r.json()).then(setKettonums).catch(() => {});
+    fetch(`/data/news.json${q}`).then(r => r.json()).then(setNews).catch(() => {});
+    fetch(`/data/updated.json${q}`).then(r => r.json()).then(d => setUpdated(d.updated || "")).catch(() => {});
+    fetch(`/data/pogstarion.json${q}`).then(r => r.json()).then(setStatusData).catch(() => {});
+  };
+
+  useEffect(() => { loadAll(); }, []);
+
+  const THRESHOLD = 65; // px 引っ張る量
+  const contentRef = useRef(null);
+
+  const onTouchStart = (e) => {
+    if (contentRef.current?.scrollTop === 0) {
+      setPtr(p => ({ ...p, active:true, y: e.touches[0].clientY }));
+    }
+  };
+  const onTouchMove = (e) => {
+    if (!ptr.active) return;
+    const dy = e.touches[0].clientY - ptr.y;
+    if (dy > 0) setPtr(p => ({ ...p, pulling: dy > THRESHOLD }));
+  };
+  const onTouchEnd = () => {
+    if (ptr.pulling) {
+      loadAll(true);
+    }
+    setPtr({ active:false, y:0, pulling:false });
+  };
 
   const switchTab = (t) => {
     sessionStorage.setItem("pog_tab", t);
@@ -2762,7 +2786,24 @@ export default function App() {
       )}
 
       {/* コンテンツ */}
-      <div style={{ flex:1, overflowY:"auto" }}>{content}</div>
+      <div
+        ref={contentRef}
+        style={{ flex:1, overflowY:"auto" }}
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
+      >
+        {/* pull-to-refresh インジケーター */}
+        {ptr.pulling && (
+          <div style={{
+            textAlign:"center", padding:"10px 0", fontSize:13, fontWeight:700,
+            color:G.green, background:"#e8f7ed",
+          }}>
+            🔄 はなして更新
+          </div>
+        )}
+        {content}
+      </div>
 
       {/* ボトムナビ */}
       <div style={{
