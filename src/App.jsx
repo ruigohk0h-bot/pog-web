@@ -177,10 +177,10 @@ const CURRENT_SEASON = {
     { id:"P03", user_num:380045, pt:19474, diff:0,     comment:"10000ポイントいった(>_<)" },
     { id:"P05", user_num:380048, pt:16154, diff:12240, comment:"芝走ってる場合じゃねぇ！" },
     { id:"P06", user_num:380050, pt:14493, diff:210,   comment:"" },
-    { id:"P07", user_num:380051, pt:7590,  diff:4100,  comment:"" },
+    { id:"P07", user_num:380051, pt:8180,  diff:4100,  comment:"" },
     { id:"P02", user_num:380044, pt:7251,  diff:0,     comment:"" },
     { id:"P01", user_num:380046, pt:6673,  diff:240,   comment:"" },
-    { id:"P04", user_num:380049, pt:5098,  diff:0,     comment:"" },
+    { id:"P04", user_num:380049, pt:5688,  diff:0,     comment:"" },
   ],
 };
 
@@ -236,14 +236,14 @@ const HORSES_P03 = [
 const HORSES_P04 = [
   { no:6,  name:"アルデトップガン",   record:"2-0-0-5", pt:2740, active:false, sire:"ナダル",           dam:"フクシア" },
   { no:7,  name:"クラウトロック",     record:"2-0-0-0", pt:1570, active:false, sire:"ナダル",           dam:"スミレ" },
-  { no:9,  name:"アクアアイ",         record:"0-2-2-1", pt:909,  active:true,  sire:"ドレフォン",       dam:"アドマイヤセプター" },
+  { no:9,  name:"アクアアイ",         record:"1-2-2-1", pt:1499, active:true,  sire:"ドレフォン",       dam:"アドマイヤセプター" },
   { no:1,  name:"ペトリコール",       record:"1-1-0-1", pt:850,  active:true,  sire:"Justify",          dam:"ナイセスト" },
   { no:10, name:"マルシュボヌール",   record:"0-0-1-3", pt:349,  active:false, sire:"ドレフォン",       dam:"マルシュロレーヌ" },
   { no:5,  name:"フィデリス",         record:"0-1-0-5", pt:329,  active:true,  sire:"オルフェーヴル",   dam:"スイ" },
   { no:8,  name:"アンビエントポップ", record:"0-1-0-1", pt:240,  active:true,  sire:"ヴァンゴッホ",     dam:"フナウタ" },
-  { no:2,  name:"ホウオウファラオ",   record:"0-0-0-4", pt:0,    active:true,  sire:"American Pharoah", dam:"マールボロロード" },
+  { no:2,  name:"ホウオウファラオ",   record:"0-0-0-5", pt:0,    active:true,  sire:"American Pharoah", dam:"マールボロロード" },
   { no:3,  name:"メイショウバンサン", record:"0-0-0-2", pt:0,    active:false, sire:"ドレフォン",       dam:"シニスタークイーン" },
-  { no:4,  name:"ヤマニンコルザ",     record:"0-0-0-1", pt:0,    active:true,  sire:"リオンディーズ",   dam:"ヤマニンプチガトー" },
+  { no:4,  name:"ヤマニンコルザ",     record:"0-0-0-2", pt:0,    active:true,  sire:"リオンディーズ",   dam:"ヤマニンプチガトー" },
   { no:11, name:"エコロデュラン",     record:"0-0-0-3", pt:0,    active:true,  sire:"Caravaggio",       dam:"クィーンリズ" },
   { no:12, name:"（未登録）",         record:"0-0-0-0", pt:0,    active:false, sire:"",                 dam:"ヤマニンパピオネ" },
 ];
@@ -291,7 +291,7 @@ const HORSES_P07 = [
   { no:2,  name:"ホウオウストライク", record:"1-0-1-2", pt:836,  active:false, sire:"Good Magic",         dam:"Nightlife Baby" },
   { no:8,  name:"リュウカルネ",       record:"1-0-0-1", pt:750,  active:true,  sire:"ドレフォン",         dam:"ゴールドチェイス" },
   { no:6,  name:"アイデアユー",       record:"0-1-2-2", pt:649,  active:true,  sire:"シニスターミニスター",dam:"サンレーン" },
-  { no:5,  name:"メイショウコシュウ", record:"0-1-1-1", pt:370,  active:false, sire:"ナダル",             dam:"メイショウササユリ" },
+  { no:5,  name:"メイショウコシュウ", record:"1-1-1-1", pt:960,  active:false, sire:"ナダル",             dam:"メイショウササユリ" },
   { no:7,  name:"アイランド",         record:"0-0-0-0", pt:0,    active:true,  sire:"シニスターミニスター",dam:"ツインキャンドル" },
   { no:10, name:"ジュピターバローズ", record:"0-0-0-0", pt:0,    active:true,  sire:"ドレフォン",         dam:"キャレモンショコラ" },
 ];
