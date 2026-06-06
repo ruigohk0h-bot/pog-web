@@ -281,92 +281,31 @@ def get_results_from_html(html, horse_name, days=60):
     return results
 
 def main():
-    print("=== POG砂遊び 最新結果スクレイパー ===")
+    """kettonum取得のみ（結果取得はscrape_pogstarion.pyに移行済み）"""
+    print("=== POG砂遊び kettonum取得 ===")
     print(f"実行日時: {datetime.now().strftime('%Y/%m/%d %H:%M')}\n")
 
     cache = load_cache()
 
-    all_results = []
-
-    # Step1: kettonum取得（未キャッシュ分のみ）
+    # kettonum取得（未キャッシュ分のみ）
     missing = [name for name in HORSE_PLAYER if name not in cache or cache.get(name) is None]
     if missing:
-        print(f"【Step1】{len(missing)}頭のkettonum取得...", flush=True)
+        print(f"{len(missing)}頭のkettonum取得...", flush=True)
         for name in missing:
             get_kettonum(name, cache)
             time.sleep(0.5)
         save_cache(cache)
-        print("キャッシュ保存完了\n", flush=True)
+        print("キャッシュ保存完了", flush=True)
     else:
-        print("【Step1】kettonum取得済み（スキップ）", flush=True)
+        print("kettonum取得済み（スキップ）", flush=True)
 
-    # Step2: 最新レース結果取得（requests）
-    targets = [(name, cache[name]) for name in HORSE_PLAYER if cache.get(name)]
-    print(f"【Step2】{len(targets)}頭のレース結果取得...", flush=True)
-    for name, kettonum in targets:
-        try:
-            url = f"https://www.keibalab.jp/db/horse/{kettonum}/"
-            resp = requests.get(url, headers=HEADERS, timeout=20)
-            resp.raise_for_status()
-            res = get_results_from_html(resp.content, name, days=60)
-            all_results.extend(res)
-            if res:
-                print(f"  {name}: {len(res)}件", flush=True)
-            time.sleep(0.5)
-        except Exception as e:
-            print(f"  {name}: エラー {e}", flush=True)
-
-    # Step2.5: 5着以内（ダート・芝とも）の賞金をレースページから取得
-    # ダート→rawPt（得点計算に使用）、芝→turfPt（参考表示用）
-    race_prize_cache = {}  # race_link → [1着賞金, 2着, 3着, 4着, 5着]
-    prize_targets = [r for r in all_results if 1 <= r["order"] <= 5 and r["_race_link"]]
-    if prize_targets:
-        print(f"\n【Step2.5】{len(prize_targets)}件の入着賞金取得（ダート+芝）...", flush=True)
-        for r in prize_targets:
-            link = r["_race_link"]
-            if link not in race_prize_cache:
-                prizes = fetch_race_prizes(link)
-                race_prize_cache[link] = prizes
-                time.sleep(0.4)
-            prizes = race_prize_cache.get(link, [])
-            if prizes and r["order"] <= len(prizes):
-                prize = prizes[r["order"] - 1]
-                if r["surface"] == "dirt":
-                    r["rawPt"] = prize
-                    print(f"  [ダ] {r['horse']} {r['order']}着 {r['race']}: {prize}万pt", flush=True)
-                else:
-                    r["turfPt"] = prize
-                    print(f"  [芝] {r['horse']} {r['order']}着 {r['race']}: {prize}万 (参考)", flush=True)
-
-    # 日付降順ソート
-    all_results.sort(key=lambda x: x["_ts"], reverse=True)
-    today_str = datetime.today().strftime("%Y-%m-%d")
-
-    past     = [r for r in all_results if r["_ts"] <= today_str]
-    upcoming = [r for r in all_results if r["_ts"] >  today_str]
-
-    for r in past + upcoming:
-        del r["_ts"]
-        r.pop("_race_link", None)  # 内部フィールドを削除
-
-    # 保存
+    # kettonums.json（馬名 → ID）を保存（フロントエンドのnetkeiba リンク用）
     out_dir = os.path.join(os.path.dirname(__file__), "public", "data")
     os.makedirs(out_dir, exist_ok=True)
-
-    with open(os.path.join(out_dir, "results.json"), "w", encoding="utf-8") as f:
-        json.dump(past, f, ensure_ascii=False, indent=2)
-
-    with open(os.path.join(out_dir, "upcoming.json"), "w", encoding="utf-8") as f:
-        json.dump(upcoming[:10], f, ensure_ascii=False, indent=2)
-
-    # kettonums.json（馬名 → ID）を保存（フロントエンドのリンク用）
     kettonums_for_front = {k: v for k, v in cache.items() if v is not None}
     with open(os.path.join(out_dir, "kettonums.json"), "w", encoding="utf-8") as f:
         json.dump(kettonums_for_front, f, ensure_ascii=False, indent=2)
-
-    print(f"\n完了！ 確定結果: {len(past)}件 / 出走予定: {len(upcoming)}件")
-    print(f"  → public/data/results.json")
-    print(f"  → public/data/upcoming.json")
+    print(f"完了！ kettonums.json: {len(kettonums_for_front)}件")
 
 def write_updated_json():
     """更新日時をpublic/data/updated.jsonに書き込む"""

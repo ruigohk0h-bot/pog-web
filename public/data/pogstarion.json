@@ -1,41 +1,141 @@
 {
-  "updated": "2026/06/06 18:43",
-  "source": "https://pogstarion.com/newresultlist.do?group_num=0601093409",
+  "updated": "2026/06/06 19:36",
+  "source": "https://pogstarion.com/newresultlist.do?group_num=0601142541",
   "schedule_results": [
     {
       "日時": "06/06",
-      "競走": "東京05R",
+      "競走": "阪神01R",
       "col2": "",
-      "レース名": "新馬",
-      "距離": "芝1600",
-      "馬名": "ウィンターブリーズ",
-      "騎手": "レーン",
-      "順位": "2",
-      "賞金": "310",
+      "レース名": "未勝利",
+      "距離": "ダ1400",
+      "馬名": "アクアアイ",
+      "騎手": "岩田望来",
+      "順位": "1",
+      "賞金": "580",
+      "所有者": "ミリオン厩舎",
+      "_links": [
+        "http://race.netkeiba.com/?pid=race&id=c202609030101&mode=shutuba",
+        "umaracelist.do?group_num=0601142541&user_num=380049&kettonum=2023106837",
+        "userumalist.do?group_num=0601142541&user_num=380049"
+      ]
+    },
+    {
+      "日時": "06/06",
+      "競走": "阪神03R",
+      "col2": "",
+      "レース名": "未勝利",
+      "距離": "ダ1800",
+      "馬名": "ヤマニンコルザ",
+      "騎手": "松若風馬",
+      "順位": "7",
+      "賞金": "0",
+      "所有者": "ミリオン厩舎",
+      "_links": [
+        "http://race.netkeiba.com/?pid=race&id=c202609030103&mode=shutuba",
+        "umaracelist.do?group_num=0601142541&user_num=380049&kettonum=2023104364",
+        "userumalist.do?group_num=0601142541&user_num=380049"
+      ]
+    },
+    {
+      "日時": "06/06",
+      "競走": "東京06R",
+      "col2": "",
+      "レース名": "未勝利",
+      "距離": "ダ1600",
+      "馬名": "ホウオウファラオ",
+      "騎手": "岩田康誠",
+      "順位": "7",
+      "賞金": "0",
+      "所有者": "ミリオン厩舎",
+      "_links": [
+        "http://race.netkeiba.com/?pid=race&id=c202605030106&mode=shutuba",
+        "umaracelist.do?group_num=0601142541&user_num=380049&kettonum=2023105365",
+        "userumalist.do?group_num=0601142541&user_num=380049"
+      ]
+    },
+    {
+      "日時": "06/06",
+      "競走": "阪神06R",
+      "col2": "",
+      "レース名": "未勝利",
+      "距離": "ダ1800",
+      "馬名": "メイショウコシュウ",
+      "騎手": "武豊",
+      "順位": "1",
+      "賞金": "580",
       "所有者": "成田厩舎",
       "_links": [
-        "http://race.netkeiba.com/?pid=race&id=c202605030105&mode=shutuba",
-        "umaracelist.do?group_num=0601093409&user_num=407305&kettonum=2024106106",
-        "userumalist.do?group_num=0601093409&user_num=407305"
+        "http://race.netkeiba.com/?pid=race&id=c202609030106&mode=shutuba",
+        "umaracelist.do?group_num=0601142541&user_num=380051&kettonum=2023105032",
+        "userumalist.do?group_num=0601142541&user_num=380051"
       ]
     },
     {
       "日時": "06/07",
-      "競走": "東京05R",
+      "競走": "東京02R",
       "col2": "",
-      "レース名": "新馬",
-      "距離": "芝1800",
-      "馬名": "セイルトゥグローリ",
-      "騎手": "岩田望来",
+      "レース名": "未勝利",
+      "距離": "ダ2100",
+      "馬名": "ネイティヴプライド",
+      "騎手": "菅原明良",
+      "順位": "",
+      "賞金": "",
+      "所有者": "前田厩舎",
+      "_links": [
+        "http://race.netkeiba.com/?pid=race&id=c202605030202&mode=shutuba",
+        "umaracelist.do?group_num=0601142541&user_num=380046&kettonum=2023105319",
+        "userumalist.do?group_num=0601142541&user_num=380046"
+      ]
+    },
+    {
+      "日時": "06/07",
+      "競走": "東京12R",
+      "col2": "特別",
+      "レース名": "小金井特別",
+      "距離": "ダ1600",
+      "馬名": "リベッチオ",
+      "騎手": "戸崎圭太",
       "順位": "",
       "賞金": "",
       "所有者": "川村厩舎",
       "_links": [
-        "http://race.netkeiba.com/?pid=race&id=c202605030205&mode=shutuba",
-        "umaracelist.do?group_num=0601093409&user_num=407303&kettonum=2024107327",
-        "userumalist.do?group_num=0601093409&user_num=407303"
+        "http://race.netkeiba.com/?pid=race&id=c202605030212&mode=shutuba",
+        "umaracelist.do?group_num=0601142541&user_num=380044&kettonum=2023107082",
+        "userumalist.do?group_num=0601142541&user_num=380044"
+      ]
+    },
+    {
+      "日時": "06/07",
+      "競走": "阪神12R",
+      "col2": "",
+      "レース名": "５００万円以下",
+      "距離": "ダ1800",
+      "馬名": "バートラガッツ",
+      "騎手": "北村友一",
+      "順位": "",
+      "賞金": "",
+      "所有者": "涼子厩舎",
+      "_links": [
+        "http://race.netkeiba.com/?pid=race&id=c202609030212&mode=shutuba",
+        "umaracelist.do?group_num=0601142541&user_num=380050&kettonum=2023107362",
+        "userumalist.do?group_num=0601142541&user_num=380050"
       ]
     }
   ],
-  "special_regist": []
+  "special_regist": [
+    {
+      "日時": "06/07",
+      "競走": "東京12R",
+      "col2": "特別",
+      "レース名": "小金井特別",
+      "距離": "ダ1600",
+      "馬名": "リベッチオ",
+      "所有者": "川村厩舎",
+      "_links": [
+        "http://umachu.com/r/26/05/050302_12.html/",
+        "umaracelist.do?group_num=0601142541&user_num=380044&kettonum=2023107082",
+        "userumalist.do?group_num=0601142541&user_num=380044"
+      ]
+    }
+  ]
 }
