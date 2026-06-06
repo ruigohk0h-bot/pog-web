@@ -2756,7 +2756,7 @@ export default function App() {
             display:"inline-block", padding:"7px 0", fontSize:13, fontWeight:800,
             animation:"pogTelop 16s linear infinite",
           }}>
-            🔥 6/10 東京ダービー！フィンガー（長谷部厩舎）× ロックターミガン（涼子厩舎）の直接対決で優勝が決まる大一番！ 🏇🏆
+            🔥 6/10 東京ダービー！フィンガー（長谷部厩舎）× ロックターミガン（涼子厩舎）の直接対決で優勝が決まる大一番！ 🏇🏆　　　　　🆕【予告】東京ダービー終了後、2026-27シーズン対応へ大型アップデート予定！お楽しみに！✨
           </div>
         </div>
       )}
