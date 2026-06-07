@@ -1,6 +1,22 @@
 [
   {
     "date": "06/07",
+    "venue": "東京",
+    "race": "小金井特別",
+    "course": "ダ1600",
+    "surface": "dirt",
+    "dist": 1600,
+    "horse": "リベッチオ",
+    "player": "P02",
+    "order": 4,
+    "grade": null,
+    "local": false,
+    "rawPt": 240,
+    "turfPt": 0,
+    "_ts": "06/07"
+  },
+  {
+    "date": "06/07",
     "venue": "阪神",
     "race": "５００万円以下",
     "course": "ダ1800",
