@@ -73,7 +73,9 @@ def is_low_quality(title, desc, source, horse_name):
         if kw in title:
             return True
     # タイトルが馬名だけ（＝データベースの馬ページ）
-    if title.strip() == horse_name:
+    # 例: "バートラガッツ" や "バートラガッツ - netkeiba" など
+    title_core = re.sub(r'\s*[-–—]\s*\S.*$', '', title).strip()
+    if title_core == horse_name or title.strip() == horse_name:
         return True
     # 「馬名 (英語表記)」パターン（＝netkeibaのデータベース馬ページ）
     if re.match(r'^' + re.escape(horse_name) + r'\s*\([A-Za-z\s]+\)\s*$', title):
@@ -84,8 +86,11 @@ def is_low_quality(title, desc, source, horse_name):
     # 「馬名の掲示板」パターン（＝ファンの掲示板ページ、本文なし）
     if re.match(r'^' + re.escape(horse_name) + r'の掲示板', title):
         return True
+    # 「競馬 - 馬名 データベース」パターン（スポーツナビ等）
+    if re.match(r'^競馬\s*[-–—]\s*' + re.escape(horse_name), title):
+        return True
     # netkeibaのタイトルが馬名のみ（descがあっても弾く）
-    if "netkeiba" in source.lower() and title.strip() == horse_name:
+    if "netkeiba" in source.lower() and title_core == horse_name:
         return True
     # 本文なし
     if not desc:
