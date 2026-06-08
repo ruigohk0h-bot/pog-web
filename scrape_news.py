@@ -60,7 +60,7 @@ for _name, _pid in _HORSE_PLAYER_2627.items():
 # 除外するソース（馬名データベース系・中身なし）
 EXCLUDE_SOURCES = {"UMATOKU", "馬トク", "競馬ラボ", "競走馬データベース"}
 # タイトルに含まれていたら除外するキーワード
-EXCLUDE_TITLE_KEYWORDS = ["競走馬データベース", "血統表", "競走馬情報", "馬データベース"]
+EXCLUDE_TITLE_KEYWORDS = ["競走馬データベース", "血統表", "競走馬情報", "馬データベース", "データベース"]
 
 def is_low_quality(title, desc, source, horse_name):
     """中身のない記事を除外するフィルター"""
