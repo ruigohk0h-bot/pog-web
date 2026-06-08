@@ -158,6 +158,70 @@ def parse_rss_items(content, source_name, horse_names_set, days):
     return results
 
 
+def fetch_site_batch(site_query, source_name, horse_names_set, days=30):
+    """Google Newsでサイト指定一括取得 → 馬名でフィルター（デイリー馬三郎など）"""
+    cutoff = datetime.now() - timedelta(days=days)
+    results = []
+    seen = set()
+    encoded = urllib.parse.quote(site_query)
+    url = f"https://news.google.com/rss/search?q={encoded}&hl=ja&gl=JP&ceid=JP:ja"
+    try:
+        resp = requests.get(url, headers=HEADERS, timeout=15)
+        resp.raise_for_status()
+        root = ET.fromstring(resp.content)
+    except Exception as e:
+        print(f"  [{source_name}] NG: {e}", flush=True)
+        return []
+
+    for item in root.findall(".//item"):
+        title_el   = item.find("title")
+        link_el    = item.find("link")
+        pubdate_el = item.find("pubDate")
+        desc_el    = item.find("description")
+        if title_el is None or link_el is None:
+            continue
+        title    = title_el.text or ""
+        link     = link_el.text or ""
+        desc_raw = desc_el.text if desc_el is not None else ""
+        desc     = re.sub(r'<[^>]+>', '', desc_raw).strip() if desc_raw else ""
+        full_text = title + " " + desc
+
+        pub_str = pubdate_el.text if pubdate_el is not None else ""
+        pub_dt = None
+        try:
+            pub_dt = datetime.strptime(pub_str, "%a, %d %b %Y %H:%M:%S %Z")
+        except:
+            try:
+                pub_dt = datetime.strptime(pub_str[:25], "%a, %d %b %Y %H:%M:%S")
+            except:
+                pass
+        if pub_dt and pub_dt < cutoff:
+            continue
+
+        date_label = pub_dt.strftime("%Y/%m/%d") if pub_dt else ""
+        ts = pub_dt.strftime("%Y-%m-%d %H:%M") if pub_dt else "0000-00-00 00:00"
+
+        for horse_name in horse_names_set:
+            if horse_name in full_text and title not in seen:
+                if is_low_quality(title, desc, source_name, horse_name):
+                    break
+                seen.add(title)
+                results.append({
+                    "horse":  horse_name,
+                    "player": HORSE_PLAYER.get(horse_name, ""),
+                    "title":  title,
+                    "desc":   desc,
+                    "source": source_name,
+                    "date":   date_label,
+                    "url":    link,
+                    "_ts":    ts,
+                })
+                break
+    if results:
+        print(f"  [{source_name}] {len(results)}件", flush=True)
+    return results
+
+
 def fetch_media_rss(horse_names_set, days=90):
     """専門メディアRSSを直接購読して指名馬関連記事を返す"""
     all_items = []
@@ -182,10 +246,12 @@ def fetch_news_for_horse(horse_name, days=30):
 
     # クエリ①: 通常検索
     # クエリ②: netkeiba絞り込み
-    # クエリ③: SPAIA絞り込み（2026-27馬のみ追加）
+    # クエリ③: デイリー馬三郎絞り込み
+    # クエリ④: SPAIA絞り込み（2026-27馬のみ追加）
     queries = [
         f"{horse_name} 競馬",
         f"{horse_name} site:netkeiba.com",
+        f"{horse_name} デイリー馬三郎",
     ]
     if horse_name in HORSES_2627:
         queries.append(f"{horse_name} site:spaia-keiba.com")
@@ -307,7 +373,14 @@ def main():
             print(f"  {name}: {len(items)}件", flush=True)
             all_news.extend(items)
 
-    # ② 専門メディアRSS直接購読
+    # ② デイリー馬三郎・サンスポ競馬 一括取得
+    print("\n--- デイリー馬三郎・サンスポ競馬 ---", flush=True)
+    all_news.extend(fetch_site_batch("競馬 site:daily.co.jp/horse", "デイリー馬三郎", set(horse_names), days=30))
+    time.sleep(0.5)
+    all_news.extend(fetch_site_batch("競馬 site:sanspo.com", "サンスポ競馬", set(horse_names), days=30))
+    time.sleep(0.5)
+
+    # ③ 専門メディアRSS直接購読
     print("\n--- 専門メディアRSS ---", flush=True)
     media_items = fetch_media_rss(set(horse_names), days=90)
     all_news.extend(media_items)
