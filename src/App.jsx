@@ -863,7 +863,6 @@ function ResultRow({ r, showPlayer=true }) {
     <div style={{
       display:"flex", alignItems:"center", gap:4,
       padding:"4px 8px", borderBottom:"1px solid #f0f0f0",
-      opacity: zero ? 0.5 : 1,
     }}>
       <span style={COL.venue}>{r.venue}</span>
       <span style={COL.race}>{r.race}{r.grade ? <GradeTag grade={r.grade} local={r.local}/> : ""}</span>
@@ -871,10 +870,8 @@ function ResultRow({ r, showPlayer=true }) {
       <span style={COL.horse}>{r.horse}</span>
       <span style={{...COL.order, color:orderColor}}>{r.order}着</span>
       {showPlayer && <span style={COL.player}>{playerName(r.player)}</span>}
-      <span style={{...COL.pt, color: zero ? (turfRef ? "#aaa" : "#ccc") : "#d33"}}>
-        {zero
-          ? (turfRef ? `-${fmt(r.turfPt)}` : (r.surface==="turf" ? "芝" : "-"))
-          : `+${fmt(dPt)}`}
+      <span style={{...COL.pt, color: zero ? "#bbb" : "#d33"}}>
+        {zero ? "+0" : `+${fmt(dPt)}`}
       </span>
     </div>
   );
@@ -1230,8 +1227,8 @@ function ResultsScreen({ results, upcoming, loaded, news }) {
                   </div>
                   {groups.map(g => (
                     <div key={g.date}>
-                      <div style={{ padding:"3px 8px", background:"#fafafa", fontSize:10, fontWeight:700, color:"#aaa", borderBottom:"1px solid #eee", borderTop:"1px solid #eee" }}>
-                        {g.date}
+                      <div style={{ padding:"5px 10px", background:"#e8f0eb", fontSize:11, fontWeight:800, color:"#2d6a4f", borderBottom:"1px solid #c5daca", borderTop:"2px solid #c5daca", letterSpacing:1 }}>
+                        📅 {g.date}
                       </div>
                       {g.rows.map((r,i) => <ResultRow key={i} r={r} />)}
                     </div>
