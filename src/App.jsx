@@ -858,7 +858,6 @@ function ResultRow({ r, showPlayer=true }) {
   const dPt = displayPt(r);
   const zero = dPt === 0;
   const orderColor = r.order===1?"#c9a227":r.order===2?"#9aa0a6":r.order===3?"#cd7f32":"inherit";
-  const turfRef = r.surface === "turf" && r.turfPt > 0 && r.order <= 5;
   return (
     <div style={{
       display:"flex", alignItems:"center", gap:4,
