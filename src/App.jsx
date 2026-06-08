@@ -1227,7 +1227,7 @@ function ResultsScreen({ results, upcoming, loaded, news }) {
                   {groups.map(g => (
                     <div key={g.date}>
                       <div style={{ padding:"5px 10px", background:"#e8f0eb", fontSize:11, fontWeight:800, color:"#2d6a4f", borderBottom:"1px solid #c5daca", borderTop:"2px solid #c5daca", letterSpacing:1 }}>
-                        📅 {g.date}
+                        {(() => { const [m,d]=g.date.split("/").map(Number); const yr=m>=7?2025:2026; const day=new Date(yr,m-1,d).getDay(); return `📅 ${g.date} (${["日","月","火","水","木","金","土"][day]})`; })()}
                       </div>
                       {g.rows.map((r,i) => <ResultRow key={i} r={r} />)}
                     </div>
