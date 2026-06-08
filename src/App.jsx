@@ -579,6 +579,7 @@ const TROPHIES = [
   { season:"2025-26", player:"P06", grade:"JpnIII", race:"雲取賞競走",           horse:"トリグラフヒル",   order:2, date:"2026/02/18" },
   // ===== 2024-25シーズン（〜2025/06東京ダービーまで） =====
   { season:"2024-25", player:"P01", grade:"JpnI",   race:"東京ダービー競走",     horse:"クレーキング",     order:2, date:"2025/06/11" },
+  { season:"2024-25", player:"P05", grade:"GIII",   race:"ユニコーンS",          horse:"カナルビーグル",   order:1, date:"2025/06/09" },
   { season:"2024-25", player:"P01", grade:"GIII",   race:"ユニコーンS",          horse:"クレーキング",     order:2, date:"2025/05/03" },
   { season:"2024-25", player:"P01", grade:"JpnI",   race:"羽田盃競走",           horse:"ジャナドリア",     order:3, date:"2025/04/29" },
   { season:"2024-25", player:"P01", grade:"JpnIII", race:"雲取賞競走",           horse:"ジャナドリア",     order:1, date:"2025/02/19" },
