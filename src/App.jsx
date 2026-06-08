@@ -1328,6 +1328,7 @@ function RankGraphModal({ playerId, playerName: pname, onClose }) {
 
 function HallScreen({ onSelectHallPlayer }) {
   const [graphModal, setGraphModal] = useState(null); // { playerId, playerName }
+  const [hallTab, setHallTab] = useState("ranking"); // "ranking" | "awards"
   const stats = PLAYERS.map(p => {
     const mySeasons = SEASONS_ALL.filter(s => s.results.find(r => r.player===p.id));
     const wins = mySeasons.filter(s => s.period.includes("〜") && !s.period.endsWith("〜") && s.results.find(r => r.player===p.id)?.rank===1);
@@ -1352,7 +1353,20 @@ function HallScreen({ onSelectHallPlayer }) {
         <div style={{ fontSize:18, fontWeight:900, color:G.gold, letterSpacing:2, marginTop:4 }}>砂遊び殿堂</div>
         <div style={{ fontSize:12, color:G.hallDim, marginTop:4 }}>2022-23〜2025-26 全4シーズン</div>
       </div>
-      {stats.map((p,i) => (
+
+      {/* サブタブ */}
+      <div style={{ display:"flex", gap:4, marginBottom:14 }}>
+        {[["ranking","🏟️ 殿堂ランキング"],["awards","🏅 シーズン表彰"]].map(([k,l]) => (
+          <button key={k} onClick={()=>setHallTab(k)} style={{
+            flex:1, padding:"9px 0", borderRadius:8, fontSize:12, fontWeight:700, cursor:"pointer",
+            background: hallTab===k ? G.dirt : G.hallCard,
+            color: hallTab===k ? "#fff" : G.hallDim,
+            border: `1px solid ${hallTab===k ? G.dirt : G.hallBorder}`,
+          }}>{l}</button>
+        ))}
+      </div>
+
+      {hallTab === "ranking" && stats.map((p,i) => (
         <button key={p.id} onClick={() => onSelectHallPlayer(p)}
           style={{
             width:"100%", textAlign:"left",
@@ -1380,6 +1394,7 @@ function HallScreen({ onSelectHallPlayer }) {
         </button>
       ))}
 
+
       {/* グラフ拡大モーダル */}
       {graphModal && (
         <RankGraphModal
@@ -1389,36 +1404,34 @@ function HallScreen({ onSelectHallPlayer }) {
         />
       )}
 
-      {/* ===== シーズン表彰 ===== */}
-      <div style={{ marginTop:20 }}>
-        <div style={{
-          fontSize:14, fontWeight:900, color:G.gold, letterSpacing:1,
-          marginBottom:10, paddingBottom:6, borderBottom:`1px solid ${G.hallBorder}`,
-        }}>🏅 シーズン表彰</div>
-        {SEASON_AWARDS.map(sa => (
-          <div key={sa.season} style={{
-            background:G.hallCard, border:`1px solid ${G.hallBorder}`,
-            borderRadius:10, padding:"12px 14px", marginBottom:10,
-          }}>
-            <div style={{ fontSize:12, fontWeight:900, color:G.dirtLight, marginBottom:8 }}>
-              砂遊び {sa.season}シーズン
-            </div>
-            {sa.items.map((item, i) => (
-              <div key={i} style={{
-                display:"flex", alignItems:"baseline", gap:8,
-                padding:"5px 0", borderBottom: i<sa.items.length-1 ? `1px solid ${G.hallBorder}` : "none",
-              }}>
-                <div style={{ flex:"0 0 90px", fontSize:10, color:G.gold, fontWeight:700 }}>{item.title}</div>
-                <div style={{ flex:"0 0 70px", fontSize:10, color:G.hallDim }}>{item.stable}</div>
-                <div style={{ flex:1, fontSize:13, fontWeight:800, color: item.horse ? G.hallText : G.dirtLight }}>
-                  {item.horse || item.stable}
-                </div>
-                {item.note ? <div style={{ fontSize:9, color:G.hallDim }}>{item.note}</div> : null}
+      {/* ===== シーズン表彰タブ ===== */}
+      {hallTab === "awards" && (
+        <div>
+          {SEASON_AWARDS.map(sa => (
+            <div key={sa.season} style={{
+              background:G.hallCard, border:`1px solid ${G.hallBorder}`,
+              borderRadius:10, padding:"12px 14px", marginBottom:10,
+            }}>
+              <div style={{ fontSize:12, fontWeight:900, color:G.dirtLight, marginBottom:8 }}>
+                砂遊び {sa.season}シーズン
               </div>
-            ))}
-          </div>
-        ))}
-      </div>
+              {sa.items.map((item, i) => (
+                <div key={i} style={{
+                  display:"flex", alignItems:"baseline", gap:8,
+                  padding:"5px 0", borderBottom: i<sa.items.length-1 ? `1px solid ${G.hallBorder}` : "none",
+                }}>
+                  <div style={{ flex:"0 0 90px", fontSize:10, color:G.gold, fontWeight:700 }}>{item.title}</div>
+                  <div style={{ flex:"0 0 70px", fontSize:10, color:G.hallDim }}>{item.stable}</div>
+                  <div style={{ flex:1, fontSize:13, fontWeight:800, color: item.horse ? G.hallText : G.dirtLight }}>
+                    {item.horse || item.stable}
+                  </div>
+                  {item.note ? <div style={{ fontSize:9, color:G.hallDim }}>{item.note}</div> : null}
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
