@@ -2058,7 +2058,7 @@ function Season2627Screen() {
   const [regist, setRegist] = useState({});
 
   useEffect(() => {
-    fetch("/data/regist2627.json").then(r => r.json()).then(setRegist).catch(() => {});
+    fetch(`${import.meta.env.BASE_URL}data/regist2627.json`).then(r => r.json()).then(setRegist).catch(() => {});
   }, []);
 
   // 静的な馬名が無くても、登録情報（母名→馬名）があればそれを使う
@@ -2646,12 +2646,13 @@ export default function App() {
 
   const loadAll = (bust = false) => {
     const q = bust ? `?t=${Date.now()}` : "";
-    fetch(`/data/results.json${q}`).then(r => r.json()).then(d => { setResults(d); setResultsLoaded(true); }).catch(() => setResultsLoaded(true));
-    fetch(`/data/upcoming.json${q}`).then(r => r.json()).then(setUpcoming).catch(() => {});
-    fetch(`/data/kettonums.json${q}`).then(r => r.json()).then(setKettonums).catch(() => {});
-    fetch(`/data/news.json${q}`).then(r => r.json()).then(setNews).catch(() => {});
-    fetch(`/data/updated.json${q}`).then(r => r.json()).then(d => setUpdated(d.updated || "")).catch(() => {});
-    fetch(`/data/pogstarion.json${q}`).then(r => r.json()).then(setStatusData).catch(() => {});
+    const base = import.meta.env.BASE_URL;
+    fetch(`${base}data/results.json${q}`).then(r => r.json()).then(d => { setResults(d); setResultsLoaded(true); }).catch(() => setResultsLoaded(true));
+    fetch(`${base}data/upcoming.json${q}`).then(r => r.json()).then(setUpcoming).catch(() => {});
+    fetch(`${base}data/kettonums.json${q}`).then(r => r.json()).then(setKettonums).catch(() => {});
+    fetch(`${base}data/news.json${q}`).then(r => r.json()).then(setNews).catch(() => {});
+    fetch(`${base}data/updated.json${q}`).then(r => r.json()).then(d => setUpdated(d.updated || "")).catch(() => {});
+    fetch(`${base}data/pogstarion.json${q}`).then(r => r.json()).then(setStatusData).catch(() => {});
   };
 
   useEffect(() => { loadAll(); }, []);
