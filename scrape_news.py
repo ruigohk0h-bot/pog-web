@@ -25,16 +25,31 @@ HEADERS = {
     "Accept-Language": "ja-JP,ja;q=0.9",
 }
 
-# 2026-27シーズン馬セット（90日取得）
-HORSES_2627 = {
-    "ミクニブレイブ","トゥザファイナル","ソメデイストワール",
-    "スターフラッシュ","ラキアーヴェ","ミシェルバローズ","レッジェランツァ","ヴェルバーニア","エスクアドラ","コナパームス",
-    "マイクストーリー","アトミックリーチ","ヤングリッチ","ダノンチャンピオン","コーズダヴィンチ","セイルトゥグローリ","デミアン",
-    "クロダテ","ツキノエ","マーゴットセレッソ","セドゥクトーラ","ゼットターム","エクレアカミング","オールベット","ムーンベリル","ボードゥロレーヌ",
-    "ディーヴァレギオン","ヴィルダースヴィル","ディルイーヤ","ブックオブケルズ","ケンシロウワールド","ハイウェイワン","トルヴァスト","オメガマサヤ",
-    "ホウオウシュウ","オールシティキング","デュガピー","ウラノグラフィア","ヴェトロテンペスタ","ホーフアイゼン",
-    "ウィンターブリーズ","ソルテヴェローチェ","トリプルウィン","タクティシアン","テンブレイクワン","アンドレバローズ","イレイザー",
-}
+# 2026-27シーズン馬セット: regist2627.json から動的に読み込む
+def _load_horses_2627():
+    """regist2627.json を読み込んで馬名セットとHORSE_PLAYERマッピングを返す"""
+    path = os.path.join(os.path.dirname(__file__), "public", "data", "regist2627.json")
+    if not os.path.exists(path):
+        return set(), {}
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+    except Exception:
+        return set(), {}
+    horses = set()
+    mapping = {}
+    for player_id, dam_to_name in data.items():
+        for horse_name in dam_to_name.values():
+            if horse_name:
+                horses.add(horse_name)
+                mapping[horse_name] = player_id
+    return horses, mapping
+
+HORSES_2627, _HORSE_PLAYER_2627 = _load_horses_2627()
+# HORSE_PLAYER に26-27馬を追加（scrape_results.pyにない馬をカバー）
+for _name, _pid in _HORSE_PLAYER_2627.items():
+    if _name not in HORSE_PLAYER:
+        HORSE_PLAYER[_name] = _pid
 
 # ----------------------------------------------------------------
 # 専門メディアRSSフィード一覧（案B）
