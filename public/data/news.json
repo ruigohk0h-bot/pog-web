@@ -9,6 +9,15 @@
     "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBsM2M0SkhOLVY2Sk9Yb1dVcXBYMEZYZEs5a05JazNXYjNmbjBzNXpLWndYNml1OHloWENDdURBd1dXTmNfMFhON1NLei1YVk9IeDg3TkFHdU43cWlmRWlhSUtTQjNLZkJwQkxLMGpjQVdJWE5NNXc?oc=5"
   },
   {
+    "horse": "ロックターミガン",
+    "player": "P06",
+    "title": "【東京ダービー】羽田盃で圧逃　2冠目を目指すフィンガーは6枠12番　1冠目2着のロックターミガンは2枠4番 | 競馬ニュース - netkeiba - netkeiba",
+    "desc": "【東京ダービー】羽田盃で圧逃　2冠目を目指すフィンガーは6枠12番　1冠目2着のロックターミガンは2枠4番 | 競馬ニュース - netkeiba&nbsp;&nbsp;netkeiba",
+    "source": "netkeiba",
+    "date": "2026/06/07",
+    "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE4xS2VlNzdGQm1QT1NNVUZsX2lEcVoxNEY4RUpuME9OWENLRXY0dnFURzZ6bnpuSXhZa2xxanNuc2lHb01LY2Rma1FxdmtjelFrMS1aUC16bTlSYTgtcnNoOEYtTERDcGNIRERDd3J0d0t1bFNEYnfSAXZBVV95cUxOMUtlZTc3RkJtUE9TTVVGbF9pRHFaMTRGOEVKbjBPTlhDS0V2NHZxVEc2em56bkl4WWtscWpzbnNpR29NS2NkZmtRcXZrY3pRazEtWlAtem05UmE4LXJzaDhGLUxEQ3BjSEREQ3dydHdLdWxTRGJ3?oc=5"
+  },
+  {
     "horse": "フィンガー",
     "player": "P03",
     "title": "【東京ダービー 枠順確定】2冠狙うフィンガー6枠12番、ユニコーンS勝ち馬シルバーレシオは5枠10番 - サンスポ",
@@ -16,15 +25,6 @@
     "source": "サンスポ競馬",
     "date": "2026/06/07",
     "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNanI2UkFkNzdHcGhlcnMzb3ByNDdHd25xM2hvYVAxbDdFSjlJb245Ni1Wb0YxNE9zOTJ1TGdjZ2k3SHYxQ0wtYklaLUpJSnd6OEFWdU9lN2liUVBQeXFnVWZYT1BBSGMzcVpSa2FFQnFZd2Q0X3ZiX2xZeWw5QThoTUU5LTR6WEU?oc=5"
-  },
-  {
-    "horse": "フィンガー",
-    "player": "P03",
-    "title": "【東京ダービー】羽田盃で圧逃　2冠目を目指すフィンガーは6枠12番　1冠目2着のロックターミガンは2枠4番 | 競馬ニュース - netkeiba - netkeiba",
-    "desc": "【東京ダービー】羽田盃で圧逃　2冠目を目指すフィンガーは6枠12番　1冠目2着のロックターミガンは2枠4番 | 競馬ニュース - netkeiba&nbsp;&nbsp;netkeiba",
-    "source": "netkeiba",
-    "date": "2026/06/07",
-    "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1QRkpwWFU0bm5ERDVBVnRtcVVxS1hqYWJnV016enNtdlVkMmt2Z3FIaHJTbG82bXh4bWFxTDczNFhTNWhBSVJWbGZVYXVuNWRMeFFNbDF6RVk0aHRGTllJZUhjd3BDZ25Gd0llLUxDR03SAXZBVV95cUxOMUtlZTc3RkJtUE9TTVVGbF9pRHFaMTRGOEVKbjBPTlhDS0V2NHZxVEc2em56bkl4WWtscWpzbnNpR29NS2NkZmtRcXZrY3pRazEtWlAtem05UmE4LXJzaDhGLUxEQ3BjSEREQ3dydHdLdWxTRGJ3?oc=5"
   },
   {
     "horse": "フィンガー",
@@ -1073,15 +1073,6 @@
   {
     "horse": "デアヴェローチェ",
     "player": "P07",
-    "title": "【葵S】5番人気デアヴェローチェ抜け出し重賞初V　1番人気タガノアラリアは伸び切れず7着に終わる - ｄメニューニュース",
-    "desc": "【葵S】5番人気デアヴェローチェ抜け出し重賞初V　1番人気タガノアラリアは伸び切れず7着に終わる&nbsp;&nbsp;ｄメニューニュース",
-    "source": "ｄメニューニュース",
-    "date": "2026/05/30",
-    "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE95LTRxRDZWQ0pTaFVqb3pBT3QtSHFTYjl2SFFDak03SHhSTFUyc0Q0Q2t4TXhoSWwtNW90VEFpcS1HNUVCakVZU0xZSFJ0YU5ZZGtJR0E2STJjcU5HSDA0VnZUb0liTkhCTnhnTkpGakd6eUhzMXFV0gF8QVVfeXFMTXBYQlJKM0ExZ1hNN0dvMF84UHo2bUxuSVlrSUVZX184VlRXeEFlYkRON2RSZU03R0d3Wkw3ZWM5dXNINE10SDJJblVzYkdBVXZJVVpjQ1U2NUY4cm1MUFJleFZBMEJHem1RMUkxNzE0TXhHb19mOW1ZUDNBaw?oc=5"
-  },
-  {
-    "horse": "デアヴェローチェ",
-    "player": "P07",
     "title": "【葵Sレース後コメント】デアヴェローチェ北村友一騎手ら | 競馬ニュース - netkeiba - netkeiba",
     "desc": "【葵Sレース後コメント】デアヴェローチェ北村友一騎手ら | 競馬ニュース - netkeiba&nbsp;&nbsp;netkeiba",
     "source": "netkeiba",
@@ -1213,6 +1204,15 @@
     "source": "東スポ競馬",
     "date": "2026/05/30",
     "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE1mTEJ5UzRCN29YU2FFUVVpODNaNzhGMmZleGpOY1pmZ3NTWXNlY1M1bGx5U3F2Y1V0LTNod2cxNFdzZXRjVzZUaU1SU1E5YkVhT0NZNw?oc=5"
+  },
+  {
+    "horse": "デアヴェローチェ",
+    "player": "P07",
+    "title": "【葵S】5番人気デアヴェローチェ抜け出し重賞初V　1番人気タガノアラリアは伸び切れず7着に終わる - ｄメニューニュース",
+    "desc": "【葵S】5番人気デアヴェローチェ抜け出し重賞初V　1番人気タガノアラリアは伸び切れず7着に終わる&nbsp;&nbsp;ｄメニューニュース",
+    "source": "ｄメニューニュース",
+    "date": "2026/05/30",
+    "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE95LTRxRDZWQ0pTaFVqb3pBT3QtSHFTYjl2SFFDak03SHhSTFUyc0Q0Q2t4TXhoSWwtNW90VEFpcS1HNUVCakVZU0xZSFJ0YU5ZZGtJR0E2STJjcU5HSDA0VnZUb0liTkhCTnhnTkpGakd6eUhzMXFV0gF8QVVfeXFMTXBYQlJKM0ExZ1hNN0dvMF84UHo2bUxuSVlrSUVZX184VlRXeEFlYkRON2RSZU03R0d3Wkw3ZWM5dXNINE10SDJJblVzYkdBVXZJVVpjQ1U2NUY4cm1MUFJleFZBMEJHem1RMUkxNzE0TXhHb19mOW1ZUDNBaw?oc=5"
   },
   {
     "horse": "デアヴェローチェ",
@@ -1685,15 +1685,6 @@
   {
     "horse": "フィンガー",
     "player": "P03",
-    "title": "【大井・東京ダービー2026】選定馬（5/25）フィンガーら16頭 - 競馬予想のウマニティ",
-    "desc": "【大井・東京ダービー2026】選定馬（5/25）フィンガーら16頭&nbsp;&nbsp;競馬予想のウマニティ",
-    "source": "競馬予想のウマニティ",
-    "date": "2026/05/25",
-    "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE5OTzUxZHBXTERaUXVMUHdkcm5TOWxkYmZKczRQZ0FfSnJhUVpCUmRUeFVweTlrRjN3RGN4WnpoTzBhdy1HcFdOejNUY0dhT2xJOXJNR3ZNZlNVUVdDNTJobDZMYzBCQXhx?oc=5"
-  },
-  {
-    "horse": "フィンガー",
-    "player": "P03",
     "title": "【大井競馬】東京ダービー選定馬発表 羽田盃完勝フィンガーが2冠狙う - スポニチ Sponichi Annex",
     "desc": "【大井競馬】東京ダービー選定馬発表 羽田盃完勝フィンガーが2冠狙う&nbsp;&nbsp;スポニチ Sponichi Annex",
     "source": "スポニチ Sponichi Annex",
@@ -1748,11 +1739,11 @@
   {
     "horse": "ロックターミガン",
     "player": "P06",
-    "title": "【東京ダービー】選定馬発表 2冠目指すフィンガー、逆転狙うロックターミガンなど砂の実力馬が集結（東スポ競馬） - Yahoo!ニュース",
-    "desc": "【東京ダービー】選定馬発表 2冠目指すフィンガー、逆転狙うロックターミガンなど砂の実力馬が集結（東スポ競馬）&nbsp;&nbsp;Yahoo!ニュース",
-    "source": "Yahoo!ニュース",
+    "title": "【東京ダービー】選定馬発表　2冠目指すフィンガー、逆転狙うロックターミガンなど砂の実力馬が集結 - ｄメニューニュース",
+    "desc": "【東京ダービー】選定馬発表　2冠目指すフィンガー、逆転狙うロックターミガンなど砂の実力馬が集結&nbsp;&nbsp;ｄメニューニュース",
+    "source": "ｄメニューニュース",
     "date": "2026/05/25",
-    "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9FNml4eXhicWUzRHdrcUxJWkxOOHlyNVcwZ3NHRkpzS1Zwd3prR1hMR0czMzZnWEc1RmExUEFOODQ0VVVWZmR2LUEtTl9TRFNJaVhtUm1obnFEUTB4LVR1NV9feW41ZnFpLTFza0cxLW1pcC1xVUlfVHAwNTZxbm8?oc=5"
+    "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOcjlWSnpTbndBcC1QeVN4M2s5ZmYtQ1dCTTRDS1B6a1M0MF9lTkVqaV9WSnJ2dWRDZFUxSGwwYmtGVkt2NjNIRm55UVJpWVVmU2RHYkdkM2hEendBUk00UER0UjZ6RHpXV3Q2QThGUUh6eEVYVWdKT2hZWXNhZE1ratIBhgFBVV95cUxNMXl2N2wybGtHakd4ZkhRNkpYcU95MlJUb0N4aUNVNEl3TGhKdWZzY1IyT2djVnNJYVF4RkpsRDMzWTczc214VjYyanM3STZCbXJZSFB6QmNyVTlTRHQ0bDFfSlpGaldpSmNlbGthaGFXemFBVzBkRkhhN1REM3J3RC1NelYtZw?oc=5"
   },
   {
     "horse": "ヘリテージブルーム",
@@ -2000,11 +1991,11 @@
   {
     "horse": "ロックターミガン",
     "player": "P06",
-    "title": "羽田盃2着ロックターミガンは東京ダービーへ NFしがらきで調整中 - netkeiba",
-    "desc": "羽田盃2着ロックターミガンは東京ダービーへ NFしがらきで調整中&nbsp;&nbsp;netkeiba",
-    "source": "netkeiba",
+    "title": "羽田盃2着ロックターミガンは東京ダービーへ NFしがらきで調整中 - スポニチ Sponichi Annex",
+    "desc": "羽田盃2着ロックターミガンは東京ダービーへ NFしがらきで調整中&nbsp;&nbsp;スポニチ Sponichi Annex",
+    "source": "スポニチ Sponichi Annex",
     "date": "2026/05/12",
-    "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5DNG5Bd2ZHTUFFYk8zekFwRTE0d2JhOVVuQU5DYXp3QkFnWDVzNndsYmhkdTVEcW5MV0ZJd2NsYnZFS1VjdGpIZmNOT1R2WlY1SE9RUHVnWXViZWlXbWNv?oc=5"
+    "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPX0VrTTh3LTQtZVZjRXptSjFXcU43WFBCNFZVeGdIR2g5ZVVmN0JKRm9FcEJHUGJnalpnV1pXRktaQ3RsdDdCVlQ1ZVJVUjdnMHhVdXJsUjl4N1dfUnBGQVhYSk1QQkRlMGNlSFRNQzVUY1NkamM1S3NPeXk0X1F2elVmOGdFOWh1aDZ1eQ?oc=5"
   },
   {
     "horse": "ロックターミガン",
@@ -2018,11 +2009,20 @@
   {
     "horse": "ロックターミガン",
     "player": "P06",
-    "title": "羽田盃2着ロックターミガンは東京ダービーへ NFしがらきで調整中 - スポニチ Sponichi Annex",
-    "desc": "羽田盃2着ロックターミガンは東京ダービーへ NFしがらきで調整中&nbsp;&nbsp;スポニチ Sponichi Annex",
-    "source": "スポニチ Sponichi Annex",
+    "title": "羽田盃2着ロックターミガンは東京ダービーへ NFしがらきで調整中 - netkeiba",
+    "desc": "羽田盃2着ロックターミガンは東京ダービーへ NFしがらきで調整中&nbsp;&nbsp;netkeiba",
+    "source": "netkeiba",
     "date": "2026/05/12",
-    "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPX0VrTTh3LTQtZVZjRXptSjFXcU43WFBCNFZVeGdIR2g5ZVVmN0JKRm9FcEJHUGJnalpnV1pXRktaQ3RsdDdCVlQ1ZVJVUjdnMHhVdXJsUjl4N1dfUnBGQVhYSk1QQkRlMGNlSFRNQzVUY1NkamM1S3NPeXk0X1F2elVmOGdFOWh1aDZ1eQ?oc=5"
+    "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5DNG5Bd2ZHTUFFYk8zekFwRTE0d2JhOVVuQU5DYXp3QkFnWDVzNndsYmhkdTVEcW5MV0ZJd2NsYnZFS1VjdGpIZmNOT1R2WlY1SE9RUHVnWXViZWlXbWNv?oc=5"
+  },
+  {
+    "horse": "ロックターミガン",
+    "player": "P06",
+    "title": "羽田盃2着ロックターミガンは東京ダービーへ NFしがらきで調整中 - ライブドアニュース",
+    "desc": "羽田盃2着ロックターミガンは東京ダービーへ NFしがらきで調整中&nbsp;&nbsp;ライブドアニュース",
+    "source": "ライブドアニュース",
+    "date": "2026/05/12",
+    "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1QVmE4cS1Id0NPNTRIYWc4aURXeUlYS1pVaWtpSkVOamNTLWZKLWpSVnVYRzBmYUZ3dTg5NHFad0hza3hRRUZWYk5uZzZnaXE1ckJqVElUZGlOSE9GQUZB?oc=5"
   },
   {
     "horse": "ロックターミガン",
