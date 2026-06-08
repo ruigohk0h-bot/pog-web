@@ -84,6 +84,9 @@ def is_low_quality(title, desc, source, horse_name):
     # 「馬名の掲示板」パターン（＝ファンの掲示板ページ、本文なし）
     if re.match(r'^' + re.escape(horse_name) + r'の掲示板', title):
         return True
+    # netkeibaのタイトルが馬名のみ（descがあっても弾く）
+    if "netkeiba" in source.lower() and title.strip() == horse_name:
+        return True
     # 本文なし
     if not desc:
         return True
