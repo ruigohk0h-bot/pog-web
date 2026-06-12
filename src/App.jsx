@@ -2978,11 +2978,19 @@ export default function App() {
         position:"sticky", top:62, zIndex:9,
         borderTop:"1px solid rgba(255,255,255,0.2)",
         borderBottom:"1px solid rgba(0,0,0,0.25)",
+        height:34,
       }}>
-        <style>{`@keyframes pogTelop{0%{transform:translateX(100vw)}100%{transform:translateX(-100%)}}`}</style>
+        <style>{`
+          @keyframes pogTelopScroll {
+            0%   { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+          }
+        `}</style>
         <div style={{
-          display:"inline-block", padding:"7px 0", fontSize:13, fontWeight:800,
-          animation:"pogTelop 22s linear infinite",
+          display:"inline-block", lineHeight:"34px", fontSize:13, fontWeight:800,
+          paddingLeft:"100%",
+          animation:"pogTelopScroll 28s linear infinite",
+          willChange:"transform",
         }}>
           🏆 フィンガーが東京ダービー制覇（2冠達成）で長谷部厩舎が優勝！！おめでとうございます🎉　　　　　🆕 砂遊び２０２６－２７シーズンも開幕でアプリがリニューアルしました🐴✨
         </div>
