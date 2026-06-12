@@ -1807,15 +1807,12 @@ function StatusScreen({ data }) {
 }
 
 function NewsScreen({ news }) {
-  const [season, setSeason] = useState("2526"); // "2526" | "2627"
   const [filterPlayer, setFilterPlayer] = useState("ALL");
 
   const cleanTitle = (title) => title.replace(/\s*[-—]\s*[^-—]+$/, "");
 
-  // シーズン別に分ける
-  const news2526 = news.filter(n => !HORSES_2627_SET.has(n.horse));
-  const news2627 = news.filter(n =>  HORSES_2627_SET.has(n.horse));
-  const baseNews = season === "2526" ? news2526 : news2627;
+  // 2026-27シーズンのみ表示
+  const baseNews = news.filter(n => HORSES_2627_SET.has(n.horse));
 
   const activePlayers = PLAYERS.filter(p => baseNews.some(n => n.player === p.id));
 
@@ -1825,22 +1822,6 @@ function NewsScreen({ news }) {
 
   return (
     <div style={{ background:"#eef2f0", minHeight:"100%" }}>
-      {/* シーズン切替 */}
-      <div style={{ display:"flex", gap:0, padding:"10px 12px 0" }}>
-        {[
-          { key:"2526", label:"2025-26シーズン" },
-          { key:"2627", label:"2026-27シーズン" },
-        ].map((s, i) => (
-          <button key={s.key} onClick={() => { setSeason(s.key); setFilterPlayer("ALL"); }} style={{
-            flex:1, padding:"8px 0", cursor:"pointer", fontWeight:800, fontSize:12,
-            background: season===s.key ? G.green : "#ddd",
-            color: season===s.key ? "#fff" : "#888",
-            border:"none",
-            borderRadius: i===0 ? "8px 0 0 8px" : "0 8px 8px 0",
-          }}>{s.label}</button>
-        ))}
-      </div>
-
       <div style={{ padding:"10px 12px" }}>
         {/* 厩舎フィルター */}
         <div style={{ display:"flex", gap:6, flexWrap:"wrap", marginBottom:12 }}>
