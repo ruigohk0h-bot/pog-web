@@ -1365,8 +1365,8 @@ function HallScreen({ onSelectHallPlayer }) {
     const avgRank = ranks.length ? ranks.reduce((a,b)=>a+b,0)/ranks.length : null;
     return { ...p, seasons:mySeasons.length, wins:wins.length, totalPt, trophies, avgRank };
   }).filter(p => p.seasons>0).sort((a,b)=>
-    b.wins - a.wins ||
     (a.avgRank??99) - (b.avgRank??99) ||
+    b.wins - a.wins ||
     b.totalPt - a.totalPt
   );
 
@@ -1419,7 +1419,7 @@ function HallScreen({ onSelectHallPlayer }) {
               {/* 名前・スタッツ */}
               <div style={{ flex:1, minWidth:0 }}>
                 <div style={{ fontWeight:800, fontSize:13, color:G.hallText, marginBottom:2 }}>
-                  {p.emoji} {p.name}
+                  {p.name}
                 </div>
                 <div style={{ display:"flex", gap:6, flexWrap:"wrap" }}>
                   <span style={{
