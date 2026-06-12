@@ -1747,9 +1747,9 @@ function StatusScreen({ data }) {
     return "";
   };
 
-  // 2026-27シーズンの馬のみ表示
-  const sched  = (data.schedule_results || []).filter(r => HORSES_2627_SET.has(pick(r,["馬名"])));
-  const regist = (data.special_regist   || []).filter(r => HORSES_2627_SET.has(pick(r,["馬名"])));
+  // 2026-27グループから取得済みのためフィルター不要
+  const sched  = data.schedule_results || [];
+  const regist = data.special_regist   || [];
   // グレード等（col* に入りがちな短い値）を拾う
   const grade = (rec) => {
     for (const k of Object.keys(rec)) {
