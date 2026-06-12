@@ -1731,6 +1731,18 @@ function StatusScreen({ data }) {
     return "";
   };
 
+  // 全シーズンの馬名→{sire,dam,player}マップ
+  const horseInfoMap = (() => {
+    const map = {};
+    Object.entries(HORSES_BY_PLAYER).forEach(([pid, horses]) => {
+      horses.forEach(h => { if (h.name) map[h.name] = { sire: h.sire, dam: h.dam, pid }; });
+    });
+    PLAYERS_2627.forEach(p => {
+      p.horses.forEach(h => { if (h.name) map[h.name] = { sire: h.sire, dam: h.dam, pid: p.id }; });
+    });
+    return map;
+  })();
+
   const Card = ({ rec, withResult }) => {
     const horse = pick(rec, ["馬名"]);
     const race  = pick(rec, ["レース名","競走"]);
@@ -1739,25 +1751,39 @@ function StatusScreen({ data }) {
     const owner = pick(rec, ["所有者"]);
     const jockey= pick(rec, ["騎手"]);
     const rank  = pick(rec, ["順位"]);
-    const prize = pick(rec, ["賞金"]);
     const g     = grade(rec);
+    const info  = horseInfoMap[horse] || {};
+    const player = PLAYERS.find(p => p.id === info.pid);
+    const playerName = player?.name || owner || "";
     return (
-      <div style={{ background:"#fff", borderRadius:10, padding:"12px 14px", marginBottom:8, boxShadow:"0 1px 4px rgba(0,0,0,0.08)" }}>
-        <div style={{ display:"flex", alignItems:"center", gap:8, marginBottom:4, flexWrap:"wrap" }}>
-          {g && <span style={{ fontSize:10, fontWeight:800, color:"#fff", background:G.green, borderRadius:4, padding:"2px 6px" }}>{g}</span>}
-          <span style={{ fontSize:15, fontWeight:800, color:"#222" }}>{horse || "—"}</span>
-          {owner && <span style={{ fontSize:11, color:"#888" }}>{owner}</span>}
+      <div style={{
+        background:"#fff", borderRadius:8, padding:"8px 10px", marginBottom:5,
+        boxShadow:"0 1px 3px rgba(0,0,0,0.06)",
+        borderLeft: `3px solid ${info.pid ? (PLAYER_COLORS[info.pid]||G.green) : "#ccc"}`,
+      }}>
+        {/* 1行目: 馬名・グレード・厩舎 */}
+        <div style={{ display:"flex", alignItems:"center", gap:5, marginBottom:3 }}>
+          {g && <span style={{ fontSize:9, fontWeight:800, color:"#fff", background:G.green, borderRadius:3, padding:"1px 5px", flexShrink:0 }}>{g}</span>}
+          <span style={{ fontSize:13, fontWeight:800, color:"#222" }}>{horse || "—"}</span>
+          {playerName && <span style={{ fontSize:10, color:"#888", marginLeft:2 }}>{playerName}</span>}
+          {withResult && rank && (
+            <span style={{ fontSize:11, fontWeight:800, color: rank==="1"?"#c9a227":"#333", marginLeft:"auto" }}>
+              {rank}着
+            </span>
+          )}
         </div>
-        <div style={{ fontSize:12, color:"#555" }}>
-          {date && <span style={{ marginRight:10 }}>🗓 {date}</span>}
-          {race && <span style={{ marginRight:10 }}>{race}</span>}
-          {dist && <span style={{ marginRight:10 }}>{dist}</span>}
+        {/* 2行目: 日付・レース・距離・騎手 */}
+        <div style={{ fontSize:10, color:"#555", display:"flex", gap:6, flexWrap:"wrap", alignItems:"center" }}>
+          {date && <span style={{ color:"#333", fontWeight:700 }}>📅{date}</span>}
+          {race && <span>{race}</span>}
+          {dist && <span style={{ color: dist.includes("芝")?"#2a7a3a":G.dirtDark, fontWeight:700 }}>{dist}</span>}
+          {jockey && <span style={{ color:"#666" }}>騎{jockey}</span>}
         </div>
-        {withResult && (rank || jockey || prize) && (
-          <div style={{ fontSize:12, color:"#333", marginTop:4, fontWeight:700 }}>
-            {jockey && <span style={{ marginRight:10 }}>🏇 {jockey}</span>}
-            {rank && <span style={{ marginRight:10 }}>着順 {rank}</span>}
-            {prize && <span>賞金 {prize}</span>}
+        {/* 3行目: 血統 */}
+        {(info.sire || info.dam) && (
+          <div style={{ fontSize:9, color:"#aaa", marginTop:2 }}>
+            {info.sire && <span>父{info.sire}</span>}
+            {info.dam  && <span style={{ marginLeft:6 }}>母{info.dam}</span>}
           </div>
         )}
       </div>
