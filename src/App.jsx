@@ -169,18 +169,18 @@ const PLAYERS_2627 = [
 ];
 
 const CURRENT_SEASON = {
-  id: "2025-26",
-  label: "砂遊び 2025-26",
-  period: "2025/06/07 〜 2026/06/12",
-  group_num: "0601142541",
+  id: "2026-27",
+  label: "砂遊び 2026-27",
+  period: "2026/06/14 〜",
+  group_num: "",
   users: [
-    { id:"P03", user_num:380045, pt:19474, diff:0,     comment:"10000ポイントいった(>_<)" },
-    { id:"P05", user_num:380048, pt:16154, diff:12240, comment:"芝走ってる場合じゃねぇ！" },
-    { id:"P06", user_num:380050, pt:14493, diff:210,   comment:"" },
-    { id:"P07", user_num:380051, pt:8180,  diff:4100,  comment:"" },
-    { id:"P02", user_num:380044, pt:7251,  diff:0,     comment:"" },
-    { id:"P01", user_num:380046, pt:6673,  diff:240,   comment:"" },
-    { id:"P04", user_num:380049, pt:5688,  diff:0,     comment:"" },
+    { id:"P01", user_num:0, pt:0, diff:0, comment:"" },
+    { id:"P02", user_num:0, pt:0, diff:0, comment:"" },
+    { id:"P03", user_num:0, pt:0, diff:0, comment:"" },
+    { id:"P04", user_num:0, pt:0, diff:0, comment:"" },
+    { id:"P05", user_num:0, pt:0, diff:0, comment:"" },
+    { id:"P06", user_num:0, pt:0, diff:0, comment:"" },
+    { id:"P07", user_num:0, pt:0, diff:0, comment:"" },
   ],
 };
 
@@ -305,7 +305,17 @@ const HORSES_BY_PLAYER = {
   P06: HORSES_P06,
   P07: HORSES_P07,
 };
-const getHorses = (pid) => HORSES_BY_PLAYER[pid] ?? [];
+// 2026-27シーズン用：PLAYERS_2627から馬リストを取得
+const getHorses = (pid) => {
+  const p = PLAYERS_2627.find(p => p.id === pid);
+  if (!p) return [];
+  return p.horses.map(h => ({
+    ...h,
+    pt: 0,
+    record: "0-0-0-0",
+    active: true,
+  }));
+};
 
 // 最新結果・出走予定はJSONから動的取得（useResultsで管理）
 
@@ -555,12 +565,12 @@ const SEASONS_ALL = [
       {player:"P05",rank:3,pt:12330},{player:"P02",rank:4,pt:7991},
       {player:"P03",rank:5,pt:6649},{player:"P07",rank:6,pt:6182},
     ]},
-  { id:"2025-26", label:"2025-26（進行中）", period:"2025/06/07〜",
+  { id:"2025-26", label:"2025-26", period:"2025/06/07〜2026/06/11",
     results:[
-      {player:"P03",rank:1,pt:19474},{player:"P05",rank:2,pt:16154},
-      {player:"P06",rank:3,pt:14493},{player:"P07",rank:4,pt:7590},
+      {player:"P03",rank:1,pt:29474},{player:"P05",rank:2,pt:16154},
+      {player:"P06",rank:3,pt:15493},{player:"P07",rank:4,pt:8180},
       {player:"P02",rank:5,pt:7251},{player:"P01",rank:6,pt:6673},
-      {player:"P04",rank:7,pt:5098},
+      {player:"P04",rank:7,pt:5688},
     ]},
 ];
 
@@ -569,6 +579,7 @@ const SEASONS_ALL = [
 // ================================================================
 const TROPHIES = [
   // ===== 2025-26シーズン（〜2026/06東京ダービーまで） =====
+  { season:"2025-26", player:"P03", grade:"JpnI",   race:"東京ダービー競走",     horse:"フィンガー",       order:1, date:"2026/06/11" },
   { season:"2025-26", player:"P03", grade:"JpnI",   race:"羽田盃競走",           horse:"フィンガー",       order:1, date:"2026/04/29" },
   { season:"2025-26", player:"P03", grade:"JpnII",  race:"京浜盃競走",           horse:"フィンガー",       order:2, date:"2026/03/25" },
   { season:"2025-26", player:"P03", grade:"JpnIII", race:"ブルーバードC",        horse:"フィンガー",       order:1, date:"2026/01/21" },
@@ -595,6 +606,17 @@ const TROPHIES = [
 // シーズン表彰データ
 // ================================================================
 const SEASON_AWARDS = [
+  {
+    season: "2025-26",
+    items: [
+      { title:"最優秀厩舎",   stable:"長谷部厩舎", horse:"",               note:"シーズン優勝" },
+      { title:"最優砂遊び馬", stable:"長谷部厩舎", horse:"フィンガー",     note:"JpnI東京ダービー1着" },
+      { title:"最優秀中距離", stable:"長谷部厩舎", horse:"フィンガー",     note:"JpnI東京ダービー1着" },
+      { title:"最優秀短距離", stable:"田崎厩舎",   horse:"サトノボヤージュ",note:"JpnII兵庫チャンピオンシップ1着" },
+      { title:"最優秀牝馬",   stable:"涼子厩舎",   horse:"ペルセア",       note:"" },
+      { title:"最優秀芝馬",   stable:"田崎厩舎",   horse:"パントルナイーフ",note:"" },
+    ],
+  },
   {
     season: "2024-25",
     items: [
@@ -2790,7 +2812,7 @@ export default function App() {
             display:"inline-block", padding:"7px 0", fontSize:13, fontWeight:800,
             animation:"pogTelop 16s linear infinite",
           }}>
-            🔥 6/10 東京ダービー！フィンガー（長谷部厩舎）× ロックターミガン（涼子厩舎）の直接対決で優勝が決まる大一番！ 🏇🏆　　　　　🆕【予告】東京ダービー終了後、2026-27シーズン対応へ大型アップデート予定！お楽しみに！✨
+            🏆 2025-26シーズン終了！長谷部厩舎（フィンガー）が優勝！　　　　　🆕 2026-27シーズン開幕！新たな砂遊いが始まります！🐴✨
           </div>
         </div>
       )}
