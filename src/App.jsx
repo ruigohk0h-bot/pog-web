@@ -1866,7 +1866,8 @@ function StatusScreen({ data, kettonums = {} }) {
                           : `https://www.google.com/search?q=netkeiba+${encodeURIComponent(horse)}`;
                         return (
                           <a href={url} target="_blank" rel="noopener noreferrer"
-                            style={{ fontWeight:800, fontSize:12, color:"#1a56c4", textDecoration:"none" }}>
+                            onClick={e => e.stopPropagation()}
+                            style={{ fontWeight:800, fontSize:12, color:"#1a56c4", textDecoration:"none", display:"block" }}>
                             {horse}
                           </a>
                         );
