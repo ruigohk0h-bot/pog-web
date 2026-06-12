@@ -1778,81 +1778,106 @@ function StatusScreen({ data }) {
     return map;
   })();
 
-  const Card = ({ rec, withResult }) => {
-    const horse = pick(rec, ["馬名"]);
-    const race  = pick(rec, ["レース名","競走"]);
-    const date  = pick(rec, ["日時"]);
-    const dist  = pick(rec, ["距離"]);
-    const jockey= pick(rec, ["騎手"]);
-    const rank  = pick(rec, ["順位"]);
-    const g     = grade(rec);
-    const info  = horseInfoMap[horse] || {};
-    const player = PLAYERS.find(p => p.id === info.pid);
-    const color  = info.pid ? (PLAYER_COLORS[info.pid]||G.green) : "#ccc";
-    const isDirt = dist && !dist.includes("芝");
-    return (
-      <div style={{
-        display:"grid",
-        gridTemplateColumns:"3px 1fr",
-        background:"#fff", borderRadius:6, marginBottom:4,
-        boxShadow:"0 1px 2px rgba(0,0,0,0.05)", overflow:"hidden",
-      }}>
-        <div style={{ background:color }} />
-        <div style={{ padding:"6px 8px" }}>
-          {/* 1行目: 馬名 + 厩舎 + 着順 */}
-          <div style={{ display:"flex", alignItems:"center", gap:6 }}>
-            <span style={{ fontWeight:800, fontSize:12, color:"#111" }}>{horse || "—"}</span>
-            {player && <span style={{ fontSize:9, color:"#fff", background:color, borderRadius:3, padding:"1px 4px", flexShrink:0 }}>{player.name}</span>}
-            {g && <span style={{ fontSize:9, fontWeight:700, color:G.green, border:`1px solid ${G.green}`, borderRadius:3, padding:"0 3px" }}>{g}</span>}
-            {withResult && rank && (
-              <span style={{ fontSize:10, fontWeight:800, color: rank==="1"?"#c9a227":"#555", marginLeft:"auto" }}>{rank}着</span>
-            )}
-          </div>
-          {/* 2行目: 日付・レース・距離・騎手 */}
-          <div style={{ fontSize:9, color:"#666", marginTop:2, display:"flex", gap:5, flexWrap:"wrap" }}>
-            {date && <span style={{ fontWeight:700, color:"#444" }}>{date}</span>}
-            {race && <span>{race}</span>}
-            {dist && <span style={{ fontWeight:700, color: isDirt ? G.dirtDark : "#2a7a3a" }}>{dist}</span>}
-            {jockey && <span>騎{jockey}</span>}
-            {info.sire && <span style={{ color:"#aaa" }}>父{info.sire}</span>}
-            {info.dam  && <span style={{ color:"#aaa" }}>母{info.dam}</span>}
-          </div>
-        </div>
-      </div>
-    );
+  const dayStr = (dateStr) => {
+    const [m,d] = (dateStr||"").split("/").map(Number);
+    if (isNaN(m)) return "";
+    return ["日","月","火","水","木","金","土"][new Date(2026,m-1,d).getDay()];
   };
 
   const Section = ({ icon, title, note, list, empty, withResult }) => {
-    // 日付でグループ化
-    const groups = [];
-    const seen = {};
+    if (list.length === 0) return (
+      <div style={{ marginBottom:14 }}>
+        <div style={{ fontSize:13, fontWeight:800, color:"#444", marginBottom:4 }}>{icon} {title} (0)</div>
+        {note && <div style={{ fontSize:11, color:"#999", marginBottom:6 }}>{note}</div>}
+        <div style={{ textAlign:"center", color:"#aaa", padding:"12px 0", fontSize:12 }}>{empty}</div>
+      </div>
+    );
+
+    // 日付 → 競走 でグループ化
+    const dateGroups = [];
+    const dateMap = {};
     list.forEach(rec => {
-      const date = pick(rec, ["日時"]) || "日付未定";
-      if (!seen[date]) { seen[date] = []; groups.push({ date, rows: seen[date] }); }
-      seen[date].push(rec);
+      const date = pick(rec, ["日時"]) || "?";
+      if (!dateMap[date]) { dateMap[date] = []; dateGroups.push({ date, rows: dateMap[date] }); }
+      dateMap[date].push(rec);
     });
+
+    const COL = {
+      venue: { flex:"0 0 62px", fontSize:10, color:"#444" },
+      race:  { flex:"0 0 44px", fontSize:10, color:"#555" },
+      dist:  { flex:"0 0 38px", fontSize:10, fontWeight:700 },
+      horse: { flex:1, fontSize:12, fontWeight:800, color:"#111" },
+      jockey:{ flex:"0 0 52px", fontSize:10, color:"#666", textAlign:"right" },
+      rank:  { flex:"0 0 28px", fontSize:11, fontWeight:800, textAlign:"right" },
+    };
+
     return (
-      <div style={{ marginBottom:18 }}>
-        <div style={{ fontSize:14, fontWeight:800, color:"#444", marginBottom:6 }}>
+      <div style={{ marginBottom:16 }}>
+        <div style={{ fontSize:13, fontWeight:800, color:"#444", marginBottom:4 }}>
           {icon} {title} ({list.length})
         </div>
-        {note && <div style={{ fontSize:11, color:"#999", marginBottom:8 }}>{note}</div>}
-        {list.length === 0 ? (
-          <div style={{ textAlign:"center", color:"#aaa", margin:"14px 0", fontSize:13, lineHeight:1.8 }}>
-            {empty}
+        {note && <div style={{ fontSize:10, color:"#999", marginBottom:6 }}>{note}</div>}
+        <div style={{ background:"#fff", borderRadius:8, overflow:"hidden", boxShadow:"0 1px 4px rgba(0,0,0,0.08)" }}>
+          {/* ヘッダー */}
+          <div style={{ display:"flex", gap:0, padding:"5px 8px", background:"#f5f5f5", borderBottom:"1px solid #e0e0e0" }}>
+            <span style={{ flex:"0 0 62px", fontSize:9, color:"#999", fontWeight:700 }}>競走</span>
+            <span style={{ flex:"0 0 44px", fontSize:9, color:"#999", fontWeight:700 }}>レース</span>
+            <span style={{ flex:"0 0 38px", fontSize:9, color:"#999", fontWeight:700 }}>距離</span>
+            <span style={{ flex:1,          fontSize:9, color:"#999", fontWeight:700 }}>馬名</span>
+            <span style={{ flex:"0 0 52px", fontSize:9, color:"#999", fontWeight:700, textAlign:"right" }}>騎手</span>
+            {withResult && <span style={{ flex:"0 0 28px", fontSize:9, color:"#999", fontWeight:700, textAlign:"right" }}>着順</span>}
           </div>
-        ) : groups.map(g => (
-          <div key={g.date}>
-            <div style={{
-              fontSize:11, fontWeight:800, color:"#2d6a4f",
-              background:"#e8f0eb", padding:"4px 8px", borderRadius:4,
-              marginBottom:4, marginTop:6,
-            }}>
-              📅 {g.date}（{["日","月","火","水","木","金","土"][(() => { const [m,d]=(g.date||"").split("/").map(Number); return isNaN(m)?-1:new Date(2026,m-1,d).getDay(); })()]}）
+          {/* 日付ブロック */}
+          {dateGroups.map(({ date, rows }) => (
+            <div key={date}>
+              {/* 日付セパレーター */}
+              <div style={{ padding:"4px 8px", background:"#e8f0eb", borderBottom:"1px solid #d0e4d8", borderTop:"1px solid #d0e4d8" }}>
+                <span style={{ fontSize:10, fontWeight:800, color:"#2d6a4f" }}>
+                  📅 {date}（{dayStr(date)}）
+                </span>
+              </div>
+              {/* レース行 */}
+              {rows.map((rec, i) => {
+                const horse  = pick(rec, ["馬名"]);
+                const venue  = pick(rec, ["競走"]);
+                const race   = pick(rec, ["レース名"]);
+                const dist   = pick(rec, ["距離"]);
+                const jockey = pick(rec, ["騎手"]);
+                const rank   = pick(rec, ["順位"]);
+                const info   = horseInfoMap[horse] || {};
+                const player = PLAYERS.find(p => p.id === info.pid);
+                const color  = info.pid ? (PLAYER_COLORS[info.pid]||G.green) : "#e0e0e0";
+                const isDirt = dist && !dist.includes("芝");
+                return (
+                  <div key={i} style={{
+                    display:"flex", alignItems:"center", padding:"6px 8px",
+                    borderBottom: i<rows.length-1 ? "1px solid #f0f0f0" : "none",
+                    borderLeft:`3px solid ${color}`,
+                  }}>
+                    <span style={COL.venue}>{venue}</span>
+                    <span style={COL.race}>{race}</span>
+                    <span style={{ ...COL.dist, color: isDirt?G.dirtDark:"#2a7a3a" }}>{dist}</span>
+                    <span style={COL.horse}>
+                      {horse}
+                      {player && (
+                        <span style={{ fontSize:8, marginLeft:4, color:"#fff", background:color, borderRadius:2, padding:"0 3px" }}>
+                          {player.name}
+                        </span>
+                      )}
+                      {(info.sire||info.dam) && (
+                        <span style={{ fontSize:8, color:"#bbb", marginLeft:4 }}>
+                          {info.sire && `父${info.sire}`}{info.dam && ` 母${info.dam}`}
+                        </span>
+                      )}
+                    </span>
+                    <span style={COL.jockey}>{jockey}</span>
+                    {withResult && <span style={{ ...COL.rank, color:rank==="1"?"#c9a227":"#555" }}>{rank?`${rank}着`:""}</span>}
+                  </div>
+                );
+              })}
             </div>
-            {g.rows.map((rec, i) => <Card key={i} rec={rec} withResult={withResult} />)}
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     );
   };
