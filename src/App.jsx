@@ -1364,7 +1364,11 @@ function HallScreen({ onSelectHallPlayer }) {
     const ranks = mySeasons.map(s => s.results.find(r => r.player===p.id)?.rank).filter(r => r != null);
     const avgRank = ranks.length ? ranks.reduce((a,b)=>a+b,0)/ranks.length : null;
     return { ...p, seasons:mySeasons.length, wins:wins.length, totalPt, trophies, avgRank };
-  }).filter(p => p.seasons>0).sort((a,b)=>b.wins-a.wins||b.totalPt-a.totalPt);
+  }).filter(p => p.seasons>0).sort((a,b)=>
+    b.wins - a.wins ||
+    (a.avgRank??99) - (b.avgRank??99) ||
+    b.totalPt - a.totalPt
+  );
 
   return (
     <div style={{ padding:12, background:G.hallBg, minHeight:"100%" }}>
