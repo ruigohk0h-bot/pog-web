@@ -2802,9 +2802,6 @@ export default function App() {
   } else if (tab === "status") {
     title = "出走予定・登録";
     content = <StatusScreen data={statusData} />;
-  } else if (tab === "next") {
-    title = "2026-27 指名馬";
-    content = <Season2627Screen />;
   } else if (tab === "game") {
     title = "砂遊びゲーム";
     content = <GameScreen />;
@@ -2820,7 +2817,6 @@ export default function App() {
     { key:"results",  label:"結果",   icon:"📋" },
     { key:"news",     label:"ニュース",icon:"📰" },
     { key:"status",   label:"出走",   icon:"🏁" },
-    { key:"next",     label:"次季",   icon:"🆕" },
     { key:"calendar", label:"日程",   icon:"📅" },
     { key:"hall",     label:"殿堂",   icon:"🏟️" },
     { key:"game",     label:"ゲーム", icon:"🎮" },
