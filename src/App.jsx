@@ -1736,6 +1736,10 @@ const PLAYER_COLORS = {
 const HORSES_2627_SET = new Set(
   PLAYERS_2627.flatMap(p => p.horses.filter(h => h.name).map(h => h.name))
 );
+// 2025-26の馬名セット（出走予定から除外するため）
+const HORSES_2526_SET = new Set(
+  Object.values(HORSES_BY_PLAYER).flat().filter(h => h.name).map(h => h.name)
+);
 
 function StatusScreen({ data }) {
   if (!data) {
@@ -1747,9 +1751,13 @@ function StatusScreen({ data }) {
     return "";
   };
 
-  // 2026-27グループから取得済みのためフィルター不要
-  const sched  = data.schedule_results || [];
-  const regist = data.special_regist   || [];
+  // 2025-26の馬を除外（2026-27のみ表示）
+  const filter2627 = (list) => (list || []).filter(r => {
+    const name = pick(r, ["馬名"]);
+    return !HORSES_2526_SET.has(name);
+  });
+  const sched  = filter2627(data.schedule_results);
+  const regist = filter2627(data.special_regist);
   // グレード等（col* に入りがちな短い値）を拾う
   const grade = (rec) => {
     for (const k of Object.keys(rec)) {
@@ -1814,21 +1822,40 @@ function StatusScreen({ data }) {
     );
   };
 
-  const Section = ({ icon, title, note, list, empty, withResult }) => (
-    <div style={{ marginBottom:18 }}>
-      <div style={{ fontSize:14, fontWeight:800, color:"#444" }}>
-        {icon} {title} ({list.length})
-      </div>
-      {note && <div style={{ fontSize:11, color:"#999", marginBottom:8 }}>{note}</div>}
-      {list.length === 0 ? (
-        <div style={{ textAlign:"center", color:"#aaa", margin:"14px 0", fontSize:13, lineHeight:1.8 }}>
-          {empty}
+  const Section = ({ icon, title, note, list, empty, withResult }) => {
+    // 日付でグループ化
+    const groups = [];
+    const seen = {};
+    list.forEach(rec => {
+      const date = pick(rec, ["日時"]) || "日付未定";
+      if (!seen[date]) { seen[date] = []; groups.push({ date, rows: seen[date] }); }
+      seen[date].push(rec);
+    });
+    return (
+      <div style={{ marginBottom:18 }}>
+        <div style={{ fontSize:14, fontWeight:800, color:"#444", marginBottom:6 }}>
+          {icon} {title} ({list.length})
         </div>
-      ) : list.map((rec, i) => (
-        <Card key={i} rec={rec} withResult={withResult} />
-      ))}
-    </div>
-  );
+        {note && <div style={{ fontSize:11, color:"#999", marginBottom:8 }}>{note}</div>}
+        {list.length === 0 ? (
+          <div style={{ textAlign:"center", color:"#aaa", margin:"14px 0", fontSize:13, lineHeight:1.8 }}>
+            {empty}
+          </div>
+        ) : groups.map(g => (
+          <div key={g.date}>
+            <div style={{
+              fontSize:11, fontWeight:800, color:"#2d6a4f",
+              background:"#e8f0eb", padding:"4px 8px", borderRadius:4,
+              marginBottom:4, marginTop:6,
+            }}>
+              📅 {g.date}（{["日","月","火","水","木","金","土"][(() => { const [m,d]=(g.date||"").split("/").map(Number); return isNaN(m)?-1:new Date(2026,m-1,d).getDay(); })()]}）
+            </div>
+            {g.rows.map((rec, i) => <Card key={i} rec={rec} withResult={withResult} />)}
+          </div>
+        ))}
+      </div>
+    );
+  };
 
   return (
     <div style={{ background:"#eef2f0", minHeight:"100%" }}>
