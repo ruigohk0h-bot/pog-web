@@ -568,9 +568,9 @@ const SEASONS_ALL = [
   { id:"2025-26", label:"2025-26", period:"2025/06/07〜2026/06/11",
     results:[
       {player:"P03",rank:1,pt:29474},{player:"P05",rank:2,pt:16154},
-      {player:"P06",rank:3,pt:15493},{player:"P07",rank:4,pt:8180},
-      {player:"P02",rank:5,pt:7251},{player:"P01",rank:6,pt:6673},
-      {player:"P04",rank:7,pt:5688},
+      {player:"P06",rank:3,pt:15823},{player:"P07",rank:4,pt:8170},
+      {player:"P02",rank:5,pt:7491},{player:"P01",rank:6,pt:6731},
+      {player:"P04",rank:7,pt:5678},
     ]},
 ];
 
