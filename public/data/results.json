@@ -11,7 +11,7 @@
     "order": 1,
     "grade": "JpnI",
     "local": true,
-    "rawPt": 2400,
+    "rawPt": 10000,
     "turfPt": 0,
     "_ts": "06/11"
   },
@@ -27,7 +27,7 @@
     "order": 4,
     "grade": "JpnI",
     "local": true,
-    "rawPt": 240,
+    "rawPt": 1000,
     "turfPt": 0,
     "_ts": "06/11"
   },
