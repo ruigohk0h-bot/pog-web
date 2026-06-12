@@ -1803,12 +1803,13 @@ function StatusScreen({ data }) {
     });
 
     const COL = {
-      venue: { flex:"0 0 62px", fontSize:10, color:"#444" },
-      race:  { flex:"0 0 44px", fontSize:10, color:"#555" },
-      dist:  { flex:"0 0 38px", fontSize:10, fontWeight:700 },
+      venue: { flex:"0 0 56px", fontSize:10, color:"#444" },
+      race:  { flex:"0 0 40px", fontSize:10, color:"#555" },
+      dist:  { flex:"0 0 36px", fontSize:10, fontWeight:700 },
       horse: { flex:1, fontSize:12, fontWeight:800, color:"#111" },
-      jockey:{ flex:"0 0 52px", fontSize:10, color:"#666", textAlign:"right" },
-      rank:  { flex:"0 0 28px", fontSize:11, fontWeight:800, textAlign:"right" },
+      stable:{ flex:"0 0 58px", fontSize:9, textAlign:"center" },
+      jockey:{ flex:"0 0 44px", fontSize:10, color:"#666", textAlign:"right" },
+      rank:  { flex:"0 0 26px", fontSize:11, fontWeight:800, textAlign:"right" },
     };
 
     return (
@@ -1820,12 +1821,13 @@ function StatusScreen({ data }) {
         <div style={{ background:"#fff", borderRadius:8, overflow:"hidden", boxShadow:"0 1px 4px rgba(0,0,0,0.08)" }}>
           {/* ヘッダー */}
           <div style={{ display:"flex", gap:0, padding:"5px 8px", background:"#f5f5f5", borderBottom:"1px solid #e0e0e0" }}>
-            <span style={{ flex:"0 0 62px", fontSize:9, color:"#999", fontWeight:700 }}>競走</span>
-            <span style={{ flex:"0 0 44px", fontSize:9, color:"#999", fontWeight:700 }}>レース</span>
-            <span style={{ flex:"0 0 38px", fontSize:9, color:"#999", fontWeight:700 }}>距離</span>
+            <span style={{ flex:"0 0 56px", fontSize:9, color:"#999", fontWeight:700 }}>競走</span>
+            <span style={{ flex:"0 0 40px", fontSize:9, color:"#999", fontWeight:700 }}>レース</span>
+            <span style={{ flex:"0 0 36px", fontSize:9, color:"#999", fontWeight:700 }}>距離</span>
             <span style={{ flex:1,          fontSize:9, color:"#999", fontWeight:700 }}>馬名</span>
-            <span style={{ flex:"0 0 52px", fontSize:9, color:"#999", fontWeight:700, textAlign:"right" }}>騎手</span>
-            {withResult && <span style={{ flex:"0 0 28px", fontSize:9, color:"#999", fontWeight:700, textAlign:"right" }}>着順</span>}
+            <span style={{ flex:"0 0 58px", fontSize:9, color:"#999", fontWeight:700, textAlign:"center" }}>厩舎</span>
+            <span style={{ flex:"0 0 44px", fontSize:9, color:"#999", fontWeight:700, textAlign:"right" }}>騎手</span>
+            {withResult && <span style={{ flex:"0 0 26px", fontSize:9, color:"#999", fontWeight:700, textAlign:"right" }}>着順</span>}
           </div>
           {/* 日付ブロック */}
           {dateGroups.map(({ date, rows }) => (
@@ -1850,7 +1852,7 @@ function StatusScreen({ data }) {
                 const isDirt = dist && !dist.includes("芝");
                 return (
                   <div key={i} style={{
-                    display:"flex", alignItems:"center", padding:"6px 8px",
+                    display:"flex", alignItems:"center", padding:"5px 8px",
                     borderBottom: i<rows.length-1 ? "1px solid #f0f0f0" : "none",
                     borderLeft:`3px solid ${color}`,
                   }}>
@@ -1858,19 +1860,25 @@ function StatusScreen({ data }) {
                     <span style={COL.race}>{race}</span>
                     <span style={{ ...COL.dist, color: isDirt?G.dirtDark:"#2a7a3a" }}>{dist}</span>
                     <span style={COL.horse}>
-                      <span style={{ display:"flex", alignItems:"center", gap:3, flexWrap:"wrap" }}>
-                        <span style={{ fontWeight:800, fontSize:12 }}>{horse}</span>
-                        {player && (
-                          <span style={{ fontSize:8, color:"#fff", background:color, borderRadius:2, padding:"0 3px", flexShrink:0 }}>
-                            {player.name}{info.no != null ? `${info.no}位` : ""}
-                          </span>
-                        )}
-                      </span>
+                      <span style={{ fontWeight:800, fontSize:12 }}>{horse}</span>
                       {(info.sire||info.dam) && (
                         <span style={{ fontSize:8, color:"#bbb", display:"block", lineHeight:1.3 }}>
                           {[info.sire && `父${info.sire}`, info.dam && `母${info.dam}`].filter(Boolean).join(" ")}
                         </span>
                       )}
+                    </span>
+                    {/* 厩舎列 */}
+                    <span style={COL.stable}>
+                      {player ? (
+                        <span style={{
+                          display:"inline-block", fontSize:8, color:"#fff",
+                          background:color, borderRadius:3, padding:"1px 4px",
+                          lineHeight:1.5, textAlign:"center",
+                        }}>
+                          {player.name.replace("厩舎","")}<br/>
+                          {info.no != null ? `${info.no}位指名` : ""}
+                        </span>
+                      ) : "—"}
                     </span>
                     <span style={COL.jockey}>{jockey}</span>
                     {withResult && <span style={{ ...COL.rank, color:rank==="1"?"#c9a227":"#555" }}>{rank?`${rank}着`:""}</span>}
