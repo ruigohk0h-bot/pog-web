@@ -1773,7 +1773,7 @@ function StatusScreen({ data }) {
       horses.forEach(h => { if (h.name) map[h.name] = { sire: h.sire, dam: h.dam, pid }; });
     });
     PLAYERS_2627.forEach(p => {
-      p.horses.forEach(h => { if (h.name) map[h.name] = { sire: h.sire, dam: h.dam, pid: p.id }; });
+      p.horses.forEach(h => { if (h.name) map[h.name] = { sire: h.sire, dam: h.dam, pid: p.id, no: h.no }; });
     });
     return map;
   })();
@@ -1858,15 +1858,17 @@ function StatusScreen({ data }) {
                     <span style={COL.race}>{race}</span>
                     <span style={{ ...COL.dist, color: isDirt?G.dirtDark:"#2a7a3a" }}>{dist}</span>
                     <span style={COL.horse}>
-                      {horse}
-                      {player && (
-                        <span style={{ fontSize:8, marginLeft:4, color:"#fff", background:color, borderRadius:2, padding:"0 3px" }}>
-                          {player.name}
-                        </span>
-                      )}
+                      <span style={{ display:"flex", alignItems:"center", gap:3, flexWrap:"wrap" }}>
+                        <span style={{ fontWeight:800, fontSize:12 }}>{horse}</span>
+                        {player && (
+                          <span style={{ fontSize:8, color:"#fff", background:color, borderRadius:2, padding:"0 3px", flexShrink:0 }}>
+                            {player.name}{info.no != null ? `${info.no}位` : ""}
+                          </span>
+                        )}
+                      </span>
                       {(info.sire||info.dam) && (
-                        <span style={{ fontSize:8, color:"#bbb", marginLeft:4 }}>
-                          {info.sire && `父${info.sire}`}{info.dam && ` 母${info.dam}`}
+                        <span style={{ fontSize:8, color:"#bbb", display:"block", lineHeight:1.3 }}>
+                          {[info.sire && `父${info.sire}`, info.dam && `母${info.dam}`].filter(Boolean).join(" ")}
                         </span>
                       )}
                     </span>
