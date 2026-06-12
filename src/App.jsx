@@ -218,7 +218,7 @@ const HORSES_P02 = [
 
 // 長谷部厩舎（P03）
 const HORSES_P03 = [
-  { no:9,  name:"フィンガー",        record:"3-4-0-0", pt:10780, active:true,  sire:"Gun Runner",        dam:"エスティロタレントーソ" },
+  { no:9,  name:"フィンガー",        record:"4-4-0-0", pt:20780, active:true,  sire:"Gun Runner",        dam:"エスティロタレントーソ" },
   { no:6,  name:"チュウワカーネギー", record:"2-1-0-4", pt:2764,  active:false, sire:"モーリス",          dam:"デックドアウト" },
   { no:3,  name:"ヘリテージブルーム", record:"2-2-3-1", pt:2540,  active:false, sire:"ミスチヴィアスアレック", dam:"オールドパサデナ" },
   { no:11, name:"ゴールドバローズ",  record:"1-2-0-1", pt:1180,  active:false, sire:"ゴールドドリーム",   dam:"アースサウンド" },
@@ -266,7 +266,7 @@ const HORSES_P05 = [
 
 // 涼子厩舎（P06）
 const HORSES_P06 = [
-  { no:10, name:"ロックターミガン",   record:"3-1-0-2", pt:7690, active:true,  sire:"シスキン",           dam:"リリカルホワイト" },
+  { no:10, name:"ロックターミガン",   record:"3-1-0-3", pt:8690, active:true,  sire:"シスキン",           dam:"リリカルホワイト" },
   { no:2,  name:"トリグラフヒル",     record:"2-1-0-1", pt:2220, active:false, sire:"ナダル",             dam:"トリプライト" },
   { no:8,  name:"キッコベッロ",       record:"1-2-0-2", pt:2060, active:false, sire:"Study of Man",       dam:"アマダブラム２" },
   { no:1,  name:"イナズマダイモン",   record:"1-5-0-1", pt:1910, active:false, sire:"クリソベリル",       dam:"パリスビキニ" },
