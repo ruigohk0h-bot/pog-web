@@ -1394,33 +1394,54 @@ function HallScreen({ onSelectHallPlayer }) {
         ))}
       </div>
 
-      {hallTab === "ranking" && stats.map((p,i) => (
-        <button key={p.id} onClick={() => onSelectHallPlayer(p)}
-          style={{
-            width:"100%", textAlign:"left",
-            background:G.hallCard, border:`1px solid ${G.hallBorder}`,
-            borderRadius:12, padding:"12px 14px", marginBottom:10, cursor:"pointer",
-            display:"flex", alignItems:"center", gap:10,
-          }}>
-          <div style={{ fontSize:22, width:28, textAlign:"center", flexShrink:0 }}>
-            {i===0?"👑":i===1?"🥈":i===2?"🥉":
-              <span style={{ fontSize:14, color:G.hallDim, fontWeight:700 }}>{i+1}</span>}
-          </div>
-          <div style={{ flex:1, minWidth:0 }}>
-            <div style={{ fontWeight:800, fontSize:14, color:G.hallText }}>{p.name}</div>
-            <div style={{ fontSize:11, color:G.hallDim, marginTop:2, display:"flex", gap:8, flexWrap:"wrap" }}>
-              <span style={{ color: p.wins>0?G.gold:G.hallDim }}>優勝{p.wins}回{p.wins>=2?"👑":""}</span>
-              <span>重賞{p.trophies.length}勝</span>
-              {p.avgRank != null && <span>平均{p.avgRank.toFixed(1)}位</span>}
-            </div>
-          </div>
-          {/* 順位グラフ */}
-          <div style={{ flexShrink:0, paddingBottom:12 }}>
-            <RankGraph playerId={p.id} playerName={p.name}
-              onTap={() => setGraphModal({ playerId:p.id, playerName:p.name })} />
-          </div>
-        </button>
-      ))}
+      {hallTab === "ranking" && (
+        <div style={{
+          background:G.hallCard, border:`1px solid ${G.hallBorder}`,
+          borderRadius:12, overflow:"hidden",
+        }}>
+          {stats.map((p,i) => (
+            <button key={p.id} onClick={() => onSelectHallPlayer(p)}
+              style={{
+                width:"100%", textAlign:"left", cursor:"pointer",
+                background: i===0 ? "rgba(201,162,39,0.12)" : "transparent",
+                border:"none",
+                borderBottom: i<stats.length-1 ? `1px solid ${G.hallBorder}` : "none",
+                padding:"8px 12px",
+                display:"flex", alignItems:"center", gap:8,
+              }}>
+              {/* 順位 */}
+              <div style={{ width:24, textAlign:"center", flexShrink:0 }}>
+                {i===0 ? <span style={{ fontSize:18 }}>👑</span>
+                  : i===1 ? <span style={{ fontSize:16 }}>🥈</span>
+                  : i===2 ? <span style={{ fontSize:16 }}>🥉</span>
+                  : <span style={{ fontSize:12, color:G.hallDim, fontWeight:700 }}>{i+1}</span>}
+              </div>
+              {/* 名前・スタッツ */}
+              <div style={{ flex:1, minWidth:0 }}>
+                <div style={{ fontWeight:800, fontSize:13, color:G.hallText, marginBottom:2 }}>
+                  {p.emoji} {p.name}
+                </div>
+                <div style={{ display:"flex", gap:6, flexWrap:"wrap" }}>
+                  <span style={{
+                    fontSize:9, fontWeight:700, padding:"1px 5px", borderRadius:3,
+                    background: p.wins>0?"rgba(201,162,39,0.3)":"rgba(255,255,255,0.05)",
+                    color: p.wins>0?G.gold:G.hallDim,
+                  }}>優勝{p.wins}回</span>
+                  <span style={{ fontSize:9, color:G.hallDim }}>重賞{p.trophies.length}勝</span>
+                  {p.avgRank != null && (
+                    <span style={{ fontSize:9, color:G.hallDim }}>平均{p.avgRank.toFixed(1)}位</span>
+                  )}
+                </div>
+              </div>
+              {/* ミニグラフ */}
+              <div style={{ flexShrink:0 }}>
+                <RankGraph playerId={p.id} playerName={p.name}
+                  onTap={() => setGraphModal({ playerId:p.id, playerName:p.name })} />
+              </div>
+            </button>
+          ))}
+        </div>
+      )}
 
 
       {/* グラフ拡大モーダル */}
