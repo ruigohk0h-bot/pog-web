@@ -2971,24 +2971,22 @@ export default function App() {
         <div style={{ marginLeft:"auto", fontSize:22 }}>🐴</div>
       </div>
 
-      {/* テロップ（東京ダービー直前まで表示） */}
-      {new Date() < new Date("2026-06-11T00:00:00+09:00") && (
+      {/* テロップ */}
+      <div style={{
+        background: "linear-gradient(90deg,#7a4a1e,#b06a2c,#7a4a1e)",
+        color:"#fff", overflow:"hidden", whiteSpace:"nowrap",
+        position:"sticky", top:62, zIndex:9,
+        borderTop:"1px solid rgba(255,255,255,0.2)",
+        borderBottom:"1px solid rgba(0,0,0,0.25)",
+      }}>
+        <style>{`@keyframes pogTelop{0%{transform:translateX(100vw)}100%{transform:translateX(-100%)}}`}</style>
         <div style={{
-          background: "linear-gradient(90deg,#7a0000,#c1121f,#7a0000)",
-          color:"#fff", overflow:"hidden", whiteSpace:"nowrap",
-          position:"sticky", top:62, zIndex:9,
-          borderTop:"1px solid rgba(255,255,255,0.2)",
-          borderBottom:"1px solid rgba(0,0,0,0.25)",
+          display:"inline-block", padding:"7px 0", fontSize:13, fontWeight:800,
+          animation:"pogTelop 22s linear infinite",
         }}>
-          <style>{`@keyframes pogTelop{0%{transform:translateX(100%)}100%{transform:translateX(-100%)}}`}</style>
-          <div style={{
-            display:"inline-block", padding:"7px 0", fontSize:13, fontWeight:800,
-            animation:"pogTelop 16s linear infinite",
-          }}>
-            🏆 2025-26シーズン終了！長谷部厩舎（フィンガー）が優勝！　　　　　🆕 2026-27シーズン開幕！新たな砂遊いが始まります！🐴✨
-          </div>
+          🏆 フィンガーが東京ダービー制覇（2冠達成）で長谷部厩舎が優勝！！おめでとうございます🎉　　　　　🆕 砂遊び２０２６－２７シーズンも開幕でアプリがリニューアルしました🐴✨
         </div>
-      )}
+      </div>
 
       {/* コンテンツ */}
       <div
