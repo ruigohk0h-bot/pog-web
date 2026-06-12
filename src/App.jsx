@@ -1379,7 +1379,7 @@ function HallScreen({ onSelectHallPlayer }) {
 
       {/* サブタブ */}
       <div style={{ display:"flex", gap:4, marginBottom:14 }}>
-        {[["ranking","🏟️ 殿堂ランキング"],["awards","🏅 シーズン表彰"]].map(([k,l]) => (
+        {[["ranking","🏟️ 殿堂ランキング"],["history","📅 シーズン成績"],["awards","🏅 シーズン表彰"]].map(([k,l]) => (
           <button key={k} onClick={()=>setHallTab(k)} style={{
             flex:1, padding:"9px 0", borderRadius:8, fontSize:12, fontWeight:700, cursor:"pointer",
             background: hallTab===k ? G.dirt : G.hallCard,
@@ -1425,6 +1425,54 @@ function HallScreen({ onSelectHallPlayer }) {
           playerName={graphModal.playerName}
           onClose={() => setGraphModal(null)}
         />
+      )}
+
+      {/* ===== シーズン成績タブ ===== */}
+      {hallTab === "history" && (
+        <div>
+          {[...SEASONS_ALL].reverse().map(season => (
+            <div key={season.id} style={{
+              background:G.hallCard, border:`1px solid ${G.hallBorder}`,
+              borderRadius:12, padding:"12px 14px", marginBottom:12,
+            }}>
+              {/* シーズン名 */}
+              <div style={{ display:"flex", justifyContent:"space-between", alignItems:"baseline", marginBottom:10 }}>
+                <div style={{ fontSize:14, fontWeight:900, color:G.dirtLight }}>
+                  砂遊び {season.label}
+                </div>
+                <div style={{ fontSize:10, color:G.hallDim }}>{season.period}</div>
+              </div>
+              {/* 順位表 */}
+              {[...season.results].sort((a,b)=>a.rank-b.rank).map((r,i) => {
+                const player = PLAYERS.find(p=>p.id===r.player);
+                const rankIcon = i===0?"🥇":i===1?"🥈":i===2?"🥉":null;
+                return (
+                  <div key={r.player} style={{
+                    display:"flex", alignItems:"center", gap:10,
+                    padding:"7px 0",
+                    borderBottom: i<season.results.length-1 ? `1px solid ${G.hallBorder}` : "none",
+                  }}>
+                    <div style={{ width:28, textAlign:"center", flexShrink:0 }}>
+                      {rankIcon
+                        ? <span style={{ fontSize:18 }}>{rankIcon}</span>
+                        : <span style={{ fontSize:13, color:G.hallDim, fontWeight:700 }}>{r.rank}</span>
+                      }
+                    </div>
+                    <div style={{ flex:1, fontWeight:700, fontSize:13, color:G.hallText }}>
+                      {player?.emoji} {player?.name ?? r.player}
+                    </div>
+                    <div style={{ textAlign:"right", flexShrink:0 }}>
+                      <span style={{ fontWeight:800, fontSize:14, color: i===0?G.gold:G.hallText }}>
+                        {fmt(r.pt)}
+                      </span>
+                      <span style={{ fontSize:10, color:G.hallDim, marginLeft:2 }}>pt</span>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          ))}
+        </div>
       )}
 
       {/* ===== シーズン表彰タブ ===== */}
