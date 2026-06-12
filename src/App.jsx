@@ -918,6 +918,7 @@ function RankingScreen({ onSelectPlayer, updated, results }) {
     for (const r of results) {
       if (r.surface !== "dirt" || r.rawPt <= 0) continue;
       if (r.date < cutLabel) continue;
+      if (!HORSES_2627_SET.has(r.horse)) continue; // 2026-27の馬のみ
       map[r.player] = (map[r.player] || 0) + r.rawPt;
     }
     return map;
