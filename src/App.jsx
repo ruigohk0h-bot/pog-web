@@ -1741,7 +1741,7 @@ const HORSES_2526_SET = new Set(
   Object.values(HORSES_BY_PLAYER).flat().filter(h => h.name).map(h => h.name)
 );
 
-function StatusScreen({ data }) {
+function StatusScreen({ data, kettonums = {} }) {
   if (!data) {
     return <div style={{ textAlign:"center", color:"#aaa", marginTop:40, fontSize:14 }}>読み込み中…</div>;
   }
@@ -1860,7 +1860,17 @@ function StatusScreen({ data }) {
                     <span style={COL.race}>{race}</span>
                     <span style={{ ...COL.dist, color: isDirt?G.dirtDark:"#2a7a3a" }}>{dist}</span>
                     <span style={COL.horse}>
-                      <span style={{ fontWeight:800, fontSize:12 }}>{horse}</span>
+                      {(() => {
+                        const url = kettonums[horse]
+                          ? `https://db.netkeiba.com/horse/${kettonums[horse]}/`
+                          : `https://www.google.com/search?q=netkeiba+${encodeURIComponent(horse)}`;
+                        return (
+                          <a href={url} target="_blank" rel="noopener noreferrer"
+                            style={{ fontWeight:800, fontSize:12, color:"#1a56c4", textDecoration:"none" }}>
+                            {horse}
+                          </a>
+                        );
+                      })()}
                       {(info.sire||info.dam) && (
                         <span style={{ fontSize:8, color:"#bbb", display:"block", lineHeight:1.3 }}>
                           {[info.sire && `父${info.sire}`, info.dam && `母${info.dam}`].filter(Boolean).join(" ")}
@@ -2912,7 +2922,7 @@ export default function App() {
     content = <CalendarScreen pogHorses={pogHorses} />;
   } else if (tab === "status") {
     title = "出走予定・登録";
-    content = <StatusScreen data={statusData} />;
+    content = <StatusScreen data={statusData} kettonums={kettonums} />;
   } else if (tab === "game") {
     title = "砂遊びゲーム";
     content = <GameScreen />;
