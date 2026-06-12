@@ -269,10 +269,10 @@ def main():
     os.makedirs(out_dir, exist_ok=True)
     jst = datetime.now(timezone(timedelta(hours=9)))
 
-    # ── 1. 2025-26 グループ: 予定・結果・特別登録 ──────────────────
-    print("=== 2025-26 最新状況 取得 ===", flush=True)
+    # ── 1. 2026-27 グループ: 予定・結果・特別登録 ──────────────────
+    print("=== 2026-27 最新状況 取得 ===", flush=True)
     try:
-        schedule_results, special_regist = fetch_schedule(URL_2526)
+        schedule_results, special_regist = fetch_schedule(URL_2627)
     except Exception as e:
         print(f"取得失敗: {e}", flush=True)
         schedule_results, special_regist = [], []
@@ -280,7 +280,7 @@ def main():
     # pogstarion.json 保存
     pogstarion_out = {
         "updated": jst.strftime("%Y/%m/%d %H:%M"),
-        "source": URL_2526,
+        "source": URL_2627,
         "schedule_results": schedule_results,
         "special_regist": special_regist,
     }

@@ -1,276 +1,154 @@
 {
-  "updated": "2026/06/11 21:13",
-  "source": "https://pogstarion.com/newresultlist.do?group_num=0601142541",
+  "updated": "2026/06/12 11:38",
+  "source": "https://pogstarion.com/newresultlist.do?group_num=0601093409",
   "schedule_results": [
     {
       "日時": "06/13",
-      "競走": "東京02R",
+      "競走": "東京06R",
       "col2": "",
-      "レース名": "未勝利",
-      "距離": "芝2400",
-      "馬名": "ゾネブルーム",
-      "騎手": "丸山元気",
+      "レース名": "新馬",
+      "距離": "芝1400",
+      "馬名": "デミアン",
+      "騎手": "レーン",
       "順位": "",
       "賞金": "",
-      "所有者": "田崎厩舎",
+      "所有者": "川村厩舎",
       "_links": [
-        "http://race.netkeiba.com/?pid=race&id=c202605030302&mode=shutuba",
-        "umaracelist.do?group_num=0601142541&user_num=380048&kettonum=2023107195",
-        "userumalist.do?group_num=0601142541&user_num=380048"
+        "http://race.netkeiba.com/?pid=race&id=c202605030306&mode=shutuba",
+        "umaracelist.do?group_num=0601093409&user_num=407303&kettonum=2024108228",
+        "userumalist.do?group_num=0601093409&user_num=407303"
       ]
     },
     {
       "日時": "06/13",
-      "競走": "阪神04R",
+      "競走": "阪神06R",
       "col2": "",
-      "レース名": "未勝利",
-      "距離": "芝1800",
-      "馬名": "レッドフレーザー",
+      "レース名": "新馬",
+      "距離": "ダ1400",
+      "馬名": "ディーヴァレギオン",
+      "騎手": "松山弘平",
+      "順位": "",
+      "賞金": "",
+      "所有者": "田崎厩舎",
+      "_links": [
+        "http://race.netkeiba.com/?pid=race&id=c202609030306&mode=shutuba",
+        "umaracelist.do?group_num=0601093409&user_num=407307&kettonum=2024106350",
+        "userumalist.do?group_num=0601093409&user_num=407307"
+      ]
+    },
+    {
+      "日時": "06/13",
+      "競走": "阪神06R",
+      "col2": "",
+      "レース名": "新馬",
+      "距離": "ダ1400",
+      "馬名": "ヴィルダースヴィル",
       "騎手": "坂井瑠星",
       "順位": "",
       "賞金": "",
       "所有者": "田崎厩舎",
       "_links": [
-        "http://race.netkeiba.com/?pid=race&id=c202609030304&mode=shutuba",
-        "umaracelist.do?group_num=0601142541&user_num=380048&kettonum=2023105340",
-        "userumalist.do?group_num=0601142541&user_num=380048"
+        "umaracelist.do?group_num=0601093409&user_num=407307&kettonum=2024106421",
+        "userumalist.do?group_num=0601093409&user_num=407307"
       ]
     },
     {
-      "日時": "06/13",
-      "競走": "函館06R",
+      "日時": "06/14",
+      "競走": "東京04R",
       "col2": "",
-      "レース名": "未勝利",
-      "距離": "ダ1700",
-      "馬名": "キセログラフィカ",
-      "騎手": "横山武史",
-      "順位": "",
-      "賞金": "",
-      "所有者": "前田厩舎",
-      "_links": [
-        "http://race.netkeiba.com/?pid=race&id=c202602010106&mode=shutuba",
-        "umaracelist.do?group_num=0601142541&user_num=380046&kettonum=2023105682",
-        "userumalist.do?group_num=0601142541&user_num=380046"
-      ]
-    },
-    {
-      "日時": "06/13",
-      "競走": "阪神07R",
-      "col2": "",
-      "レース名": "５００万円以下",
-      "距離": "ダ1800",
-      "馬名": "ゲタリア",
-      "騎手": "西村淳也",
-      "順位": "",
-      "賞金": "",
-      "所有者": "前田厩舎",
-      "_links": [
-        "http://race.netkeiba.com/?pid=race&id=c202609030307&mode=shutuba",
-        "umaracelist.do?group_num=0601142541&user_num=380046&kettonum=2023105342",
-        "userumalist.do?group_num=0601142541&user_num=380046"
-      ]
-    },
-    {
-      "日時": "06/13",
-      "競走": "阪神08R",
-      "col2": "",
-      "レース名": "５００万円以下",
-      "距離": "芝1600",
-      "馬名": "ミティリーニ",
-      "騎手": "幸英明",
-      "順位": "",
-      "賞金": "",
-      "所有者": "成田厩舎",
-      "_links": [
-        "http://race.netkeiba.com/?pid=race&id=c202609030308&mode=shutuba",
-        "umaracelist.do?group_num=0601142541&user_num=380051&kettonum=2023107262",
-        "userumalist.do?group_num=0601142541&user_num=380051"
-      ]
-    },
-    {
-      "日時": "06/13",
-      "競走": "阪神10R",
-      "col2": "特別",
-      "レース名": "安芸特別",
-      "距離": "ダ1200",
-      "馬名": "テーオーグレーザー",
-      "騎手": "高杉吏麒",
+      "レース名": "新馬",
+      "距離": "ダ1400",
+      "馬名": "ケンシロウワールド",
+      "騎手": "丸山元気",
       "順位": "",
       "賞金": "",
       "所有者": "田崎厩舎",
       "_links": [
-        "http://race.netkeiba.com/?pid=race&id=c202609030310&mode=shutuba",
-        "umaracelist.do?group_num=0601142541&user_num=380048&kettonum=2023104562",
-        "userumalist.do?group_num=0601142541&user_num=380048"
+        "http://race.netkeiba.com/?pid=race&id=c202605030404&mode=shutuba",
+        "umaracelist.do?group_num=0601093409&user_num=407307&kettonum=2024108272",
+        "userumalist.do?group_num=0601093409&user_num=407307"
       ]
     },
     {
-      "日時": "06/13",
-      "競走": "函館12R",
+      "日時": "06/14",
+      "競走": "東京04R",
       "col2": "",
-      "レース名": "５００万円以下",
-      "距離": "ダ1700",
-      "馬名": "ペトリコール",
-      "騎手": "斎藤新",
-      "順位": "",
-      "賞金": "",
-      "所有者": "ミリオン厩舎",
-      "_links": [
-        "http://race.netkeiba.com/?pid=race&id=c202602010112&mode=shutuba",
-        "umaracelist.do?group_num=0601142541&user_num=380049&kettonum=2023107141",
-        "userumalist.do?group_num=0601142541&user_num=380049"
-      ]
-    },
-    {
-      "日時": "06/13",
-      "競走": "東京12R",
-      "col2": "",
-      "レース名": "５００万円以下",
+      "レース名": "新馬",
       "距離": "ダ1400",
-      "馬名": "エジプシャンマウ",
-      "騎手": "戸崎圭太",
-      "順位": "",
-      "賞金": "",
-      "所有者": "長谷部厩舎",
-      "_links": [
-        "http://race.netkeiba.com/?pid=race&id=c202605030312&mode=shutuba",
-        "umaracelist.do?group_num=0601142541&user_num=380045&kettonum=2023107216",
-        "userumalist.do?group_num=0601142541&user_num=380045"
-      ]
-    },
-    {
-      "日時": "06/14",
-      "競走": "阪神01R",
-      "col2": "",
-      "レース名": "未勝利",
-      "距離": "ダ1800",
-      "馬名": "フィデリス",
-      "騎手": "川田将雅",
-      "順位": "",
-      "賞金": "",
-      "所有者": "ミリオン厩舎",
-      "_links": [
-        "http://race.netkeiba.com/?pid=race&id=c202609030401&mode=shutuba",
-        "umaracelist.do?group_num=0601142541&user_num=380049&kettonum=2023107064",
-        "userumalist.do?group_num=0601142541&user_num=380049"
-      ]
-    },
-    {
-      "日時": "06/14",
-      "競走": "函館02R",
-      "col2": "",
-      "レース名": "未勝利",
-      "距離": "ダ1700",
-      "馬名": "セスティーナ",
-      "騎手": "佐々木大",
-      "順位": "",
-      "賞金": "",
-      "所有者": "長谷部厩舎",
-      "_links": [
-        "http://race.netkeiba.com/?pid=race&id=c202602010202&mode=shutuba",
-        "umaracelist.do?group_num=0601142541&user_num=380045&kettonum=2023103316",
-        "userumalist.do?group_num=0601142541&user_num=380045"
-      ]
-    },
-    {
-      "日時": "06/14",
-      "競走": "函館02R",
-      "col2": "",
-      "レース名": "未勝利",
-      "距離": "ダ1700",
-      "馬名": "マルシュボヌール",
-      "騎手": "舟山瑠泉",
-      "順位": "",
-      "賞金": "",
-      "所有者": "ミリオン厩舎",
-      "_links": [
-        "umaracelist.do?group_num=0601142541&user_num=380049&kettonum=2023107245",
-        "userumalist.do?group_num=0601142541&user_num=380049"
-      ]
-    },
-    {
-      "日時": "06/14",
-      "競走": "阪神02R",
-      "col2": "",
-      "レース名": "未勝利",
-      "距離": "ダ1400",
-      "馬名": "ブロンザイト",
-      "騎手": "国分優作",
+      "馬名": "スターフラッシュ",
+      "騎手": "津村明秀",
       "順位": "",
       "賞金": "",
       "所有者": "前田厩舎",
       "_links": [
-        "http://race.netkeiba.com/?pid=race&id=c202609030402&mode=shutuba",
-        "umaracelist.do?group_num=0601142541&user_num=380046&kettonum=2023106979",
-        "userumalist.do?group_num=0601142541&user_num=380046"
+        "umaracelist.do?group_num=0601093409&user_num=407310&kettonum=2024108240",
+        "userumalist.do?group_num=0601093409&user_num=407310"
       ]
     },
     {
       "日時": "06/14",
-      "競走": "阪神03R",
+      "競走": "東京04R",
       "col2": "",
-      "レース名": "未勝利",
-      "距離": "ダ1800",
-      "馬名": "アイランド",
-      "騎手": "吉村誠之",
-      "順位": "",
-      "賞金": "",
-      "所有者": "成田厩舎",
-      "_links": [
-        "http://race.netkeiba.com/?pid=race&id=c202609030403&mode=shutuba",
-        "umaracelist.do?group_num=0601142541&user_num=380051&kettonum=2023100944",
-        "userumalist.do?group_num=0601142541&user_num=380051"
-      ]
-    },
-    {
-      "日時": "06/14",
-      "競走": "阪神06R",
-      "col2": "",
-      "レース名": "５００万円以下",
-      "距離": "ダ1200",
-      "馬名": "キンダープンシュ",
-      "騎手": "Ｍ．デム",
-      "順位": "",
-      "賞金": "",
-      "所有者": "前田厩舎",
-      "_links": [
-        "http://race.netkeiba.com/?pid=race&id=c202609030406&mode=shutuba",
-        "umaracelist.do?group_num=0601142541&user_num=380046&kettonum=2023106989",
-        "userumalist.do?group_num=0601142541&user_num=380046"
-      ]
-    },
-    {
-      "日時": "06/14",
-      "競走": "東京08R",
-      "col2": "",
-      "レース名": "５００万円以下",
-      "距離": "ダ1600",
-      "馬名": "ミリオンヴォイス",
-      "騎手": "上里直汰",
+      "レース名": "新馬",
+      "距離": "ダ1400",
+      "馬名": "ディルイーヤ",
+      "騎手": "三浦皇成",
       "順位": "",
       "賞金": "",
       "所有者": "田崎厩舎",
       "_links": [
-        "http://race.netkeiba.com/?pid=race&id=c202605030408&mode=shutuba",
-        "umaracelist.do?group_num=0601142541&user_num=380048&kettonum=2023100131",
-        "userumalist.do?group_num=0601142541&user_num=380048"
+        "umaracelist.do?group_num=0601093409&user_num=407307&kettonum=2024106650",
+        "userumalist.do?group_num=0601093409&user_num=407307"
+      ]
+    },
+    {
+      "日時": "06/14",
+      "競走": "東京04R",
+      "col2": "",
+      "レース名": "新馬",
+      "距離": "ダ1400",
+      "馬名": "トゥザファイナル",
+      "騎手": "吉田豊",
+      "順位": "",
+      "賞金": "",
+      "所有者": "ミリオン厩舎",
+      "_links": [
+        "umaracelist.do?group_num=0601093409&user_num=407309&kettonum=2024106404",
+        "userumalist.do?group_num=0601093409&user_num=407309"
+      ]
+    },
+    {
+      "日時": "06/14",
+      "競走": "東京04R",
+      "col2": "",
+      "レース名": "新馬",
+      "距離": "ダ1400",
+      "馬名": "ボードゥロレーヌ",
+      "騎手": "ディー",
+      "順位": "",
+      "賞金": "",
+      "所有者": "長谷部厩舎",
+      "_links": [
+        "umaracelist.do?group_num=0601093409&user_num=407304&kettonum=2024106998",
+        "userumalist.do?group_num=0601093409&user_num=407304"
+      ]
+    },
+    {
+      "日時": "06/14",
+      "競走": "東京04R",
+      "col2": "",
+      "レース名": "新馬",
+      "距離": "ダ1400",
+      "馬名": "ラキアーヴェ",
+      "騎手": "石川裕紀",
+      "順位": "",
+      "賞金": "",
+      "所有者": "前田厩舎",
+      "_links": [
+        "umaracelist.do?group_num=0601093409&user_num=407310&kettonum=2024106284",
+        "userumalist.do?group_num=0601093409&user_num=407310"
       ]
     }
   ],
-  "special_regist": [
-    {
-      "日時": "06/13",
-      "競走": "阪神10R",
-      "col2": "特別",
-      "レース名": "安芸特別",
-      "距離": "ダ1200",
-      "馬名": "テーオーグレーザー",
-      "所有者": "田崎厩舎",
-      "_links": [
-        "http://umachu.com/r/26/09/090303_10.html/",
-        "umaracelist.do?group_num=0601142541&user_num=380048&kettonum=2023104562",
-        "userumalist.do?group_num=0601142541&user_num=380048"
-      ]
-    }
-  ]
+  "special_regist": []
 }
