@@ -1742,14 +1742,14 @@ function StatusScreen({ data }) {
     return <div style={{ textAlign:"center", color:"#aaa", marginTop:40, fontSize:14 }}>読み込み中…</div>;
   }
 
-  // 2026-27シーズンの馬のみ表示
-  const sched  = (data.schedule_results || []).filter(r => HORSES_2627_SET.has(pick(r,["馬名"])));
-  const regist = (data.special_regist   || []).filter(r => HORSES_2627_SET.has(pick(r,["馬名"])));
-
   const pick = (rec, keys) => {
     for (const k of keys) if (rec[k]) return rec[k];
     return "";
   };
+
+  // 2026-27シーズンの馬のみ表示
+  const sched  = (data.schedule_results || []).filter(r => HORSES_2627_SET.has(pick(r,["馬名"])));
+  const regist = (data.special_regist   || []).filter(r => HORSES_2627_SET.has(pick(r,["馬名"])));
   // グレード等（col* に入りがちな短い値）を拾う
   const grade = (rec) => {
     for (const k of Object.keys(rec)) {
