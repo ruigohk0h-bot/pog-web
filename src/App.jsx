@@ -2215,8 +2215,19 @@ function Season2627Screen() {
   }, []);
 
   // 静的な馬名が無くても、登録情報（母名→馬名）があればそれを使う
-  const horseName = (player, h) =>
-    h.name || (regist[player.id] && regist[player.id][h.dam]) || null;
+  const horseName = (player, h) => {
+    const pReg = regist[player.id];
+    return h.name || (pReg && pReg.dam_to_name && pReg.dam_to_name[h.dam]) || null;
+  };
+
+  // 在厩ステータスをregist2627から取得（"O"=在厩、"—"=不在）
+  const horseActive = (player, horseName_) => {
+    const pReg = regist[player.id];
+    if (!pReg || !pReg.horses) return true; // データなければ在厩とみなす
+    const found = pReg.horses.find(h => h.name === horseName_);
+    if (!found) return true;
+    return found.active;
+  };
 
   return (
     <div style={{ paddingBottom:16 }}>
@@ -2265,11 +2276,15 @@ function Season2627Screen() {
                   {player.horses.map(h => {
                     const nm = horseName(player, h);
                     const isNamed = !!nm;
+                    const isActive = isNamed ? horseActive(player, nm) : false;
+                    // 在厩データ取得済みかどうか（falseも意味ある値として区別）
+                    const hasRegistData = !!(regist[player.id] && regist[player.id].horses);
                     return (
                       <div key={h.no} style={{
                         display:"flex", alignItems:"center", gap:5,
                         padding:"4px 2px",
                         borderBottom:"1px solid #f5f5f5",
+                        opacity: isNamed && hasRegistData && !isActive ? 0.5 : 1,
                       }}>
                         {/* 指名順バッジ */}
                         <div style={{
@@ -2281,11 +2296,21 @@ function Season2627Screen() {
                         }}>{h.no}</div>
                         {/* 馬情報 */}
                         <div style={{ flex:1, minWidth:0, overflow:"hidden" }}>
-                          {isNamed ? (
-                            <div translate="no" style={{ fontWeight:800, fontSize:12, color:"#222", whiteSpace:"nowrap", overflow:"hidden", textOverflow:"ellipsis" }}>{nm}</div>
-                          ) : (
-                            <div style={{ fontWeight:700, fontSize:11, color:"#bbb" }}>名前未定</div>
-                          )}
+                          <div style={{ display:"flex", alignItems:"center", gap:3 }}>
+                            {isNamed ? (
+                              <span translate="no" style={{ fontWeight:800, fontSize:12, color:"#222", whiteSpace:"nowrap", overflow:"hidden", textOverflow:"ellipsis" }}>{nm}</span>
+                            ) : (
+                              <span style={{ fontWeight:700, fontSize:11, color:"#bbb" }}>名前未定</span>
+                            )}
+                            {/* 在厩バッジ（データあるときのみ） */}
+                            {isNamed && hasRegistData && (
+                              <span style={{
+                                fontSize:8, padding:"0 3px", borderRadius:2, flexShrink:0,
+                                background: isActive ? "#27ae60" : "#bbb",
+                                color:"#fff", fontWeight:700,
+                              }}>{isActive ? "在厩" : "不在"}</span>
+                            )}
+                          </div>
                           <div style={{ fontSize:9, color: isNamed ? "#aaa" : "#ccc", whiteSpace:"nowrap", overflow:"hidden", textOverflow:"ellipsis" }}>
                             {h.dam && <span>母{h.dam}</span>}
                           </div>

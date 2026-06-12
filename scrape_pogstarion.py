@@ -195,7 +195,7 @@ def parse_results_from_schedule(schedule_results):
 
 
 def scrape_registrations(group_num, stable_users):
-    """各厩舎の登録馬一覧から、母名→馬名の対応を取得する"""
+    """各厩舎の登録馬一覧から、馬名・在厩・血統を取得する"""
     import time
     result = {}
     for pid, user_num in stable_users.items():
@@ -209,7 +209,8 @@ def scrape_registrations(group_num, stable_users):
             continue
 
         soup = BeautifulSoup(resp.text, "html.parser")
-        mapping = {}
+        dam_to_name = {}
+        horses = []
         for t in soup.find_all("table"):
             rows = t.find_all("tr")
             if not rows:
@@ -218,27 +219,53 @@ def scrape_registrations(group_num, stable_users):
             hjoin = "".join(headers)
             if "馬名" not in hjoin or "血統" not in hjoin:
                 continue
+
+            # カラムインデックスを取得
             try:
-                name_idx = headers.index("馬名")
+                name_idx  = headers.index("馬名")
             except ValueError:
                 continue
-            ped_idx = len(headers) - 1
+            active_idx = headers.index("在厩") if "在厩" in headers else None
+            ped_idx    = len(headers) - 1  # 血統は最終列
+
             for tr in rows[1:]:
                 cells = [cell_text(c) for c in tr.find_all(["th", "td"])]
                 if len(cells) <= ped_idx:
                     continue
                 name = cells[name_idx].strip()
-                ped = cells[ped_idx]
-                m = re.search(r"母(.+)$", ped)
-                if not m:
-                    continue
-                dam = m.group(1).strip()
-                if dam and name:
-                    mapping[dam] = name
-            break
-        if mapping:
-            result[pid] = mapping
-            print(f"  [{pid}] 登録馬名 {len(mapping)}件", flush=True)
+                ped  = cells[ped_idx]
+
+                # 在厩: "O" → True, それ以外(空/—) → False
+                active = True
+                if active_idx is not None and active_idx < len(cells):
+                    active = cells[active_idx].strip() == "O"
+
+                # 血統から父・母を抽出（例: "父Yaupon\n母Shanghai Starlet"）
+                sire_m = re.search(r"父(.+?)(?:\s|母|$)", ped)
+                dam_m  = re.search(r"母(.+?)$", ped.strip())
+                sire   = sire_m.group(1).strip() if sire_m else ""
+                dam    = dam_m.group(1).strip()  if dam_m  else ""
+
+                if dam:
+                    dam_to_name[dam] = name if name else None
+
+                horses.append({
+                    "name":   name if name else None,
+                    "active": active,
+                    "sire":   sire,
+                    "dam":    dam,
+                })
+
+            break  # 最初に見つかったテーブルのみ処理
+
+        if horses:
+            result[pid] = {
+                "dam_to_name": dam_to_name,
+                "horses": horses,
+            }
+            named   = sum(1 for h in horses if h["name"])
+            active  = sum(1 for h in horses if h["active"])
+            print(f"  [{pid}] {len(horses)}頭（名前あり{named}・在厩{active}）", flush=True)
         time.sleep(0.5)
     return result
 
