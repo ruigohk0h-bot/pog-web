@@ -941,7 +941,7 @@ function RankingScreen({ onSelectPlayer, updated, results }) {
       const medal = ["🥇","🥈","🥉"][i] ?? `${i+1}位`;
       return `${medal} ${player?.name} ${fmt(u.pt)}pt`;
     }).join("\n");
-    const shareText = `🐴 POG砂遊び 2025-26 現在のランキング\n\n${text}\n\n${window.location.href}`;
+    const shareText = `🐴 POG砂遊び 2026-27 現在のランキング\n\n${text}\n\n${window.location.href}`;
     if (navigator.share) {
       try { await navigator.share({ text: shareText }); } catch {}
     } else {
@@ -2882,7 +2882,7 @@ export default function App() {
   };
 
   // タイトルとバック
-  let title = "POG砂遊び 2025-26";
+  let title = "POG砂遊び 2026-27";
   let onBack = null;
   let content = null;
   let darkHeader = false;
