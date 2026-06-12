@@ -1485,7 +1485,7 @@ function HallScreen({ onSelectHallPlayer }) {
                       }
                     </div>
                     <div style={{ flex:1, fontWeight:700, fontSize:13, color:G.hallText }}>
-                      {player?.emoji} {player?.name ?? r.player}
+                      {player?.name ?? r.player}
                     </div>
                     <div style={{ textAlign:"right", flexShrink:0 }}>
                       <span style={{ fontWeight:800, fontSize:14, color: i===0?G.gold:G.hallText }}>
