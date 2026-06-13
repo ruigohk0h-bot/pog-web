@@ -369,11 +369,6 @@ def load_registered_horses():
                 if name and name not in HORSE_PLAYER:
                     HORSE_PLAYER[name] = pid
                     added += 1
-                HORSES_2627.add(name)
-                added += 1
-            elif name:
-                # 既存でも2026-27馬として90日窓・SPAIA検索対象にする
-                HORSES_2627.add(name)
     if added:
         print(f"  登録馬名を {added}件 追加", flush=True)
 
