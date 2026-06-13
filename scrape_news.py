@@ -38,11 +38,20 @@ def _load_horses_2627():
         return set(), {}
     horses = set()
     mapping = {}
-    for player_id, dam_to_name in data.items():
-        for horse_name in dam_to_name.values():
-            if horse_name:
-                horses.add(horse_name)
-                mapping[horse_name] = player_id
+    for player_id, val in data.items():
+        # 新フォーマット: {"dam_to_name":{...}, "horses":[{name,active,...}]}
+        if isinstance(val, dict) and "horses" in val:
+            for h in val["horses"]:
+                name = (h.get("name") or "").strip()
+                if name:
+                    horses.add(name)
+                    mapping[name] = player_id
+        # 旧フォーマット互換: {dam: name}
+        elif isinstance(val, dict):
+            for horse_name in val.values():
+                if horse_name and isinstance(horse_name, str):
+                    horses.add(horse_name)
+                    mapping[horse_name] = player_id
     return horses, mapping
 
 HORSES_2627, _HORSE_PLAYER_2627 = _load_horses_2627()
@@ -345,11 +354,21 @@ def load_registered_horses():
         print(f"  登録馬名の読み込み失敗: {e}", flush=True)
         return
     added = 0
-    for pid, mapping in regist.items():
-        for dam, name in mapping.items():
-            name = (name or "").strip()
-            if name and name not in HORSE_PLAYER:
-                HORSE_PLAYER[name] = pid
+    for pid, val in regist.items():
+        # 新フォーマット: {"dam_to_name":{...}, "horses":[{name,...}]}
+        if isinstance(val, dict) and "horses" in val:
+            for h in val["horses"]:
+                name = (h.get("name") or "").strip()
+                if name and name not in HORSE_PLAYER:
+                    HORSE_PLAYER[name] = pid
+                    added += 1
+        # 旧フォーマット互換
+        elif isinstance(val, dict):
+            for dam, name in val.items():
+                name = (name or "").strip()
+                if name and name not in HORSE_PLAYER:
+                    HORSE_PLAYER[name] = pid
+                    added += 1
                 HORSES_2627.add(name)
                 added += 1
             elif name:
