@@ -895,7 +895,7 @@ function ResultRow({ r, showPlayer=true }) {
         {zero ? "+0" : `+${fmt(dPt)}`}
         {r.surface === "turf" && r.turfPt > 0 && (
           <span style={{ display:"block", fontSize:8, color:"#bbb", fontWeight:400 }}>
-            (ダ{fmt(r.turfPt)})
+            ({fmt(r.turfPt)}pt没収)
           </span>
         )}
       </span>
