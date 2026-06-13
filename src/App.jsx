@@ -891,8 +891,13 @@ function ResultRow({ r, showPlayer=true }) {
       <span style={COL.horse}>{r.horse}</span>
       <span style={{...COL.order, color:orderColor}}>{r.order}着</span>
       {showPlayer && <span style={COL.player}>{playerName(r.player)}</span>}
-      <span style={{...COL.pt, color: zero ? "#bbb" : "#d33"}}>
+      <span style={{...COL.pt, color: zero ? "#bbb" : "#d33", lineHeight:1.2}}>
         {zero ? "+0" : `+${fmt(dPt)}`}
+        {r.surface === "turf" && r.turfPt > 0 && (
+          <span style={{ display:"block", fontSize:8, color:"#bbb", fontWeight:400 }}>
+            (ダ{fmt(r.turfPt)})
+          </span>
+        )}
       </span>
     </div>
   );
