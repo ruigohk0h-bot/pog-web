@@ -1,7 +1,25 @@
 [
   {
+    "horse": "デミアン",
+    "player": "P02",
+    "title": "海外メディアも「日本で初勝利」のフライトライン産駒に注目　「最も注目を集めているのは…」超大物も紹介",
+    "desc": "フライトライン産駒の世界初勝利は海外メディアも速報を伝えている。米国競馬専門メディア「ブラッドホース」は日本時間14日、「フライトラインが産駒初勝利　デミアンが日本で勝利」との見出しで速報記事をアップ。注目度の高さがうかがえる。\n\n\t\t\t\t　日本で初出走となったフライトライン産駒のデミアン(牡2歳、美浦・斎藤誠厩舎)が、13日の東京6R・2歳新馬(芝1400メートル)で産駒初勝利を飾り、同メディアは「終盤に見事な?..",
+    "source": "netkeiba",
+    "date": "2026/06/14",
+    "url": "https://news.netkeiba.com/?pid=news_view&no=334261"
+  },
+  {
     "horse": "スターフラッシュ",
     "player": "P01",
+    "title": "【東京4R・新馬戦】8番人気ユイノエスポワールが差し切り!大野は「ポテンシャルで勝ってくれた」",
+    "desc": "東京4R・新馬戦(ダート1400メートル)は8番人気のユイノエスポワール(牡＝竹内、父ディスクリートキャット)が先に抜け出した1番人気スターフラッシュ(2着)を差し切った。\n\n　手綱を取った大野は「まだ粗削りで課題が多いが、ポテンシャルで勝ってくれた」と素質を評価。竹内師は「予測以上の走り。砂のキックバックを気にしていたが、3、4角で外へ出してから脚を使ってくれた」と振り返った。",
+    "source": "netkeiba",
+    "date": "2026/06/14",
+    "url": "https://news.netkeiba.com/?pid=news_view&no=334260"
+  },
+  {
+    "horse": "トゥザファイナル",
+    "player": "P04",
     "title": "【東京4R新馬戦結果】8番人気ユイノエスポワールが差し切り勝ち ディスクリートキャット産駒",
     "desc": "14日、東京競馬場4Rで行われた新馬戦(2歳・ダ1400m・14頭)は、中団から脚を伸ばして前を捕らえた大野拓弥騎手騎乗の8番人気ユイノエスポワール(牡2、美浦・竹内正洋厩舎)が、2番手追走から一旦は抜け出した1番人気スターフラッシュ(牡2、美浦・木村哲也厩舎)に1.1/4馬身差をつけ優勝した。勝ちタイムは1分24秒6(稍重)。\n\n　さらに1/2馬身差の3着に4番人気トゥザファイナル(牡2、美浦・小島茂之厩舎)が入った。なお、2番人気...",
     "source": "netkeiba",
@@ -200,20 +218,20 @@
   {
     "horse": "デミアン",
     "player": "P02",
-    "title": "デミアンが快勝でフライトライン産駒世界初勝利／新馬戦 - 日刊スポーツ",
-    "desc": "デミアンが快勝でフライトライン産駒世界初勝利／新馬戦&nbsp;&nbsp;日刊スポーツ",
-    "source": "日刊スポーツ",
-    "date": "2026/06/13",
-    "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE1kc1hCeWt5bTh0STZwR2sxY3JXempPSEwwYlJ4NjJVeVUwWWMwclJjeUItakN6NTVKdzRCYS14Rmtzb3A4c1lmRXBXbDQwbU1UblN3YnlNanpyeDk3UEthVFdlNEtpMGNuSlV0QTdKOHVpd9IBdEFVX3lxTE1LeGZyeVZUcXRFaDBQOEk0Z1R6UUR4QWVjSXIwdTVNS0g2WDNxLXY5SzJSaGNSYnhEZkFITmxWNy1OVE5BTmxZSE11dldmQmt0UjJvMU5fSVZxekppZjRvdlM1V1pMVGUyX0p1ZU1uV0ZaanZ6?oc=5"
-  },
-  {
-    "horse": "デミアン",
-    "player": "P02",
     "title": "デミアンが快勝でフライトライン産駒世界初勝利／新馬戦（日刊スポーツ） - Yahoo!ニュース",
     "desc": "デミアンが快勝でフライトライン産駒世界初勝利／新馬戦（日刊スポーツ）&nbsp;&nbsp;Yahoo!ニュース",
     "source": "Yahoo!ニュース",
     "date": "2026/06/13",
     "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5EdG1vMjRsMnU5RFdLNXlUeUtlQ1FlZFI1RC1hVS1HSVplZGp3VERnOUFMWEI1N2w0RGtpVEtYYU92Z003dVYwTlV4SGVkY253d2FjWDVxZGZwV2NZZU5SbDBfQ3RydWEtaTVTc3JERUpXb3VMM2lQS05UTGs5dWc?oc=5"
+  },
+  {
+    "horse": "デミアン",
+    "player": "P02",
+    "title": "デミアンが快勝でフライトライン産駒世界初勝利／新馬戦 - 日刊スポーツ",
+    "desc": "デミアンが快勝でフライトライン産駒世界初勝利／新馬戦&nbsp;&nbsp;日刊スポーツ",
+    "source": "日刊スポーツ",
+    "date": "2026/06/13",
+    "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1LeGZyeVZUcXRFaDBQOEk0Z1R6UUR4QWVjSXIwdTVNS0g2WDNxLXY5SzJSaGNSYnhEZkFITmxWNy1OVE5BTmxZSE11dldmQmt0UjJvMU5fSVZxekppZjRvdlM1V1pMVGUyX0p1ZU1uV0ZaanZ60gF0QVVfeXFMTUt4ZnJ5VlRxdEVoMFA4STRnVHpRRHhBZWNJcjB1NU1LSDZYM3EtdjlLMlJoY1JieERmQUhObFY3LU5UTkFObFlITXV2V2ZCa3RSMm8xTl9JVnF6SmlmNG92UzVXWkxUZTJfSnVlTW5XRlpqdno?oc=5"
   },
   {
     "horse": "デミアン",
@@ -641,11 +659,11 @@
   {
     "horse": "デミアン",
     "player": "P02",
-    "title": "【POG】世界的に注目を集めるフライトラインの初年度産駒デミアンがゲート試験に合格 | 競馬ニュース - netkeiba - netkeiba",
-    "desc": "【POG】世界的に注目を集めるフライトラインの初年度産駒デミアンがゲート試験に合格 | 競馬ニュース - netkeiba&nbsp;&nbsp;netkeiba",
+    "title": "【POG】世界的に注目を集めるフライトラインの初年度産駒デミアンがゲート試験に合格 - netkeiba",
+    "desc": "【POG】世界的に注目を集めるフライトラインの初年度産駒デミアンがゲート試験に合格&nbsp;&nbsp;netkeiba",
     "source": "netkeiba",
     "date": "2026/04/29",
-    "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE95aXlXZ1dhUWpVNmJBeHBncUhNSC03ak82QTFGcmk1TGFrRl9YeGYtd01ITFNpaHdfcXZPQW42MFQ4MElWQU4zVC1VN29kdG5qVW9LRnJuLWtHcHBGb0d2ZEpmSmlIaFBfSExTcFhzR29jZ2dmTkHSAXZBVV95cUxPeWl5V2dXYVFqVTZiQXhwZ3FITUgtN2pPNkExRnJpNUxha0ZfWHhmLXdNSExTaWh3X3F2T0FuNjBUODBJVkFOM1QtVTdvZHRualVvS0Zybi1rR3BwRm9HdmRKZkppSGhQX0hMU3BYc0dvY2dnZk5B?oc=5"
+    "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9LMlg0SURoUV9ZVDc0MTJyTF9HZHRtb0V0U1RHMHk2VnJpbFh0d09MeEFWMHhfN0hreWdMUm1PdnNLaGFPb3pTaEVncUhqZGpjVGJ5cUIwby00YU5QUTg4?oc=5"
   },
   {
     "horse": "ブックオブケルズ",
