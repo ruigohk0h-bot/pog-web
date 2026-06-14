@@ -912,6 +912,17 @@ function ResultCard({ r, showPlayer=true }) {
 // ================================================================
 
 function RankingScreen({ onSelectPlayer, updated, results }) {
+  // 2026-27シーズン合計pt（results.jsonから計算）
+  const totalPtMap = (() => {
+    const map = {};
+    for (const r of results) {
+      if (r.surface !== "dirt" || r.rawPt <= 0) continue;
+      if (!HORSES_2627_SET.has(r.horse)) continue;
+      map[r.player] = (map[r.player] || 0) + r.rawPt;
+    }
+    return map;
+  })();
+
   // 直近7日間のダート入着ptをプレイヤー別に集計
   const weeklyPt = (() => {
     const today = new Date();
@@ -923,18 +934,19 @@ function RankingScreen({ onSelectPlayer, updated, results }) {
     for (const r of results) {
       if (r.surface !== "dirt" || r.rawPt <= 0) continue;
       if (r.date < cutLabel) continue;
-      if (!HORSES_2627_SET.has(r.horse)) continue; // 2026-27の馬のみ
+      if (!HORSES_2627_SET.has(r.horse)) continue;
       map[r.player] = (map[r.player] || 0) + r.rawPt;
     }
     return map;
   })();
 
-  const sorted = [...CURRENT_SEASON.users].sort((a,b) => b.pt - a.pt);
-  const max = sorted[0].pt;
+  const users = CURRENT_SEASON.users.map(u => ({ ...u, pt: totalPtMap[u.id] || 0 }));
+  const sorted = [...users].sort((a,b) => b.pt - a.pt);
+  const max = sorted[0].pt || 1;
   const topPt = sorted[0].pt;
 
   // 前週ランキング（週間ptを差し引いた順位）
-  const prevSorted = [...CURRENT_SEASON.users]
+  const prevSorted = [...users]
     .map(u => ({ ...u, prevPt: u.pt - (weeklyPt[u.id] || 0) }))
     .sort((a,b) => b.prevPt - a.prevPt);
   const prevRankMap = {};
@@ -1038,7 +1050,7 @@ function RankingScreen({ onSelectPlayer, updated, results }) {
   );
 }
 
-function PlayerDetailScreen({ userId, onBack, onSelectHorse, kettonums }) {
+function PlayerDetailScreen({ userId, onBack, onSelectHorse, kettonums, regist2627 = {} }) {
   const user = CURRENT_SEASON.users.find(u => u.id === userId);
   const horses = getHorses(userId);
   const player = PLAYERS.find(p => p.id === userId);
@@ -1061,10 +1073,16 @@ function PlayerDetailScreen({ userId, onBack, onSelectHorse, kettonums }) {
         const netkeibaUrl = kettonums[h.name]
           ? `https://db.netkeiba.com/horse/${kettonums[h.name]}/`
           : `https://www.google.com/search?q=netkeiba+${encodeURIComponent(h.name)}`;
+        // regist2627から在厩フラグ取得
+        const pReg = regist2627[userId];
+        const registHorse = pReg?.horses?.find(rh => rh.name === h.name);
+        const hasRegistData = !!(pReg?.horses);
+        const isActive = hasRegistData ? (registHorse?.active ?? false) : h.active;
         return (
           <div key={h.no} style={{
             background:"#fff", borderBottom:"1px solid #f0f0f0",
             padding:"4px 10px", display:"flex", alignItems:"center", gap:6,
+            opacity: hasRegistData && !isActive ? 0.5 : 1,
           }}>
             {/* 番号 */}
             <div style={{
@@ -1076,9 +1094,13 @@ function PlayerDetailScreen({ userId, onBack, onSelectHorse, kettonums }) {
             <div style={{ flex:1, minWidth:0, cursor:"pointer" }} onClick={() => onSelectHorse(h)}>
               <div style={{ fontWeight:700, fontSize:12, display:"flex", alignItems:"center", gap:3, whiteSpace:"nowrap", overflow:"hidden", textOverflow:"ellipsis" }}>
                 {h.name}
-                {h.active && (
-                  <span style={{ fontSize:8, color:G.green, border:`1px solid ${G.green}`, borderRadius:3, padding:"0 2px", flexShrink:0 }}>
-                    在厩
+                {hasRegistData && (
+                  <span style={{
+                    fontSize:8, borderRadius:3, padding:"0 2px", flexShrink:0,
+                    color: isActive ? G.green : "#bbb",
+                    border: `1px solid ${isActive ? G.green : "#bbb"}`,
+                  }}>
+                    {isActive ? "在厩" : "不在"}
                   </span>
                 )}
               </div>
@@ -2846,6 +2868,7 @@ export default function App() {
   const [news, setNews] = useState([]);
   const [updated, setUpdated] = useState("");
   const [statusData, setStatusData] = useState(null);
+  const [regist2627, setRegist2627] = useState({});
   const [ptr, setPtr] = useState({ active:false, y:0, pulling:false }); // pull-to-refresh
 
   const loadAll = (bust = false) => {
@@ -2857,6 +2880,7 @@ export default function App() {
     fetch(`${base}data/news.json${q}`).then(r => r.json()).then(setNews).catch(() => {});
     fetch(`${base}data/updated.json${q}`).then(r => r.json()).then(d => setUpdated(d.updated || "")).catch(() => {});
     fetch(`${base}data/pogstarion.json${q}`).then(r => r.json()).then(setStatusData).catch(() => {});
+    fetch(`${base}data/regist2627.json${q}`).then(r => r.json()).then(setRegist2627).catch(() => {});
   };
 
   useEffect(() => { loadAll(); }, []);
@@ -2901,7 +2925,7 @@ export default function App() {
       title = playerName(selectedPlayerId);
       onBack = () => setSPId(null);
       content = <PlayerDetailScreen userId={selectedPlayerId} onBack={()=>setSPId(null)}
-                  onSelectHorse={h => { setSHorse(h); }} kettonums={kettonums} />;
+                  onSelectHorse={h => { setSHorse(h); }} kettonums={kettonums} regist2627={regist2627} />;
     } else {
       content = <RankingScreen onSelectPlayer={u => setSPId(u.id)} updated={updated} results={results} />;
     }
