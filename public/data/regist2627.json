@@ -17,7 +17,7 @@
     "horses": [
       {
         "name": "トゥザファイナル",
-        "active": false,
+        "active": true,
         "sire": "ナダル",
         "dam": "スパークオンアイス"
       },
@@ -29,7 +29,7 @@
       },
       {
         "name": "ミクニブレイブ",
-        "active": false,
+        "active": true,
         "sire": "ナダル",
         "dam": "アンナミルト"
       },
@@ -107,7 +107,7 @@
     "horses": [
       {
         "name": "スターフラッシュ",
-        "active": false,
+        "active": true,
         "sire": "Yaupon",
         "dam": "Shanghai Starlet"
       },
@@ -119,7 +119,7 @@
       },
       {
         "name": "ラキアーヴェ",
-        "active": false,
+        "active": true,
         "sire": "ルヴァンスレーヴ",
         "dam": "クラーベセクレタ"
       },
@@ -143,7 +143,7 @@
       },
       {
         "name": "レッジェランツァ",
-        "active": false,
+        "active": true,
         "sire": "シスキン",
         "dam": "エレヴァテッツァ"
       },
@@ -155,7 +155,7 @@
       },
       {
         "name": "エスクアドラ",
-        "active": false,
+        "active": true,
         "sire": "レイデオロ",
         "dam": "ジューヌエコール"
       },
@@ -167,7 +167,7 @@
       },
       {
         "name": "コナパームス",
-        "active": false,
+        "active": true,
         "sire": "アドマイヤマーズ",
         "dam": "コナブリュワーズ"
       },
@@ -197,7 +197,7 @@
     "horses": [
       {
         "name": "デミアン",
-        "active": false,
+        "active": true,
         "sire": "Flightline",
         "dam": "Mira Alta"
       },
@@ -221,7 +221,7 @@
       },
       {
         "name": "アトミックリーチ",
-        "active": false,
+        "active": true,
         "sire": "コントレイル",
         "dam": "パリスビキニ"
       },
@@ -287,7 +287,7 @@
     "horses": [
       {
         "name": "ウィンターブリーズ",
-        "active": false,
+        "active": true,
         "sire": "ホットロッドチャーリー",
         "dam": "アイスパステル"
       },
@@ -317,7 +317,7 @@
       },
       {
         "name": "タクティシアン",
-        "active": false,
+        "active": true,
         "sire": "サリオス",
         "dam": "モルジアナ"
       },
@@ -395,7 +395,7 @@
       },
       {
         "name": "ウラノグラフィア",
-        "active": false,
+        "active": true,
         "sire": "ナダル",
         "dam": "リュラ"
       },
@@ -467,7 +467,7 @@
     "horses": [
       {
         "name": "ディルイーヤ",
-        "active": false,
+        "active": true,
         "sire": "マインドユアビスケッツ",
         "dam": "メメントモリ"
       },
@@ -479,7 +479,7 @@
       },
       {
         "name": "ディーヴァレギオン",
-        "active": false,
+        "active": true,
         "sire": "ナダル",
         "dam": "シャドウディーヴァ"
       },
@@ -491,19 +491,19 @@
       },
       {
         "name": "ヴィルダースヴィル",
-        "active": false,
+        "active": true,
         "sire": "ドレフォン",
         "dam": "セラドン"
       },
       {
         "name": "ブックオブケルズ",
-        "active": false,
+        "active": true,
         "sire": "リアルスティール",
         "dam": "シャンブルドット"
       },
       {
         "name": "ケンシロウワールド",
-        "active": false,
+        "active": true,
         "sire": "Violence",
         "dam": "Colby Cakes"
       },
@@ -557,7 +557,7 @@
     "horses": [
       {
         "name": "クロダテ",
-        "active": false,
+        "active": true,
         "sire": "キタサンブラック",
         "dam": "ファッショニスタ"
       },
@@ -611,7 +611,7 @@
       },
       {
         "name": "ムーンベリル",
-        "active": false,
+        "active": true,
         "sire": "クリソベリル",
         "dam": "クインズムーン"
       },
@@ -623,7 +623,7 @@
       },
       {
         "name": "ボードゥロレーヌ",
-        "active": false,
+        "active": true,
         "sire": "クリソベリル",
         "dam": "サイモンミラベル"
       }

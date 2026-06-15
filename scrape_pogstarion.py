@@ -235,10 +235,11 @@ def scrape_registrations(group_num, stable_users):
                 name = cells[name_idx].strip()
                 ped  = cells[ped_idx]
 
-                # 在厩: "O" → True, それ以外(空/—) → False
-                active = True
+                # 在厩: "Ｏ"(全角O=0xff2f) → True, "−"(マイナス=0x2212) → False
+                active = False
                 if active_idx is not None and active_idx < len(cells):
-                    active = cells[active_idx].strip() == "O"
+                    val = cells[active_idx].strip()
+                    active = val in ("Ｏ", "O", "○", "〇")
 
                 # 血統から父・母を抽出（例: "父Yaupon\n母Shanghai Starlet"）
                 sire_m = re.search(r"父(.+?)(?:\s|母|$)", ped)
