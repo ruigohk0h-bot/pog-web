@@ -1073,16 +1073,17 @@ function PlayerDetailScreen({ userId, onBack, onSelectHorse, kettonums, regist26
         const netkeibaUrl = kettonums[h.name]
           ? `https://db.netkeiba.com/horse/${kettonums[h.name]}/`
           : `https://www.google.com/search?q=netkeiba+${encodeURIComponent(h.name)}`;
-        // regist2627から在厩フラグ取得
+        // regist2627から在厩フラグ取得（名前のある馬のみ）
         const pReg = regist2627[userId];
-        const registHorse = pReg?.horses?.find(rh => rh.name === h.name);
+        const registHorse = h.name ? pReg?.horses?.find(rh => rh.name === h.name) : null;
         const hasRegistData = !!(pReg?.horses);
-        const isActive = hasRegistData ? (registHorse?.active ?? false) : h.active;
+        // 名前なし馬・登録馬名データなしはグレーアウトしない
+        const isActive = h.name && hasRegistData ? (registHorse?.active ?? false) : true;
         return (
           <div key={h.no} style={{
             background:"#fff", borderBottom:"1px solid #f0f0f0",
             padding:"4px 10px", display:"flex", alignItems:"center", gap:6,
-            opacity: hasRegistData && !isActive ? 0.5 : 1,
+            opacity: !isActive ? 0.5 : 1,
           }}>
             {/* 番号 */}
             <div style={{
@@ -1094,7 +1095,7 @@ function PlayerDetailScreen({ userId, onBack, onSelectHorse, kettonums, regist26
             <div style={{ flex:1, minWidth:0, cursor:"pointer" }} onClick={() => onSelectHorse(h)}>
               <div style={{ fontWeight:700, fontSize:12, display:"flex", alignItems:"center", gap:3, whiteSpace:"nowrap", overflow:"hidden", textOverflow:"ellipsis" }}>
                 {h.name}
-                {hasRegistData && (
+                {h.name && hasRegistData && (
                   <span style={{
                     fontSize:8, borderRadius:3, padding:"0 2px", flexShrink:0,
                     color: isActive ? G.green : "#bbb",
