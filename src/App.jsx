@@ -1077,8 +1077,8 @@ function PlayerDetailScreen({ userId, onBack, onSelectHorse, kettonums, regist26
         const pReg = regist2627[userId];
         const registHorse = h.name ? pReg?.horses?.find(rh => rh.name === h.name) : null;
         const hasRegistData = !!(pReg?.horses);
-        // 名前なし馬・登録馬名データなしはグレーアウトしない
-        const isActive = h.name && hasRegistData ? (registHorse?.active ?? false) : true;
+        // 名前なし馬・データなし・名前不一致はグレーアウトしない
+        const isActive = h.name && hasRegistData && registHorse ? registHorse.active : true;
         return (
           <div key={h.no} style={{
             background:"#fff", borderBottom:"1px solid #f0f0f0",
@@ -1106,8 +1106,7 @@ function PlayerDetailScreen({ userId, onBack, onSelectHorse, kettonums, regist26
                 )}
               </div>
               <div style={{ fontSize:9, color:"#aaa", lineHeight:1.2 }}>
-                {h.record}
-                {h.sire && <span style={{ marginLeft:4 }}>父<span translate="no">{h.sire}</span></span>}
+                {h.sire && <span>父<span translate="no">{h.sire}</span></span>}
                 {h.dam  && <span style={{ marginLeft:3 }}>母<span translate="no">{h.dam}</span></span>}
               </div>
             </div>
