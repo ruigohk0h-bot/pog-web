@@ -221,7 +221,7 @@
       },
       {
         "name": "アトミックリーチ",
-        "active": true,
+        "active": false,
         "sire": "コントレイル",
         "dam": "パリスビキニ"
       },
@@ -245,8 +245,8 @@
       },
       {
         "name": null,
-        "active": false,
-        "sire": "母セントリフュージ",
+        "active": true,
+        "sire": "ディスクリートキャット",
         "dam": "セントリフュージ"
       },
       {
@@ -395,7 +395,7 @@
       },
       {
         "name": "ウラノグラフィア",
-        "active": true,
+        "active": false,
         "sire": "ナダル",
         "dam": "リュラ"
       },
