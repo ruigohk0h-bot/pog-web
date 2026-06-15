@@ -976,7 +976,9 @@ function RankingScreen({ onSelectPlayer, updated, results }) {
 
       {sorted.map((u, i) => {
         const isTop = i === 0;
-        const ptGap = topPt - u.pt;
+        const abovePt = i > 0 ? sorted[i-1].pt : 0;
+        const aboveRank = i;
+        const ptGap = abovePt - u.pt;
         const medal = ["🥇","🥈","🥉"][i];
         const player = PLAYERS.find(p => p.id === u.id);
         const prevRank = prevRankMap[u.id] ?? i;
@@ -1033,7 +1035,7 @@ function RankingScreen({ onSelectPlayer, updated, results }) {
               {/* ポイント差 */}
               {!isTop && (
                 <div style={{ fontSize:10, color:"#aaa", marginTop:3 }}>
-                  1位まで <span style={{ fontWeight:700, color:"#888" }}>▲{fmt(ptGap)}</span> pt
+                  {aboveRank}位まで <span style={{ fontWeight:700, color:"#888" }}>▲{fmt(ptGap)}</span> pt
                 </div>
               )}
             </div>
