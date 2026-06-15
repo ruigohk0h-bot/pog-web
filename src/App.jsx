@@ -1073,17 +1073,10 @@ function PlayerDetailScreen({ userId, onBack, onSelectHorse, kettonums, regist26
         const netkeibaUrl = kettonums[h.name]
           ? `https://db.netkeiba.com/horse/${kettonums[h.name]}/`
           : `https://www.google.com/search?q=netkeiba+${encodeURIComponent(h.name)}`;
-        // regist2627から在厩フラグ取得（名前のある馬のみ）
-        const pReg = regist2627[userId];
-        const registHorse = h.name ? pReg?.horses?.find(rh => rh.name === h.name) : null;
-        const hasRegistData = !!(pReg?.horses);
-        // 名前なし馬・データなし・名前不一致はグレーアウトしない
-        const isActive = h.name && hasRegistData && registHorse ? registHorse.active : true;
         return (
           <div key={h.no} style={{
             background:"#fff", borderBottom:"1px solid #f0f0f0",
             padding:"4px 10px", display:"flex", alignItems:"center", gap:6,
-            opacity: !isActive ? 0.5 : 1,
           }}>
             {/* 番号 */}
             <div style={{
@@ -1095,15 +1088,6 @@ function PlayerDetailScreen({ userId, onBack, onSelectHorse, kettonums, regist26
             <div style={{ flex:1, minWidth:0, cursor:"pointer" }} onClick={() => onSelectHorse(h)}>
               <div style={{ fontWeight:700, fontSize:12, display:"flex", alignItems:"center", gap:3, whiteSpace:"nowrap", overflow:"hidden", textOverflow:"ellipsis" }}>
                 {h.name}
-                {h.name && hasRegistData && (
-                  <span style={{
-                    fontSize:8, borderRadius:3, padding:"0 2px", flexShrink:0,
-                    color: isActive ? G.green : "#bbb",
-                    border: `1px solid ${isActive ? G.green : "#bbb"}`,
-                  }}>
-                    {isActive ? "在厩" : "不在"}
-                  </span>
-                )}
               </div>
               <div style={{ fontSize:9, color:"#aaa", lineHeight:1.2 }}>
                 {h.sire && <span>父<span translate="no">{h.sire}</span></span>}
@@ -2324,15 +2308,11 @@ function Season2627Screen() {
                   {player.horses.map(h => {
                     const nm = horseName(player, h);
                     const isNamed = !!nm;
-                    const isActive = isNamed ? horseActive(player, nm) : false;
-                    // 在厩データ取得済みかどうか（falseも意味ある値として区別）
-                    const hasRegistData = !!(regist[player.id] && regist[player.id].horses);
                     return (
                       <div key={h.no} style={{
                         display:"flex", alignItems:"center", gap:5,
                         padding:"4px 2px",
                         borderBottom:"1px solid #f5f5f5",
-                        opacity: isNamed && hasRegistData && !isActive ? 0.5 : 1,
                       }}>
                         {/* 指名順バッジ */}
                         <div style={{
@@ -2349,14 +2329,6 @@ function Season2627Screen() {
                               <span translate="no" style={{ fontWeight:800, fontSize:12, color:"#222", whiteSpace:"nowrap", overflow:"hidden", textOverflow:"ellipsis" }}>{nm}</span>
                             ) : (
                               <span style={{ fontWeight:700, fontSize:11, color:"#bbb" }}>名前未定</span>
-                            )}
-                            {/* 在厩バッジ（データあるときのみ） */}
-                            {isNamed && hasRegistData && (
-                              <span style={{
-                                fontSize:8, padding:"0 3px", borderRadius:2, flexShrink:0,
-                                background: isActive ? "#27ae60" : "#bbb",
-                                color:"#fff", fontWeight:700,
-                              }}>{isActive ? "在厩" : "不在"}</span>
                             )}
                           </div>
                           <div style={{ fontSize:9, color: isNamed ? "#aaa" : "#ccc", whiteSpace:"nowrap", overflow:"hidden", textOverflow:"ellipsis" }}>
