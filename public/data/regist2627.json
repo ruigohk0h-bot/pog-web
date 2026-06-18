@@ -233,7 +233,7 @@
       },
       {
         "name": "ダノンチャンピオン",
-        "active": false,
+        "active": true,
         "sire": "ホットロッドチャーリー",
         "dam": "トップデサイル"
       },
@@ -467,7 +467,7 @@
     "horses": [
       {
         "name": "ディルイーヤ",
-        "active": true,
+        "active": false,
         "sire": "マインドユアビスケッツ",
         "dam": "メメントモリ"
       },
@@ -479,7 +479,7 @@
       },
       {
         "name": "ディーヴァレギオン",
-        "active": true,
+        "active": false,
         "sire": "ナダル",
         "dam": "シャドウディーヴァ"
       },
@@ -491,7 +491,7 @@
       },
       {
         "name": "ヴィルダースヴィル",
-        "active": true,
+        "active": false,
         "sire": "ドレフォン",
         "dam": "セラドン"
       },
@@ -623,7 +623,7 @@
       },
       {
         "name": "ボードゥロレーヌ",
-        "active": true,
+        "active": false,
         "sire": "クリソベリル",
         "dam": "サイモンミラベル"
       }
