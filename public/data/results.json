@@ -1,5 +1,21 @@
 [
   {
+    "date": "06/21",
+    "venue": "東京",
+    "race": "新馬",
+    "course": "芝1400",
+    "surface": "turf",
+    "dist": 1400,
+    "horse": "タクティシアン",
+    "player": "P07",
+    "order": 1,
+    "grade": null,
+    "local": false,
+    "rawPt": 0,
+    "turfPt": 780,
+    "_ts": "06/21"
+  },
+  {
     "date": "06/20",
     "venue": "東京",
     "race": "新馬",
