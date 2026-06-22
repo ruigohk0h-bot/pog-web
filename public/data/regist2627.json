@@ -17,7 +17,7 @@
     "horses": [
       {
         "name": "トゥザファイナル",
-        "active": true,
+        "active": false,
         "sire": "ナダル",
         "dam": "スパークオンアイス"
       },
@@ -59,8 +59,8 @@
       },
       {
         "name": null,
-        "active": false,
-        "sire": "母エリーズスマイル",
+        "active": true,
+        "sire": "American",
         "dam": "エリーズスマイル"
       },
       {
@@ -125,7 +125,7 @@
       },
       {
         "name": "ラキアーヴェ",
-        "active": true,
+        "active": false,
         "sire": "ルヴァンスレーヴ",
         "dam": "クラーベセクレタ"
       },
@@ -197,7 +197,7 @@
     "horses": [
       {
         "name": "デミアン",
-        "active": true,
+        "active": false,
         "sire": "Flightline",
         "dam": "Mira Alta"
       },
@@ -335,8 +335,8 @@
       },
       {
         "name": null,
-        "active": false,
-        "sire": "母ミスエンパイアメント",
+        "active": true,
+        "sire": "Violence",
         "dam": "ミスエンパイアメント"
       },
       {
@@ -377,7 +377,7 @@
     "horses": [
       {
         "name": "ホウオウシュウ",
-        "active": false,
+        "active": true,
         "sire": "レイデオロ",
         "dam": "スペシャルグルーヴ"
       },
