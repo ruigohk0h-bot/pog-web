@@ -2393,6 +2393,7 @@ function Season2627Screen() {
 
 function StallionScreen({ stallions, results, stallionLeading }) {
   const [selectedId, setSelectedId] = useState(null);
+  const [selectedArticleId, setSelectedArticleId] = useState(null);
   const [activeSection, setActiveSection] = useState("column"); // column | leading | sire_rank | pog_pt
   const [leadingYear, setLeadingYear] = useState(null); // null = 最新年度
 
@@ -2441,6 +2442,32 @@ function StallionScreen({ stallions, results, stallionLeading }) {
   const leadingYears = Object.keys(stallionLeading?.years || {}).sort((a,b) => b-a);
   const currentLeadingYear = leadingYear || leadingYears[0];
   const leadingRows = stallionLeading?.years?.[currentLeadingYear] || [];
+
+  const articles = stallions?.articles || [];
+  const selectedArticle = selectedArticleId ? articles.find(a => a.id === selectedArticleId) : null;
+
+  if (selectedArticle) {
+    return (
+      <div style={{ padding:"12px 14px" }}>
+        <button onClick={() => setSelectedArticleId(null)} style={{
+          background:"none", border:"none", color:G.green, fontWeight:700, fontSize:13,
+          cursor:"pointer", padding:"0 0 10px", display:"flex", alignItems:"center", gap:4,
+        }}>← コラム一覧に戻る</button>
+        <div style={{ background:G.dirtDark, borderRadius:12, padding:"16px", color:"#fff", marginBottom:12 }}>
+          <div style={{ fontSize:28, marginBottom:6 }}>{selectedArticle.emoji}</div>
+          <div style={{ fontWeight:900, fontSize:16, lineHeight:1.5 }}>{selectedArticle.title}</div>
+          <div style={{ fontSize:11, opacity:0.7, marginTop:4 }}>{selectedArticle.date}</div>
+        </div>
+        {(selectedArticle.sections||[]).map((sec, i) => (
+          <div key={i} style={{ background:"#fff", borderRadius:10, padding:"14px", marginBottom:10 }}>
+            <div style={{ fontWeight:800, fontSize:13, color:G.dirtDark, marginBottom:8, paddingBottom:6, borderBottom:`2px solid ${G.dirtLight}` }}>{sec.heading}</div>
+            <div style={{ fontSize:12, lineHeight:1.9, color:"#333", whiteSpace:"pre-line" }}>{sec.body}</div>
+          </div>
+        ))}
+        <div style={{ fontSize:10, color:"#bbb", textAlign:"center", padding:"8px 0 20px" }}>参考：corpo-turu.com / keiba-bloodline.com</div>
+      </div>
+    );
+  }
 
   if (selected) {
     return (
@@ -2586,6 +2613,34 @@ function StallionScreen({ stallions, results, stallionLeading }) {
           ))}
           {columns.length === 0 && (
             <div style={{ textAlign:"center", color:"#bbb", padding:40, fontSize:13 }}>データ読み込み中...</div>
+          )}
+
+          {/* 血統コラム記事 */}
+          {articles.length > 0 && (
+            <div style={{ marginTop:16 }}>
+              <div style={{ fontWeight:900, fontSize:13, color:G.dirtDark, marginBottom:10, paddingBottom:6, borderBottom:`2px solid ${G.dirtLight}` }}>
+                📚 血統コラム
+              </div>
+              {articles.map(a => (
+                <div key={a.id} onClick={() => setSelectedArticleId(a.id)} style={{
+                  background:"#fff", borderRadius:12, marginBottom:10,
+                  boxShadow:"0 1px 4px rgba(0,0,0,0.08)", overflow:"hidden", cursor:"pointer",
+                  display:"flex", alignItems:"stretch",
+                }}>
+                  <div style={{ width:52, background:G.dirtDark, display:"flex", alignItems:"center", justifyContent:"center", fontSize:24, flexShrink:0 }}>
+                    {a.emoji}
+                  </div>
+                  <div style={{ padding:"10px 12px", flex:1 }}>
+                    <div style={{ fontWeight:800, fontSize:13, color:"#222", lineHeight:1.4, marginBottom:4 }}>{a.title}</div>
+                    <div style={{ fontSize:11, color:"#888", lineHeight:1.6, display:"-webkit-box", WebkitLineClamp:2, WebkitBoxOrient:"vertical", overflow:"hidden" }}>
+                      {a.summary}
+                    </div>
+                    <div style={{ fontSize:10, color:"#bbb", marginTop:4 }}>{a.date}</div>
+                  </div>
+                  <div style={{ display:"flex", alignItems:"center", paddingRight:10, color:"#ccc", fontSize:18, flexShrink:0 }}>›</div>
+                </div>
+              ))}
+            </div>
           )}
         </div>
       )}
