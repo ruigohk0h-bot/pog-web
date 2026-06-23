@@ -2396,7 +2396,7 @@ function StallionScreen({ stallions, results, stallionLeading }) {
   const [selectedArticleId, setSelectedArticleId] = useState(null);
   const [activeSection, setActiveSection] = useState("column"); // column | article | leading | sire_rank | pog_pt
   const [leadingYear, setLeadingYear] = useState(null); // null = 最新年度
-  const [leadingCategory, setLeadingCategory] = useState("dirt_jpn"); // dirt_jpn | turf_jpn | dirt_usa
+  const [leadingCategory, setLeadingCategory] = useState("dirt_jpn"); // dirt_jpn | turf_jpn | jpn_total | dirt_usa
 
   // 指名馬の父ランキング集計
   const sireCountMap = {};
@@ -2685,9 +2685,10 @@ function StallionScreen({ stallions, results, stallionLeading }) {
           {/* カテゴリータブ */}
           <div style={{ display:"flex", gap:6, marginBottom:10 }}>
             {[
-              { key:"dirt_jpn", label:"🇯🇵 日本ダート" },
-              { key:"turf_jpn", label:"🇯🇵 日本芝" },
-              { key:"dirt_usa", label:"🇺🇸 米国ダート" },
+              { key:"dirt_jpn",  label:"🇯🇵 日本ダート" },
+              { key:"turf_jpn",  label:"🇯🇵 日本芝" },
+              { key:"jpn_total", label:"🏆 JRA総合" },
+              { key:"dirt_usa",  label:"🇺🇸 米国ダート" },
             ].map(c => (
               <button key={c.key} onClick={() => { setLeadingCategory(c.key); setLeadingYear(null); }} style={{
                 flex:1, padding:"6px 4px", borderRadius:8, border:"none", cursor:"pointer", fontSize:11, fontWeight:700,
@@ -2710,6 +2711,37 @@ function StallionScreen({ stallions, results, stallionLeading }) {
           </div>
           {leadingRows.length === 0 ? (
             <div style={{ textAlign:"center", color:"#bbb", padding:40, fontSize:13 }}>データ読み込み中...</div>
+          ) : leadingCategory === "jpn_total" ? (
+            /* JRA総合（賞金ベース） */
+            <div style={{ background:"#fff", borderRadius:10, overflow:"hidden", boxShadow:"0 1px 4px rgba(0,0,0,0.08)" }}>
+              <div style={{ background:G.dirtDark, display:"grid", gridTemplateColumns:"32px 1fr 56px 52px 36px 36px", padding:"8px 10px", gap:4 }}>
+                {["順位","種牡馬","入着賞金","代表馬","重賞","芝/ダ"].map(h => (
+                  <div key={h} style={{ color:"rgba(255,255,255,0.85)", fontSize:10, fontWeight:700, textAlign: h==="種牡馬"||h==="代表馬"?"left":"center" }}>{h}</div>
+                ))}
+              </div>
+              {leadingRows.map((row, i) => (
+                <div key={i} style={{
+                  display:"grid", gridTemplateColumns:"32px 1fr 56px 52px 36px 36px",
+                  padding:"8px 10px", gap:4,
+                  borderBottom:"1px solid #f0f0f0",
+                  background: i%2===0?"#fff":"#fafafa",
+                }}>
+                  <div style={{ fontSize:11, fontWeight:800, color: i<3?G.dirtDark:"#aaa", textAlign:"center", alignSelf:"center" }}>{row.rank}</div>
+                  <div style={{ fontSize:12, fontWeight:700, color:"#222", alignSelf:"center" }} translate="no">{row.name}</div>
+                  <div style={{ fontSize:10, textAlign:"center", alignSelf:"center", fontWeight:700, color:G.dirtDark }}>
+                    {row.prize ? (Number(row.prize) >= 10000
+                      ? (Number(row.prize)/10000).toFixed(1) + "億"
+                      : Number(row.prize).toLocaleString() + "万") : "—"}
+                  </div>
+                  <div style={{ fontSize:10, color:"#666", alignSelf:"center", overflow:"hidden", textOverflow:"ellipsis", whiteSpace:"nowrap" }} translate="no">{row.repHorse || "—"}</div>
+                  <div style={{ fontSize:10, textAlign:"center", color:"#555", alignSelf:"center" }}>{row.gradeWin || "0"}</div>
+                  <div style={{ fontSize:10, textAlign:"center", color:"#777", alignSelf:"center" }}>{row.turfWin||0}/{row.dirtWin||0}</div>
+                </div>
+              ))}
+              <div style={{ padding:"8px 10px", fontSize:10, color:"#bbb", textAlign:"center" }}>
+                出典：netkeiba（JRA入着賞金ベース）　更新：毎週月曜
+              </div>
+            </div>
           ) : leadingCategory === "dirt_usa" ? (
             /* 米国ダート表示（勝利数・複勝率・メモ列） */
             <div style={{ background:"#fff", borderRadius:10, overflow:"hidden", boxShadow:"0 1px 4px rgba(0,0,0,0.08)" }}>
