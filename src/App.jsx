@@ -2388,6 +2388,259 @@ function Season2627Screen() {
   );
 }
 
+// ダート種牡馬研究画面
+// ================================================================
+
+function StallionScreen({ stallions, results }) {
+  const [selectedId, setSelectedId] = useState(null);
+  const [activeSection, setActiveSection] = useState("column"); // column | sire_rank | pog_pt
+
+  // 指名馬の父ランキング集計
+  const sireCountMap = {};
+  PLAYERS_2627.forEach(p => {
+    p.horses.forEach(h => {
+      if (h.name && h.sire) {
+        sireCountMap[h.sire] = (sireCountMap[h.sire] || 0) + 1;
+      }
+    });
+  });
+  const sireRanking = Object.entries(sireCountMap)
+    .sort((a, b) => b[1] - a[1])
+    .map(([sire, count]) => ({ sire, count }));
+
+  // 種牡馬別POGポイント集計
+  const horseToSire = {};
+  PLAYERS_2627.forEach(p => {
+    p.horses.forEach(h => { if (h.name && h.sire) horseToSire[h.name] = h.sire; });
+  });
+  const sirePtMap = {};
+  (results || []).forEach(r => {
+    if (r.surface !== "dirt" || r.rawPt <= 0) return;
+    const sire = horseToSire[r.horse];
+    if (!sire) return;
+    sirePtMap[sire] = (sirePtMap[sire] || 0) + r.rawPt;
+  });
+  const sirePtRanking = Object.entries(sirePtMap)
+    .sort((a, b) => b[1] - a[1])
+    .map(([sire, pt]) => ({ sire, pt }));
+
+  const maxCount = sireRanking[0]?.count || 1;
+  const maxPt = sirePtRanking[0]?.pt || 1;
+  const columns = stallions?.columns || [];
+  const selected = selectedId ? columns.find(s => s.id === selectedId) : null;
+
+  const sectionTabs = [
+    { key:"column",   label:"🔥 注目種牡馬" },
+    { key:"sire_rank",label:"📊 指名馬の父" },
+    { key:"pog_pt",   label:"🏆 POGポイント" },
+  ];
+
+  if (selected) {
+    return (
+      <div style={{ padding:"12px 14px" }}>
+        <button onClick={() => setSelectedId(null)} style={{
+          background:"none", border:"none", color:G.green, fontWeight:700, fontSize:13,
+          cursor:"pointer", padding:"0 0 10px", display:"flex", alignItems:"center", gap:4,
+        }}>← 一覧に戻る</button>
+        {/* ヘッダー */}
+        <div style={{ background:G.dirtDark, borderRadius:12, padding:"16px", color:"#fff", marginBottom:12 }}>
+          <div style={{ display:"flex", alignItems:"flex-start", justifyContent:"space-between" }}>
+            <div>
+              <div style={{ fontSize:20, fontWeight:900 }} translate="no">{selected.name}</div>
+              <div style={{ fontSize:13, opacity:0.8, marginTop:2 }}>{selected.nameJa}</div>
+            </div>
+            <div style={{ textAlign:"right", fontSize:11, opacity:0.8 }}>
+              <div>{selected.country}</div>
+              <div>{selected.born}年生</div>
+            </div>
+          </div>
+          <div style={{ marginTop:10, fontSize:11, opacity:0.85, lineHeight:1.6 }}>
+            父 <span translate="no" style={{ fontWeight:700 }}>{selected.sire}</span>
+            母父 <span translate="no" style={{ fontWeight:700 }}>{selected.damSire}</span>
+          </div>
+          <div style={{ marginTop:4, display:"flex", gap:6, flexWrap:"wrap" }}>
+            {(selected.tags||[]).map(t => (
+              <span key={t} style={{ fontSize:10, background:"rgba(255,255,255,0.2)", borderRadius:10, padding:"2px 8px" }}>{t}</span>
+            ))}
+          </div>
+        </div>
+        {/* 概要 */}
+        <div style={{ background:"#fff", borderRadius:10, padding:"14px", marginBottom:10 }}>
+          <div style={{ fontWeight:800, fontSize:13, marginBottom:6, color:G.dirtDark }}>📝 概要</div>
+          <div style={{ fontSize:12, lineHeight:1.8, color:"#333" }}>{selected.summary}</div>
+        </div>
+        {/* 現役成績 */}
+        <div style={{ background:"#fff", borderRadius:10, padding:"14px", marginBottom:10 }}>
+          <div style={{ fontWeight:800, fontSize:13, marginBottom:6, color:G.dirtDark }}>🏇 現役時代</div>
+          <div style={{ fontSize:12, lineHeight:1.8, color:"#333" }}>{selected.career}</div>
+        </div>
+        {/* 種付け料推移 */}
+        {selected.studFee && Object.keys(selected.studFee).length > 0 && (
+          <div style={{ background:"#fff", borderRadius:10, padding:"14px", marginBottom:10 }}>
+            <div style={{ fontWeight:800, fontSize:13, marginBottom:10, color:G.dirtDark }}>💰 種付け料推移</div>
+            <div style={{ display:"flex", gap:6, alignItems:"flex-end" }}>
+              {Object.entries(selected.studFee).map(([year, fee]) => {
+                const maxFee = Math.max(...Object.values(selected.studFee));
+                const h = Math.max(20, Math.round((fee / maxFee) * 80));
+                const isJpy = fee < 10000;
+                return (
+                  <div key={year} style={{ flex:1, display:"flex", flexDirection:"column", alignItems:"center", gap:2 }}>
+                    <div style={{ fontSize:9, color:G.dirt, fontWeight:700 }}>{isJpy ? `${fee}万` : `$${(fee/1000).toFixed(0)}k`}</div>
+                    <div style={{ width:"100%", height:h, background:G.dirt, borderRadius:"3px 3px 0 0", opacity:0.85 }} />
+                    <div style={{ fontSize:9, color:"#999" }}>{year}</div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
+        {/* 代表産駒 */}
+        <div style={{ background:"#fff", borderRadius:10, padding:"14px", marginBottom:10 }}>
+          <div style={{ fontWeight:800, fontSize:13, marginBottom:8, color:G.dirtDark }}>🐴 代表産駒</div>
+          {(selected.repOffspring||[]).map((horse, i) => {
+            const isPog = horse.includes("砂遊び");
+            return (
+              <div key={i} style={{
+                padding:"6px 8px", borderRadius:6, marginBottom:4,
+                background: isPog ? "#fff8f0" : "#f8f8f8",
+                border: isPog ? `1px solid ${G.dirtLight}` : "1px solid #f0f0f0",
+                fontSize:12, display:"flex", alignItems:"center", gap:6,
+              }}>
+                {isPog && <span style={{ fontSize:10, background:G.dirt, color:"#fff", borderRadius:4, padding:"1px 5px", flexShrink:0 }}>砂遊び</span>}
+                <span translate="no">{horse.replace(/（砂遊び.*?）/, "").replace(/（.*?）/, "")}</span>
+                {horse.includes("（") && !horse.includes("砂遊び") && (
+                  <span style={{ fontSize:10, color:"#999" }}>{horse.match(/（(.+?)）/)?.[1]}</span>
+                )}
+              </div>
+            );
+          })}
+        </div>
+        {/* 供用牧場 */}
+        <div style={{ background:"#fff", borderRadius:10, padding:"12px 14px", marginBottom:20 }}>
+          <div style={{ fontSize:11, color:"#999" }}>供用牧場</div>
+          <div style={{ fontSize:13, fontWeight:700, marginTop:2 }} translate="no">{selected.stud}</div>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div style={{ padding:"10px 12px" }}>
+      {/* セクションタブ */}
+      <div style={{ display:"flex", gap:6, marginBottom:14 }}>
+        {sectionTabs.map(s => (
+          <button key={s.key} onClick={() => setActiveSection(s.key)} style={{
+            flex:1, padding:"7px 4px", borderRadius:8, border:"none", cursor:"pointer",
+            background: activeSection===s.key ? G.dirtDark : "#fff",
+            color: activeSection===s.key ? "#fff" : "#666",
+            fontSize:10, fontWeight:700,
+            boxShadow: activeSection===s.key ? "none" : "0 1px 3px rgba(0,0,0,0.08)",
+          }}>{s.label}</button>
+        ))}
+      </div>
+
+      {/* 注目種牡馬コラム */}
+      {activeSection === "column" && (
+        <div>
+          <div style={{ fontSize:11, color:"#999", marginBottom:10 }}>砂遊び指名馬の父・世界の注目ダート種牡馬を解説</div>
+          {columns.map(s => (
+            <div key={s.id} onClick={() => setSelectedId(s.id)} style={{
+              background:"#fff", borderRadius:12, marginBottom:10,
+              boxShadow:"0 1px 4px rgba(0,0,0,0.08)", overflow:"hidden", cursor:"pointer",
+            }}>
+              <div style={{ background:G.dirtDark, padding:"10px 14px", display:"flex", alignItems:"center", justifyContent:"space-between" }}>
+                <div>
+                  <div style={{ color:"#fff", fontWeight:900, fontSize:15 }} translate="no">{s.name}</div>
+                  <div style={{ color:"rgba(255,255,255,0.7)", fontSize:11, marginTop:1 }}>{s.nameJa}　{s.country}　{s.born}年生</div>
+                </div>
+                <div style={{ display:"flex", flexDirection:"column", alignItems:"flex-end", gap:4 }}>
+                  {s.pog && <span style={{ fontSize:9, background:G.dirt, color:"#fff", borderRadius:4, padding:"2px 6px" }}>砂遊び指名あり</span>}
+                  <span style={{ color:"rgba(255,255,255,0.6)", fontSize:16 }}>›</span>
+                </div>
+              </div>
+              <div style={{ padding:"10px 14px" }}>
+                <div style={{ fontSize:11, color:"#555", lineHeight:1.7, display:"-webkit-box", WebkitLineClamp:2, WebkitBoxOrient:"vertical", overflow:"hidden" }}>
+                  {s.summary}
+                </div>
+                <div style={{ marginTop:8, display:"flex", gap:4, flexWrap:"wrap" }}>
+                  {(s.tags||[]).map(t => (
+                    <span key={t} style={{ fontSize:9, background:"#f0f0f0", borderRadius:10, padding:"2px 7px", color:"#666" }}>{t}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+          {columns.length === 0 && (
+            <div style={{ textAlign:"center", color:"#bbb", padding:40, fontSize:13 }}>データ読み込み中...</div>
+          )}
+        </div>
+      )}
+
+      {/* 指名馬の父ランキング */}
+      {activeSection === "sire_rank" && (
+        <div>
+          <div style={{ fontSize:11, color:"#999", marginBottom:10 }}>2026-27シーズン・指名馬の父馬別頭数</div>
+          {sireRanking.map(({ sire, count }, i) => (
+            <div key={sire} style={{
+              background:"#fff", borderRadius:10, padding:"10px 14px", marginBottom:8,
+              boxShadow:"0 1px 3px rgba(0,0,0,0.06)",
+            }}>
+              <div style={{ display:"flex", alignItems:"center", gap:10, marginBottom:6 }}>
+                <div style={{
+                  width:24, height:24, borderRadius:6,
+                  background: i===0?G.dirtDark : i===1?"#888" : i===2?"#a07040" : "#ddd",
+                  color:"#fff", display:"flex", alignItems:"center", justifyContent:"center",
+                  fontSize:11, fontWeight:800, flexShrink:0,
+                }}>{i+1}</div>
+                <div style={{ flex:1, fontWeight:800, fontSize:13 }} translate="no">{sire}</div>
+                <div style={{ fontWeight:900, fontSize:16, color:G.dirtDark }}>{count}<span style={{ fontSize:11, color:"#999", fontWeight:400 }}>頭</span></div>
+              </div>
+              <div style={{ height:6, background:"#f0f0f0", borderRadius:3, overflow:"hidden" }}>
+                <div style={{ width:`${(count/maxCount)*100}%`, height:"100%", background:G.dirt, borderRadius:3 }} />
+              </div>
+            </div>
+          ))}
+          {sireRanking.length === 0 && (
+            <div style={{ textAlign:"center", color:"#bbb", padding:40, fontSize:13 }}>データなし</div>
+          )}
+        </div>
+      )}
+
+      {/* 種牡馬別POGポイント */}
+      {activeSection === "pog_pt" && (
+        <div>
+          <div style={{ fontSize:11, color:"#999", marginBottom:10 }}>2026-27シーズン・父馬別獲得POGポイント（ダートのみ）</div>
+          {sirePtRanking.length === 0 && (
+            <div style={{ background:"#fff", borderRadius:10, padding:30, textAlign:"center", color:"#bbb", fontSize:13 }}>
+              まだポイント獲得馬なし
+            </div>
+          )}
+          {sirePtRanking.map(({ sire, pt }, i) => (
+            <div key={sire} style={{
+              background:"#fff", borderRadius:10, padding:"10px 14px", marginBottom:8,
+              boxShadow:"0 1px 3px rgba(0,0,0,0.06)",
+            }}>
+              <div style={{ display:"flex", alignItems:"center", gap:10, marginBottom:6 }}>
+                <div style={{
+                  width:24, height:24, borderRadius:6,
+                  background: i===0?G.dirtDark : i===1?"#888" : i===2?"#a07040" : "#ddd",
+                  color:"#fff", display:"flex", alignItems:"center", justifyContent:"center",
+                  fontSize:11, fontWeight:800, flexShrink:0,
+                }}>{i+1}</div>
+                <div style={{ flex:1, fontWeight:800, fontSize:13 }} translate="no">{sire}</div>
+                <div style={{ fontWeight:900, fontSize:16, color:G.dirtDark }}>{fmt(pt)}<span style={{ fontSize:11, color:"#999", fontWeight:400 }}>万円</span></div>
+              </div>
+              <div style={{ height:6, background:"#f0f0f0", borderRadius:3, overflow:"hidden" }}>
+                <div style={{ width:`${(pt/maxPt)*100}%`, height:"100%", background:G.dirt, borderRadius:3 }} />
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
 // ルール画面
 // ================================================================
 
@@ -2843,6 +3096,7 @@ export default function App() {
   const [updated, setUpdated] = useState("");
   const [statusData, setStatusData] = useState(null);
   const [regist2627, setRegist2627] = useState({});
+  const [stallions, setStallions] = useState({ columns: [] });
   const [ptr, setPtr] = useState({ active:false, y:0, pulling:false }); // pull-to-refresh
 
   const loadAll = (bust = false) => {
@@ -2855,6 +3109,7 @@ export default function App() {
     fetch(`${base}data/updated.json${q}`).then(r => r.json()).then(d => setUpdated(d.updated || "")).catch(() => {});
     fetch(`${base}data/pogstarion.json${q}`).then(r => r.json()).then(setStatusData).catch(() => {});
     fetch(`${base}data/regist2627.json${q}`).then(r => r.json()).then(setRegist2627).catch(() => {});
+    fetch(`${base}data/stallions.json${q}`).then(r => r.json()).then(setStallions).catch(() => {});
   };
 
   useEffect(() => { loadAll(); }, []);
@@ -2927,6 +3182,9 @@ export default function App() {
   } else if (tab === "status") {
     title = "出走予定・登録";
     content = <StatusScreen data={statusData} kettonums={kettonums} />;
+  } else if (tab === "stallion") {
+    title = "ダート種牡馬研究";
+    content = <StallionScreen stallions={stallions} results={results} />;
   } else if (tab === "game") {
     title = "砂遊びゲーム";
     content = <GameScreen />;
@@ -2943,6 +3201,7 @@ export default function App() {
     { key:"news",     label:"ニュース",icon:"📰" },
     { key:"status",   label:"出走",   icon:"🏁" },
     { key:"calendar", label:"日程",   icon:"📅" },
+    { key:"stallion", label:"種牡馬", icon:"🐎" },
     { key:"hall",     label:"殿堂",   icon:"🏟️" },
     { key:"game",     label:"ゲーム", icon:"🎮" },
     { key:"rules",    label:"ルール", icon:"📖" },
