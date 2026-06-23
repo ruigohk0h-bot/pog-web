@@ -2433,6 +2433,7 @@ function StallionScreen({ stallions, results, stallionLeading }) {
 
   const sectionTabs = [
     { key:"column",   label:"🔥 注目種牡馬" },
+    { key:"article",  label:"📚 血統コラム" },
     { key:"leading",  label:"📈 リーディング" },
     { key:"sire_rank",label:"👨‍👧 指名馬の父" },
     { key:"pog_pt",   label:"🏆 POGポイント" },
@@ -2580,37 +2581,38 @@ function StallionScreen({ stallions, results, stallionLeading }) {
         ))}
       </div>
 
+      {/* 血統コラムタブ */}
+      {activeSection === "article" && (
+        <div>
+          <div style={{ fontSize:11, color:"#999", marginBottom:10 }}>ダート血統の傾向・活用法を解説</div>
+          {articles.map(a => (
+            <div key={a.id} onClick={() => setSelectedArticleId(a.id)} style={{
+              background:"#fff", borderRadius:12, marginBottom:10,
+              boxShadow:"0 1px 4px rgba(0,0,0,0.08)", overflow:"hidden", cursor:"pointer",
+              display:"flex", alignItems:"stretch",
+            }}>
+              <div style={{ width:52, background:G.dirtDark, display:"flex", alignItems:"center", justifyContent:"center", fontSize:24, flexShrink:0 }}>
+                {a.emoji}
+              </div>
+              <div style={{ padding:"10px 12px", flex:1 }}>
+                <div style={{ fontWeight:800, fontSize:13, color:"#222", lineHeight:1.4, marginBottom:4 }}>{a.title}</div>
+                <div style={{ fontSize:11, color:"#888", lineHeight:1.6, display:"-webkit-box", WebkitLineClamp:2, WebkitBoxOrient:"vertical", overflow:"hidden" }}>
+                  {a.summary}
+                </div>
+                <div style={{ fontSize:10, color:"#bbb", marginTop:4 }}>{a.date}</div>
+              </div>
+              <div style={{ display:"flex", alignItems:"center", paddingRight:10, color:"#ccc", fontSize:18, flexShrink:0 }}>›</div>
+            </div>
+          ))}
+          {articles.length === 0 && (
+            <div style={{ textAlign:"center", color:"#bbb", padding:40, fontSize:13 }}>データ読み込み中...</div>
+          )}
+        </div>
+      )}
+
       {/* 注目種牡馬コラム */}
       {activeSection === "column" && (
         <div>
-          {/* 血統コラム記事（上部に配置） */}
-          {articles.length > 0 && (
-            <div style={{ marginBottom:20 }}>
-              <div style={{ fontWeight:900, fontSize:13, color:G.dirtDark, marginBottom:10, paddingBottom:6, borderBottom:`2px solid ${G.dirtLight}` }}>
-                📚 血統コラム
-              </div>
-              {articles.map(a => (
-                <div key={a.id} onClick={() => setSelectedArticleId(a.id)} style={{
-                  background:"#fff", borderRadius:12, marginBottom:10,
-                  boxShadow:"0 1px 4px rgba(0,0,0,0.08)", overflow:"hidden", cursor:"pointer",
-                  display:"flex", alignItems:"stretch",
-                }}>
-                  <div style={{ width:52, background:G.dirtDark, display:"flex", alignItems:"center", justifyContent:"center", fontSize:24, flexShrink:0 }}>
-                    {a.emoji}
-                  </div>
-                  <div style={{ padding:"10px 12px", flex:1 }}>
-                    <div style={{ fontWeight:800, fontSize:13, color:"#222", lineHeight:1.4, marginBottom:4 }}>{a.title}</div>
-                    <div style={{ fontSize:11, color:"#888", lineHeight:1.6, display:"-webkit-box", WebkitLineClamp:2, WebkitBoxOrient:"vertical", overflow:"hidden" }}>
-                      {a.summary}
-                    </div>
-                    <div style={{ fontSize:10, color:"#bbb", marginTop:4 }}>{a.date}</div>
-                  </div>
-                  <div style={{ display:"flex", alignItems:"center", paddingRight:10, color:"#ccc", fontSize:18, flexShrink:0 }}>›</div>
-                </div>
-              ))}
-            </div>
-          )}
-
           <div style={{ fontSize:11, color:"#999", marginBottom:10 }}>砂遊び指名馬の父・世界の注目ダート種牡馬を解説</div>
           {columns.map(s => (
             <div key={s.id} onClick={() => setSelectedId(s.id)} style={{
