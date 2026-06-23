@@ -2391,9 +2391,10 @@ function Season2627Screen() {
 // ダート種牡馬研究画面
 // ================================================================
 
-function StallionScreen({ stallions, results }) {
+function StallionScreen({ stallions, results, stallionLeading }) {
   const [selectedId, setSelectedId] = useState(null);
-  const [activeSection, setActiveSection] = useState("column"); // column | sire_rank | pog_pt
+  const [activeSection, setActiveSection] = useState("column"); // column | leading | sire_rank | pog_pt
+  const [leadingYear, setLeadingYear] = useState(null); // null = 最新年度
 
   // 指名馬の父ランキング集計
   const sireCountMap = {};
@@ -2431,9 +2432,15 @@ function StallionScreen({ stallions, results }) {
 
   const sectionTabs = [
     { key:"column",   label:"🔥 注目種牡馬" },
-    { key:"sire_rank",label:"📊 指名馬の父" },
+    { key:"leading",  label:"📈 リーディング" },
+    { key:"sire_rank",label:"👨‍👧 指名馬の父" },
     { key:"pog_pt",   label:"🏆 POGポイント" },
   ];
+
+  // リーディングデータ
+  const leadingYears = Object.keys(stallionLeading?.years || {}).sort((a,b) => b-a);
+  const currentLeadingYear = leadingYear || leadingYears[0];
+  const leadingRows = stallionLeading?.years?.[currentLeadingYear] || [];
 
   if (selected) {
     return (
@@ -2534,10 +2541,10 @@ function StallionScreen({ stallions, results }) {
   return (
     <div style={{ padding:"10px 12px" }}>
       {/* セクションタブ */}
-      <div style={{ display:"flex", gap:6, marginBottom:14 }}>
+      <div style={{ display:"flex", gap:4, marginBottom:14, flexWrap:"wrap" }}>
         {sectionTabs.map(s => (
           <button key={s.key} onClick={() => setActiveSection(s.key)} style={{
-            flex:1, padding:"7px 4px", borderRadius:8, border:"none", cursor:"pointer",
+            flex:"1 1 calc(50% - 4px)", minWidth:0, padding:"7px 4px", borderRadius:8, border:"none", cursor:"pointer",
             background: activeSection===s.key ? G.dirtDark : "#fff",
             color: activeSection===s.key ? "#fff" : "#666",
             fontSize:10, fontWeight:700,
@@ -2609,6 +2616,59 @@ function StallionScreen({ stallions, results }) {
           ))}
           {sireRanking.length === 0 && (
             <div style={{ textAlign:"center", color:"#bbb", padding:40, fontSize:13 }}>データなし</div>
+          )}
+        </div>
+      )}
+
+      {/* ダートリーディング */}
+      {activeSection === "leading" && (
+        <div>
+          {/* 年度切替 */}
+          <div style={{ display:"flex", gap:6, marginBottom:12 }}>
+            {leadingYears.map(y => (
+              <button key={y} onClick={() => setLeadingYear(y)} style={{
+                padding:"5px 14px", borderRadius:20, border:"none", cursor:"pointer", fontSize:12, fontWeight:700,
+                background: currentLeadingYear===y ? G.dirtDark : "#fff",
+                color: currentLeadingYear===y ? "#fff" : "#666",
+                boxShadow: currentLeadingYear===y ? "none" : "0 1px 3px rgba(0,0,0,0.08)",
+              }}>{y}年</button>
+            ))}
+          </div>
+          {leadingRows.length === 0 ? (
+            <div style={{ textAlign:"center", color:"#bbb", padding:40, fontSize:13 }}>データ読み込み中...</div>
+          ) : (
+            <div style={{ background:"#fff", borderRadius:10, overflow:"hidden", boxShadow:"0 1px 4px rgba(0,0,0,0.08)" }}>
+              {/* テーブルヘッダー */}
+              <div style={{ background:G.dirtDark, display:"grid", gridTemplateColumns:"32px 1fr 44px 44px 44px 44px", padding:"8px 10px", gap:4 }}>
+                {["順位","種牡馬","勝率","連対","複勝","単回"].map(h => (
+                  <div key={h} style={{ color:"rgba(255,255,255,0.85)", fontSize:10, fontWeight:700, textAlign: h==="種牡馬"?"left":"center" }}>{h}</div>
+                ))}
+              </div>
+              {leadingRows.slice(0, 50).map((row, i) => {
+                const isPogSire = PLAYERS_2627.some(p => p.horses.some(h => h.sire === row.name));
+                return (
+                  <div key={i} style={{
+                    display:"grid", gridTemplateColumns:"32px 1fr 44px 44px 44px 44px",
+                    padding:"8px 10px", gap:4,
+                    borderBottom:"1px solid #f0f0f0",
+                    background: isPogSire ? "#fff8f0" : i%2===0?"#fff":"#fafafa",
+                  }}>
+                    <div style={{ fontSize:11, fontWeight:800, color: i<3?G.dirtDark:"#aaa", textAlign:"center", alignSelf:"center" }}>{row.rank}</div>
+                    <div style={{ fontSize:12, fontWeight: isPogSire?800:600, color:"#222", alignSelf:"center", display:"flex", alignItems:"center", gap:4 }}>
+                      <span translate="no">{row.name}</span>
+                      {isPogSire && <span style={{ fontSize:8, background:G.dirt, color:"#fff", borderRadius:3, padding:"1px 4px", flexShrink:0 }}>砂遊び</span>}
+                    </div>
+                    <div style={{ fontSize:11, textAlign:"center", color:"#333", alignSelf:"center" }}>{row.winRate}%</div>
+                    <div style={{ fontSize:11, textAlign:"center", color:"#555", alignSelf:"center" }}>{row.top2Rate}%</div>
+                    <div style={{ fontSize:11, textAlign:"center", color:"#555", alignSelf:"center" }}>{row.top3Rate}%</div>
+                    <div style={{ fontSize:11, textAlign:"center", color: Number(row.singleRet)>=100?"#d33":"#555", fontWeight: Number(row.singleRet)>=100?700:400, alignSelf:"center" }}>{row.singleRet}</div>
+                  </div>
+                );
+              })}
+              <div style={{ padding:"8px 10px", fontSize:10, color:"#bbb", textAlign:"center" }}>
+                上位50頭表示 / 全{leadingRows.length}頭　更新：毎週月曜
+              </div>
+            </div>
           )}
         </div>
       )}
@@ -3104,6 +3164,7 @@ export default function App() {
   const [statusData, setStatusData] = useState(null);
   const [regist2627, setRegist2627] = useState({});
   const [stallions, setStallions] = useState({ columns: [] });
+  const [stallionLeading, setStallionLeading] = useState({ years: {} });
   const [ptr, setPtr] = useState({ active:false, y:0, pulling:false }); // pull-to-refresh
 
   const loadAll = (bust = false) => {
@@ -3117,6 +3178,7 @@ export default function App() {
     fetch(`${base}data/pogstarion.json${q}`).then(r => r.json()).then(setStatusData).catch(() => {});
     fetch(`${base}data/regist2627.json${q}`).then(r => r.json()).then(setRegist2627).catch(() => {});
     fetch(`${base}data/stallions.json${q}`).then(r => r.json()).then(setStallions).catch(() => {});
+    fetch(`${base}data/stallion_leading.json${q}`).then(r => r.json()).then(setStallionLeading).catch(() => {});
   };
 
   useEffect(() => { loadAll(); }, []);
@@ -3191,7 +3253,7 @@ export default function App() {
     content = <StatusScreen data={statusData} kettonums={kettonums} />;
   } else if (tab === "stallion") {
     title = "ダート種牡馬研究";
-    content = <StallionScreen stallions={stallions} results={results} />;
+    content = <StallionScreen stallions={stallions} results={results} stallionLeading={stallionLeading} />;
   } else if (tab === "game") {
     title = "砂遊びゲーム";
     content = <GameScreen />;
