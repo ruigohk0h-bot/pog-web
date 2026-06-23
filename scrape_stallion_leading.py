@@ -20,19 +20,25 @@ BASE_URL = "https://db-keiba.com/stallion-dirt-new/"
 
 
 def scrape_leading(year=None):
-    """ダート種牡馬リーディングを取得して返す"""
+    """ダート種牡馬リーディングを取得。ページ実際の年度も返す"""
     url = BASE_URL if not year else f"{BASE_URL}?year={year}"
     try:
         resp = requests.get(url, headers=HEADERS, timeout=20)
         resp.raise_for_status()
-        resp.encoding = resp.apparent_encoding
+        resp.encoding = "utf-8"
     except Exception as e:
         print(f"  取得失敗: {e}", flush=True)
-        return [], None
+        return [], None, None
 
     soup = BeautifulSoup(resp.text, "html.parser")
 
-    # 更新日を取得
+    # ページタイトルから実際の年度を取得（例: 「種牡馬（ダート）リーディング（2026）」）
+    actual_year = None
+    title = soup.title.text if soup.title else ""
+    m = re.search(r'[（(](\d{4})[）)]', title)
+    if m:
+        actual_year = int(m.group(1))
+
     updated_text = ""
     for tag in soup.find_all(string=re.compile(r"更新日")):
         updated_text = tag.strip()
@@ -42,46 +48,34 @@ def scrape_leading(year=None):
     table = soup.find("table")
     if not table:
         print("  テーブルが見つかりません", flush=True)
-        return [], updated_text
-
-    headers = []
-    for th in table.find_all("th"):
-        headers.append(th.get_text(strip=True))
+        return [], updated_text, actual_year
 
     for tr in table.find_all("tr")[1:]:
         cells = [td.get_text(strip=True) for td in tr.find_all(["td", "th"])]
         if len(cells) < 5:
             continue
 
-        # 種牡馬名リンクからIDを取得
-        sire_link = ""
-        for a in tr.find_all("a"):
-            href = a.get("href", "")
-            if "stallion" in href or "sire" in href:
-                sire_link = href
-                break
-
         def safe(idx, default=""):
             return cells[idx].replace(",", "") if idx < len(cells) else default
 
         row = {
-            "rank":     safe(0),
-            "name":     safe(1),
-            "win":      safe(2),
-            "second":   safe(3),
-            "third":    safe(4),
-            "out":      safe(5),
-            "runs":     safe(6),
-            "winRate":  safe(7),
-            "top2Rate": safe(8),
-            "top3Rate": safe(9),
+            "rank":      safe(0),
+            "name":      safe(1),
+            "win":       safe(2),
+            "second":    safe(3),
+            "third":     safe(4),
+            "out":       safe(5),
+            "runs":      safe(6),
+            "winRate":   safe(7),
+            "top2Rate":  safe(8),
+            "top3Rate":  safe(9),
             "singleRet": safe(10),
             "multiRet":  safe(11),
         }
         if row["name"]:
             rows.append(row)
 
-    return rows, updated_text
+    return rows, updated_text, actual_year
 
 
 def main():
@@ -91,18 +85,22 @@ def main():
 
     print("=== ダート種牡馬リーディング取得 ===", flush=True)
 
-    # 現在年度
-    current_year = jst.year
     result = {}
-
-    for year in [current_year, current_year - 1, current_year - 2]:
-        print(f"  {year}年度取得中...", flush=True)
-        rows, updated = scrape_leading(year if year != current_year else None)
-        if rows:
-            result[str(year)] = rows
-            print(f"    {len(rows)}頭取得", flush=True)
+    # 現在年から遡りながら重複なく3年分取得
+    check_year = jst.year
+    while len(result) < 3 and check_year >= 2020:
+        print(f"  {check_year}年度試行中...", flush=True)
+        # 最新はyearパラメータなし、過去年はyearパラメータあり
+        param = None if check_year == jst.year else check_year
+        rows, _, actual_year = scrape_leading(param)
+        if rows and actual_year and str(actual_year) not in result:
+            result[str(actual_year)] = rows
+            print(f"    {actual_year}年度: {len(rows)}頭取得", flush=True)
+        elif rows and actual_year and str(actual_year) in result:
+            print(f"    {actual_year}年度は取得済みのためスキップ → ?year={check_year-1} を試みます", flush=True)
         else:
             print(f"    データなし", flush=True)
+        check_year -= 1
 
     out = {
         "updated": jst.strftime("%Y/%m/%d %H:%M"),
