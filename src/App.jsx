@@ -3451,7 +3451,7 @@ export default function App() {
         <div style={{
           display:"inline-block", lineHeight:"34px", fontSize:13, fontWeight:800,
           paddingLeft:"100%",
-          animation:"pogTelopScroll 28s linear infinite",
+          animation:"pogTelopScroll 14s linear infinite",
           willChange:"transform",
         }}>
           📖 新コーナー「注目種牡馬コーナー」オープン！種付け料の推移や産駒傾向をチェックしよう🐎
