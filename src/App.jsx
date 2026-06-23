@@ -2474,23 +2474,30 @@ function StallionScreen({ stallions, results }) {
           <div style={{ fontWeight:800, fontSize:13, marginBottom:6, color:G.dirtDark }}>🏇 現役時代</div>
           <div style={{ fontSize:12, lineHeight:1.8, color:"#333" }}>{selected.career}</div>
         </div>
-        {/* 種付け料推移 */}
-        {selected.studFee && Object.keys(selected.studFee).length > 0 && (
-          <div style={{ background:"#fff", borderRadius:10, padding:"14px", marginBottom:10 }}>
-            <div style={{ fontWeight:800, fontSize:13, marginBottom:10, color:G.dirtDark }}>💰 種付け料推移</div>
-            <div style={{ display:"flex", gap:6, alignItems:"flex-end" }}>
-              {Object.entries(selected.studFee).map(([year, fee]) => {
-                const maxFee = Math.max(...Object.values(selected.studFee));
-                const h = Math.max(20, Math.round((fee / maxFee) * 80));
-                const isJpy = fee < 10000;
-                return (
-                  <div key={year} style={{ flex:1, display:"flex", flexDirection:"column", alignItems:"center", gap:2 }}>
-                    <div style={{ fontSize:9, color:G.dirt, fontWeight:700 }}>{isJpy ? `${fee}万` : `$${(fee/1000).toFixed(0)}k`}</div>
-                    <div style={{ width:"100%", height:h, background:G.dirt, borderRadius:"3px 3px 0 0", opacity:0.85 }} />
-                    <div style={{ fontSize:9, color:"#999" }}>{year}</div>
-                  </div>
-                );
-              })}
+        {/* 種付け料推移テーブル */}
+        {selected.studFeeRows && selected.studFeeRows.length > 0 && (
+          <div style={{ background:"#fff", borderRadius:10, marginBottom:10, overflow:"hidden" }}>
+            <div style={{ background:G.dirtDark, padding:"10px 14px", fontWeight:800, fontSize:13, color:"#fff" }}>💰 種付け料推移</div>
+            <div style={{ overflowX:"auto" }}>
+              <table style={{ width:"100%", borderCollapse:"collapse", fontSize:12 }}>
+                <thead>
+                  <tr style={{ background:"#f5f5f5" }}>
+                    {["年度","供用年数","種付料","代表産駒"].map(h => (
+                      <th key={h} style={{ padding:"7px 10px", textAlign: h==="種付料"?"right":"left", fontWeight:700, fontSize:11, color:"#555", borderBottom:"1px solid #e8e8e8", whiteSpace:"nowrap" }}>{h}</th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {selected.studFeeRows.map((row, i) => (
+                    <tr key={row.year} style={{ borderBottom:"1px solid #f0f0f0", background: i%2===0?"#fff":"#fafafa" }}>
+                      <td style={{ padding:"8px 10px", fontWeight:700, color:"#222" }}>{row.year}</td>
+                      <td style={{ padding:"8px 10px", color:"#888", fontSize:11 }}>{row.nth}</td>
+                      <td style={{ padding:"8px 10px", textAlign:"right", fontWeight:800, color:G.dirtDark }}>{row.fee}</td>
+                      <td style={{ padding:"8px 10px", color:"#2563c4", fontSize:11 }} translate="no">{row.rep || "—"}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           </div>
         )}
