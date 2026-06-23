@@ -2711,9 +2711,8 @@ function StallionScreen({ stallions, results, stallionLeading }) {
                     background: isPogSire ? "#fff8f0" : i%2===0?"#fff":"#fafafa",
                   }}>
                     <div style={{ fontSize:11, fontWeight:800, color: i<3?G.dirtDark:"#aaa", textAlign:"center", alignSelf:"center" }}>{row.rank}</div>
-                    <div style={{ fontSize:12, fontWeight: isPogSire?800:600, color:"#222", alignSelf:"center", display:"flex", alignItems:"center", gap:4 }}>
+                    <div style={{ fontSize:12, fontWeight: isPogSire?800:600, color:"#222", alignSelf:"center" }}>
                       <span translate="no">{row.name}</span>
-                      {isPogSire && <span style={{ fontSize:8, background:G.dirt, color:"#fff", borderRadius:3, padding:"1px 4px", flexShrink:0 }}>砂遊び</span>}
                     </div>
                     <div style={{ fontSize:11, textAlign:"center", color:"#333", alignSelf:"center" }}>{row.winRate}%</div>
                     <div style={{ fontSize:11, textAlign:"center", color:"#555", alignSelf:"center" }}>{row.top2Rate}%</div>
