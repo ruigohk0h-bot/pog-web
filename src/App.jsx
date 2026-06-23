@@ -2394,8 +2394,9 @@ function Season2627Screen() {
 function StallionScreen({ stallions, results, stallionLeading }) {
   const [selectedId, setSelectedId] = useState(null);
   const [selectedArticleId, setSelectedArticleId] = useState(null);
-  const [activeSection, setActiveSection] = useState("column"); // column | leading | sire_rank | pog_pt
+  const [activeSection, setActiveSection] = useState("column"); // column | article | leading | sire_rank | pog_pt
   const [leadingYear, setLeadingYear] = useState(null); // null = 最新年度
+  const [leadingCategory, setLeadingCategory] = useState("dirt_jpn"); // dirt_jpn | turf_jpn | dirt_usa
 
   // 指名馬の父ランキング集計
   const sireCountMap = {};
@@ -2439,10 +2440,11 @@ function StallionScreen({ stallions, results, stallionLeading }) {
     { key:"pog_pt",   label:"🏆 POGポイント" },
   ];
 
-  // リーディングデータ
-  const leadingYears = Object.keys(stallionLeading?.years || {}).sort((a,b) => b-a);
+  // リーディングデータ（カテゴリー別）
+  const leadingCatData = stallionLeading?.[leadingCategory] || {};
+  const leadingYears = Object.keys(leadingCatData).filter(k => /^\d{4}$/.test(k)).sort((a,b) => b-a);
   const currentLeadingYear = leadingYear || leadingYears[0];
-  const leadingRows = stallionLeading?.years?.[currentLeadingYear] || [];
+  const leadingRows = leadingCatData?.[currentLeadingYear] || [];
 
   const articles = stallions?.articles || [];
   const selectedArticle = selectedArticleId ? articles.find(a => a.id === selectedArticleId) : null;
@@ -2677,9 +2679,24 @@ function StallionScreen({ stallions, results, stallionLeading }) {
         </div>
       )}
 
-      {/* ダートリーディング */}
+      {/* リーディング */}
       {activeSection === "leading" && (
         <div>
+          {/* カテゴリータブ */}
+          <div style={{ display:"flex", gap:6, marginBottom:10 }}>
+            {[
+              { key:"dirt_jpn", label:"🇯🇵 日本ダート" },
+              { key:"turf_jpn", label:"🇯🇵 日本芝" },
+              { key:"dirt_usa", label:"🇺🇸 米国ダート" },
+            ].map(c => (
+              <button key={c.key} onClick={() => { setLeadingCategory(c.key); setLeadingYear(null); }} style={{
+                flex:1, padding:"6px 4px", borderRadius:8, border:"none", cursor:"pointer", fontSize:11, fontWeight:700,
+                background: leadingCategory===c.key ? G.dirtDark : "#fff",
+                color: leadingCategory===c.key ? "#fff" : "#666",
+                boxShadow: leadingCategory===c.key ? "none" : "0 1px 3px rgba(0,0,0,0.08)",
+              }}>{c.label}</button>
+            ))}
+          </div>
           {/* 年度切替 */}
           <div style={{ display:"flex", gap:6, marginBottom:12 }}>
             {leadingYears.map(y => (
@@ -2693,9 +2710,37 @@ function StallionScreen({ stallions, results, stallionLeading }) {
           </div>
           {leadingRows.length === 0 ? (
             <div style={{ textAlign:"center", color:"#bbb", padding:40, fontSize:13 }}>データ読み込み中...</div>
-          ) : (
+          ) : leadingCategory === "dirt_usa" ? (
+            /* 米国ダート表示（勝利数・複勝率・メモ列） */
             <div style={{ background:"#fff", borderRadius:10, overflow:"hidden", boxShadow:"0 1px 4px rgba(0,0,0,0.08)" }}>
-              {/* テーブルヘッダー */}
+              <div style={{ background:G.dirtDark, display:"grid", gridTemplateColumns:"32px 1fr 36px 50px", padding:"8px 10px", gap:4 }}>
+                {["順位","種牡馬","勝数","複勝率"].map(h => (
+                  <div key={h} style={{ color:"rgba(255,255,255,0.85)", fontSize:10, fontWeight:700, textAlign: h==="種牡馬"?"left":"center" }}>{h}</div>
+                ))}
+              </div>
+              {leadingRows.map((row, i) => (
+                <div key={i} style={{
+                  display:"grid", gridTemplateColumns:"32px 1fr 36px 50px",
+                  padding:"8px 10px", gap:4,
+                  borderBottom:"1px solid #f0f0f0",
+                  background: i%2===0?"#fff":"#fafafa",
+                }}>
+                  <div style={{ fontSize:11, fontWeight:800, color: i<3?G.dirtDark:"#aaa", textAlign:"center", alignSelf:"center" }}>{row.rank}</div>
+                  <div style={{ alignSelf:"center" }}>
+                    <div style={{ fontSize:12, fontWeight:700, color:"#222" }} translate="no">{row.name}</div>
+                    {row.note && <div style={{ fontSize:10, color:"#999", marginTop:1 }}>{row.note}</div>}
+                  </div>
+                  <div style={{ fontSize:11, textAlign:"center", color:"#333", alignSelf:"center", fontWeight:700 }}>{row.win}</div>
+                  <div style={{ fontSize:11, textAlign:"center", color:"#555", alignSelf:"center" }}>{row.top3Rate}</div>
+                </div>
+              ))}
+              <div style={{ padding:"8px 10px", fontSize:10, color:"#bbb", textAlign:"center" }}>
+                出典：Equibase / 手動更新（{stallionLeading?.dirt_usa?.manual_updated}）
+              </div>
+            </div>
+          ) : (
+            /* 日本ダート・芝表示 */
+            <div style={{ background:"#fff", borderRadius:10, overflow:"hidden", boxShadow:"0 1px 4px rgba(0,0,0,0.08)" }}>
               <div style={{ background:G.dirtDark, display:"grid", gridTemplateColumns:"32px 1fr 44px 44px 44px 44px", padding:"8px 10px", gap:4 }}>
                 {["順位","種牡馬","勝率","連対","複勝","単回"].map(h => (
                   <div key={h} style={{ color:"rgba(255,255,255,0.85)", fontSize:10, fontWeight:700, textAlign: h==="種牡馬"?"left":"center" }}>{h}</div>
@@ -2708,12 +2753,10 @@ function StallionScreen({ stallions, results, stallionLeading }) {
                     display:"grid", gridTemplateColumns:"32px 1fr 44px 44px 44px 44px",
                     padding:"8px 10px", gap:4,
                     borderBottom:"1px solid #f0f0f0",
-                    background: isPogSire ? "#fff8f0" : i%2===0?"#fff":"#fafafa",
+                    background: i%2===0?"#fff":"#fafafa",
                   }}>
                     <div style={{ fontSize:11, fontWeight:800, color: i<3?G.dirtDark:"#aaa", textAlign:"center", alignSelf:"center" }}>{row.rank}</div>
-                    <div style={{ fontSize:12, fontWeight: isPogSire?800:600, color:"#222", alignSelf:"center" }}>
-                      <span translate="no">{row.name}</span>
-                    </div>
+                    <div style={{ fontSize:12, fontWeight:600, color:"#222", alignSelf:"center" }} translate="no">{row.name}</div>
                     <div style={{ fontSize:11, textAlign:"center", color:"#333", alignSelf:"center" }}>{row.winRate}%</div>
                     <div style={{ fontSize:11, textAlign:"center", color:"#555", alignSelf:"center" }}>{row.top2Rate}%</div>
                     <div style={{ fontSize:11, textAlign:"center", color:"#555", alignSelf:"center" }}>{row.top3Rate}%</div>
@@ -2722,7 +2765,7 @@ function StallionScreen({ stallions, results, stallionLeading }) {
                 );
               })}
               <div style={{ padding:"8px 10px", fontSize:10, color:"#bbb", textAlign:"center" }}>
-                上位50頭表示 / 全{leadingRows.length}頭　更新：毎週月曜
+                上位50頭表示 / 全{leadingRows.length}頭　更新：毎週月曜　出典：db-keiba.com
               </div>
             </div>
           )}
