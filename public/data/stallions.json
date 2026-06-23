@@ -54,49 +54,49 @@
       "id": "nadal",
       "name": "Nadal",
       "nameJa": "ナダル",
-      "country": "USA",
+      "country": "USA→JPN",
       "born": 2017,
       "sire": "Blame",
       "dam": "Ascending Angel",
       "damSire": "Arch",
       "color": "鹿毛",
-      "stud": "WinStar Farm",
+      "stud": "社台スタリオンステーション",
       "studFeeRows": [
         {
           "year": 2026,
           "nth": "6年目",
-          "fee": "$50,000",
+          "fee": "800万円",
           "rep": ""
         },
         {
           "year": 2025,
           "nth": "5年目",
-          "fee": "$40,000",
-          "rep": "キセログラフィカ"
+          "fee": "1,000万円",
+          "rep": ""
         },
         {
           "year": 2024,
           "nth": "4年目",
-          "fee": "$35,000",
-          "rep": "スマイルガーデン"
+          "fee": "300万円",
+          "rep": ""
         },
         {
           "year": 2023,
           "nth": "3年目",
-          "fee": "$30,000",
-          "rep": ""
+          "fee": "350万円",
+          "rep": "トゥザファイナル"
         },
         {
           "year": 2022,
           "nth": "2年目",
-          "fee": "$20,000",
-          "rep": ""
+          "fee": "400万円",
+          "rep": "ロンギングフォユー"
         },
         {
           "year": 2021,
           "nth": "1年目",
-          "fee": "$15,000",
-          "rep": ""
+          "fee": "400万円",
+          "rep": "メモリアカフェ"
         }
       ],
       "tags": [
