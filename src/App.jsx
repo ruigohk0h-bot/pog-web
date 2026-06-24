@@ -2881,10 +2881,165 @@ function RulesScreen() {
 // タブ: ミニゲーム
 // ================================================================
 
-function GameScreen() {
+const QUIZ_DATA = [
+  // ── 日本ダート ──
+  { q:"クリソベリルの父は？",       a:"ゴールドアリュール",      hint:"JBCクラシック連覇",               choices:["ゴールドアリュール","フジキセキ","キングカメハメハ"] },
+  { q:"テーオーケインズの父は？",   a:"シニスターミニスター",    hint:"チャンピオンズC 2021",             choices:["シニスターミニスター","ヘニーヒューズ","スクリーンヒーロー"] },
+  { q:"ホッコータルマエの父は？",   a:"キングカメハメハ",        hint:"JBCクラシック3連覇",              choices:["キングカメハメハ","ゴールドアリュール","ブライアンズタイム"] },
+  { q:"ゴールドドリームの父は？",   a:"ゴールドアリュール",      hint:"チャンピオンズC 2017",             choices:["ゴールドアリュール","キングカメハメハ","ヘニーヒューズ"] },
+  { q:"コパノリッキーの父は？",     a:"ゴールドアリュール",      hint:"フェブラリーS連覇",               choices:["ゴールドアリュール","ブライアンズタイム","フジキセキ"] },
+  { q:"カネヒキリの父は？",         a:"フジキセキ",              hint:"JDD・JBCクラシック制覇",          choices:["フジキセキ","ゴールドアリュール","エルコンドルパサー"] },
+  { q:"ヴァーミリアンの父は？",     a:"エルコンドルパサー",      hint:"JBCクラシック3連覇",              choices:["エルコンドルパサー","ゴールドアリュール","キングカメハメハ"] },
+  { q:"スマートファルコンの父は？", a:"ゴールドアリュール",      hint:"地方競馬でほぼ無敵",              choices:["ゴールドアリュール","キングカメハメハ","ブライアンズタイム"] },
+  { q:"フリオーソの父は？",         a:"ブライアンズタイム",      hint:"JBCクラシック連覇",               choices:["ブライアンズタイム","ゴールドアリュール","フジキセキ"] },
+  { q:"オメガパフュームの父は？",   a:"スクリーンヒーロー",      hint:"東京大賞典4連覇",                 choices:["スクリーンヒーロー","ゴールドアリュール","オルフェーヴル"] },
+  { q:"チュウワウィザードの父は？", a:"キングカメハメハ",        hint:"JBCクラシック制覇",               choices:["キングカメハメハ","ゴールドアリュール","ヘニーヒューズ"] },
+  { q:"ウシュバテソーロの父は？",   a:"オルフェーヴル",          hint:"BCクラシック・東京大賞典連覇",     choices:["オルフェーヴル","スクリーンヒーロー","ゴールドアリュール"] },
+  { q:"レモンポップの父は？",       a:"Lemon Drop Kid",          hint:"フェブラリーS・チャンピオンズC制覇",choices:["Lemon Drop Kid","ヘニーヒューズ","シニスターミニスター"] },
+  { q:"ミックファイアの父は？",     a:"ヘニーヒューズ",          hint:"南関東三冠達成",                  choices:["ヘニーヒューズ","ゴールドアリュール","シニスターミニスター"] },
+  { q:"フォーエバーヤングの父は？", a:"リアルスティール",        hint:"サウジ・UAEダービー制覇",         choices:["リアルスティール","キズナ","ヘニーヒューズ"] },
+  { q:"ホワイトフーガの父は？",     a:"ヘニーヒューズ",          hint:"JBCレディスクラシック連覇",       choices:["ヘニーヒューズ","ゴールドアリュール","キングカメハメハ"] },
+  { q:"エスポワールシチーの父は？", a:"ゴールドアリュール",      hint:"フェブラリーS制覇",               choices:["ゴールドアリュール","フジキセキ","ブライアンズタイム"] },
+  { q:"ケイティブレイブの父は？",   a:"フリオーソ",              hint:"JBCクラシック制覇",               choices:["フリオーソ","ブライアンズタイム","ゴールドアリュール"] },
+  { q:"ノンコノユメの父は？",       a:"スウェプトオーヴァーボード",hint:"フェブラリーS制覇",              choices:["スウェプトオーヴァーボード","ゴールドアリュール","ヘニーヒューズ"] },
+  // ── アメリカダート ──
+  { q:"Gun Runner（ガンランナー）の父は？",          a:"Candy Ride",          hint:"BCクラシック制覇・北米最高額種牡馬",   choices:["Candy Ride","Tapit","Scat Daddy"] },
+  { q:"Flightline（フライトライン）の父は？",        a:"Tapit",               hint:"BCクラシックを19馬身差で圧勝",        choices:["Tapit","Into Mischief","Candy Ride"] },
+  { q:"Justify（ジャスティファイ）の父は？",         a:"Scat Daddy",          hint:"2018年米三冠制覇",                    choices:["Scat Daddy","Tapit","Into Mischief"] },
+  { q:"American Pharoah（アメリカンファラオ）の父は？",a:"Pioneer of the Nile",hint:"2015年米三冠・BCクラシック制覇",       choices:["Pioneer of the Nile","Candy Ride","Tapit"] },
+  { q:"Arrogate（アロゲート）の父は？",              a:"Unbridled's Song",    hint:"ドバイワールドC・BCクラシック制覇",    choices:["Unbridled's Song","Tapit","Candy Ride"] },
+];
+
+function StallionQuiz() {
+  const [phase, setPhase]       = useState("start");
+  const [questions, setQuestions] = useState([]);
+  const [current, setCurrent]   = useState(0);
+  const [score, setScore]       = useState(0);
+  const [selected, setSelected] = useState(null);
+
+  const startQuiz = () => {
+    const shuffled = [...QUIZ_DATA].sort(() => Math.random() - 0.5).slice(0, 10);
+    setQuestions(shuffled);
+    setCurrent(0); setScore(0); setSelected(null);
+    setPhase("playing");
+  };
+
+  const handleAnswer = (choice) => {
+    if (selected !== null) return;
+    const correct = choice === questions[current].a;
+    setSelected(choice);
+    if (correct) setScore(s => s + 1);
+    setTimeout(() => {
+      if (current + 1 >= questions.length) { setPhase("done"); }
+      else { setCurrent(c => c + 1); setSelected(null); }
+    }, 1400);
+  };
+
+  const S = {
+    wrap:    { padding:"16px 12px" },
+    card:    { background:"#fff", borderRadius:12, padding:16, marginBottom:12,
+               boxShadow:"0 2px 8px rgba(0,0,0,0.1)" },
+    hint:    { fontSize:11, color:"#999", marginBottom:8 },
+    qtext:   { fontSize:17, fontWeight:800, color:"#3a2a1a", marginBottom:16, lineHeight:1.5 },
+    choiceBase: { width:"100%", padding:"13px 12px", marginBottom:10, borderRadius:10,
+                  border:"2px solid #ddd", background:"#fafafa", fontSize:14,
+                  fontWeight:700, cursor:"pointer", textAlign:"left", transition:"all .2s" },
+    progress:{ fontSize:12, color:"#999", marginBottom:4, textAlign:"right" },
+    bar:     { height:5, background:"#eee", borderRadius:3, marginBottom:16 },
+    barFill: (pct) => ({ height:"100%", width:`${pct}%`, background:"#b06a2c",
+                         borderRadius:3, transition:"width .3s" }),
+    score:   { fontSize:48, fontWeight:900, color:"#b06a2c", textAlign:"center", margin:"12px 0" },
+    msg:     { fontSize:15, color:"#555", textAlign:"center", marginBottom:20 },
+    btn:     { display:"block", width:"100%", padding:14, background:"#b06a2c",
+               color:"#fff", border:"none", borderRadius:12, fontSize:15,
+               fontWeight:800, cursor:"pointer" },
+  };
+
+  if (phase === "start") return (
+    <div style={S.wrap}>
+      <div style={S.card}>
+        <div style={{ textAlign:"center", padding:"8px 0 16px" }}>
+          <div style={{ fontSize:40, marginBottom:8 }}>🏇</div>
+          <div style={{ fontSize:18, fontWeight:900, color:"#3a2a1a", marginBottom:6 }}>ダート名馬クイズ</div>
+          <div style={{ fontSize:13, color:"#777", lineHeight:1.6, marginBottom:20 }}>
+            日本・アメリカのダート名馬の<br/>父を当てる10問クイズ！
+          </div>
+          <button style={S.btn} onClick={startQuiz}>スタート</button>
+        </div>
+      </div>
+    </div>
+  );
+
+  if (phase === "done") {
+    const pct = (score / 10) * 100;
+    const msg = score >= 9 ? "パーフェクト！ダート通ですね🏆" :
+                score >= 7 ? "なかなかやりますね！🥇" :
+                score >= 5 ? "まあまあ！もう一回挑戦を💪" : "もっと種牡馬コーナーを読もう📖";
+    return (
+      <div style={S.wrap}>
+        <div style={S.card}>
+          <div style={{ textAlign:"center", padding:"8px 0" }}>
+            <div style={{ fontSize:13, color:"#999", marginBottom:4 }}>スコア</div>
+            <div style={S.score}>{score}<span style={{ fontSize:20 }}>/10</span></div>
+            <div style={S.msg}>{msg}</div>
+            <button style={S.btn} onClick={startQuiz}>もう一回</button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  const q = questions[current];
+  const pct = ((current) / 10) * 100;
   return (
-    <div style={{ padding:12 }}>
-      <BettingGame />
+    <div style={S.wrap}>
+      <div style={S.progress}>{current + 1} / 10問</div>
+      <div style={S.bar}><div style={S.barFill(pct)} /></div>
+      <div style={S.card}>
+        <div style={S.hint}>🏆 {q.hint}</div>
+        <div style={S.qtext}>{q.q}</div>
+        {q.choices.map(c => {
+          let bg = "#fafafa", border = "2px solid #ddd", color = "#3a2a1a";
+          if (selected !== null) {
+            if (c === q.a)           { bg = "#e8f5e9"; border = "2px solid #4caf50"; color = "#2e7d32"; }
+            else if (c === selected) { bg = "#ffebee"; border = "2px solid #f44336"; color = "#c62828"; }
+            else                     { bg = "#f5f5f5"; color = "#bbb"; border = "2px solid #eee"; }
+          }
+          return (
+            <button key={c} onClick={() => handleAnswer(c)}
+              style={{ ...S.choiceBase, background:bg, border, color }}>
+              {selected !== null && c === q.a ? "✓ " : selected === c && c !== q.a ? "✗ " : ""}
+              {c}
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+function GameScreen() {
+  const [gameTab, setGameTab] = useState("race");
+  const tabs = [
+    { key:"race",  label:"🏇 レース" },
+    { key:"quiz",  label:"❓ クイズ" },
+  ];
+  return (
+    <div>
+      <div style={{ display:"flex", background:"#fff", borderBottom:"2px solid #eee" }}>
+        {tabs.map(t => (
+          <button key={t.key} onClick={() => setGameTab(t.key)} style={{
+            flex:1, padding:"11px 0", border:"none", background:"transparent",
+            fontWeight:800, fontSize:13, cursor:"pointer",
+            color: gameTab === t.key ? "#b06a2c" : "#aaa",
+            borderBottom: gameTab === t.key ? "3px solid #b06a2c" : "3px solid transparent",
+          }}>{t.label}</button>
+        ))}
+      </div>
+      {gameTab === "race"
+        ? <div style={{ padding:12 }}><BettingGame /></div>
+        : <StallionQuiz />
+      }
     </div>
   );
 }
