@@ -1,41 +1,6 @@
 {
-  "updated": "2026/06/24 19:49",
+  "updated": "2026/06/25 11:54",
   "source": "https://pogstarion.com/newresultlist.do?group_num=0601093409",
-  "schedule_results": [
-    {
-      "日時": "06/20",
-      "競走": "東京05R",
-      "col2": "",
-      "レース名": "新馬",
-      "距離": "芝1600",
-      "馬名": "コナパームス",
-      "騎手": "ルメール",
-      "順位": "3",
-      "賞金": "200",
-      "所有者": "前田厩舎",
-      "_links": [
-        "http://race.netkeiba.com/?pid=race&id=c202605030505&mode=shutuba",
-        "umaracelist.do?group_num=0601093409&user_num=407310&kettonum=2024106309",
-        "userumalist.do?group_num=0601093409&user_num=407310"
-      ]
-    },
-    {
-      "日時": "06/21",
-      "競走": "東京04R",
-      "col2": "",
-      "レース名": "新馬",
-      "距離": "芝1400",
-      "馬名": "タクティシアン",
-      "騎手": "ルメール",
-      "順位": "1",
-      "賞金": "780",
-      "所有者": "成田厩舎",
-      "_links": [
-        "http://race.netkeiba.com/?pid=race&id=c202605030604&mode=shutuba",
-        "umaracelist.do?group_num=0601093409&user_num=407305&kettonum=2024106657",
-        "userumalist.do?group_num=0601093409&user_num=407305"
-      ]
-    }
-  ],
+  "schedule_results": [],
   "special_regist": []
 }
