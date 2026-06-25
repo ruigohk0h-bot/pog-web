@@ -2882,45 +2882,56 @@ function RulesScreen() {
 // ================================================================
 
 const QUIZ_DATA = [
-  // ── 日本ダート ──
-  { q:"クリソベリルの父は？",       a:"ゴールドアリュール",      hint:"JBCクラシック連覇",               choices:["ゴールドアリュール","フジキセキ","キングカメハメハ"] },
-  { q:"テーオーケインズの父は？",   a:"シニスターミニスター",    hint:"チャンピオンズC 2021",             choices:["シニスターミニスター","ヘニーヒューズ","スクリーンヒーロー"] },
-  { q:"ホッコータルマエの父は？",   a:"キングカメハメハ",        hint:"JBCクラシック3連覇",              choices:["キングカメハメハ","ゴールドアリュール","ブライアンズタイム"] },
-  { q:"ゴールドドリームの父は？",   a:"ゴールドアリュール",      hint:"チャンピオンズC 2017",             choices:["ゴールドアリュール","キングカメハメハ","ヘニーヒューズ"] },
-  { q:"コパノリッキーの父は？",     a:"ゴールドアリュール",      hint:"フェブラリーS連覇",               choices:["ゴールドアリュール","ブライアンズタイム","フジキセキ"] },
-  { q:"カネヒキリの父は？",         a:"フジキセキ",              hint:"JDD・JBCクラシック制覇",          choices:["フジキセキ","ゴールドアリュール","エルコンドルパサー"] },
-  { q:"ヴァーミリアンの父は？",     a:"エルコンドルパサー",      hint:"JBCクラシック3連覇",              choices:["エルコンドルパサー","ゴールドアリュール","キングカメハメハ"] },
-  { q:"スマートファルコンの父は？", a:"ゴールドアリュール",      hint:"地方競馬でほぼ無敵",              choices:["ゴールドアリュール","キングカメハメハ","ブライアンズタイム"] },
-  { q:"フリオーソの父は？",         a:"ブライアンズタイム",      hint:"JBCクラシック連覇",               choices:["ブライアンズタイム","ゴールドアリュール","フジキセキ"] },
-  { q:"オメガパフュームの父は？",   a:"スクリーンヒーロー",      hint:"東京大賞典4連覇",                 choices:["スクリーンヒーロー","ゴールドアリュール","オルフェーヴル"] },
-  { q:"チュウワウィザードの父は？", a:"キングカメハメハ",        hint:"JBCクラシック制覇",               choices:["キングカメハメハ","ゴールドアリュール","ヘニーヒューズ"] },
-  { q:"ウシュバテソーロの父は？",   a:"オルフェーヴル",          hint:"BCクラシック・東京大賞典連覇",     choices:["オルフェーヴル","スクリーンヒーロー","ゴールドアリュール"] },
-  { q:"レモンポップの父は？",       a:"Lemon Drop Kid",          hint:"フェブラリーS・チャンピオンズC制覇",choices:["Lemon Drop Kid","ヘニーヒューズ","シニスターミニスター"] },
-  { q:"ミックファイアの父は？",     a:"ヘニーヒューズ",          hint:"南関東三冠達成",                  choices:["ヘニーヒューズ","ゴールドアリュール","シニスターミニスター"] },
-  { q:"フォーエバーヤングの父は？", a:"リアルスティール",        hint:"サウジ・UAEダービー制覇",         choices:["リアルスティール","キズナ","ヘニーヒューズ"] },
-  { q:"ホワイトフーガの父は？",     a:"ヘニーヒューズ",          hint:"JBCレディスクラシック連覇",       choices:["ヘニーヒューズ","ゴールドアリュール","キングカメハメハ"] },
-  { q:"エスポワールシチーの父は？", a:"ゴールドアリュール",      hint:"フェブラリーS制覇",               choices:["ゴールドアリュール","フジキセキ","ブライアンズタイム"] },
-  { q:"ケイティブレイブの父は？",   a:"フリオーソ",              hint:"JBCクラシック制覇",               choices:["フリオーソ","ブライアンズタイム","ゴールドアリュール"] },
-  { q:"ノンコノユメの父は？",       a:"スウェプトオーヴァーボード",hint:"フェブラリーS制覇",              choices:["スウェプトオーヴァーボード","ゴールドアリュール","ヘニーヒューズ"] },
+  // ── 日本ダート・父は誰？ ──
+  { cat:"🇯🇵 日本ダート", q:"クリソベリルの父は？",       a:"ゴールドアリュール", hint:"JBCクラシック連覇",        trivia:"ゴールドアリュールはスマートファルコン・コパノリッキーも輩出した日本ダート最強の種牡馬。",       choices:["ゴールドアリュール","フジキセキ","キングカメハメハ"] },
+  { cat:"🇯🇵 日本ダート", q:"テーオーケインズの父は？",   a:"シニスターミニスター", hint:"チャンピオンズC 2021",   trivia:"シニスターミニスターは米国産のダート特化型種牡馬。産駒は砂でパワーを発揮する傾向がある。",          choices:["シニスターミニスター","ヘニーヒューズ","スクリーンヒーロー"] },
+  { cat:"🇯🇵 日本ダート", q:"ホッコータルマエの父は？",   a:"キングカメハメハ",    hint:"JBCクラシック3連覇",      trivia:"キングカメハメハは芝・ダート問わず活躍馬を多数輩出した大種牡馬。2023年に死亡。",                    choices:["キングカメハメハ","ゴールドアリュール","ブライアンズタイム"] },
+  { cat:"🇯🇵 日本ダート", q:"ゴールドドリームの父は？",   a:"ゴールドアリュール",  hint:"チャンピオンズC 2017",    trivia:"ゴールドアリュールは自身もJDD・東京大賞典を制した名馬。産駒でダートG1を量産した。",                  choices:["ゴールドアリュール","キングカメハメハ","ヘニーヒューズ"] },
+  { cat:"🇯🇵 日本ダート", q:"コパノリッキーの父は？",     a:"ゴールドアリュール",  hint:"フェブラリーS連覇",       trivia:"コパノリッキーはゲートを嫌がることで有名だったが、フェブラリーSを2連覇した怪物。",                   choices:["ゴールドアリュール","ブライアンズタイム","フジキセキ"] },
+  { cat:"🇯🇵 日本ダート", q:"カネヒキリの父は？",         a:"フジキセキ",          hint:"JDD・JBCクラシック制覇",  trivia:"フジキセキは芝でも活躍馬を出す万能種牡馬。カネヒキリは骨折から復活しJBCを制した。",                  choices:["フジキセキ","ゴールドアリュール","エルコンドルパサー"] },
+  { cat:"🇯🇵 日本ダート", q:"ヴァーミリアンの父は？",     a:"エルコンドルパサー",  hint:"JBCクラシック3連覇",      trivia:"エルコンドルパサーは凱旋門賞で2着に入った名馬。産駒ヴァーミリアンはドバイでも活躍した。",             choices:["エルコンドルパサー","ゴールドアリュール","キングカメハメハ"] },
+  { cat:"🇯🇵 日本ダート", q:"スマートファルコンの父は？", a:"ゴールドアリュール",  hint:"地方G1を8勝",             trivia:"スマートファルコンは地方競馬で圧倒的強さを誇り、引退まで29戦22勝という成績を残した。",                choices:["ゴールドアリュール","キングカメハメハ","ブライアンズタイム"] },
+  { cat:"🇯🇵 日本ダート", q:"フリオーソの父は？",         a:"ブライアンズタイム",  hint:"JBCクラシック連覇",       trivia:"ブライアンズタイムはアロンダイト・フリオーソなどダート名馬の父。自身は芝の名馬だった。",               choices:["ブライアンズタイム","ゴールドアリュール","フジキセキ"] },
+  { cat:"🇯🇵 日本ダート", q:"オメガパフュームの父は？",   a:"スクリーンヒーロー",  hint:"東京大賞典4連覇",         trivia:"スクリーンヒーローはジャパンC制覇の名馬。産駒モーリスも名種牡馬になっており優秀な血統。",              choices:["スクリーンヒーロー","ゴールドアリュール","オルフェーヴル"] },
+  { cat:"🇯🇵 日本ダート", q:"チュウワウィザードの父は？", a:"キングカメハメハ",    hint:"JBCクラシック制覇",       trivia:"キングカメハメハはホッコータルマエ・チュウワウィザードとJBCクラシック馬を複数輩出した。",               choices:["キングカメハメハ","ゴールドアリュール","ヘニーヒューズ"] },
+  { cat:"🇯🇵 日本ダート", q:"ウシュバテソーロの父は？",   a:"オルフェーヴル",      hint:"BCクラシック・東京大賞典連覇",trivia:"オルフェーヴルは3冠馬。産駒ウシュバテソーロは日本馬として初めてBCクラシックを制した。",              choices:["オルフェーヴル","スクリーンヒーロー","ゴールドアリュール"] },
+  { cat:"🇯🇵 日本ダート", q:"レモンポップの父は？",       a:"Lemon Drop Kid",      hint:"フェブラリーS・チャンピオンズC制覇",trivia:"Lemon Drop Kidは米国産のダート種牡馬。レモンポップは2つのJRAダートG1を制した名馬。", choices:["Lemon Drop Kid","ヘニーヒューズ","シニスターミニスター"] },
+  { cat:"🇯🇵 日本ダート", q:"ミックファイアの父は？",     a:"ヘニーヒューズ",      hint:"南関東三冠達成",          trivia:"ヘニーヒューズはダート向きの産駒を多く輩出する人気種牡馬。ミックファイアは圧倒的強さで南関三冠を達成。", choices:["ヘニーヒューズ","ゴールドアリュール","シニスターミニスター"] },
+  { cat:"🇯🇵 日本ダート", q:"フォーエバーヤングの父は？", a:"リアルスティール",    hint:"サウジ・UAEダービー制覇",  trivia:"リアルスティールはドバイターフ勝ち馬。産駒フォーエバーヤングはダートの国際レースで活躍した。",           choices:["リアルスティール","キズナ","ヘニーヒューズ"] },
+  { cat:"🇯🇵 日本ダート", q:"ホワイトフーガの父は？",     a:"ヘニーヒューズ",      hint:"JBCレディスクラシック連覇",trivia:"ヘニーヒューズはホワイトフーガ・ミックファイアなどダート名馬の父としてJRA・地方ともに活躍馬を出す。", choices:["ヘニーヒューズ","ゴールドアリュール","キングカメハメハ"] },
+  { cat:"🇯🇵 日本ダート", q:"ケイティブレイブの父は？",   a:"フリオーソ",          hint:"JBCクラシック制覇",       trivia:"フリオーソ自身もJBC制覇の名馬で、産駒ケイティブレイブがそのタイトルを引き継いだ父子鷹。",              choices:["フリオーソ","ブライアンズタイム","ゴールドアリュール"] },
+  { cat:"🇯🇵 日本ダート", q:"ノンコノユメの父は？",       a:"スウェプトオーヴァーボード",hint:"フェブラリーS制覇",   trivia:"スウェプトオーヴァーボードは米国産のダート種牡馬。ノンコノユメは落鉄ハプニングを乗り越えフェブラリーSを制覇。",choices:["スウェプトオーヴァーボード","ゴールドアリュール","ヘニーヒューズ"] },
+  // ── 日本ダート・雑学系 ──
+  { cat:"🇯🇵 日本ダート", q:"東京大賞典を4年連続で制した馬は？", a:"オメガパフューム", hint:"2018〜2021年",          trivia:"オメガパフュームは2018〜2021年と東京大賞典を4連覇。4連覇は史上初の快挙だった。",                      choices:["オメガパフューム","クリソベリル","チュウワウィザード"] },
+  { cat:"🇯🇵 日本ダート", q:"ゴールドアリュールの産駒でないのは？", a:"ヴァーミリアン", hint:"父は別の名馬",        trivia:"ヴァーミリアンの父はエルコンドルパサー。クリソベリル・スマートファルコン・コパノリッキーがゴールドアリュール産駒。",choices:["ヴァーミリアン","クリソベリル","スマートファルコン"] },
+  { cat:"🇯🇵 日本ダート", q:"南関東三冠（大井）を2023年に制した馬は？", a:"ミックファイア", hint:"ヘニーヒューズ産駒",trivia:"ミックファイアは羽田盃・東京ダービー・ジャパンDDと南関東三冠を完全制覇した怪物。",                  choices:["ミックファイア","フォーエバーヤング","テーオーケインズ"] },
+  { cat:"🇯🇵 日本ダート", q:"日本馬として初めてBCクラシックを制した馬は？", a:"ウシュバテソーロ", hint:"2023年",   trivia:"2023年、ウシュバテソーロがBCクラシックを勝利。日本のダート馬が世界最高峰のレースを制した歴史的快挙。",   choices:["ウシュバテソーロ","レモンポップ","オメガパフューム"] },
   // ── アメリカダート ──
-  { q:"Gun Runner（ガンランナー）の父は？",          a:"Candy Ride",          hint:"BCクラシック制覇・北米最高額種牡馬",   choices:["Candy Ride","Tapit","Scat Daddy"] },
-  { q:"Flightline（フライトライン）の父は？",        a:"Tapit",               hint:"BCクラシックを19馬身差で圧勝",        choices:["Tapit","Into Mischief","Candy Ride"] },
-  { q:"Justify（ジャスティファイ）の父は？",         a:"Scat Daddy",          hint:"2018年米三冠制覇",                    choices:["Scat Daddy","Tapit","Into Mischief"] },
-  { q:"American Pharoah（アメリカンファラオ）の父は？",a:"Pioneer of the Nile",hint:"2015年米三冠・BCクラシック制覇",       choices:["Pioneer of the Nile","Candy Ride","Tapit"] },
-  { q:"Arrogate（アロゲート）の父は？",              a:"Unbridled's Song",    hint:"ドバイワールドC・BCクラシック制覇",    choices:["Unbridled's Song","Tapit","Candy Ride"] },
+  { cat:"🇺🇸 アメリカダート", q:"Gun Runner（ガンランナー）の父は？",           a:"Candy Ride",          hint:"BCクラシック制覇",     trivia:"Candy Rideはアルゼンチン産の快速馬。ガンランナーは北米最高額タイの$250,000の種牡馬に成長。",           choices:["Candy Ride","Tapit","Scat Daddy"] },
+  { cat:"🇺🇸 アメリカダート", q:"Flightline（フライトライン）の父は？",         a:"Tapit",               hint:"BCクラシック19馬身差",  trivia:"TapitはBCクラシック馬を複数輩出した米最高の種牡馬の1頭。フライトラインの圧勝劇は競馬史に残る。",        choices:["Tapit","Into Mischief","Candy Ride"] },
+  { cat:"🇺🇸 アメリカダート", q:"Justify（ジャスティファイ）の父は？",          a:"Scat Daddy",          hint:"2018年米三冠無敗制覇",  trivia:"Scat DaddyはJustifyとJustify産駒のTorchilloなど大物を輩出。自身は2007年フロリダダービー勝利。",        choices:["Scat Daddy","Tapit","Into Mischief"] },
+  { cat:"🇺🇸 アメリカダート", q:"American Pharoah（アメリカンファラオ）の父は？", a:"Pioneer of the Nile",hint:"2015年米三冠＋BCクラシック",trivia:"37年ぶりの米三冠馬。さらにBCクラシックも制しグランドスラムを達成した史上最強クラスの馬。",          choices:["Pioneer of the Nile","Candy Ride","Tapit"] },
+  { cat:"🇺🇸 アメリカダート", q:"Arrogate（アロゲート）の父は？",               a:"Unbridled's Song",    hint:"ドバイWC・BCクラシック",  trivia:"Unbridled's Songは米国産の名種牡馬。アロゲートはペガサスWCで当時の世界最高賞金レースも制した。",        choices:["Unbridled's Song","Tapit","Candy Ride"] },
+  { cat:"🇺🇸 アメリカダート", q:"BCクラシックを19馬身差で圧勝した馬は？",      a:"Flightline",          hint:"2022年",               trivia:"フライトラインは2022年BCクラシックで歴史的大差勝ち。引退までの4戦全勝で競馬界に衝撃を与えた。",        choices:["Flightline","Justify","Gun Runner"] },
 ];
 
 function StallionQuiz() {
-  const [phase, setPhase]       = useState("start");
+  const [phase, setPhase]         = useState("start");
   const [questions, setQuestions] = useState([]);
-  const [current, setCurrent]   = useState(0);
-  const [score, setScore]       = useState(0);
-  const [selected, setSelected] = useState(null);
+  const [current, setCurrent]     = useState(0);
+  const [score, setScore]         = useState(0);
+  const [selected, setSelected]   = useState(null);
+  const [combo, setCombo]         = useState(0);
+  const [maxCombo, setMaxCombo]   = useState(0);
+  const [flash, setFlash]         = useState(null); // "correct"|"wrong"
 
   const startQuiz = () => {
-    const shuffled = [...QUIZ_DATA].sort(() => Math.random() - 0.5).slice(0, 10);
-    setQuestions(shuffled);
-    setCurrent(0); setScore(0); setSelected(null);
+    const qs = [...QUIZ_DATA]
+      .sort(() => Math.random() - 0.5)
+      .slice(0, 10)
+      .map(q => ({ ...q, choices: [...q.choices].sort(() => Math.random() - 0.5) })); // N: choicesもシャッフル
+    setQuestions(qs);
+    setCurrent(0); setScore(0); setSelected(null); setCombo(0); setMaxCombo(0); setFlash(null);
     setPhase("playing");
   };
 
@@ -2928,91 +2939,120 @@ function StallionQuiz() {
     if (selected !== null) return;
     const correct = choice === questions[current].a;
     setSelected(choice);
+    setFlash(correct ? "correct" : "wrong");
+    const newCombo = correct ? combo + 1 : 0;
+    setCombo(newCombo);
+    if (newCombo > maxCombo) setMaxCombo(newCombo);
     if (correct) setScore(s => s + 1);
+    setTimeout(() => setFlash(null), 600);
     setTimeout(() => {
       if (current + 1 >= questions.length) { setPhase("done"); }
       else { setCurrent(c => c + 1); setSelected(null); }
-    }, 1400);
+    }, 2200);
   };
 
-  const S = {
-    wrap:    { padding:"16px 12px" },
-    card:    { background:"#fff", borderRadius:12, padding:16, marginBottom:12,
-               boxShadow:"0 2px 8px rgba(0,0,0,0.1)" },
-    hint:    { fontSize:11, color:"#999", marginBottom:8 },
-    qtext:   { fontSize:17, fontWeight:800, color:"#3a2a1a", marginBottom:16, lineHeight:1.5 },
-    choiceBase: { width:"100%", padding:"13px 12px", marginBottom:10, borderRadius:10,
-                  border:"2px solid #ddd", background:"#fafafa", fontSize:14,
-                  fontWeight:700, cursor:"pointer", textAlign:"left", transition:"all .2s" },
-    progress:{ fontSize:12, color:"#999", marginBottom:4, textAlign:"right" },
-    bar:     { height:5, background:"#eee", borderRadius:3, marginBottom:16 },
-    barFill: (pct) => ({ height:"100%", width:`${pct}%`, background:"#b06a2c",
-                         borderRadius:3, transition:"width .3s" }),
-    score:   { fontSize:48, fontWeight:900, color:"#b06a2c", textAlign:"center", margin:"12px 0" },
-    msg:     { fontSize:15, color:"#555", textAlign:"center", marginBottom:20 },
-    btn:     { display:"block", width:"100%", padding:14, background:"#b06a2c",
-               color:"#fff", border:"none", borderRadius:12, fontSize:15,
-               fontWeight:800, cursor:"pointer" },
-  };
+  const btn = { display:"block", width:"100%", padding:14, background:"#b06a2c",
+                color:"#fff", border:"none", borderRadius:12, fontSize:15, fontWeight:800, cursor:"pointer" };
 
+  // ── スタート画面 ──────────────────────────────────────────
   if (phase === "start") return (
-    <div style={S.wrap}>
-      <div style={S.card}>
-        <div style={{ textAlign:"center", padding:"8px 0 16px" }}>
-          <div style={{ fontSize:40, marginBottom:8 }}>🏇</div>
-          <div style={{ fontSize:18, fontWeight:900, color:"#3a2a1a", marginBottom:6 }}>ダート名馬クイズ</div>
-          <div style={{ fontSize:13, color:"#777", lineHeight:1.6, marginBottom:20 }}>
-            日本・アメリカのダート名馬の<br/>父を当てる10問クイズ！
-          </div>
-          <button style={S.btn} onClick={startQuiz}>スタート</button>
+    <div style={{ padding:"16px 12px" }}>
+      <div style={{ background:"#fff", borderRadius:12, padding:20, boxShadow:"0 2px 8px rgba(0,0,0,0.1)", textAlign:"center" }}>
+        <div style={{ fontSize:44, marginBottom:8 }}>🏇</div>
+        <div style={{ fontSize:19, fontWeight:900, color:"#3a2a1a", marginBottom:6 }}>ダート名馬クイズ</div>
+        <div style={{ fontSize:13, color:"#777", lineHeight:1.7, marginBottom:8 }}>
+          日本・アメリカのダート名馬に関する<br/>全27問からランダム10問出題！
         </div>
+        <div style={{ fontSize:12, color:"#aaa", marginBottom:20 }}>連続正解でコンボボーナス🔥</div>
+        <button style={btn} onClick={startQuiz}>スタート</button>
       </div>
     </div>
   );
 
+  // ── 結果画面 ──────────────────────────────────────────────
   if (phase === "done") {
-    const pct = (score / 10) * 100;
-    const msg = score >= 9 ? "パーフェクト！ダート通ですね🏆" :
-                score >= 7 ? "なかなかやりますね！🥇" :
-                score >= 5 ? "まあまあ！もう一回挑戦を💪" : "もっと種牡馬コーナーを読もう📖";
+    const rank = score === 10 ? { title:"👑 ダート王",    color:"#b8860b" } :
+                 score >= 8  ? { title:"🏆 砂の達人",    color:"#b06a2c" } :
+                 score >= 6  ? { title:"🐎 砂遊び中級者", color:"#5d8a5e" } :
+                               { title:"🐣 まだまだひよっこ", color:"#999" };
     return (
-      <div style={S.wrap}>
-        <div style={S.card}>
-          <div style={{ textAlign:"center", padding:"8px 0" }}>
-            <div style={{ fontSize:13, color:"#999", marginBottom:4 }}>スコア</div>
-            <div style={S.score}>{score}<span style={{ fontSize:20 }}>/10</span></div>
-            <div style={S.msg}>{msg}</div>
-            <button style={S.btn} onClick={startQuiz}>もう一回</button>
+      <div style={{ padding:"16px 12px" }}>
+        <div style={{ background:"#fff", borderRadius:12, padding:20, boxShadow:"0 2px 8px rgba(0,0,0,0.1)", textAlign:"center" }}>
+          <div style={{ fontSize:13, color:"#999", marginBottom:4 }}>称号</div>
+          <div style={{ fontSize:24, fontWeight:900, color:rank.color, marginBottom:12 }}>{rank.title}</div>
+          <div style={{ fontSize:52, fontWeight:900, color:"#b06a2c", lineHeight:1 }}>
+            {score}<span style={{ fontSize:22 }}>/10</span>
           </div>
+          <div style={{ fontSize:12, color:"#aaa", margin:"8px 0 16px" }}>
+            最大コンボ {maxCombo}連続🔥
+          </div>
+          <button style={btn} onClick={startQuiz}>もう一回</button>
         </div>
       </div>
     );
   }
 
+  // ── 問題画面 ──────────────────────────────────────────────
   const q = questions[current];
-  const pct = ((current) / 10) * 100;
+  const pct = (current / 10) * 100;
+  const flashBg = flash === "correct" ? "rgba(76,175,80,0.12)" :
+                  flash === "wrong"   ? "rgba(244,67,54,0.1)" : "transparent";
+
   return (
-    <div style={S.wrap}>
-      <div style={S.progress}>{current + 1} / 10問</div>
-      <div style={S.bar}><div style={S.barFill(pct)} /></div>
-      <div style={S.card}>
-        <div style={S.hint}>🏆 {q.hint}</div>
-        <div style={S.qtext}>{q.q}</div>
+    <div style={{ padding:"16px 12px", transition:"background .3s", background:flashBg }}>
+      {/* 進捗バー */}
+      <div style={{ display:"flex", alignItems:"center", gap:8, marginBottom:10 }}>
+        <div style={{ flex:1, height:5, background:"#eee", borderRadius:3 }}>
+          <div style={{ height:"100%", width:`${pct}%`, background:"#b06a2c", borderRadius:3, transition:"width .3s" }} />
+        </div>
+        <div style={{ fontSize:12, color:"#999", whiteSpace:"nowrap" }}>{current+1}/10</div>
+      </div>
+
+      {/* コンボ表示 (B) */}
+      {combo >= 3 && (
+        <div style={{ textAlign:"center", marginBottom:8, fontSize:13, fontWeight:900, color:"#e65c00",
+                      animation:"none" }}>
+          🔥 {combo}連続正解コンボ！
+        </div>
+      )}
+
+      <div style={{ background:"#fff", borderRadius:12, padding:16, boxShadow:"0 2px 8px rgba(0,0,0,0.1)" }}>
+        {/* カテゴリバッジ (I) */}
+        <div style={{ display:"inline-block", fontSize:11, fontWeight:800,
+                      background:"#f5efe6", color:"#b06a2c", borderRadius:20,
+                      padding:"2px 10px", marginBottom:8 }}>{q.cat}</div>
+
+        {/* 実績ヒント */}
+        <div style={{ fontSize:11, color:"#aaa", marginBottom:8 }}>🏆 {q.hint}</div>
+
+        {/* 問題文 */}
+        <div style={{ fontSize:17, fontWeight:800, color:"#3a2a1a", marginBottom:16, lineHeight:1.5 }}>{q.q}</div>
+
+        {/* 選択肢 */}
         {q.choices.map(c => {
-          let bg = "#fafafa", border = "2px solid #ddd", color = "#3a2a1a";
+          let bg = "#fafafa", border = "2px solid #ddd", color = "#3a2a1a", prefix = "";
           if (selected !== null) {
-            if (c === q.a)           { bg = "#e8f5e9"; border = "2px solid #4caf50"; color = "#2e7d32"; }
-            else if (c === selected) { bg = "#ffebee"; border = "2px solid #f44336"; color = "#c62828"; }
-            else                     { bg = "#f5f5f5"; color = "#bbb"; border = "2px solid #eee"; }
+            if (c === q.a)           { bg="#e8f5e9"; border="2px solid #4caf50"; color="#2e7d32"; prefix="✓ "; }
+            else if (c === selected) { bg="#ffebee"; border="2px solid #f44336"; color="#c62828"; prefix="✗ "; }
+            else                     { bg="#f5f5f5"; color="#ccc"; border="2px solid #eee"; }
           }
           return (
-            <button key={c} onClick={() => handleAnswer(c)}
-              style={{ ...S.choiceBase, background:bg, border, color }}>
-              {selected !== null && c === q.a ? "✓ " : selected === c && c !== q.a ? "✗ " : ""}
-              {c}
-            </button>
+            <button key={c} onClick={() => handleAnswer(c)} style={{
+              width:"100%", padding:"13px 12px", marginBottom:9, borderRadius:10,
+              border, background:bg, fontSize:14, fontWeight:700, cursor:"pointer",
+              textAlign:"left", color, transition:"all .2s",
+            }}>{prefix}{c}</button>
           );
         })}
+
+        {/* 豆知識 (H) */}
+        {selected !== null && (
+          <div style={{ marginTop:4, padding:"10px 12px", background:"#fef9f0",
+                        borderRadius:8, fontSize:12, color:"#7a5c2e", lineHeight:1.6,
+                        borderLeft:"3px solid #b06a2c" }}>
+            💡 {q.trivia}
+          </div>
+        )}
       </div>
     </div>
   );
