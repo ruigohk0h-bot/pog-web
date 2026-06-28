@@ -1,5 +1,21 @@
 [
   {
+    "date": "06/28",
+    "venue": "福島",
+    "race": "新馬",
+    "course": "芝1800",
+    "surface": "turf",
+    "dist": 1800,
+    "horse": "レッジェランツァ",
+    "player": "P01",
+    "order": 4,
+    "grade": null,
+    "local": false,
+    "rawPt": 0,
+    "turfPt": 120,
+    "_ts": "06/28"
+  },
+  {
     "date": "06/27",
     "venue": "福島",
     "race": "新馬",
