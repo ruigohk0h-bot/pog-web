@@ -107,7 +107,7 @@
     "horses": [
       {
         "name": "スターフラッシュ",
-        "active": true,
+        "active": false,
         "sire": "Yaupon",
         "dam": "Shanghai Starlet"
       },
@@ -264,7 +264,7 @@
       {
         "name": null,
         "active": false,
-        "sire": "母ゴールデンプルーフ",
+        "sire": "ナダル",
         "dam": "ゴールデンプルーフ"
       }
     ]

@@ -270,15 +270,6 @@
     "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE1LMTJrSVEwaktkTGp4MWFCVldtRlZtRVFKeHJrMHBDWFQwMVJzWWMzYnRJYm55YWtDbm9heTJRRFA0ZWhHQ0lyblVCVU9nZk1TaXlPVGNjeFd1bnZpR2JTb3FwV3lBZ18xRFR2NndYdHdnYUdGdU1Qc2JkaXI?oc=5"
   },
   {
-    "horse": "タクティシアン",
-    "player": "P07",
-    "title": "【若駒ピカイチ】奥深い勝ちっぷりのタクティシアン マイル前後の大舞台で活躍できる好素材 - サンスポ",
-    "desc": "【若駒ピカイチ】奥深い勝ちっぷりのタクティシアン マイル前後の大舞台で活躍できる好素材&nbsp;&nbsp;サンスポ",
-    "source": "サンスポ",
-    "date": "2026/06/22",
-    "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOUDZ0MjlMcmtSWk1BTWROOGFiTkk0dVZqR1NuYkpiZkY2OC1JRUxtZHR1NXFNV3NmNGhqRFkwRy1RTGNXWVBqSzVPc21ENVA0ODR0VEdqTnhqS09wSEtIX01lRll5ZjQyQXV2WmlHYS12NWhPcEd6eFR2RjdVbG5XbEx1SjBjQ3M?oc=5"
-  },
-  {
     "horse": "オールシティキング",
     "player": "P06",
     "title": "オールシティキング｜お気に入り馬登録者一覧｜競走馬データ - netkeiba",
@@ -648,15 +639,6 @@
     "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNVzkyc2pHa18xanpJSW1oQ0o0cWdLMTRtSWNGMkJqdTdlUDgtWDU3YXl6YVhVYUJxbGpxSnZ3QWQ2OHpoNjN3dHM3QWp5TjlFel9WOWVLTzIwVjRsMW93TEJQM2hBcVBPTExBZUo4bmRtODYzR0QwNlBmVEd3M2VxYUpETWU2TU0?oc=5"
   },
   {
-    "horse": "スターフラッシュ",
-    "player": "P01",
-    "title": "【今日の注目新馬】追い切りで俊敏な反応 スターフラッシュ／東京4R（サンケイスポーツ） - Yahoo!ニュース",
-    "desc": "【今日の注目新馬】追い切りで俊敏な反応 スターフラッシュ／東京4R（サンケイスポーツ）&nbsp;&nbsp;Yahoo!ニュース",
-    "source": "Yahoo!ニュース",
-    "date": "2026/06/14",
-    "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1NRFY1NFFvNHJfUDEwc01LNFM3dkx3b0hqbXZaMEtUWGdDR1l5ZEdyRmtHN1UzQXhvdFc2N1QzbWIzMW9TR1ZvY0VZci1BM3dzTk1uUERFX0lHcFBOMjNfN01iVGRtSDlHQmY1ZnRGUmZzOVBwczI1dGE2WlBSY2M?oc=5"
-  },
-  {
     "horse": "デミアン",
     "player": "P02",
     "title": "【新馬戦】デミアン 父に贈るＪＲＡ初星 父はＧ１・４勝フライトライン レーンが絶賛「いい反応で、ポテンシャル感じる」 - デイリースポーツ",
@@ -682,6 +664,15 @@
     "source": "スポニチ Sponichi Annex",
     "date": "2026/06/14",
     "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPREp3TDV0cGdyUUZiQkVJanI0RVNZcU0wQ3AyNXVFcnBuOVUtSWF5amZTRDVRQlUwbk1zNUZGZ2xERUZNWnRPc3RTakItUU4xaEExeTVWXzl0NzJLVzlFT0ptV1NPYVBVVk5kajBTaE11dXlZTUdBWGpuLWJyX1RRTlBmeVk0TmEzVkViZg?oc=5"
+  },
+  {
+    "horse": "スターフラッシュ",
+    "player": "P01",
+    "title": "2026-06-14 東京 4R 2歳新馬 AI本命予想 本命◎スターフラッシュ（おすすめ度：★★★） - みんなのAI競馬新聞",
+    "desc": "2026-06-14 東京 4R 2歳新馬 AI本命予想 本命◎スターフラッシュ（おすすめ度：★★★）&nbsp;&nbsp;みんなのAI競馬新聞",
+    "source": "みんなのAI競馬新聞",
+    "date": "2026/06/14",
+    "url": "https://news.google.com/rss/articles/CBMi0AJBVV95cUxQS0V1ZC01RWg4YjFjbVFNcDFUc2ZRZG5BcU81cVFfN0Q4WnUxM3VZTlNZdFM4YTdjUS1DUEF3TkZHNm9Kd0RjeV9KVmtkaUhkSHY2WXhycDFxZXoxNFl0T0VpU01LYWRfSWJWdnlqVGM3Rkc1VHpIZXhRZUZweTI3SVdsX2JnVnlGQ3FBYm5WNmc0cnBtRkFMSk93cGk1b1A4ODJZRmtWUXZDUEVTRFJxZmtfQXVsT2dqWFpQVkE1NXN2UzVOdktWNjJKemJnN3pIb3BBaWwxSzFzeWZBMGdSTURzQXpIay1JN19ITXN6VHdiQ3pRa0NKc0ViSVlocFRJc2NISEg4Y1doc3M1LVBOeDU1NVFGU2R2Z0NoSWFMMUFQLTMxUS14M1dUNHB4TlhWdHBsN3lzZ25zZTVaUmY0a0czVHZJOWVKaVVuTzlGcHjSAdYCQVVfeXFMT1BIbjRTcV8tYnRRN0YxZ0Z3Wl94RThYdndFbGdhbmRTY00xSmd1bEZLTWNzNFpidmJoVnlrTnF1OHFIS2ZVZ3VZUmVCRlM5MnUzVjJlV1NoVkFiUzM0azJaWTcyNmFIcGp3bDhjak45MzJNT2RSdlNScXFyMkZILTlIcjJmR2x4SnJCVlZxSjFJMzViLXJTejdBdHhwYjJ6bk0taFRETGZWc3dRUzBxazNxcmxfTDdjQlRPdXRxLVRQREpoZFpKWER1SUh2aXF6TEstT2pxUzNleVhHN3BUUFJoanJoYm50YU1vZmctNDktT0FWOFNrM3JyYjJSc0FPQ0NqU18wbGJqbGt3ZnlzSXZiSHhEX1JUbE43UDVSaFRtVGVyNUZYMFFaR1FIV2Y1U195NVlOamwwem9kbEJzMlZicVl4LTNOcU1lMmRJVzlwVHY2MDhR?oc=5"
   },
   {
     "horse": "デミアン",
@@ -749,6 +740,15 @@
   {
     "horse": "デミアン",
     "player": "P02",
+    "title": "デミアンが快勝でフライトライン産駒世界初勝利／新馬戦 - 日刊スポーツ",
+    "desc": "デミアンが快勝でフライトライン産駒世界初勝利／新馬戦&nbsp;&nbsp;日刊スポーツ",
+    "source": "日刊スポーツ",
+    "date": "2026/06/13",
+    "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5nRWl6NDFlM1ZtYzBlTnR6S3BDQjhOVU9BS1lBX0thRTE3d2w5TExQTWdWVWlWc0FhdERTVGFxbFQyQlZKTVJEU1BCYTdzU0FoSFJYbms2WlVxZ3NLNlhObTZOT2pQbEFaNTIwcNIBdEFVX3lxTE1LeGZyeVZUcXRFaDBQOEk0Z1R6UUR4QWVjSXIwdTVNS0g2WDNxLXY5SzJSaGNSYnhEZkFITmxWNy1OVE5BTmxZSE11dldmQmt0UjJvMU5fSVZxekppZjRvdlM1V1pMVGUyX0p1ZU1uV0ZaanZ6?oc=5"
+  },
+  {
+    "horse": "デミアン",
+    "player": "P02",
     "title": "【2歳新馬・東京6R】デミアンはフライトライン産駒の世界初V！ 海外ファンも祝福「何て美しい馬なんだ！」（写真・画像 1/1） - サンスポ",
     "desc": "【2歳新馬・東京6R】デミアンはフライトライン産駒の世界初V！ 海外ファンも祝福「何て美しい馬なんだ！」（写真・画像 1/1）&nbsp;&nbsp;サンスポ",
     "source": "サンスポ",
@@ -772,15 +772,6 @@
     "source": "日刊スポーツ",
     "date": "2026/06/13",
     "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTFAtQzI5ajdWQnU4NEZxbmNMUnRON2xWVlF2TldXNGlHdVdUMktlaGJFQUNRMGVpcWlmdkNlbFFTbjI1S2ZLVGJPWFV1eTFabFRhMXlOR19ydUY1YnpFZ3lxVFNFT1RVX0tMOTJpX1VuMnFjMXg1Z0dpMFo4ZzVSUdIBdEFVX3lxTE1YNU0wdVdQX3pFWDhzSzE2UkhQbXB4cGlXNDJjSEpOckdtT2piYU1FR0Q5TDdEQ0FzTWFzQXFnMl8tZU90cEdUQUVqQXRIaEswTm5qV2tKYWRwdmUzd3JQX2t1SlhYSVdLVFVzTWFYZE40LVl6?oc=5"
-  },
-  {
-    "horse": "デミアン",
-    "player": "P02",
-    "title": "デミアンが快勝でフライトライン産駒世界初勝利／新馬戦（日刊スポーツ） - Yahoo!ニュース",
-    "desc": "デミアンが快勝でフライトライン産駒世界初勝利／新馬戦（日刊スポーツ）&nbsp;&nbsp;Yahoo!ニュース",
-    "source": "Yahoo!ニュース",
-    "date": "2026/06/13",
-    "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5EdG1vMjRsMnU5RFdLNXlUeUtlQ1FlZFI1RC1hVS1HSVplZGp3VERnOUFMWEI1N2w0RGtpVEtYYU92Z003dVYwTlV4SGVkY253d2FjWDVxZGZwV2NZZU5SbDBfQ3RydWEtaTVTc3JERUpXb3VMM2lQS05UTGs5dWc?oc=5"
   },
   {
     "horse": "デミアン",
@@ -902,6 +893,15 @@
   {
     "horse": "トゥザファイナル",
     "player": "P04",
+    "title": "【ＰＯＧ】１４日東京デビューのトゥザファイナルは担当の国枝栄厩務員がパワーに驚き 「でかいので…」 - スポーツブル",
+    "desc": "【ＰＯＧ】１４日東京デビューのトゥザファイナルは担当の国枝栄厩務員がパワーに驚き 「でかいので…」&nbsp;&nbsp;スポーツブル",
+    "source": "スポーツブル",
+    "date": "2026/06/11",
+    "url": "https://news.google.com/rss/articles/CBMiR0FVX3lxTE1iVmVucnFXQjl3QW5BWi1PTmhsRV9vVFRULUY2QWR6R3JhaGRRVHhSU2NzM3RXYmhsSThVNjZYdVcxajRhYXEw?oc=5"
+  },
+  {
+    "horse": "トゥザファイナル",
+    "player": "P04",
     "title": "【POG】14日東京デビューのトゥザファイナルは担当の国枝栄厩務員がパワーに驚き 「でかいので…」 - netkeiba",
     "desc": "【POG】14日東京デビューのトゥザファイナルは担当の国枝栄厩務員がパワーに驚き 「でかいので…」&nbsp;&nbsp;netkeiba",
     "source": "netkeiba",
@@ -943,6 +943,15 @@
     "source": "Yahoo!ニュース",
     "date": "2026/06/10",
     "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPaFNtVWlNYml1dGFXZW5XMWtCQ3U0bG5XeWhCRU5CNkpHaFpyWjR3Yi1DSG02N1c1UEVSdk1tWWVfZktRbnBMN1hhZUV6ODc3OUUtdi1aeTBOTTFUanlFekFKQ1JtX0NTSlpVWlktbU05Q3JYc3I0c0NaTEFPUUZLZWYtZC1LbEQ1d2oxSHd3?oc=5"
+  },
+  {
+    "horse": "デミアン",
+    "player": "P02",
+    "title": "デミアンにダミアンが乗った！最強馬フライトライン初年度産駒の追い切り「いい内容」／新馬戦 - 日刊スポーツ",
+    "desc": "デミアンにダミアンが乗った！最強馬フライトライン初年度産駒の追い切り「いい内容」／新馬戦&nbsp;&nbsp;日刊スポーツ",
+    "source": "日刊スポーツ",
+    "date": "2026/06/10",
+    "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1oSmlyZ1RiOTROTklNVEtkY0NSTGlHRXlsa1l0c1JXUWtHa0VYQUlDbXc5bmlVaEFfTDZGM25qOTRFekZxQlJ3dE5vMi1TbktGVHctTDNZM0JUOFdfZG1nSGlON19GSi1yOWRhUdIBdEFVX3lxTFBTR2ZwRGdlaVV1RnlHTHZBUzE2eWIwRGF3MlhWX1Q2WW9Ra1FwR1hhQU5aUF92X1lRajI2bUd1YjlEYTUxemxEczEyWFhNNk9Md3FzOGVmblJ0R29TWVAyYVJ3aWFXVzd1Q3dYZndYY1NnRGR0?oc=5"
   },
   {
     "horse": "ウィンターブリーズ",
@@ -1019,11 +1028,11 @@
   {
     "horse": "ウィンターブリーズ",
     "player": "P07",
-    "title": "【今週の注目新馬】新種牡馬ホットロッドチャーリー産駒ウィンターブリーズが初陣　田中博調教師「この時期の芝なら」 - ｄメニューニュース",
-    "desc": "【今週の注目新馬】新種牡馬ホットロッドチャーリー産駒ウィンターブリーズが初陣　田中博調教師「この時期の芝なら」&nbsp;&nbsp;ｄメニューニュース",
-    "source": "ｄメニューニュース",
+    "title": "【今週の注目新馬】新種牡馬ホットロッドチャーリー産駒ウィンターブリーズが初陣 田中博調教師「この時期の芝なら」 - Yahoo!ニュース",
+    "desc": "【今週の注目新馬】新種牡馬ホットロッドチャーリー産駒ウィンターブリーズが初陣 田中博調教師「この時期の芝なら」&nbsp;&nbsp;Yahoo!ニュース",
+    "source": "Yahoo!ニュース",
     "date": "2026/06/05",
-    "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNMUllcWd6S2dnY0JJaDRVRFRub1Jlel9nM092N3JmTGJ5X1FKQzl4M0FtcmVWa2V1S2lVMEhJLVNJWFlPTWtpMDgwdldzVVNFVkpBNW5sM3NkX244UUMxYk1OZ2pNM0JLY01sSlZWbHNtcG04WUF2NUdoTGpkazJxeNIBhgFBVV95cUxOdnVUaEZKSGQ0Q2hvNnBFRzEyVGtmSnhDb1BDa1AwUHR5OEY0YWx6cDhZUnhiUnd2TWRlTzh3djVwQ3BicW1oYXBLS20yYmpWbVRwMWJKb2cwNTRBSHlQbFpFUVJPVWV0UjRqZmstb2dXci1acFVydlZsZmRKV0hCdWx2MGplZw?oc=5"
+    "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBKQnp0RFIxV3lnNkxPOTZDbWtsc3VDQll1ZVJ0UmdaeGFmRkxHZ2RROTdaRjN2eUpaektuazhYMVl6YWlyTDItMjdMQ1kwR2lFMlJia2NpeVZzQTVUeTJhT3JuOFc0bjdXb0QyX3NqeUd3VjFHQTYyRGNmV3Q4U1E?oc=5"
   },
   {
     "horse": "ウィンターブリーズ",
