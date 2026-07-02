@@ -353,7 +353,7 @@
       },
       {
         "name": "ステラガーネット",
-        "active": false,
+        "active": true,
         "sire": "アルクトス",
         "dam": "シャインガーネット"
       }
