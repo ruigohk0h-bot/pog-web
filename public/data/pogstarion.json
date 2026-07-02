@@ -1,41 +1,6 @@
 {
-  "updated": "2026/07/01 20:24",
+  "updated": "2026/07/02 11:54",
   "source": "https://pogstarion.com/newresultlist.do?group_num=0601093409",
-  "schedule_results": [
-    {
-      "日時": "06/27",
-      "競走": "福島06R",
-      "col2": "",
-      "レース名": "新馬",
-      "距離": "ダ1150",
-      "馬名": "ムーンベリル",
-      "騎手": "坂井瑠星",
-      "順位": "2",
-      "賞金": "310",
-      "所有者": "長谷部厩舎",
-      "_links": [
-        "http://race.netkeiba.com/?pid=race&id=c202603020106&mode=shutuba",
-        "umaracelist.do?group_num=0601093409&user_num=407304&kettonum=2024106276",
-        "userumalist.do?group_num=0601093409&user_num=407304"
-      ]
-    },
-    {
-      "日時": "06/28",
-      "競走": "福島05R",
-      "col2": "",
-      "レース名": "新馬",
-      "距離": "芝1800",
-      "馬名": "レッジェランツァ",
-      "騎手": "津村明秀",
-      "順位": "4",
-      "賞金": "120",
-      "所有者": "前田厩舎",
-      "_links": [
-        "http://race.netkeiba.com/?pid=race&id=c202603020205&mode=shutuba",
-        "umaracelist.do?group_num=0601093409&user_num=407310&kettonum=2024106982",
-        "userumalist.do?group_num=0601093409&user_num=407310"
-      ]
-    }
-  ],
+  "schedule_results": [],
   "special_regist": []
 }
