@@ -61,7 +61,7 @@ const PLAYERS_2627 = [
       { no:9,  name:null,               dam:"レッドアネラ" },
       { no:10, name:null,               dam:"アンデスクイーン" },
       { no:11, name:null,               dam:"ラタンドレス" },
-      { no:12, name:null,               dam:"ロッテンマイヤー" },
+      { no:12, name:"ヨハンナ",            sire:"クリソベリル",          dam:"ロッテンマイヤー" },
     ],
   },
   {
@@ -84,9 +84,9 @@ const PLAYERS_2627 = [
   {
     id:"P02", name:"川村厩舎", emoji:"🐎",
     horses:[
-      { no:1,  name:null,                dam:"Champagne Lady" },
+      { no:1,  name:"フライトコール",       sire:"Flightline",            dam:"Champagne Lady" },
       { no:2,  name:"マイクストーリー",    sire:"Flightline",           dam:"シャムロックローズ" },
-      { no:3,  name:null,                dam:"ギルデッドミラー" },
+      { no:3,  name:"ギルデッドグロス",     sire:"クリソベリル",          dam:"ギルデッドミラー" },
       { no:4,  name:"アトミックリーチ",    sire:"コントレイル",         dam:"パリスビキニ" },
       { no:5,  name:"ヤングリッチ",        sire:"レイデオロ",           dam:"フォエヴァーダーリング" },
       { no:6,  name:"ダノンチャンピオン",  sire:"ホットロッドチャーリー", dam:"トップデサイル" },
@@ -143,7 +143,7 @@ const PLAYERS_2627 = [
       { no:6,  name:"ブックオブケルズ",   sire:"リアルスティール",     dam:"シャンブルドット" },
       { no:7,  name:"ケンシロウワールド", sire:"Violence",             dam:"Colby Cakes" },
       { no:8,  name:"ハイウェイワン",     sire:"カリフォルニアクローム", dam:"シルバーポジー" },
-      { no:9,  name:null,               dam:"グロリアーナ" },
+      { no:9,  name:"ヴァグラム",           sire:"マジェスティックウォーリアー", dam:"グロリアーナ" },
       { no:10, name:"トルヴァスト",       sire:"スマートファルコン",   dam:"ギュイエンヌ" },
       { no:11, name:"オメガマサヤ",       sire:"オメガパフューム",     dam:"スターズバース" },
       { no:12, name:null,               dam:"リカビトス" },
@@ -162,7 +162,7 @@ const PLAYERS_2627 = [
       { no:8,  name:"エクレアカミング",   sire:"ドレフォン",          dam:"エクレアサンライズ" },
       { no:9,  name:"オールベット",       sire:"キズナ",              dam:"エスティロタレントーソ" },
       { no:10, name:"ムーンベリル",       sire:"クリソベリル",        dam:"クインズムーン" },
-      { no:11, name:null,               dam:"スズカモナミ" },
+      { no:11, name:"モナークミニスター",  sire:"シニスターミニスター",  dam:"スズカモナミ" },
       { no:12, name:"ボードゥロレーヌ",   sire:"クリソベリル",        dam:"サイモンミラベル" },
     ],
   },
