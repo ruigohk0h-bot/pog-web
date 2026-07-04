@@ -1,0 +1,41 @@
+name: 馬名登録を週次自動更新
+
+on:
+  schedule:
+    # 毎週月曜 日本時間 9:00（UTC 00:00）
+    - cron: '0 0 * * 1'
+  workflow_dispatch:  # 手動実行ボタン
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: リポジトリをチェックアウト
+        uses: actions/checkout@v4
+
+      - name: Python セットアップ
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: ライブラリインストール
+        run: pip install requests beautifulsoup4 lxml
+
+      - name: POGスタリオンから登録馬名を取得
+        run: python scrape_pogstarion.py
+
+      - name: App.jsx の null エントリを自動更新
+        run: python update_players2627.py
+
+      - name: 変更があればコミット＆プッシュ
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add src/App.jsx public/data/regist2627.json public/data/pogstarion.json public/data/updated.json
+          git diff --staged --quiet || git commit -m "自動更新: 馬名登録 $(date '+%Y/%m/%d')"
+          git pull --rebase origin main
+          git push
