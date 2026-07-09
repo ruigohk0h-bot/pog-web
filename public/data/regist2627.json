@@ -107,7 +107,7 @@
     "horses": [
       {
         "name": "エスクアドラ",
-        "active": true,
+        "active": false,
         "sire": "レイデオロ",
         "dam": "ジューヌエコール"
       },
@@ -179,6 +179,96 @@
       }
     ]
   },
+  "P02": {
+    "dam_to_name": {
+      "Mira Alta": "デミアン",
+      "シャムロックローズ": "マイクストーリー",
+      "Champagne Lady": null,
+      "ギルデッドミラー": null,
+      "パリスビキニ": "アトミックリーチ",
+      "フォエヴァーダーリング": "ヤングリッチ",
+      "トップデサイル": "ダノンチャンピオン",
+      "プリモダヴィンチ": "コーズダヴィンチ",
+      "セントリフュージ": "コンセントリコ",
+      "ナターレ": null,
+      "セイリングホーム": "セイルトゥグローリ",
+      "ゴールデンプルーフ": "ハーモニープルーフ"
+    },
+    "horses": [
+      {
+        "name": "デミアン",
+        "active": false,
+        "sire": "Flightline",
+        "dam": "Mira Alta"
+      },
+      {
+        "name": "マイクストーリー",
+        "active": false,
+        "sire": "Flightline",
+        "dam": "シャムロックローズ"
+      },
+      {
+        "name": null,
+        "active": false,
+        "sire": "母Champagne",
+        "dam": "Champagne Lady"
+      },
+      {
+        "name": null,
+        "active": false,
+        "sire": "母ギルデッドミラー",
+        "dam": "ギルデッドミラー"
+      },
+      {
+        "name": "アトミックリーチ",
+        "active": true,
+        "sire": "コントレイル",
+        "dam": "パリスビキニ"
+      },
+      {
+        "name": "ヤングリッチ",
+        "active": false,
+        "sire": "レイデオロ",
+        "dam": "フォエヴァーダーリング"
+      },
+      {
+        "name": "ダノンチャンピオン",
+        "active": true,
+        "sire": "ホットロッドチャーリー",
+        "dam": "トップデサイル"
+      },
+      {
+        "name": "コーズダヴィンチ",
+        "active": false,
+        "sire": "マインドユアビスケッツ",
+        "dam": "プリモダヴィンチ"
+      },
+      {
+        "name": "コンセントリコ",
+        "active": true,
+        "sire": "ディスクリートキャット",
+        "dam": "セントリフュージ"
+      },
+      {
+        "name": null,
+        "active": false,
+        "sire": "母ナターレ",
+        "dam": "ナターレ"
+      },
+      {
+        "name": "セイルトゥグローリ",
+        "active": false,
+        "sire": "エフフォーリア",
+        "dam": "セイリングホーム"
+      },
+      {
+        "name": "ハーモニープルーフ",
+        "active": false,
+        "sire": "ナダル",
+        "dam": "ゴールデンプルーフ"
+      }
+    ]
+  },
   "P07": {
     "dam_to_name": {
       "モルジアナ": "タクティシアン",
@@ -203,7 +293,7 @@
       },
       {
         "name": "ウィンターブリーズ",
-        "active": true,
+        "active": false,
         "sire": "ホットロッドチャーリー",
         "dam": "アイスパステル"
       },
@@ -467,7 +557,7 @@
     "horses": [
       {
         "name": "クロダテ",
-        "active": true,
+        "active": false,
         "sire": "キタサンブラック",
         "dam": "ファッショニスタ"
       },
