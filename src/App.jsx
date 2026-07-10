@@ -2388,6 +2388,124 @@ function Season2627Screen() {
   );
 }
 
+// ダート二歳番付コーナー
+// ================================================================
+// netkeiba「2歳ダートタイム指数ランキング」を基にした砂遊び編集部の番付。
+// シーズンが進んだら rows に追記していけばOK（rank: 横綱/大関/関脇/小結/前頭）
+const BANZUKE_2YO = {
+  title:    "ダート二歳番付",
+  subtitle: "2026年産（2歳）ダートホース番付　〜開幕号〜",
+  updated:  "2026年7月",
+  note:     "netkeiba「2歳ダートタイム指数ランキング」を基に砂遊び編集部が番付を作成",
+  rows: [
+    { rank:"横綱", name:"ユイノエスポワール", sex:"牡", sire:"ディスクリートキャット", move:"—",
+      note:"東京ダ1400m新馬を上がり最速で差し切り。タイム指数堂々の1位。" },
+    { rank:"大関", name:"タケルレジェンド",   sex:"牡", sire:"",                   move:"↗",
+      note:"タイム指数2位。上位争いの一角。" },
+    { rank:"関脇", name:"コンテミュール",     sex:"牝", sire:"ルヴァンスレーヴ", stable:"美浦・村田一誠", move:"↗",
+      note:"福島6R新馬を逃げ切り。1番人気クロダテ（砂遊び馬）を撃破した伏兵。" },
+    { rank:"小結", name:"ノリヤンモーニン",   sex:"牡", sire:"",                   move:"→",
+      note:"タイム指数4位。" },
+    { rank:"前頭", nth:"筆頭", name:"エランヴィータ", sex:"牝", sire:"",           move:"☆",
+      note:"タイム指数5位タイで新入幕。" },
+    { rank:"前頭", nth:"二枚目", name:"キョウエイアカギ", sex:"牡", sire:"",       move:"☆",
+      note:"タイム指数5位タイで新入幕。" },
+  ],
+};
+
+function BanzukeScreen() {
+  const d = BANZUKE_2YO;
+  const rankStyle = {
+    "横綱": { bg:G.gold,     fg:"#3a2a00" },
+    "大関": { bg:G.dirt,     fg:"#fff" },
+    "関脇": { bg:G.g2,       fg:"#fff" },
+    "小結": { bg:G.g3,       fg:"#fff" },
+    "前頭": { bg:G.dirtDark, fg:"#fff" },
+  };
+  const moveStyle = {
+    "↗": { c:"#0a7a5c", t:"上昇" },
+    "→": { c:"#999",    t:"変わらず" },
+    "↘": { c:"#c0392b", t:"降下" },
+    "☆": { c:G.gold,    t:"新登場" },
+    "—": { c:"#bbb",    t:"—" },
+  };
+
+  return (
+    <div style={{ padding:"12px 14px" }}>
+      {/* タイトルバナー */}
+      <div style={{
+        background:`linear-gradient(135deg, ${G.dirtDark}, ${G.dirt})`,
+        borderRadius:14, padding:"18px 16px", color:"#fff", marginBottom:12,
+        boxShadow:"0 4px 14px rgba(122,74,30,0.35)", position:"relative", overflow:"hidden",
+      }}>
+        <div style={{ position:"absolute", right:-6, top:-14, fontSize:92, opacity:0.13 }}>🏅</div>
+        <div style={{ fontSize:11, opacity:0.85, letterSpacing:3, fontWeight:600 }}>SUNAASOBI BANZUKE</div>
+        <div style={{ fontSize:26, fontWeight:900, letterSpacing:5, marginTop:3 }}>{d.title}</div>
+        <div style={{ fontSize:12, opacity:0.9, marginTop:7, fontWeight:600, lineHeight:1.5 }}>{d.subtitle}</div>
+        <div style={{ fontSize:10, opacity:0.7, marginTop:9 }}>更新：{d.updated}</div>
+      </div>
+
+      {/* 凡例 */}
+      <div style={{
+        background:"#fff", borderRadius:10, padding:"10px 12px", marginBottom:12,
+        display:"flex", flexWrap:"wrap", gap:"6px 14px", fontSize:10.5, fontWeight:600,
+        boxShadow:"0 2px 6px rgba(0,0,0,0.05)",
+      }}>
+        <span style={{ color:"#888" }}>変動</span>
+        <span style={{ color:"#0a7a5c" }}>↗ 上昇</span>
+        <span style={{ color:"#999" }}>→ 変わらず</span>
+        <span style={{ color:"#c0392b" }}>↘ 降下</span>
+        <span style={{ color:G.gold }}>☆ 新登場</span>
+      </div>
+
+      {/* 番付リスト */}
+      {d.rows.map((r, i) => {
+        const rs = rankStyle[r.rank] || rankStyle["前頭"];
+        const ms = moveStyle[r.move] || moveStyle["—"];
+        const sexColor = r.sex === "牝" ? "#d6336c" : "#1c7ed6";
+        return (
+          <div key={i} style={{
+            background:"#fff", borderRadius:12, marginBottom:10, overflow:"hidden",
+            boxShadow:"0 2px 8px rgba(0,0,0,0.07)", display:"flex",
+          }}>
+            {/* 番付ラベル */}
+            <div style={{
+              background:rs.bg, color:rs.fg, width:60, flexShrink:0,
+              display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center",
+              padding:"12px 4px", gap:3,
+            }}>
+              <span style={{ fontSize:16, fontWeight:900, letterSpacing:1 }}>{r.rank}</span>
+              {r.nth && <span style={{ fontSize:9, fontWeight:700, opacity:0.9 }}>{r.nth}</span>}
+            </div>
+            {/* 本文 */}
+            <div style={{ flex:1, minWidth:0, padding:"11px 13px" }}>
+              <div style={{ display:"flex", alignItems:"center", gap:7 }}>
+                <span style={{ fontSize:17, fontWeight:900, color:"#222" }} translate="no">{r.name}</span>
+                <span style={{ fontSize:11, fontWeight:800, color:sexColor }}>{r.sex}</span>
+                <span style={{ marginLeft:"auto", fontSize:19, fontWeight:900, color:ms.c }} title={ms.t}>{r.move}</span>
+              </div>
+              {(r.sire || r.stable) && (
+                <div style={{ fontSize:11, color:"#888", marginTop:3, fontWeight:600 }}>
+                  {r.sire && <span>父 <span translate="no" style={{ color:"#555" }}>{r.sire}</span></span>}
+                  {r.stable && <span>{r.sire ? "　" : ""}{r.stable}</span>}
+                </div>
+              )}
+              {r.note && (
+                <div style={{ fontSize:11.5, color:"#444", marginTop:6, lineHeight:1.65 }}>{r.note}</div>
+              )}
+            </div>
+          </div>
+        );
+      })}
+
+      <div style={{ fontSize:10, color:"#aaa", textAlign:"center", padding:"6px 0 20px", lineHeight:1.8 }}>
+        {d.note}<br/>※番付は砂遊び編集部の独自見解です
+      </div>
+    </div>
+  );
+}
+
+// ================================================================
 // ダート種牡馬研究画面
 // ================================================================
 
@@ -3577,6 +3695,9 @@ export default function App() {
   } else if (tab === "status") {
     title = "出走予定・登録";
     content = <StatusScreen data={statusData} kettonums={kettonums} />;
+  } else if (tab === "banzuke") {
+    title = "ダート二歳番付";
+    content = <BanzukeScreen />;
   } else if (tab === "stallion") {
     title = "ダート種牡馬研究";
     content = <StallionScreen stallions={stallions} results={results} stallionLeading={stallionLeading} />;
@@ -3596,6 +3717,7 @@ export default function App() {
     { key:"news",     label:"ニュース",icon:"📰" },
     { key:"status",   label:"出走",   icon:"🏁" },
     { key:"calendar", label:"日程",   icon:"📅" },
+    { key:"banzuke",  label:"番付",   icon:"🏅" },
     { key:"stallion", label:"種牡馬", icon:"🐎" },
     { key:"hall",     label:"殿堂",   icon:"🏟️" },
     { key:"game",     label:"ゲーム", icon:"🎮" },
@@ -3649,7 +3771,7 @@ export default function App() {
           animation:"pogTelopScroll 14s linear infinite",
           willChange:"transform",
         }}>
-          📖 新コーナー「注目種牡馬コーナー」オープン！種付け料の推移や産駒傾向をチェックしよう🐎
+          🏅 新コーナー「ダート二歳番付」登場！今年の2歳ダート注目馬を番付でチェック🐎　種牡馬コーナーも好評公開中📖
         </div>
       </div>
 
