@@ -2400,9 +2400,9 @@ const BANZUKE_2YO = {
   rows: [
     { rank:"横綱", name:"ユイノエスポワール", sex:"牡", sire:"ディスクリートキャット", move:"—",
       note:"東京ダ1400m新馬を上がり最速で差し切り。タイム指数堂々の1位。" },
-    { rank:"大関", name:"タケルレジェンド",   sex:"牡", move:"↗",
+    { rank:"大関", name:"タケルレジェンド",   sex:"牡", sire:"パイロ", stable:"栗東・高柳大輔", nkId:"2024100730", move:"↗",
       note:"小倉新馬を逃げ切りV。25年NHKマイルC馬パンジャタワーの半弟という良血で、川田将雅も素質を高評価。" },
-    { rank:"関脇", name:"コンテミュール",     sex:"牝", sire:"ルヴァンスレーヴ", stable:"美浦・村田一誠", move:"↗",
+    { rank:"関脇", name:"コンテミュール",     sex:"牝", sire:"ルヴァンスレーヴ", stable:"美浦・村田一誠", nkId:"2024106660", move:"↗",
       note:"福島6R新馬を逃げ切り。1番人気クロダテ（砂遊び馬）を撃破した伏兵。" },
     { rank:"小結", name:"ノリヤンモーニン",   sex:"牡", sire:"モーニン", stable:"栗東・佐藤悠", move:"→",
       note:"函館6R新馬を5馬身差で圧勝。浜中俊も「次も期待できます」と太鼓判。" },
@@ -2429,6 +2429,10 @@ function BanzukeScreen() {
     "☆": { c:G.gold,    t:"新登場" },
     "—": { c:"#bbb",    t:"—" },
   };
+  // netkeibaリンク：馬IDがあれば直リンク、なければ馬名検索
+  const horseUrl = (r) => r.nkId
+    ? `https://db.netkeiba.com/horse/${r.nkId}/`
+    : `https://db.netkeiba.com/?pid=horse_list&word=${encodeURIComponent(r.name)}`;
 
   return (
     <div style={{ padding:"12px 14px" }}>
@@ -2456,6 +2460,7 @@ function BanzukeScreen() {
         <span style={{ color:"#999" }}>→ 変わらず</span>
         <span style={{ color:"#c0392b" }}>↘ 降下</span>
         <span style={{ color:G.gold }}>☆ 新登場</span>
+        <span style={{ width:"100%", color:"#aaa", fontWeight:600 }}>馬名をタップでnetkeibaの詳細ページへ🔗</span>
       </div>
 
       {/* 番付リスト */}
@@ -2480,7 +2485,12 @@ function BanzukeScreen() {
             {/* 本文 */}
             <div style={{ flex:1, minWidth:0, padding:"11px 13px" }}>
               <div style={{ display:"flex", alignItems:"center", gap:7 }}>
-                <span style={{ fontSize:17, fontWeight:900, color:"#222" }} translate="no">{r.name}</span>
+                <a href={horseUrl(r)} target="_blank" rel="noopener noreferrer" translate="no" style={{
+                  fontSize:17, fontWeight:900, color:"#222", textDecoration:"underline",
+                  textDecorationColor:G.green, textUnderlineOffset:3, textDecorationThickness:"1.5px",
+                }}>
+                  {r.name}<span style={{ fontSize:10, color:G.green, marginLeft:1, verticalAlign:"super" }}>↗</span>
+                </a>
                 <span style={{ fontSize:11, fontWeight:800, color:sexColor }}>{r.sex}</span>
                 <span style={{ marginLeft:"auto", fontSize:19, fontWeight:900, color:ms.c }} title={ms.t}>{r.move}</span>
               </div>
