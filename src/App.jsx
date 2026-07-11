@@ -1111,8 +1111,14 @@ function PlayerDetailScreen({ userId, onBack, onSelectHorse, kettonums, regist26
                 {h.dam  && <span style={{ marginLeft:3 }}>母<span translate="no">{h.dam}</span></span>}
               </div>
             </div>
-            {/* pt */}
+            {/* 成績・pt */}
             <div style={{ textAlign:"right", flexShrink:0 }}>
+              {h.record && h.record !== "0-0-0-0" && (
+                <div translate="no" title="1着-2着-3着-着外"
+                  style={{ fontSize:9, color:"#888", fontWeight:700, lineHeight:1.2 }}>
+                  {h.record}
+                </div>
+              )}
               <span style={{ fontWeight:800, fontSize:13 }}>{fmt(h.pt)}</span>
               <span style={{ fontSize:9, color:"#999", marginLeft:2 }}>pt</span>
             </div>
