@@ -1175,7 +1175,6 @@ function HorseDetailScreen({ horse, playerId, results, kettonums }) {
             <div style={{ fontSize:22, fontWeight:800 }}>{horse.name}</div>
             <div style={{ fontSize:12, color:"#888", marginTop:4 }}>
               {playerEmoji(playerId)} {playerName(playerId)}
-              {horse.active && <span style={{ marginLeft:6, fontSize:10, color:G.green, border:`1px solid ${G.green}`, borderRadius:3, padding:"0 3px" }}>在厩</span>}
             </div>
           </div>
           <a href={netkeibaUrl} target="_blank" rel="noopener noreferrer"
@@ -1250,10 +1249,10 @@ function HorseDetailScreen({ horse, playerId, results, kettonums }) {
           </div>
         )}
       </div>
-      <div style={{ fontSize:13, fontWeight:700, color:"#555", margin:"4px 4px 8px" }}>レース履歴（直近60日）</div>
+      <div style={{ fontSize:13, fontWeight:700, color:"#555", margin:"4px 4px 8px" }}>レース履歴</div>
       {horseResults.length === 0
         ? <div style={{ background:"#fff", borderRadius:10, padding:20, textAlign:"center", color:"#aaa", fontSize:13 }}>
-            直近60日間の出走記録はありません
+            出走記録はまだありません
           </div>
         : horseResults.map((r,i) => <ResultCard key={i} r={r} showPlayer={false} />)
       }
