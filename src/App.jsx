@@ -311,11 +311,13 @@ const getHorses = (pid, results = null) => {
   if (!p) return [];
   return p.horses.map(h => {
     // results.json から各馬の獲得pt・成績（1着-2着-3着-着外）を集計
-    let pt = 0, w = 0, pl = 0, sh = 0, o = 0;
+    // turfPt = 芝レースのため砂遊びでは0ptだが、芝もアリなら得られたpt
+    let pt = 0, turfPt = 0, w = 0, pl = 0, sh = 0, o = 0;
     if (results && h.name) {
       for (const r of results) {
         if (r.horse !== h.name) continue;
-        pt += r.rawPt || 0;
+        pt     += r.rawPt  || 0;
+        turfPt += r.turfPt || 0;
         if      (r.order === 1) w++;
         else if (r.order === 2) pl++;
         else if (r.order === 3) sh++;
@@ -325,6 +327,7 @@ const getHorses = (pid, results = null) => {
     return {
       ...h,
       pt,
+      turfPt,
       record: `${w}-${pl}-${sh}-${o}`,
       active: h.active !== undefined ? h.active : true,
     };
@@ -1072,6 +1075,8 @@ function PlayerDetailScreen({ userId, onBack, onSelectHorse, kettonums, regist26
   const player = PLAYERS.find(p => p.id === userId);
   // 合計pt = 各馬の獲得ptの合計（results.jsonから集計）
   const total = horses.reduce((sum, h) => sum + (h.pt || 0), 0);
+  // 芝で逃したpt合計（芝レースはダート専門の砂遊びでは0pt）
+  const totalTurf = horses.reduce((sum, h) => sum + (h.turfPt || 0), 0);
   return (
     <div style={{ padding:12 }}>
       <div style={{ background:G.green, color:"#fff", borderRadius:12, padding:"16px 18px", marginBottom:14 }}>
@@ -1079,6 +1084,11 @@ function PlayerDetailScreen({ userId, onBack, onSelectHorse, kettonums, regist26
         <div style={{ fontSize:30, fontWeight:800, marginTop:2 }}>
           {fmt(total)} <span style={{ fontSize:14, fontWeight:600 }}>pt</span>
         </div>
+        {totalTurf > 0 && (
+          <div style={{ marginTop:8, fontSize:11, fontWeight:700, background:"rgba(255,255,255,0.18)", borderRadius:8, padding:"5px 10px", display:"inline-block" }}>
+            🌱 芝もアリなら +{fmt(totalTurf)}pt だった…！
+          </div>
+        )}
         {user?.comment && (
           <div style={{ marginTop:10, fontSize:13, background:"rgba(255,255,255,0.15)", padding:"6px 10px", borderRadius:8 }}>
             💬 {user.comment}
@@ -1121,6 +1131,12 @@ function PlayerDetailScreen({ userId, onBack, onSelectHorse, kettonums, regist26
               )}
               <span style={{ fontWeight:800, fontSize:13 }}>{fmt(h.pt)}</span>
               <span style={{ fontSize:9, color:"#999", marginLeft:2 }}>pt</span>
+              {h.turfPt > 0 && (
+                <div title="芝レースのため砂遊びでは0pt。芝もアリなら得られたpt"
+                  style={{ fontSize:9, color:"#2a7a3a", fontWeight:700, lineHeight:1.2, marginTop:1 }}>
+                  🌱+{fmt(h.turfPt)}
+                </div>
+              )}
             </div>
             {/* netkeiba */}
             <a href={netkeibaUrl} target="_blank" rel="noopener noreferrer"
