@@ -306,15 +306,29 @@ const HORSES_BY_PLAYER = {
   P07: HORSES_P07,
 };
 // 2026-27シーズン用：PLAYERS_2627から馬リストを取得
-const getHorses = (pid) => {
+const getHorses = (pid, results = null) => {
   const p = PLAYERS_2627.find(p => p.id === pid);
   if (!p) return [];
-  return p.horses.map(h => ({
-    ...h,
-    pt: 0,
-    record: "0-0-0-0",
-    active: true,
-  }));
+  return p.horses.map(h => {
+    // results.json から各馬の獲得pt・成績（1着-2着-3着-着外）を集計
+    let pt = 0, w = 0, pl = 0, sh = 0, o = 0;
+    if (results && h.name) {
+      for (const r of results) {
+        if (r.horse !== h.name) continue;
+        pt += r.rawPt || 0;
+        if      (r.order === 1) w++;
+        else if (r.order === 2) pl++;
+        else if (r.order === 3) sh++;
+        else if (r.order)       o++;
+      }
+    }
+    return {
+      ...h,
+      pt,
+      record: `${w}-${pl}-${sh}-${o}`,
+      active: h.active !== undefined ? h.active : true,
+    };
+  });
 };
 
 // 最新結果・出走予定はJSONから動的取得（useResultsで管理）
@@ -1052,11 +1066,12 @@ function RankingScreen({ onSelectPlayer, updated, results }) {
   );
 }
 
-function PlayerDetailScreen({ userId, onBack, onSelectHorse, kettonums, regist2627 = {} }) {
+function PlayerDetailScreen({ userId, onBack, onSelectHorse, kettonums, regist2627 = {}, results = [] }) {
   const user = CURRENT_SEASON.users.find(u => u.id === userId);
-  const horses = getHorses(userId);
+  const horses = getHorses(userId, results);
   const player = PLAYERS.find(p => p.id === userId);
-  const total = user?.pt ?? 0;
+  // 合計pt = 各馬の獲得ptの合計（results.jsonから集計）
+  const total = horses.reduce((sum, h) => sum + (h.pt || 0), 0);
   return (
     <div style={{ padding:12 }}>
       <div style={{ background:G.green, color:"#fff", borderRadius:12, padding:"16px 18px", marginBottom:14 }}>
@@ -3677,7 +3692,7 @@ export default function App() {
       title = playerName(selectedPlayerId);
       onBack = () => setSPId(null);
       content = <PlayerDetailScreen userId={selectedPlayerId} onBack={()=>setSPId(null)}
-                  onSelectHorse={h => { setSHorse(h); }} kettonums={kettonums} regist2627={regist2627} />;
+                  onSelectHorse={h => { setSHorse(h); }} kettonums={kettonums} regist2627={regist2627} results={results} />;
     } else {
       content = <RankingScreen onSelectPlayer={u => setSPId(u.id)} updated={updated} results={results} />;
     }
