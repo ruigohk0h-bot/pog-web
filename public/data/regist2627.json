@@ -17,7 +17,7 @@
     "horses": [
       {
         "name": "トゥザファイナル",
-        "active": false,
+        "active": true,
         "sire": "ナダル",
         "dam": "スパークオンアイス"
       },
@@ -41,7 +41,7 @@
       },
       {
         "name": "ルヴァンアレー",
-        "active": true,
+        "active": false,
         "sire": "ルヴァンスレーヴ",
         "dam": "ラテュロス"
       },
@@ -59,7 +59,7 @@
       },
       {
         "name": "サンクサンス",
-        "active": true,
+        "active": false,
         "sire": "American",
         "dam": "エリーズスマイル"
       },
@@ -72,7 +72,7 @@
       {
         "name": null,
         "active": false,
-        "sire": "母アンデスクイーン",
+        "sire": "マインドユアビスケッツ",
         "dam": "アンデスクイーン"
       },
       {
@@ -215,8 +215,8 @@
       },
       {
         "name": null,
-        "active": false,
-        "sire": "母ギルデッドミラー",
+        "active": true,
+        "sire": "クリソベリル",
         "dam": "ギルデッドミラー"
       },
       {
@@ -335,7 +335,7 @@
       },
       {
         "name": "ダノンブレイズ",
-        "active": true,
+        "active": false,
         "sire": "Violence",
         "dam": "ミスエンパイアメント"
       },
@@ -467,7 +467,7 @@
     "horses": [
       {
         "name": "ブックオブケルズ",
-        "active": true,
+        "active": false,
         "sire": "リアルスティール",
         "dam": "シャンブルドット"
       },
@@ -618,7 +618,7 @@
       {
         "name": null,
         "active": false,
-        "sire": "母スズカモナミ",
+        "sire": "シニスターミニスター",
         "dam": "スズカモナミ"
       },
       {
