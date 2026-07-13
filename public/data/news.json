@@ -1,14 +1,5 @@
 [
   {
-    "horse": "エスクアドラ",
-    "player": "P01",
-    "title": "エスクアドラに続け！鹿戸厩舎からデアグランツが出陣「素直で物怖じしない」／２ 歳馬情報 - MSN",
-    "desc": "エスクアドラに続け！鹿戸厩舎からデアグランツが出陣「素直で物怖じしない」／２ 歳馬情報&nbsp;&nbsp;MSN",
-    "source": "MSN",
-    "date": "2026/07/09",
-    "url": "https://news.google.com/rss/articles/CBMirARBVV95cUxQU1BhU29hdVJtbE1KdzN1TUx3YUVYTlFqd293bWQtTmUtcjdOcTZqaHdLdkVFVUJQRTNFdmE3OC12WFotdlJHTkFnODhNTlhfZzVQX240TEl5SE9maVZPN3I2cTQtZ1ZEQ2FfRnZEcm5Rd2EtMTl3TGJDNzlublZ4S0ZVWjctOVZwN0d2REx6QXJrbUFJTHVRNVdfTWNFWW1Wcl91M2p5U3c2QWp4dmNJRHNuSlNUMEVJN1dBRGdXOGNjanJubnJZeUVacTAwaUlwXzVlams5TEFzUE1ZTGx1MFRTazJwNjBINWJjRG02ZEtDWnQwNFNTTU44Vnl1S3V3LXAzWUR0NG9UQUhENF9LaWxEYVdPcWZoNlUwY2Q1TzNoYmJtVVdqZG1kZUFiU1pBLXNoNmtOaHFDNV8yYWNFbFA0d3ZxMU5YQU5maEpvZl9lNmg4ZEljZ2hRVXVPbkZOaGlZbm0wY3Zkb1VUaGVTclQzekplRC1QeEwyRjFlajZkU3gyWDNDNmxySFl2NkZMNmFlVGVuRk5vN1Jsc2xmaEdxR21DeGhsYmRJSTl2X21IZDQ1NFZTeDJ6WkdjbFo5UVdQX3dTVm9IaGNqZi1CQ2M2a1p3Q2J6dGppX0ozOHVBUE9tYjRJYmdyZWdZeWduR3VHN1RKNDZaNlFCTVEwbWlEZHoweU1hUW4xaXVEaF8xMzRMdkd0RDdoVER5LXk5eGpIRUQ2ZGQ5Zm5K?oc=5"
-  },
-  {
     "horse": "アトミックリーチ",
     "player": "P02",
     "title": "２歳馬情報：アトミックリーチ（パリスビキニの2024） - 週刊Gallop Online",
@@ -16,6 +7,15 @@
     "source": "週刊Gallop Online",
     "date": "2026/07/08",
     "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBuYktNQkdmWURaMHZTRUFHYXNLYWQ0b1lYYmZxSDA5Q3Z0Zk1MOGl2d2xMQ083OUNPc1lmd1dQX3lUTk1Zel9VZ1FQUTY2MXVTQmFqLVlTTGpXaWQwVzdTSk94ekF3NmhvUmcxVzFTVGp0dTNYQUtYMHJB?oc=5"
+  },
+  {
+    "horse": "エスクアドラ",
+    "player": "P01",
+    "title": "エスクアドラに続け！鹿戸厩舎からデアグランツが出陣「素直で物怖じしない」／２ 歳馬情報 - MSN",
+    "desc": "エスクアドラに続け！鹿戸厩舎からデアグランツが出陣「素直で物怖じしない」／２ 歳馬情報&nbsp;&nbsp;MSN",
+    "source": "MSN",
+    "date": "2026/07/08",
+    "url": "https://news.google.com/rss/articles/CBMiwwVBVV95cUxQNXRYZVRrVk5jTW1oa0lwNTlxVDZUZkJDQ0hBaFJqUVlobE8wVFVwbXhRMm9HT1NlTFI5QTJ0TE81dVEtdV9lNUNXcTRSWE5DZk9HOEJCd1RpNjktRWZaVmt0LThGc0hMUkMzV29uUnh0REZlSFJnUHZFM3Q0MVJheEc0NXVCYTBrcHpsOG1jWDU1VWtfNXp0bzltMG55Y1RvNlB3TFhxSDNTY090TE0zZ3lfeGFYSW9OYi1RRlVqM09WU3VrZ2otX2tqWnlKTUd6ZkJja0dfdjhaRU9KTXJCNnlFNzJMOXNJOXBlcWM3TjQxWDNfMjhUVVY3dVJHcDN5QTBSTTF4VUR5YjdJR0lxSEhScjgxcTIyamxwanFFYU5FOEpMVThXYnFYR25GdGp1U2hVX0lHeWF5QnpKaDNRRXl2S0hvNUt6cXFQczE1ZF9QWWYySG01SktxcXdqZk1NVGNVaVpld0xkOG1lVE5rQ2otellFR2pKbkl2WUo0LThXMWZOaHR1MXl0UmcyUmtMNlRfNjNaVFY3Mm1ZSlJSS1lfNFA4bnItV20wNkU2d0VSTjBnQkxuUXZaZE80VXF4REo5TXhlRElrSlpzMW41Q1NaWGZoby1tUjIta0I1SUtVOEdHaWlDS1hkZEJvOEFHUFhLdFk0bTBKbzdQWk5NQ2RJdUU1ZjZZaDF6NU1LVEpFT2I3TUlZNFNpVm9UVjYtN3JVR1BNNldBbzNaOUtDejgtZFBEMXVmdGFselM1bkV4SERaRmFEWFU3M2JSS25rTzBBblE3aFFhZS0yVk03cmtYZ3JmMGUxbjUzbUdNVHpIX0lINUYwY1FJc3B5OEhta3RvWVM5VkdTemF2Uk1zTHVQZ0RmZlE3NnNmOS1NdkIxVV93ZDZCa3haR09vTHRNeklQeERnVzdyT2JUNk9kSXkxOA?oc=5"
   },
   {
     "horse": "デミアン",
@@ -34,6 +34,15 @@
     "source": "日刊スポーツ",
     "date": "2026/07/08",
     "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5zaDVHOEFOanlpaDd6aFRkeEFNcGhEU1drS19wYk9BUVAzT1lxRWxoa0I3LWNBcDRuYzFsbDgzVXNBak04NnBPWHBqNThOTERSX0ZYQmtlZVZyS2dXS1U3Ql81TTJIUDFXMjFVOdIBdEFVX3lxTE5VSU1fZC03MEVWSmlGMWF1bFYtRF80aklZWlpCZ0pHeTFWWFlkY0k5RXZXc0J4dV9fanIxREl6SHpOaEVmOGlYb29sYUZoNWVPdWRLSnlYZzhXSElGVEp1SDQzaG5ZZzhPdWpBTzJPYUJZQ3BH?oc=5"
+  },
+  {
+    "horse": "エスクアドラ",
+    "player": "P01",
+    "title": "エスクアドラ鮮やか差し切り勝ち「勉強しながら勝つことができて良かった」坂井騎手／ 新馬戦 - MSN",
+    "desc": "エスクアドラ鮮やか差し切り勝ち「勉強しながら勝つことができて良かった」坂井騎手／ 新馬戦&nbsp;&nbsp;MSN",
+    "source": "MSN",
+    "date": "2026/07/07",
+    "url": "https://news.google.com/rss/articles/CBMixARBVV95cUxNWEZHMU1hcVhHdERXWXR1MElxZ1RNTHJyZVpvNXhMTUxJZFhmVXJlUUY1NllHenVJOFR6cFlhVXFWSTNfOFI3alRfTzBzdDJaOVMza3dIY2tlMlZPaERQczE1TWRHSENscDJPZFhTZHA3a3BhWjl5TFNHM2lZRDV0UWl2cWxtbVhuU0hFM19EdFZuY0tOejIxWllzX2podkZ4NW5qZDJYemt1czFZQ2tHVVlJMEZzM2ZRajJjcGhYQkZrcGJ2a3ppSzBZcEZ4eGE1X3ExXzR4blRpaGhKa1MtTnA1bno3cnIwd0RhcnQxejVnRjZRQ21PSFJmLTlHdTI1NGxmNnZNUGNpTFBMZ0J5M3dVa2lmVmR0ODhyQ2pSLVNDRkNWbzhZbmpLeFQ1SFNhZHQ4V0pQT3V1eVBVbENmWWRSQW5mZ1ZSWU1CaTJsNUxkalh4M3hiUUVySm4xY1lpUlQ3cm5GcEU4VUpHUU5NNGVQY0FCcWV4UGZKcFlZSEItajdoRkRFSTh5NnlOVVpnYVptTHRHOWZ1V1JIVGdoVy0yN1hjbTA5Q21yRG4wUUZYSkU2RjRRMkVla3pBTmpVY1ZZdGJIZW5EZjVrcDJXVVRiTjdndkl6dTdoSVNjTWR4dXcxUWpHaWtDX1F3YkxDQXNVRnVvdDIyS3BNZVdBR3cxQU9jZGxXRWJfN2VicU5CQ1AyMFRJSmNxbUpqUEpaUDFYMV94b1dON01OXzdlM2Fxbl9tdWdPNzFJRXJNUENKSlNX?oc=5"
   },
   {
     "horse": "エスクアドラ",
@@ -92,15 +101,6 @@
   {
     "horse": "エスクアドラ",
     "player": "P01",
-    "title": "エスクアドラ鮮やか差し切り勝ち「勉強しながら勝つことができて良かった」坂井騎手／新馬戦 - 日刊スポーツ",
-    "desc": "エスクアドラ鮮やか差し切り勝ち「勉強しながら勝つことができて良かった」坂井騎手／新馬戦&nbsp;&nbsp;日刊スポーツ",
-    "source": "日刊スポーツ",
-    "date": "2026/07/05",
-    "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1RUE5UNnNCdEFKZFA3ZUwwRjFoVzhMYjBQMGd6ZkJzaDU3R1QzSHdOTnVJTTdrWGVuRXBJaG5jUlpmWlJqb0RHdXpHYVJEeGVFd3ExN0djN1pNMHJ5bXJLWF9BRWlMY3BzOVRIdHRyZ0JIV0xiZ2dvUnh3eGpiZ9IBdEFVX3lxTE9sVTVSRmlubDVaMzk1UzhIcWdGSFpKVzIyOVQyZFByNFNjT0M4Vjg3TUNyN1RHTnVYZG9LZ2RwZ2pJU3BDLUdmOEVvc1dkc09tNXVlck9vZTBQUmZKYXJKMGNtZURyQ0NrU3VzTlN6cUsxYTls?oc=5"
-  },
-  {
-    "horse": "エスクアドラ",
-    "player": "P01",
     "title": "【新馬/福島5R】レイデオロ産駒エスクアドラが鮮やかデビューV…長くいい脚で差し切る - 千葉テレビ放送",
     "desc": "【新馬/福島5R】レイデオロ産駒エスクアドラが鮮やかデビューV…長くいい脚で差し切る&nbsp;&nbsp;千葉テレビ放送",
     "source": "千葉テレビ放送",
@@ -128,11 +128,11 @@
   {
     "horse": "エスクアドラ",
     "player": "P01",
-    "title": "【新馬/福島5R】レイデオロ産駒エスクアドラが鮮やかデビューV…長くいい脚で差し切る (2026年7月5日掲載) - ライブドアニュース",
-    "desc": "【新馬/福島5R】レイデオロ産駒エスクアドラが鮮やかデビューV…長くいい脚で差し切る (2026年7月5日掲載)&nbsp;&nbsp;ライブドアニュース",
+    "title": "【新馬/福島5R】レイデオロ産駒エスクアドラが鮮やかデビューV…長くいい脚で差し切る - ライブドアニュース",
+    "desc": "【新馬/福島5R】レイデオロ産駒エスクアドラが鮮やかデビューV…長くいい脚で差し切る&nbsp;&nbsp;ライブドアニュース",
     "source": "ライブドアニュース",
     "date": "2026/07/05",
-    "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9WN1RFM2RLdm5qZXVmVmJTdGZkOGwzSVdFWWxOeVNtc3BfZ1F6aUwxcTg3cDNLZERqZGNnRW9TNHVLX2dlTkh3b0lqMmdWdXU4UUxrNTNaRGVGUTFid3c?oc=5"
+    "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE4zSHI5dE1tZVozMFN1UFpFcl9aNzRCR3hPc3VCMkcwSU1VY1E0SmZTc19PVG1rSDUzOFdNd1NCVnpjUHJ5dXdGX0g1dmF2eUxnT2tSM2dmSnNrUDdFQ0FB?oc=5"
   },
   {
     "horse": "エスクアドラ",
@@ -155,6 +155,15 @@
   {
     "horse": "エスクアドラ",
     "player": "P01",
+    "title": "エスクアドラ鮮やか差し切り勝ち「勉強しながら勝つことができて良かった」坂井騎手／新馬戦 - 日刊スポーツ",
+    "desc": "エスクアドラ鮮やか差し切り勝ち「勉強しながら勝つことができて良かった」坂井騎手／新馬戦&nbsp;&nbsp;日刊スポーツ",
+    "source": "日刊スポーツ",
+    "date": "2026/07/05",
+    "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1kdVNIQWJ6VnRFRlo2Y1RDZXE0MFFVT2JhWUlyLXU0YW9maERLd2ctelgxU0gzdmxKRy1DcHpGbFVzbUNTM0ptZHBUbGRjUC1nYy1rcC14SVR2Wm82VEZsbkI5cnBEbDZ4dWx3eEtLbUJ4N1FYM2VYdERIWlpIUdIBdEFVX3lxTFBOdnFuU0loVm9xdEFfTUxnbFpJdjF6Z2ZGZGthU3pVQjJRUlA3alkxTnpoLWtzLVBFRzYxM2RsZjBHdFZZQW1BZjVpelR3RURSenV2MklNeEc4STFITExJVTU4ZVY1eDhRLVpUOHg4SGgteXAx?oc=5"
+  },
+  {
+    "horse": "エスクアドラ",
+    "player": "P01",
     "title": "【2歳新馬・福島5R】良血エスクアドラが豪快差し切り！ 坂井瑠星騎手「エンジンがかかってからはいい脚を使ってくれました」 - Yahoo!ニュース",
     "desc": "【2歳新馬・福島5R】良血エスクアドラが豪快差し切り！ 坂井瑠星騎手「エンジンがかかってからはいい脚を使ってくれました」&nbsp;&nbsp;Yahoo!ニュース",
     "source": "Yahoo!ニュース",
@@ -164,11 +173,11 @@
   {
     "horse": "エスクアドラ",
     "player": "P01",
-    "title": "重賞勝ち馬を母に持つエスクアドラが快勝 坂井瑠星「いい意味で遊びがある」【2歳新馬・福島5R】（東スポ競馬） - Yahoo!ニュース",
-    "desc": "重賞勝ち馬を母に持つエスクアドラが快勝 坂井瑠星「いい意味で遊びがある」【2歳新馬・福島5R】（東スポ競馬）&nbsp;&nbsp;Yahoo!ニュース",
-    "source": "Yahoo!ニュース",
+    "title": "重賞勝ち馬を母に持つエスクアドラが快勝　坂井瑠星「いい意味で遊びがある」【2歳新馬・福島5R】 - ｄメニューニュース",
+    "desc": "重賞勝ち馬を母に持つエスクアドラが快勝　坂井瑠星「いい意味で遊びがある」【2歳新馬・福島5R】&nbsp;&nbsp;ｄメニューニュース",
+    "source": "ｄメニューニュース",
     "date": "2026/07/05",
-    "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE85aHExOHduaEM1TjBsLXJFQkQ2a2NVeHVfNEc0U1lqSVd1UkFobGZjWWJSQ180b2x3T1pTcUNkc0lIYUNLc3pnWV9aQkNRTGdwQVkwZjVzVV90STVlUUdTR1E3cmhzM3pIRGF6ME9HYXEybHBoMmNFU0h6bUFsaGM?oc=5"
+    "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOVkE4b2gtclVhOWl5YjltekVQR2RtSE92blJMVGhtUlJIWUpQLTVxaGNKWmZJcEYtdFZCM3prRmdfOF85OVg0eE1zYXlaUl8tYl9ScDloNUhRTXF4djJYYkRBWTlsX2dSUUp3Xzl0NEFoeklac19kN2RFcWd6c29CTdIBhgFBVV95cUxOS3NubG1DWEt0MXl2cWNqUldzOUFycXNSaTlOQ1RqNnFwY2s2a0tRZklSNGpQWlZuNHJtdTFaYWFHQ3pzZ2NCQzBJQmtvQjE4ZFNFSWU1THNydjJQbGNyZnNBZmRSbkN3blFjeU1LRnN5YTBCekVQQ3k2Q2lRd081UUpPUVBqdw?oc=5"
   },
   {
     "horse": "エスクアドラ",
@@ -315,22 +324,13 @@
     "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE4xOGN5QWxVWUp4dk5hYW5RTi1FVklYeXJSTXhtc0tuSGU2Y2w4c1hzUmpma1FTRFJIWlVuSy0zc054clMwMWZKbU9kTzBYNW1wdmE5OVlwalozYjJobmZn?oc=5"
   },
   {
-    "horse": "ウィンターブリーズ",
-    "player": "P07",
+    "horse": "クロダテ",
+    "player": "P03",
     "title": "帝王賞をミッキーファイトで制した田中博康師の勢いは止まらない 土曜は福島1Rウィンターブリーズ、6R新馬戦のクロダテに注目 - 中日新聞Web",
     "desc": "帝王賞をミッキーファイトで制した田中博康師の勢いは止まらない 土曜は福島1Rウィンターブリーズ、6R新馬戦のクロダテに注目&nbsp;&nbsp;中日新聞Web",
     "source": "中日新聞Web",
     "date": "2026/07/03",
     "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTFA2THMzMVN3aDdFTURpeUdCQTU5bUc0b2lDUW1rQXdGb1htLVpxSGMxNW9RVThibXBTbXFzeG1neGwyYm5RaElrc0xOV0xrQTdmT0JoOA?oc=5"
-  },
-  {
-    "horse": "エスクアドラ",
-    "player": "P01",
-    "title": "【今週の注目新馬】エスクアドラは近親にGⅠホース多数の良血 鹿戸師「準備はしっかりできている」／日曜福島5R - 競馬予想のウマニティ",
-    "desc": "【今週の注目新馬】エスクアドラは近親にGⅠホース多数の良血 鹿戸師「準備はしっかりできている」／日曜福島5R&nbsp;&nbsp;競馬予想のウマニティ",
-    "source": "競馬予想のウマニティ",
-    "date": "2026/07/02",
-    "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTFB5b2hKZG5LWGdDNEZRNldKS1pCYTB3TnZESDB6UGNLYTEyNmFzXzYzRW5FRWJfQnRNUEwySmt4Z1lXZURVQVpKRDVPNDNrYlFZcjRxNFBwR0NUc01rblpTV1BWc29lRUVD?oc=5"
   },
   {
     "horse": "エスクアドラ",
@@ -344,29 +344,29 @@
   {
     "horse": "クロダテ",
     "player": "P03",
+    "title": "JBCレディスクラシック覇者の初仔 クロダテがデビュー勝ちなるか - netkeiba オーナーズ",
+    "desc": "JBCレディスクラシック覇者の初仔 クロダテがデビュー勝ちなるか&nbsp;&nbsp;netkeiba オーナーズ",
+    "source": "netkeiba オーナーズ",
+    "date": "2026/07/02",
+    "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1Wb0xSZEpEQUdqOXdmOFM1TlZXNzZOWjdWSEpuc19VNXZzbHpEc1pkU0laTy1vN1QwZUoxZVNfRW5rNzNDRUpzb25DUTY0Z0NPQl9UbXFjTjlJbzdvLUpWaGhRYWJ0UUE?oc=5"
+  },
+  {
+    "horse": "クロダテ",
+    "player": "P03",
+    "title": "【ＰＯＧ】４日福島６Ｒでデビュー 良血クロダテが状態の良さアピール 田中博調教師「能力は高いのかな」母はＪｐｎ１制覇 - Yahoo!ニュース",
+    "desc": "【ＰＯＧ】４日福島６Ｒでデビュー 良血クロダテが状態の良さアピール 田中博調教師「能力は高いのかな」母はＪｐｎ１制覇&nbsp;&nbsp;Yahoo!ニュース",
+    "source": "Yahoo!ニュース",
+    "date": "2026/07/02",
+    "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBWRElUS2dYWlZNS0Uzc2djQzNQR2pFbUhpeHdSOC1nOG1OcGU3eW1WLXVVcDkwTEpjSGF3ZHRURllYMVE2VENDY1dmcmFEX3k5WTd0UERhVWQ3ajdaU0xEdkR1R19wX0NkdEdzQ0lWeGxLWFNSZGxXdG1uUlg5Njg?oc=5"
+  },
+  {
+    "horse": "クロダテ",
+    "player": "P03",
     "title": "【POG】4日福島6Rでデビュー 良血クロダテが状態の良さアピール 田中博調教師「能力は高いのかな」母はJpn1制覇 - netkeiba",
     "desc": "【POG】4日福島6Rでデビュー 良血クロダテが状態の良さアピール 田中博調教師「能力は高いのかな」母はJpn1制覇&nbsp;&nbsp;netkeiba",
     "source": "netkeiba",
     "date": "2026/07/02",
     "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5SUmhmQmFWU29fVUNpaEt4S0xhQXRqMjI5TzU1eHdUcHVueVpWOFBpcTdudnNuLTZoOUF1aXZfWXJtUWw3NXVKbHdSZS1VcThRSDloaGVZVDR1emVTczBz?oc=5"
-  },
-  {
-    "horse": "クロダテ",
-    "player": "P03",
-    "title": "【ＰＯＧ】４日福島６Ｒでデビュー 良血クロダテが状態の良さアピール 田中博調教師「能力は高いのかな」母はＪｐｎ１制覇 - ライブドアニュース",
-    "desc": "【ＰＯＧ】４日福島６Ｒでデビュー 良血クロダテが状態の良さアピール 田中博調教師「能力は高いのかな」母はＪｐｎ１制覇&nbsp;&nbsp;ライブドアニュース",
-    "source": "ライブドアニュース",
-    "date": "2026/07/02",
-    "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE45OFYtdU9tM09pRUw4Uk9MQTZBVTRZZFdxZ2NoU0w2Vmk1NmVUVHlJdElpNDdOU181NTBHTk1seVRuRC10R2pSb1B4cElORXJTbUM3NGdHREExeXZwZWpNT1BNcUNkdkR0bEF1QTlUb0ZtcGlfbFpfag?oc=5"
-  },
-  {
-    "horse": "クロダテ",
-    "player": "P03",
-    "title": "JBCレディスクラシック覇者の初仔 クロダテがデビュー勝ちなるか - netkeiba",
-    "desc": "JBCレディスクラシック覇者の初仔 クロダテがデビュー勝ちなるか&nbsp;&nbsp;netkeiba",
-    "source": "netkeiba",
-    "date": "2026/07/02",
-    "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBjbjQzc0R3R0I4aXJodDBGVXdpSkJBYVRKUGd3V2h0T29HaGFtcV91MWZGV3pTZTRZOGtJVWx4M0tIbU1ITzkxVTd3QnhFWXVHN0x6d1FXTDRIa2ZCSS1j?oc=5"
   },
   {
     "horse": "エスクアドラ",
@@ -378,6 +378,15 @@
     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE0ybmFCdUZmd09qb1MwYjdaTk1ReTg3VTYwTkl1NTNaSDY1OTl2UHE0RzJDR2VVSXdXYnBIZlV1bUVfczlEcEZ0bU5JNEo1aC1SNER4WmFMZEVIM1RIRXdGdkU3a3RJVEEzSEs2SE1ZUQ?oc=5"
   },
   {
+    "horse": "エスクアドラ",
+    "player": "P01",
+    "title": "【新馬戦】エスクアドラ いざ先制攻撃 良血の一撃なるか 鹿戸師は反応の良さ強調 - ライブドアニュース",
+    "desc": "【新馬戦】エスクアドラ いざ先制攻撃 良血の一撃なるか 鹿戸師は反応の良さ強調&nbsp;&nbsp;ライブドアニュース",
+    "source": "ライブドアニュース",
+    "date": "2026/07/01",
+    "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE15Tk9qYlhTVkRBaE9adlI3T3E3NC1zYzBfLXdOTFJoTEJJN0NnVENKRk1GSGVsM184WUlWX3pwcWdjb3BvYld6dDZUbEJyenpYOUhzbmExWGFjSVJIbEp3?oc=5"
+  },
+  {
     "horse": "ホウオウシュウ",
     "player": "P06",
     "title": "【動画・2歳盛り】ホウオウシュウ - 週刊Gallop Online",
@@ -385,24 +394,6 @@
     "source": "週刊Gallop Online",
     "date": "2026/07/01",
     "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBoX2dWR2hTdjZVYVc5cDBIR1o5dy1IeTZfeEtuZjRxZDZNaXdHdV9KYWVYUTlrSXI0eWNkeG1seHVnSGcwMmhfel9Ca0h1TTJKZXJEa2tRNktRRmw1SVZHUnVEUWh4aUczZEdLNkVWZGNTYnQ5em9PS2Zn?oc=5"
-  },
-  {
-    "horse": "エスクアドラ",
-    "player": "P01",
-    "title": "【新馬戦】エスクアドラ いざ先制攻撃 良血の一撃なるか 鹿戸師は反応の良さ強調 - ライブドアニュース",
-    "desc": "【新馬戦】エスクアドラ いざ先制攻撃 良血の一撃なるか 鹿戸師は反応の良さ強調&nbsp;&nbsp;ライブドアニュース",
-    "source": "ライブドアニュース",
-    "date": "2026/06/30",
-    "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE15Tk9qYlhTVkRBaE9adlI3T3E3NC1zYzBfLXdOTFJoTEJJN0NnVENKRk1GSGVsM184WUlWX3pwcWdjb3BvYld6dDZUbEJyenpYOUhzbmExWGFjSVJIbEp3?oc=5"
-  },
-  {
-    "horse": "エスクアドラ",
-    "player": "P01",
-    "title": "【新馬戦】エスクアドラ　いざ先制攻撃　良血の一撃なるか　鹿戸師は反応の良さ強調 - ｄメニューニュース",
-    "desc": "【新馬戦】エスクアドラ　いざ先制攻撃　良血の一撃なるか　鹿戸師は反応の良さ強調&nbsp;&nbsp;ｄメニューニュース",
-    "source": "ｄメニューニュース",
-    "date": "2026/06/30",
-    "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE54UUoxejljcWIzMGh2X3V2NW82SWNSVmFicHVkMzhUR216X3kzZ210dk04S0lQODhBZGdHZVM4TUtSVERONjBrSXE0ZWVGa0sxNDZWR1ZNWHdhbjVWaHE0TV9nNFZlMFFKNHZvVTJHVGFTV05MN3Z5U1dB0gF_QVVfeXFMTXhlM2ZCOGdSOXBxaHpWcFdtU01oVEVtbERpaWN4c1c4a2xYcWJQVWRyVmtTbEhGc2t3OTJ3VExXRnN1V1R0ZG1UNUc1ZVpRazJKdVk3Rl9TdzdYblZfd3BuLWNMdnU0NEhUcnhTNE5WSlpoQzE0b1YwdkcwNDEzcw?oc=5"
   },
   {
     "horse": "エスクアドラ",
@@ -421,15 +412,6 @@
     "source": "スポニチ Sponichi Annex",
     "date": "2026/06/30",
     "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQX2VHNEh1aDl4YzZFbm1zNkxxSENpUTVBNklRNl84VlRZZEZPcDZNb0QtR213bmc5MUhvUkZ1TGIxcFRSeW1GQkM3N0xjZzBTdlowc29aaVp0WE1JWFNxNkh3dmFDeUpKUXZIeHNSZUhPa2dfUE9rNmQ1M2NuTGdrdXVxSDk5b2VycXd3Mw?oc=5"
-  },
-  {
-    "horse": "エスクアドラ",
-    "player": "P01",
-    "title": "【福島新馬戦】エスクアドラ古馬級の貫禄 追い切りで年長馬圧倒 鹿戸師「胸を貸しちゃったよ」 - ライブドアニュース",
-    "desc": "【福島新馬戦】エスクアドラ古馬級の貫禄 追い切りで年長馬圧倒 鹿戸師「胸を貸しちゃったよ」&nbsp;&nbsp;ライブドアニュース",
-    "source": "ライブドアニュース",
-    "date": "2026/06/30",
-    "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5HcTAteUlxcnhnLWxLNHd0aWVRQzJRcEpXUnkyeWt3TTlldl9CamlGaFpTT3VhWElYREh4eDZTSjcyTEh1NC1XS0hydTVWOGl2MllDVmRrc3FxZm1WMnc4?oc=5"
   },
   {
     "horse": "エスクアドラ",
@@ -457,6 +439,15 @@
     "source": "東スポ競馬",
     "date": "2026/06/27",
     "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE1HZm9WRWR5eEp4YkpPQm9TcHVxNEtEMUQtck9ibVhOQXJxMVcyREhTeXgwMkZ4ZF9KUlJiVVZwVW0wWTZGMUZ5WGdJSkpXY0F5WDB3ZA?oc=5"
+  },
+  {
+    "horse": "ホウオウシュウ",
+    "player": "P06",
+    "title": "【ＰＯＧ】１・６億円の良血 Ｇ１級２勝を挙げるミッキーファイトの半弟ホウオウシュウは７・２５札幌デビューへ - スポーツ報知",
+    "desc": "【ＰＯＧ】１・６億円の良血 Ｇ１級２勝を挙げるミッキーファイトの半弟ホウオウシュウは７・２５札幌デビューへ&nbsp;&nbsp;スポーツ報知",
+    "source": "スポーツ報知",
+    "date": "2026/06/26",
+    "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE9fNEJzdE54elJWWDVpUHRWY2ZwbGtub2V3a0wxZWczYXZVeDBUQUIzV0YwZUVFM3htc2FQZ1B5OUQ0eVZxTk5zaUM3Sk9TMzliSFUtbGt0Sk0wUWMzUmVJR2ZB?oc=5"
   },
   {
     "horse": "ホウオウシュウ",
@@ -668,6 +659,15 @@
   {
     "horse": "タクティシアン",
     "player": "P07",
+    "title": "タクティシアンが人気に応えV 父サリオスを手がけた森一誠調教師も感慨【2歳新馬・東京4R】（東スポ競馬） - Yahoo!ニュース",
+    "desc": "タクティシアンが人気に応えV 父サリオスを手がけた森一誠調教師も感慨【2歳新馬・東京4R】（東スポ競馬）&nbsp;&nbsp;Yahoo!ニュース",
+    "source": "Yahoo!ニュース",
+    "date": "2026/06/21",
+    "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1veUFpb3VTZFBldU82eER3bVhtUHlvVWUwSmZmVWdoeWdpOXdxY1VyTzN2bU1tcGFFN1lGc0kwd003b0taQjZIX1pQelM3Ri1YaXU1eDV2cnhBS0RpcXQyZXgwcmlaRWhYYzZ0SGh6TThWRk1CYlBiMm9RY0NRYkU?oc=5"
+  },
+  {
+    "horse": "タクティシアン",
+    "player": "P07",
     "title": "【東京4R新馬戦結果】サリオス産駒タクティシアンが人気に応えてV | 競馬ニュース - netkeiba - netkeiba",
     "desc": "【東京4R新馬戦結果】サリオス産駒タクティシアンが人気に応えてV | 競馬ニュース - netkeiba&nbsp;&nbsp;netkeiba",
     "source": "netkeiba",
@@ -686,11 +686,11 @@
   {
     "horse": "タクティシアン",
     "player": "P07",
-    "title": "タクティシアンが人気に応えV 父サリオスを手がけた森一誠調教師も感慨【2歳新馬・東京4R】（東スポ競馬） - Yahoo!ニュース",
-    "desc": "タクティシアンが人気に応えV 父サリオスを手がけた森一誠調教師も感慨【2歳新馬・東京4R】（東スポ競馬）&nbsp;&nbsp;Yahoo!ニュース",
+    "title": "タクティシアンが人気に応えV 父サリオスを手がけた森一誠調教師も感慨【2歳新馬・東京4R】 (東スポ競馬) - Yahoo!ニュース",
+    "desc": "タクティシアンが人気に応えV 父サリオスを手がけた森一誠調教師も感慨【2歳新馬・東京4R】 (東スポ競馬)&nbsp;&nbsp;Yahoo!ニュース",
     "source": "Yahoo!ニュース",
     "date": "2026/06/21",
-    "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1veUFpb3VTZFBldU82eER3bVhtUHlvVWUwSmZmVWdoeWdpOXdxY1VyTzN2bU1tcGFFN1lGc0kwd003b0taQjZIX1pQelM3Ri1YaXU1eDV2cnhBS0RpcXQyZXgwcmlaRWhYYzZ0SGh6TThWRk1CYlBiMm9RY0NRYkU?oc=5"
+    "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPN25pX0NyNTExeHpUanlrMDdqNHN0U1VMWnp1dEhxZXpoUnZoZGU0dnU2V251M3V3Qjh4eTFRM3VoanluMklOT3dUdmhxWFVCZDA5Tkdsa3BQa2pZYlRWbEF5cnZHbFVaSTl5U1FXWkFDd0hINGZseUcxaEVkTjhtN05BSEcxNkp2UHRzVTBR?oc=5"
   },
   {
     "horse": "タクティシアン",
@@ -709,15 +709,6 @@
     "source": "日刊スポーツ",
     "date": "2026/06/21",
     "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQWVFtbG5ucmRMVTZMdS01VHV6eTFfNGZ3UGx4cnNNaFpjLTl2SW9VdnJWaDJkTlNSVkFvRHNfVF9NVTYzSnQ1dlpRdVQ0bWRWR045UXpSMEVidVliV2RjZjFDRmI4Y3BTcWwxcmtQUVlFcEVUZjZTY181Z24tU3ROMHlodUhSdzNrNWFn?oc=5"
-  },
-  {
-    "horse": "タクティシアン",
-    "player": "P07",
-    "title": "タクティシアンが人気に応えV 父サリオスを手がけた森一誠調教師も感慨【2歳新馬・東京4R】 (東スポ競馬) - Yahoo!ニュース",
-    "desc": "タクティシアンが人気に応えV 父サリオスを手がけた森一誠調教師も感慨【2歳新馬・東京4R】 (東スポ競馬)&nbsp;&nbsp;Yahoo!ニュース",
-    "source": "Yahoo!ニュース",
-    "date": "2026/06/21",
-    "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPN25pX0NyNTExeHpUanlrMDdqNHN0U1VMWnp1dEhxZXpoUnZoZGU0dnU2V251M3V3Qjh4eTFRM3VoanluMklOT3dUdmhxWFVCZDA5Tkdsa3BQa2pZYlRWbEF5cnZHbFVaSTl5U1FXWkFDd0hINGZseUcxaEVkTjhtN05BSEcxNkp2UHRzVTBR?oc=5"
   },
   {
     "horse": "タクティシアン",
@@ -776,11 +767,11 @@
   {
     "horse": "コナパームス",
     "player": "P01",
-    "title": "【今日の注目新馬】コナパームスは兄姉がGⅠで2着に好走 森一師「長くいい脚を使えそう」／東京5R（写真・画像 1/1） - サンスポ",
-    "desc": "【今日の注目新馬】コナパームスは兄姉がGⅠで2着に好走 森一師「長くいい脚を使えそう」／東京5R（写真・画像 1/1）&nbsp;&nbsp;サンスポ",
-    "source": "サンスポ",
+    "title": "【東京５Ｒ・２歳新馬】「きれいな馬場の方がいい」ルメール騎手もガックリ 単勝１・８倍のコナパームスは３着 - スポーツ報知",
+    "desc": "【東京５Ｒ・２歳新馬】「きれいな馬場の方がいい」ルメール騎手もガックリ 単勝１・８倍のコナパームスは３着&nbsp;&nbsp;スポーツ報知",
+    "source": "スポーツ報知",
     "date": "2026/06/20",
-    "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQamZPSXlGMXlNVkhZRGJHWERaYjVSanBTdXJ5SXRtZmpRbHRKeTZNQWpkdkdodGhPMVNmVWpwdnVRZ2lUR0ZLSWhVbkV2alNhWHNORFNwYV9rdUN5UkczWV9nR01DNjYwb3ByakdoVE0xVktTa1ZDYnozMUN2bDQyZHZhdUVJeFVWZk5wZnJYR05Sb1loQTJkdklTT05lWF9JNng5cm5zM3VyV2Myc05WQjc1aw?oc=5"
+    "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE1tYU14cHBuU0ZOVXRnajJHMzB1RGhYWUtyeU51bUV2QUxPc25TMjR4WlBteHBKMTV0R1RKdFVFMENJVHNXRVJKQXVKRFlpdlNKWGRzbzFoMWFja0dGLXRvTS1QcG1IM2x5bk4w?oc=5"
   },
   {
     "horse": "コナパームス",
@@ -835,15 +826,6 @@
     "source": "netkeiba",
     "date": "2026/06/18",
     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBwcFFFbnhobHItenhpZzVGTmJYNDJQeVFueWUtVGZRZ3drWEZCa3QyOGV3ZnNUd2dXbG9IaF9Ec2wyZDVveXQ2TkZZOExmS1lqRGtXRktrOFAxTW5jLTBfelR5ZWdsZUVMdUJ5WTM1bEnSAXZBVV95cUxOMHhvV3g0SVlRLUc4MnZUeW4za3BZZDYzVUhDWHJHbUIzNGRrY3M0T1UtaUJqMS04eGhqNEVRcUxWdHhmOUFSN3Mtb3otTHlabWd1STlxSFRHd2cxOHYycXJ1NG5mS3JEcHJNbEJ2TG9YMTdUQ3RB?oc=5"
-  },
-  {
-    "horse": "エスクアドラ",
-    "player": "P01",
-    "title": "【POG調査隊】エスクアドラは7月5日の福島芝2000メートル戦が目標（写真・画像 1/1） - サンスポ",
-    "desc": "【POG調査隊】エスクアドラは7月5日の福島芝2000メートル戦が目標（写真・画像 1/1）&nbsp;&nbsp;サンスポ",
-    "source": "サンスポ",
-    "date": "2026/06/17",
-    "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNTFdMOXlPaXNWV3QwOEpudHRNOGhoMHpKc3pmZVlfMjhFUElnUW1PVHJFV3FabHQzVy1UNEZ5alE0ZHVGMjlmVUt0NGlsdnJoUWJTRGszbUVod2d1Wkc4WTJIRVdveFhweUZiMzlabDk4cmZ5eGZGemJHSzVWeHB0UkpfenpkUk56bDFLWkd3ZzI3OEpLMlBxS09vTl9pSXJlWEJYMlUwLVltakxWZC1RTFFaOA?oc=5"
   },
   {
     "horse": "コナパームス",
@@ -1001,6 +983,15 @@
   {
     "horse": "デミアン",
     "player": "P02",
+    "title": "【2歳新馬・東京6R】デミアンはフライトライン産駒の世界初V！ 海外ファンも祝福「何て美しい馬なんだ！」 - 競馬予想のウマニティ",
+    "desc": "【2歳新馬・東京6R】デミアンはフライトライン産駒の世界初V！ 海外ファンも祝福「何て美しい馬なんだ！」&nbsp;&nbsp;競馬予想のウマニティ",
+    "source": "競馬予想のウマニティ",
+    "date": "2026/06/13",
+    "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE1DNnNlbXJ6dlFJbHdSeHBQUGp5MVB6aWJYZEM0X0lHUGkyU2hyN1NXNjVvS1VuYjR3MVFSWTJ5OHpxR2p6U2J2R1VaaUZhM3RRSUs1UV9vN25OMldPREVEd195ZlAtVmFZ?oc=5"
+  },
+  {
+    "horse": "デミアン",
+    "player": "P02",
     "title": "フライトライン初年度産駒デミアンの馬名の由来は？ダミアン騎乗は？坂口直大オーナーが明かした - 日刊スポーツ",
     "desc": "フライトライン初年度産駒デミアンの馬名の由来は？ダミアン騎乗は？坂口直大オーナーが明かした&nbsp;&nbsp;日刊スポーツ",
     "source": "日刊スポーツ",
@@ -1064,15 +1055,6 @@
   {
     "horse": "デミアン",
     "player": "P02",
-    "title": "【2歳新馬・東京6R】デミアンはフライトライン産駒の世界初V！ 海外ファンも祝福「何て美しい馬なんだ！」 - サンスポ",
-    "desc": "【2歳新馬・東京6R】デミアンはフライトライン産駒の世界初V！ 海外ファンも祝福「何て美しい馬なんだ！」&nbsp;&nbsp;サンスポ",
-    "source": "サンスポ",
-    "date": "2026/06/13",
-    "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNNXR0b2YxejE4dVhfT0JyOHpmQWgzZWEzNm1XbHhEZkZmTWpLaFd5S2tHbUFMOHhsOUlhX0tCNU1ZdUIxV1FkWnhKXzZlQXBoNld2R2hnSzJrd2tQUG9YUmt0aFM3dGNZZEs4Qkg0SjRHaUp5QWM5dDJRbGw4bEtDWXVnS1dra2s?oc=5"
-  },
-  {
-    "horse": "デミアン",
-    "player": "P02",
     "title": "【東京6R・新馬戦】フライトライン産駒デミアンが初陣V ダミアン・レーン「非常にポテンシャルがある」 - スポニチ Sponichi Annex",
     "desc": "【東京6R・新馬戦】フライトライン産駒デミアンが初陣V ダミアン・レーン「非常にポテンシャルがある」&nbsp;&nbsp;スポニチ Sponichi Annex",
     "source": "スポニチ Sponichi Annex",
@@ -1132,15 +1114,6 @@
     "source": "netkeiba",
     "date": "2026/06/12",
     "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5LanI2Z2ZjTXpkcmhKa3JhekxrRE94cmNoX0VkNnVKbWsxNDhibFBkZkdBXzdMbXBNRnhkcnRYN25VM0FtcnZMc2l5XzA4QmgzTlBTOUxEc2FZMWE3WU5v?oc=5"
-  },
-  {
-    "horse": "デミアン",
-    "player": "P02",
-    "title": "【今週の注目新馬】〝最強ダート馬〟フライトラインの初年度産駒デミアンが初陣へ レーン「芝でも問題なさそう」（東スポ競馬） - Yahoo!ニュース",
-    "desc": "【今週の注目新馬】〝最強ダート馬〟フライトラインの初年度産駒デミアンが初陣へ レーン「芝でも問題なさそう」（東スポ競馬）&nbsp;&nbsp;Yahoo!ニュース",
-    "source": "Yahoo!ニュース",
-    "date": "2026/06/12",
-    "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9VZFZMR2J2YzlCZEhGdlVlM3RXakFBcnN3QjlvTzJfT3lyTTNIZ2N2cFRJUUl3MzQ1OGtTeVVjQ1J2N2p1bElFQlp6al9KcXBzSjJqR2NXVFd0R0xnX0FqMGRFbTFUUUc5RFFpSFRSNFV1NEJORnVhcnFQZXVZeG8?oc=5"
   },
   {
     "horse": "デミアン",
@@ -1303,6 +1276,15 @@
     "source": "netkeiba",
     "date": "2026/06/08",
     "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBLVUdhRzlZcUNsdlZSZndXR3MzUTZMeFE0YTE0S2dtNXVIbkVzdmk1UkN4UFBJazltRU9yZ1g1MzJHOHludWhQT2t6WU43Q0E5Q01tY2VTb0duSmNVVHdv?oc=5"
+  },
+  {
+    "horse": "デミアン",
+    "player": "P02",
+    "title": "【POG・坂本の特注馬】米国で16億円超の産駒も!世界的注目集めるフライトライン　初年度産駒デミアンがいざ出陣 | 競馬ニュース - netkeiba - netkeiba",
+    "desc": "【POG・坂本の特注馬】米国で16億円超の産駒も!世界的注目集めるフライトライン　初年度産駒デミアンがいざ出陣 | 競馬ニュース - netkeiba&nbsp;&nbsp;netkeiba",
+    "source": "netkeiba",
+    "date": "2026/06/08",
+    "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5HOVdoNnA1em5pMVNuTGk1UUZzUk9OeEVZaWRQMklQREN2alI3aElrTXlRejlkQW0xZi1qaUFBZ2QwaHF6X3laUExFcXplOV9QVlBONjlUV2dMNmpkWENEZC10MWF6WjFYRjEzd0NTVUHSAXZBVV95cUxQVmwyeExFNV9zalpJbm04aDZsR0VhaE1rVmYxTW5ZS0IwaXVDcVNsOFFZUUFMYk5CTnVBa08ya28xOWdEc3JXMnJKdzY1cTA5aTgtdTVIYVh4RFdSN2dDYkJsS21zMXE0OEhGSzFmZ09lNkc3cldR?oc=5"
   },
   {
     "horse": "ウィンターブリーズ",
