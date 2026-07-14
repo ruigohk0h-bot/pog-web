@@ -59,7 +59,7 @@ const PLAYERS_2627 = [
       { no:7,  name:"ソメデイストワール", sire:"マインドユアビスケッツ", dam:"ミラクルレジェンド" },
       { no:8,  name:"サンクサンス",        sire:"American Pharoah",      dam:"エリーズスマイル" },
       { no:9,  name:"レッドマウロア",     sire:"クリソベリル",          dam:"レッドアネラ" },
-      { no:10, name:null,               dam:"アンデスクイーン" },
+      { no:10, name:"レガシーマインド", sire:"マインドユアビスケッツ", dam:"アンデスクイーン" },
       { no:11, name:null,               dam:"ラタンドレス" },
       { no:12, name:"ヨハンナ",            sire:"クリソベリル",          dam:"ロッテンマイヤー" },
     ],
