@@ -245,7 +245,7 @@
       },
       {
         "name": "コンセントリコ",
-        "active": true,
+        "active": false,
         "sire": "ディスクリートキャット",
         "dam": "セントリフュージ"
       },
@@ -311,7 +311,7 @@
       },
       {
         "name": "ソルテヴェローチェ",
-        "active": false,
+        "active": true,
         "sire": "マテラスカイ",
         "dam": "ミニーアイル"
       },
@@ -485,7 +485,7 @@
       },
       {
         "name": "ディーヴァレギオン",
-        "active": false,
+        "active": true,
         "sire": "ナダル",
         "dam": "シャドウディーヴァ"
       },
