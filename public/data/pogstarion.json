@@ -1,5 +1,5 @@
 {
-  "updated": "2026/07/18 19:21",
+  "updated": "2026/07/19 11:26",
   "source": "https://pogstarion.com/newresultlist.do?group_num=0601093409",
   "schedule_results": [
     {
@@ -8,15 +8,15 @@
       "col2": "",
       "レース名": "未勝利",
       "距離": "ダ1150",
-      "馬名": "ケンシロウワールド",
-      "騎手": "団野大成",
-      "順位": "",
-      "賞金": "",
-      "所有者": "田崎厩舎",
+      "馬名": "ムーンベリル",
+      "騎手": "坂井瑠星",
+      "順位": "1",
+      "賞金": "590",
+      "所有者": "長谷部厩舎",
       "_links": [
         "http://race.netkeiba.com/?pid=race&id=c202603020801&mode=shutuba",
-        "umaracelist.do?group_num=0601093409&user_num=407307&kettonum=2024108272",
-        "userumalist.do?group_num=0601093409&user_num=407307"
+        "umaracelist.do?group_num=0601093409&user_num=407304&kettonum=2024106276",
+        "userumalist.do?group_num=0601093409&user_num=407304"
       ]
     },
     {
@@ -25,14 +25,14 @@
       "col2": "",
       "レース名": "未勝利",
       "距離": "ダ1150",
-      "馬名": "ムーンベリル",
-      "騎手": "坂井瑠星",
-      "順位": "",
-      "賞金": "",
-      "所有者": "長谷部厩舎",
+      "馬名": "ケンシロウワールド",
+      "騎手": "団野大成",
+      "順位": "9",
+      "賞金": "0",
+      "所有者": "田崎厩舎",
       "_links": [
-        "umaracelist.do?group_num=0601093409&user_num=407304&kettonum=2024106276",
-        "userumalist.do?group_num=0601093409&user_num=407304"
+        "umaracelist.do?group_num=0601093409&user_num=407307&kettonum=2024108272",
+        "userumalist.do?group_num=0601093409&user_num=407307"
       ]
     },
     {
