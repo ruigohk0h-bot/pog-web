@@ -2,6 +2,22 @@
   {
     "date": "07/19",
     "venue": "福島",
+    "race": "新馬",
+    "course": "芝2000",
+    "surface": "turf",
+    "dist": 2000,
+    "horse": "ヴェルバーニア",
+    "player": "P01",
+    "order": 3,
+    "grade": null,
+    "local": false,
+    "rawPt": 0,
+    "turfPt": 200,
+    "_ts": "07/19"
+  },
+  {
+    "date": "07/19",
+    "venue": "福島",
     "race": "未勝利",
     "course": "ダ1150",
     "surface": "dirt",
