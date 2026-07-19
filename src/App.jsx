@@ -2442,10 +2442,12 @@ const BANZUKE_2YO = {
       note:"福島6R新馬を逃げ切り。1番人気クロダテ（砂遊び馬）を撃破した伏兵。" },
     { rank:"小結", name:"ノリヤンモーニン",   sex:"牡", sire:"モーニン", stable:"栗東・佐藤悠", move:"→",
       note:"函館6R新馬を5馬身差で圧勝。浜中俊も「次も期待できます」と太鼓判。" },
-    { rank:"前頭", nth:"筆頭", name:"エランヴィータ", sex:"牝", sire:"シャンハイボビー", move:"☆",
-      note:"福島6R・ダ1150m新馬を勝利。ムーンベリル（砂遊び馬）を1馬身半下して新入幕。" },
-    { rank:"前頭", nth:"二枚目", name:"キョウエイアカギ", sex:"牡", sire:"インティ", stable:"大井（地方）", move:"☆",
-      note:"大井で南関東26年度最初の新馬勝ち。新種牡馬インティに記念すべき初勝利をプレゼントして新入幕。" },
+    { rank:"前頭", nth:"筆頭", name:"ムーンベリル", sex:"牝", sire:"クリソベリル", stable:"長谷部厩舎（砂遊び馬）", nkId:"2024106276", move:"☆",
+      note:"中京ダ1150mを快勝し待望の初勝利！新馬で敗れたエランヴィータの一枚上を狙う砂遊び期待の一頭。" },
+    { rank:"前頭", nth:"二枚目", name:"エランヴィータ", sex:"牝", sire:"シャンハイボビー", move:"→",
+      note:"福島6R・ダ1150m新馬を勝利。ムーンベリル（砂遊び馬）を1馬身半下した実力馬。" },
+    { rank:"前頭", nth:"三枚目", name:"キョウエイアカギ", sex:"牡", sire:"インティ", stable:"大井（地方）", move:"↘",
+      note:"大井で南関東26年度最初の新馬勝ち。新種牡馬インティに記念すべき初勝利をプレゼント。" },
   ],
 };
 
@@ -3757,6 +3759,31 @@ export default function App() {
 
   const headerBg = darkHeader ? G.dirtDark : G.green;
 
+  // 直近7日以内に1着になった指名馬をテロップに表示（次の週まで＝約7日）
+  const recentWinners = (() => {
+    const now = new Date();
+    const seen = new Set();
+    const names = [];
+    for (const r of results) {
+      if (r.order !== 1) continue;
+      const m = /^(\d{1,2})\/(\d{1,2})$/.exec(r.date || "");
+      if (!m) continue;
+      let d = new Date(now.getFullYear(), +m[1] - 1, +m[2]);
+      if (d - now > 3 * 86400000) d = new Date(now.getFullYear() - 1, +m[1] - 1, +m[2]); // 年またぎ補正
+      const days = Math.floor((now - d) / 86400000);
+      if (days < 0 || days > 7) continue;
+      if (seen.has(r.horse)) continue;
+      seen.add(r.horse);
+      names.push(r.horse);
+    }
+    return names;
+  })();
+
+  const cornerPromo = "🏅 新コーナー「ダート二歳番付」登場！今年の2歳ダート注目馬を番付でチェック🐎　種牡馬コーナーも好評公開中📖";
+  const telopText = recentWinners.length > 0
+    ? `🎉 祝・勝利！ ${recentWinners.join("・")} が勝ち上がり！おめでとうございます🏆　　${cornerPromo}`
+    : cornerPromo;
+
   const navItems = [
     { key:"ranking",  label:"順位",   icon:"🏆" },
     { key:"results",  label:"結果",   icon:"📋" },
@@ -3817,7 +3844,7 @@ export default function App() {
           animation:"pogTelopScroll 14s linear infinite",
           willChange:"transform",
         }}>
-          🏅 新コーナー「ダート二歳番付」登場！今年の2歳ダート注目馬を番付でチェック🐎　種牡馬コーナーも好評公開中📖
+          {telopText}
         </div>
       </div>
 
