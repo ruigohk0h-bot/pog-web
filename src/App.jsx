@@ -312,13 +312,13 @@ const getHorses = (pid, results = null) => {
   return p.horses.map(h => {
     // results.json から各馬の獲得pt・成績（1着-2着-3着-着外）を集計
     // turfPt = 芝レースのため砂遊びでは0ptだが、芝もアリなら得られたpt
-    let pt = 0, turfPt = 0, w = 0, pl = 0, sh = 0, o = 0;
+    let pt = 0, turfPt = 0, w = 0, pl = 0, sh = 0, o = 0, dirtWins = 0;
     if (results && h.name) {
       for (const r of results) {
         if (r.horse !== h.name) continue;
         pt     += r.rawPt  || 0;
         turfPt += r.turfPt || 0;
-        if      (r.order === 1) w++;
+        if      (r.order === 1) { w++; if (r.surface === "dirt") dirtWins++; }
         else if (r.order === 2) pl++;
         else if (r.order === 3) sh++;
         else if (r.order)       o++;
@@ -328,6 +328,7 @@ const getHorses = (pid, results = null) => {
       ...h,
       pt,
       turfPt,
+      dirtWins,
       record: `${w}-${pl}-${sh}-${o}`,
       active: h.active !== undefined ? h.active : true,
     };
@@ -1112,7 +1113,7 @@ function PlayerDetailScreen({ userId, onBack, onSelectHorse, kettonums, regist26
   const wins    = horses.reduce((s, h) => s + (+h.record.split("-")[0]), 0);
   const winners = horses.filter(h => +h.record.split("-")[0] > 0).length;
   const debuted = horses.filter(h => h.record.split("-").reduce((a, b) => a + (+b), 0) > 0).length;
-  const named   = horses.filter(h => h.name).length;
+  const dirtWinners = horses.filter(h => h.dirtWins > 0).length;
   // 指名傾向：父の重複トップ3
   const sireCnt = {};
   horses.forEach(h => { if (h.sire) sireCnt[h.sire] = (sireCnt[h.sire] || 0) + 1; });
@@ -1161,7 +1162,7 @@ function PlayerDetailScreen({ userId, onBack, onSelectHorse, kettonums, regist26
                 { l:"出走", v:`${starts}戦` },
                 { l:"勝利", v:`${wins}勝` },
                 { l:"勝ち上がり", v:`${winners}頭` },
-                { l:"馬名登録", v:`${named}/12` },
+                { l:"砂勝ち", v:`${dirtWinners}頭` },
               ].map((x,i) => (
                 <div key={i} style={{ background:"#f7f8f7", borderRadius:8, padding:"6px 2px" }}>
                   <div style={{ fontSize:8.5, color:"#999" }}>{x.l}</div>
