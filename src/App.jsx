@@ -2156,10 +2156,10 @@ function CalendarScreen({ pogHorses = new Set() }) {
     const d = new Date();
     return `${d.getFullYear()}/${String(d.getMonth()+1).padStart(2,"0")}/${String(d.getDate()).padStart(2,"0")}`;
   })();
-  const [season, setSeason] = useState("2627");
   const [filters, setFilters] = useState(new Set());
   const [hideShinma, setHideShinma] = useState(true);
-  const BASE_CALENDAR = season === "2526" ? RACE_CALENDAR_2526 : RACE_CALENDAR_2627;
+  // 2025-26シーズンは終了したため2026-27のみ表示
+  const BASE_CALENDAR = RACE_CALENDAR_2627;
 
   const toggleFilter = (key) => {
     setFilters(prev => {
@@ -2210,26 +2210,9 @@ function CalendarScreen({ pogHorses = new Set() }) {
 
   return (
     <div style={{ background:"#eef2f0", minHeight:"100%" }}>
-      {/* シーズン切り替え */}
-      <div style={{ display:"flex", gap:0, padding:"10px 12px 0" }}>
-        {[
-          { key:"2526", label:"2025-26" },
-          { key:"2627", label:"2026-27" },
-        ].map((s, i) => (
-          <button key={s.key} onClick={() => { setSeason(s.key); setFilters(new Set()); }} style={{
-            flex:1, padding:"7px 0", cursor:"pointer", fontWeight:800, fontSize:12,
-            background: season===s.key ? G.dirtDark : "#ddd",
-            color: season===s.key ? "#fff" : "#888",
-            border:"none",
-            borderRadius: i===0 ? "8px 0 0 8px" : "0 8px 8px 0",
-          }}>{s.label} シーズン</button>
-        ))}
+      <div style={{ fontSize:10, color:"#bbb", padding:"8px 14px 0", textAlign:"right" }}>
+        ※ 2026-27の日程は例年スケジュール基準の目安です。正確な日程はJRA公式サイトをご確認ください
       </div>
-      {season === "2627" && (
-        <div style={{ fontSize:10, color:"#bbb", padding:"4px 14px", textAlign:"right" }}>
-          ※ 2026-27の日程は例年スケジュール基準の目安です。正確な日程はJRA公式サイトをご確認ください
-        </div>
-      )}
       {/* フィルター */}
       <div style={{ display:"flex", gap:5, padding:"8px 12px 0", flexWrap:"wrap", alignItems:"center" }}>
         {[
