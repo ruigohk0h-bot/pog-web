@@ -1041,7 +1041,7 @@ function RankingScreen({ onSelectPlayer, updated, results }) {
         return (
           <button key={u.id} onClick={() => onSelectPlayer(u)}
             style={{
-              width:"100%", textAlign:"left", borderRadius:12,
+              width:"100%", textAlign:"left", borderRadius:12, color:"#222",
               padding:"12px 14px", marginBottom:10, cursor:"pointer",
               display:"flex", alignItems:"center", gap:12,
               ...cardStyle,
@@ -1051,7 +1051,7 @@ function RankingScreen({ onSelectPlayer, updated, results }) {
               {isTop ? (
                 <div style={{ fontSize:28, lineHeight:1 }}>👑</div>
               ) : (
-                <div style={{ fontSize: i<3?22:16, fontWeight:800, color: i<3?"inherit":"#888" }}>
+                <div style={{ fontSize: i<3?22:16, fontWeight:800, color: i<3?"#222":"#888" }}>
                   {medal ?? `${i+1}`}
                 </div>
               )}
@@ -1062,7 +1062,7 @@ function RankingScreen({ onSelectPlayer, updated, results }) {
             </div>
             {/* 名前・バー */}
             <div style={{ flex:1, minWidth:0 }}>
-              <div style={{ fontWeight:700, fontSize: isTop?16:15, marginBottom:5 }}>
+              <div style={{ fontWeight:700, fontSize: isTop?16:15, marginBottom:5, color:"#222" }}>
                 {player?.name}
               </div>
               <div style={{ height:6, background:"#eef2f0", borderRadius:3, overflow:"hidden" }}>
