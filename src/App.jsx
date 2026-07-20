@@ -1107,8 +1107,6 @@ function PlayerDetailScreen({ userId, onBack, onSelectHorse, kettonums, regist26
       s + (r.player === p.id && r.surface === "dirt" && r.rawPt > 0 && HORSES_2627_SET.has(r.horse) ? r.rawPt : 0), 0),
   })).sort((a, b) => b.pt - a.pt);
   const myRank = allTotals.findIndex(t => t.id === userId) + 1;
-  const gradeMap = ["A+", "A", "B+", "B", "C+", "C", "C-"];
-  const grade = gradeMap[myRank - 1] || "—";
   // 出走・勝利数
   const starts  = horses.reduce((s, h) => s + h.record.split("-").reduce((a, b) => a + (+b), 0), 0);
   const wins    = horses.reduce((s, h) => s + (+h.record.split("-")[0]), 0);
@@ -1150,11 +1148,11 @@ function PlayerDetailScreen({ userId, onBack, onSelectHorse, kettonums, regist26
           <div style={{ display:"flex", alignItems:"center", gap:10, marginBottom:10 }}>
             <div style={{
               width:52, height:52, borderRadius:10, flexShrink:0,
-              background: myRank <= 2 ? G.gold : myRank <= 4 ? G.dirt : "#9aa0a6",
+              background: G.green,
               color:"#fff", display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center",
             }}>
-              <span style={{ fontSize:19, fontWeight:900, lineHeight:1 }}>{grade}</span>
-              <span style={{ fontSize:8.5, fontWeight:700, opacity:0.9, marginTop:2 }}>{myRank}位/7人</span>
+              <span style={{ fontSize:17, fontWeight:900, lineHeight:1 }}>{myRank}位</span>
+              <span style={{ fontSize:8.5, fontWeight:700, opacity:0.9, marginTop:2 }}>/7人中</span>
             </div>
             <div style={{ flex:1, display:"grid", gridTemplateColumns:"repeat(4,1fr)", gap:4, textAlign:"center" }}>
               {[
