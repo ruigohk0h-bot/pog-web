@@ -3953,27 +3953,6 @@ export default function App() {
         </div>
       </div>
 
-      {/* 出走予定バナー（出走予定があるときだけ表示） */}
-      {upcoming.length > 0 && (
-        <div onClick={() => switchTab("status")} style={{
-          background:"linear-gradient(90deg,#fff8e6,#fff3d1)",
-          borderBottom:"1px solid #e8d9a8", cursor:"pointer",
-          padding:"7px 14px", display:"flex", alignItems:"center", gap:8,
-        }}>
-          <span style={{ fontSize:15, flexShrink:0 }}>🔔</span>
-          <div style={{ flex:1, minWidth:0, fontSize:11, fontWeight:700, color:"#7a5a10", whiteSpace:"nowrap", overflow:"hidden", textOverflow:"ellipsis" }}>
-            出走予定！
-            {upcoming.slice(0, 3).map((u, i) => (
-              <span key={i} translate="no" style={{ marginLeft:6 }}>
-                {u["馬名"]}（{u["日時"]} {u["競走"]}{u["距離"] ? "・" + u["距離"] : ""}）
-              </span>
-            ))}
-            {upcoming.length > 3 && <span style={{ marginLeft:4 }}>ほか{upcoming.length - 3}頭</span>}
-          </div>
-          <span style={{ fontSize:10, fontWeight:800, color:"#b8860b", flexShrink:0 }}>詳細 ›</span>
-        </div>
-      )}
-
       {/* コンテンツ */}
       <div
         ref={contentRef}
