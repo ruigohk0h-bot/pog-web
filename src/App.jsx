@@ -3764,6 +3764,7 @@ export default function App() {
   const [stallions, setStallions] = useState({ columns: [] });
   const [stallionLeading, setStallionLeading] = useState({ years: {} });
   const [ptr, setPtr] = useState({ active:false, y:0, pulling:false }); // pull-to-refresh
+  const [refreshToast, setRefreshToast] = useState(false); // 更新完了トースト
 
   const loadAll = (bust = false) => {
     const q = bust ? `?t=${Date.now()}` : "";
@@ -3791,12 +3792,19 @@ export default function App() {
   };
   const onTouchMove = (e) => {
     if (!ptr.active) return;
+    // 途中でリストがスクロールされたら引っ張り判定を解除（誤発動防止）
+    if ((contentRef.current?.scrollTop || 0) > 0) {
+      setPtr({ active:false, y:0, pulling:false });
+      return;
+    }
     const dy = e.touches[0].clientY - ptr.y;
-    if (dy > 0) setPtr(p => ({ ...p, pulling: dy > THRESHOLD }));
+    setPtr(p => ({ ...p, pulling: dy > THRESHOLD }));
   };
   const onTouchEnd = () => {
     if (ptr.pulling) {
       loadAll(true);
+      setRefreshToast(true);
+      setTimeout(() => setRefreshToast(false), 1600);
     }
     setPtr({ active:false, y:0, pulling:false });
   };
@@ -3955,9 +3963,10 @@ export default function App() {
       </div>
 
       {/* コンテンツ */}
+      <style>{`html, body { overscroll-behavior-y: none; }`}</style>
       <div
         ref={contentRef}
-        style={{ flex:1, overflowY:"auto" }}
+        style={{ flex:1, overflowY:"auto", overscrollBehaviorY:"contain" }}
         onTouchStart={onTouchStart}
         onTouchMove={onTouchMove}
         onTouchEnd={onTouchEnd}
@@ -3969,6 +3978,14 @@ export default function App() {
             color:G.green, background:"#e8f7ed",
           }}>
             🔄 はなして更新
+          </div>
+        )}
+        {refreshToast && !ptr.pulling && (
+          <div style={{
+            textAlign:"center", padding:"10px 0", fontSize:13, fontWeight:700,
+            color:"#fff", background:G.green,
+          }}>
+            ✅ 最新データに更新しました
           </div>
         )}
         {content}
