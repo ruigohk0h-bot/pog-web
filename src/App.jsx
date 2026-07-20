@@ -1111,6 +1111,7 @@ function PlayerDetailScreen({ userId, onBack, onSelectHorse, kettonums, regist26
   const starts  = horses.reduce((s, h) => s + h.record.split("-").reduce((a, b) => a + (+b), 0), 0);
   const wins    = horses.reduce((s, h) => s + (+h.record.split("-")[0]), 0);
   const winners = horses.filter(h => +h.record.split("-")[0] > 0).length;
+  const debuted = horses.filter(h => h.record.split("-").reduce((a, b) => a + (+b), 0) > 0).length;
   const named   = horses.filter(h => h.name).length;
   // 指名傾向：父の重複トップ3
   const sireCnt = {};
@@ -1154,8 +1155,9 @@ function PlayerDetailScreen({ userId, onBack, onSelectHorse, kettonums, regist26
               <span style={{ fontSize:17, fontWeight:900, lineHeight:1 }}>{myRank}位</span>
               <span style={{ fontSize:8.5, fontWeight:700, opacity:0.9, marginTop:2 }}>/7人中</span>
             </div>
-            <div style={{ flex:1, display:"grid", gridTemplateColumns:"repeat(4,1fr)", gap:4, textAlign:"center" }}>
+            <div style={{ flex:1, display:"grid", gridTemplateColumns:"repeat(5,1fr)", gap:4, textAlign:"center" }}>
               {[
+                { l:"デビュー", v:`${debuted}頭` },
                 { l:"出走", v:`${starts}戦` },
                 { l:"勝利", v:`${wins}勝` },
                 { l:"勝ち上がり", v:`${winners}頭` },
