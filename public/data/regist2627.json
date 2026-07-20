@@ -215,7 +215,7 @@
       },
       {
         "name": "ギルデッドグロス",
-        "active": true,
+        "active": false,
         "sire": "クリソベリル",
         "dam": "ギルデッドミラー"
       },
@@ -227,7 +227,7 @@
       },
       {
         "name": "ヤングリッチ",
-        "active": false,
+        "active": true,
         "sire": "レイデオロ",
         "dam": "フォエヴァーダーリング"
       },
