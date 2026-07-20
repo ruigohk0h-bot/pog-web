@@ -3045,14 +3045,15 @@ function StallionScreen({ stallions, results, stallionLeading }) {
                     <div style={{ fontSize:11, fontWeight:800, color: i<3?G.dirtDark:"#aaa", textAlign:"center", alignSelf:"center" }}>{row.rank}</div>
                     <div style={{ fontSize:12, fontWeight:600, color:"#222", alignSelf:"center" }} translate="no">{row.name}</div>
                     <div style={{ fontSize:11, textAlign:"center", color:"#333", alignSelf:"center" }}>{row.winRate}%</div>
-                    <div style={{ fontSize:11, textAlign:"center", color:"#555", alignSelf:"center" }}>{row.top2Rate}%</div>
-                    <div style={{ fontSize:11, textAlign:"center", color:"#555", alignSelf:"center" }}>{row.top3Rate}%</div>
+                    <div style={{ fontSize:11, textAlign:"center", color:"#555", alignSelf:"center" }}>{row.top2Rate}{row.top2Rate==="－"?"":"%"}</div>
+                    <div style={{ fontSize:11, textAlign:"center", color:"#555", alignSelf:"center" }}>{row.top3Rate}{row.top3Rate==="－"?"":"%"}</div>
                     <div style={{ fontSize:11, textAlign:"center", color: Number(row.singleRet)>=100?"#d33":"#555", fontWeight: Number(row.singleRet)>=100?700:400, alignSelf:"center" }}>{row.singleRet}</div>
                   </div>
                 );
               })}
               <div style={{ padding:"8px 10px", fontSize:10, color:"#bbb", textAlign:"center" }}>
-                上位50頭表示 / 全{leadingRows.length}頭　更新：毎週月曜　出典：db-keiba.com
+                上位50頭表示 / 全{leadingRows.length}頭　更新：毎週月曜　出典：
+                {leadingRows[0]?.source === "jbis" ? "JBISサーチ（勝率のみ算出・連対率等はdb-keibaと集計基準差により非対応）" : "db-keiba.com"}
               </div>
             </div>
           )}

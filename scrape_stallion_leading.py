@@ -21,6 +21,7 @@ HEADERS = {
 DIRT_URL     = "https://db-keiba.com/stallion-dirt-new/"
 TURF_URL     = "https://db-keiba.com/stallion-turf-new/"
 NETKEIBA_URL = "https://own.netkeiba.com/sire/stallion_leading.html"
+JBIS_URL     = "https://www.jbis.or.jp/ranking/result/"
 
 
 # ── db-keiba スクレイパー ─────────────────────────────────────
@@ -137,6 +138,58 @@ def scrape_netkeiba(year):
     return rows
 
 
+# ── JBISサーチ スクレイパー ───────────────────────────────────
+# db-keibaに年度ページが存在しない欠番年を補完するための代替ソース。
+# 出走回数・勝利回数ベース（db-keibaの勝率/連対率/複勝率/単勝回収率とは
+# 統計の種類が異なるため、勝率のみ計算し、他は "－" とする）
+# racetype1: 2=芝 3=ダート／racetype2: 2=平地（障害除く）／division: 2=中央（JRA）
+
+def scrape_jbis(year, racetype1):
+    """JBISサーチからサラ系・中央・平地の年度別サイアーランキングを取得"""
+    url = (f"{JBIS_URL}?ranking=1&y1={year}&kind=1&division=2"
+           f"&racetype1={racetype1}&racetype2=2&items=100&order=A")
+    try:
+        resp = requests.get(url, headers=HEADERS, timeout=20)
+        resp.raise_for_status()
+        resp.encoding = "utf-8"
+    except Exception as e:
+        print(f"    取得失敗: {e}", flush=True)
+        return []
+
+    soup = BeautifulSoup(resp.text, "html.parser")
+    rows = []
+    # 行コンテナ: [順位, 種牡馬名(jc-left), 出走回数, 出走頭数, 勝利回数, 勝利頭数,
+    #             重賞勝回数, 重賞勝頭数, AEI, AEI(重賞), 収得賞金, 収得賞金(重賞), 代表産駒(jc-left)]
+    # 代表産駒もjc-leftなので、行コンテナ単位でcells[1]（1番目のjc-left）だけを種牡馬名として使う
+    for row_div in soup.find_all("div", recursive=True):
+        cells = row_div.find_all("div", recursive=False)
+        if len(cells) < 12:
+            continue
+        rank = cells[0].get_text(strip=True)
+        if not rank.isdigit():
+            continue
+        name_link = cells[1].find("a")
+        if not name_link or not name_link.get("href", "").startswith("/horse/"):
+            continue
+        name = name_link.get_text(strip=True)
+        runs = cells[2].get_text(strip=True).replace(",", "")
+        win  = cells[4].get_text(strip=True).replace(",", "")
+        try:
+            win_rate = round(int(win) / int(runs) * 100, 1) if int(runs) > 0 else 0
+        except ValueError:
+            win_rate = 0
+        if not name:
+            continue
+        rows.append({
+            "rank": rank, "name": name,
+            "win": win, "runs": runs,
+            "winRate": str(win_rate),
+            "top2Rate": "－", "top3Rate": "－", "singleRet": "－", "multiRet": "－",
+            "source": "jbis",
+        })
+    return rows
+
+
 # ── 共通ユーティリティ ────────────────────────────────────────
 
 def fetch_3years_dbkeiba(base_url, label, current_year):
@@ -195,6 +248,21 @@ def main():
 
     print("\n【日本芝（db-keiba）】", flush=True)
     turf_jpn = fetch_3years_dbkeiba(TURF_URL, "日本芝", current_year)
+
+    # db-keibaに年度ページが無い欠番年（直近3年のうち）はJBISサーチで補完
+    needed_years = [current_year, current_year - 1, current_year - 2]
+    print("\n【欠番年をJBISサーチで補完】", flush=True)
+    for label, target, racetype1 in [("日本ダート", dirt_jpn, 3), ("日本芝", turf_jpn, 2)]:
+        for y in needed_years:
+            if str(y) in target:
+                continue
+            print(f"  [{label}] {y}年をJBISサーチで取得...", flush=True)
+            rows = scrape_jbis(y, racetype1)
+            if rows:
+                target[str(y)] = rows
+                print(f"    {len(rows)}頭取得（JBIS）", flush=True)
+            else:
+                print(f"    データなし", flush=True)
 
     print("\n【JRA総合リーディング（netkeiba・賞金）】", flush=True)
     jpn_total = fetch_netkeiba_years([current_year, current_year - 1, current_year - 2])
