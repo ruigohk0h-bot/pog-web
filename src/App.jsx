@@ -1123,7 +1123,7 @@ function PlayerDetailScreen({ userId, onBack, onSelectHorse, kettonums, regist26
   return (
     <div style={{ padding:12 }}>
       <div style={{ background:G.green, color:"#fff", borderRadius:12, padding:"16px 18px", marginBottom:14 }}>
-        <div style={{ fontSize:13, opacity:0.85 }}>{player?.emoji} {player?.name}</div>
+        <div style={{ fontSize:13, opacity:0.85 }}>{player?.name}</div>
         <div style={{ fontSize:30, fontWeight:800, marginTop:2 }}>
           {fmt(total)} <span style={{ fontSize:14, fontWeight:600 }}>pt</span>
         </div>
