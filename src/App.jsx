@@ -334,6 +334,27 @@ const getHorses = (pid, results = null) => {
   });
 };
 
+// ================================================================
+// 厩舎の通信簿：AI講評（指名傾向はAI＝Claudeが分析・執筆。
+// 更新したいときはClaudeに「通信簿更新して」と依頼）
+// ================================================================
+const STABLE_REPORTS = {
+  P01: { type:"バランス型・芝疑惑あり",
+    comment:"日米の中距離血統を幅広く採る優等生型。ただしエスクアドラが芝で勝ってしまう「砂遊び泣かせ」体質が発覚。ダート替わりで本領発揮なるかが今季のカギ。" },
+  P02: { type:"フライトライン全力買い",
+    comment:"Flightline産駒を3頭指名という思い切った米国全振り路線。歴史的名馬の初年度産駒に賭けるロマン派だが、当たれば爆発力はリーグ随一。コンセントリコら日本組の下支えにも注目。" },
+  P03: { type:"ダート王道・堅実路線",
+    comment:"シニスターミニスター、ニューイヤーズデイ、クリソベリルとダートの定番どころを揃えた教科書のような布陣。早くもクロダテ2着・ムーンベリル勝利と滑り出し上々。大崩れしにくい優勝候補筆頭。" },
+  P04: { type:"日米ハイブリッド型",
+    comment:"ナダル・マインドユアビスケッツの米国系とクリソベリル・ルヴァンスレーヴの日本系をバランス良く配合。名牝の仔も多く血統表の華やかさはリーグ屈指。ミクニブレイブの走りが試金石。" },
+  P05: { type:"個性派・多様性重視",
+    comment:"カリフォルニアクローム、スマートファルコン、オメガパフュームまで、他厩舎と被らない独自路線を貫くスタイル。番付入りしたヴァグラムなど隠し玉も多い。ハマったときの爆発力に期待。" },
+  P06: { type:"良血コレクター型",
+    comment:"Flightline、コントレイル、レイデオロと話題性抜群の種牡馬をずらり。見栄えは超一流だが、良血ゆえに芝に行ってしまうリスクとも隣り合わせ。ステラガーネットら快速系での得点が生命線。" },
+  P07: { type:"米国パワー型",
+    comment:"Volatile、Violence、ヘニーヒューズと米国のスピード＆パワー血統を厚めに配置。ウィンターブリーズが芝で2着と惜しいスタートも、ダート替わりで一気の量産体制に入れるか。" },
+};
+
 // 最新結果・出走予定はJSONから動的取得（useResultsで管理）
 
 // 過去シーズン馬データ
@@ -1077,6 +1098,28 @@ function PlayerDetailScreen({ userId, onBack, onSelectHorse, kettonums, regist26
   const total = horses.reduce((sum, h) => sum + (h.pt || 0), 0);
   // 芝で逃したpt合計（芝レースはダート専門の砂遊びでは0pt）
   const totalTurf = horses.reduce((sum, h) => sum + (h.turfPt || 0), 0);
+
+  // ── 通信簿の自動集計 ──────────────────────────────
+  // 全厩舎のptを集計して現在順位を算出（ランキング画面と同じ条件：ダートのみ・今季指名馬のみ）
+  const allTotals = PLAYERS.map(p => ({
+    id: p.id,
+    pt: (results || []).reduce((s, r) =>
+      s + (r.player === p.id && r.surface === "dirt" && r.rawPt > 0 && HORSES_2627_SET.has(r.horse) ? r.rawPt : 0), 0),
+  })).sort((a, b) => b.pt - a.pt);
+  const myRank = allTotals.findIndex(t => t.id === userId) + 1;
+  const gradeMap = ["A+", "A", "B+", "B", "C+", "C", "C-"];
+  const grade = gradeMap[myRank - 1] || "—";
+  // 出走・勝利数
+  const starts  = horses.reduce((s, h) => s + h.record.split("-").reduce((a, b) => a + (+b), 0), 0);
+  const wins    = horses.reduce((s, h) => s + (+h.record.split("-")[0]), 0);
+  const winners = horses.filter(h => +h.record.split("-")[0] > 0).length;
+  const named   = horses.filter(h => h.name).length;
+  // 指名傾向：父の重複トップ3
+  const sireCnt = {};
+  horses.forEach(h => { if (h.sire) sireCnt[h.sire] = (sireCnt[h.sire] || 0) + 1; });
+  const topSires = Object.entries(sireCnt).sort((a, b) => b[1] - a[1]).slice(0, 3);
+  const report = STABLE_REPORTS[userId];
+
   return (
     <div style={{ padding:12 }}>
       <div style={{ background:G.green, color:"#fff", borderRadius:12, padding:"16px 18px", marginBottom:14 }}>
@@ -1095,6 +1138,68 @@ function PlayerDetailScreen({ userId, onBack, onSelectHorse, kettonums, regist26
           </div>
         )}
       </div>
+
+      {/* 厩舎の通信簿 */}
+      <div style={{ background:"#fff", borderRadius:12, marginBottom:14, overflow:"hidden", border:"1px solid #e4e9e6" }}>
+        <div style={{ background:G.dirtDark, color:"#fff", padding:"9px 14px", display:"flex", alignItems:"center", gap:8 }}>
+          <span style={{ fontWeight:800, fontSize:13 }}>📝 厩舎の通信簿</span>
+          <span style={{ marginLeft:"auto", fontSize:10, opacity:0.75 }}>AI分析</span>
+        </div>
+        <div style={{ padding:"12px 14px" }}>
+          {/* 評価と成績サマリー */}
+          <div style={{ display:"flex", alignItems:"center", gap:10, marginBottom:10 }}>
+            <div style={{
+              width:52, height:52, borderRadius:10, flexShrink:0,
+              background: myRank <= 2 ? G.gold : myRank <= 4 ? G.dirt : "#9aa0a6",
+              color:"#fff", display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center",
+            }}>
+              <span style={{ fontSize:19, fontWeight:900, lineHeight:1 }}>{grade}</span>
+              <span style={{ fontSize:8.5, fontWeight:700, opacity:0.9, marginTop:2 }}>{myRank}位/7人</span>
+            </div>
+            <div style={{ flex:1, display:"grid", gridTemplateColumns:"repeat(4,1fr)", gap:4, textAlign:"center" }}>
+              {[
+                { l:"出走", v:`${starts}戦` },
+                { l:"勝利", v:`${wins}勝` },
+                { l:"勝ち上がり", v:`${winners}頭` },
+                { l:"馬名登録", v:`${named}/12` },
+              ].map((x,i) => (
+                <div key={i} style={{ background:"#f7f8f7", borderRadius:8, padding:"6px 2px" }}>
+                  <div style={{ fontSize:8.5, color:"#999" }}>{x.l}</div>
+                  <div style={{ fontSize:12, fontWeight:800, color:"#333" }}>{x.v}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+          {/* 指名傾向 */}
+          {topSires.length > 0 && (
+            <div style={{ display:"flex", alignItems:"center", flexWrap:"wrap", gap:5, marginBottom:10 }}>
+              <span style={{ fontSize:10, color:"#888", fontWeight:700 }}>指名傾向：</span>
+              {report?.type && (
+                <span style={{ fontSize:10, fontWeight:800, color:"#fff", background:G.green, borderRadius:10, padding:"2px 9px" }}>
+                  {report.type}
+                </span>
+              )}
+              {topSires.map(([s, c]) => (
+                <span key={s} translate="no" style={{ fontSize:10, fontWeight:700, color:G.dirtDark, background:G.dirtLight, borderRadius:10, padding:"2px 8px" }}>
+                  {s}{c > 1 ? `×${c}` : ""}
+                </span>
+              ))}
+            </div>
+          )}
+          {/* AI講評 */}
+          {report?.comment && (
+            <div style={{ fontSize:11.5, lineHeight:1.8, color:"#444", background:"#faf7f2", borderLeft:`3px solid ${G.dirt}`, borderRadius:"0 8px 8px 0", padding:"8px 12px" }}>
+              {report.comment}
+            </div>
+          )}
+          {totalTurf > 0 && (
+            <div style={{ fontSize:10, color:"#2a7a3a", fontWeight:700, marginTop:8 }}>
+              🌱 芝で逃したpt：{fmt(totalTurf)}pt（ダート替わりに期待）
+            </div>
+          )}
+        </div>
+      </div>
+
       <div style={{ background:"#fff", borderRadius:10, overflow:"hidden", border:"1px solid #e4e9e6" }}>
       {horses.map(h => {
         const netkeibaUrl = kettonums[h.name]
@@ -3847,6 +3952,27 @@ export default function App() {
           {telopText}
         </div>
       </div>
+
+      {/* 出走予定バナー（出走予定があるときだけ表示） */}
+      {upcoming.length > 0 && (
+        <div onClick={() => switchTab("status")} style={{
+          background:"linear-gradient(90deg,#fff8e6,#fff3d1)",
+          borderBottom:"1px solid #e8d9a8", cursor:"pointer",
+          padding:"7px 14px", display:"flex", alignItems:"center", gap:8,
+        }}>
+          <span style={{ fontSize:15, flexShrink:0 }}>🔔</span>
+          <div style={{ flex:1, minWidth:0, fontSize:11, fontWeight:700, color:"#7a5a10", whiteSpace:"nowrap", overflow:"hidden", textOverflow:"ellipsis" }}>
+            出走予定！
+            {upcoming.slice(0, 3).map((u, i) => (
+              <span key={i} translate="no" style={{ marginLeft:6 }}>
+                {u["馬名"]}（{u["日時"]} {u["競走"]}{u["距離"] ? "・" + u["距離"] : ""}）
+              </span>
+            ))}
+            {upcoming.length > 3 && <span style={{ marginLeft:4 }}>ほか{upcoming.length - 3}頭</span>}
+          </div>
+          <span style={{ fontSize:10, fontWeight:800, color:"#b8860b", flexShrink:0 }}>詳細 ›</span>
+        </div>
+      )}
 
       {/* コンテンツ */}
       <div
