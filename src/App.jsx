@@ -2651,6 +2651,7 @@ function StallionScreen({ stallions, results, stallionLeading, azkiBubble }) {
   const [selectedArticleId, setSelectedArticleId] = useState(null);
   const [activeSection, setActiveSection] = useState("column"); // column | article | leading | sire_rank | pog_pt | azki
   const [leadingYear, setLeadingYear] = useState(null); // null = 最新年度
+  const [azkiSel, setAzkiSel] = useState(null); // 適性グラフでタップ選択中の種牡馬名
   const [leadingCategory, setLeadingCategory] = useState("dirt_jpn"); // dirt_jpn | turf_jpn | jpn_total | dirt_usa
 
   // 指名馬の父ランキング集計
@@ -3108,7 +3109,7 @@ function StallionScreen({ stallions, results, stallionLeading, azkiBubble }) {
             {azkiRelevant.length === 0 ? (
               <div style={{ padding:30, textAlign:"center", color:"#bbb", fontSize:13 }}>データ読み込み中...</div>
             ) : (() => {
-              const W = 320, H = 260, PAD = 34;
+              const W = 320, H = 300, PAD = 34;
               const xs = azkiRelevant.map(s => s.turfAptitude);
               const ys = azkiRelevant.map(s => s.dirtPrizePerRun);
               const xMin = Math.min(...xs), xMax = Math.max(...xs);
@@ -3116,30 +3117,50 @@ function StallionScreen({ stallions, results, stallionLeading, azkiBubble }) {
               const nMax = Math.max(...azkiRelevant.map(s => s.n));
               const px = v => PAD + ((v - xMin) / (xMax - xMin || 1)) * (W - PAD * 2);
               const py = v => H - PAD - ((v - yMin) / (yMax - yMin || 1)) * (H - PAD * 2);
+              const selSire = azkiRelevant.find(s => s.name === azkiSel);
               return (
-                <svg viewBox={`0 0 ${W} ${H}`} width="100%" height={H} style={{ display:"block" }}>
-                  {/* 軸 */}
-                  <line x1={PAD} y1={H-PAD} x2={W-6} y2={H-PAD} stroke="#ddd" strokeWidth={1} />
-                  <line x1={PAD} y1={6} x2={PAD} y2={H-PAD} stroke="#ddd" strokeWidth={1} />
-                  <text x={W-6} y={H-PAD+14} fontSize={9} fill="#999" textAnchor="end">芝適性指数 →</text>
-                  <text x={PAD-4} y={14} fontSize={9} fill="#999" textAnchor="start">ダ1走賞(万円)↑</text>
-                  {azkiRelevant.map(s => {
-                    const dirtWins = s.dirtPrizePerRun > s.turfPrizePerRun;
-                    const r = 4 + (s.n / nMax) * 14;
-                    const x = px(s.turfAptitude), y = py(s.dirtPrizePerRun);
-                    return (
-                      <g key={s.name}>
-                        <circle cx={x} cy={y} r={r}
+                <>
+                  <svg viewBox={`0 0 ${W} ${H}`} width="100%" height={H} style={{ display:"block" }}>
+                    {/* 軸 */}
+                    <line x1={PAD} y1={H-PAD} x2={W-6} y2={H-PAD} stroke="#ddd" strokeWidth={1} />
+                    <line x1={PAD} y1={6} x2={PAD} y2={H-PAD} stroke="#ddd" strokeWidth={1} />
+                    <text x={W-6} y={H-PAD+14} fontSize={9} fill="#999" textAnchor="end">芝適性指数 →</text>
+                    <text x={PAD-4} y={14} fontSize={9} fill="#999" textAnchor="start">ダ1走賞(万円)↑</text>
+                    {azkiRelevant.map(s => {
+                      const dirtWins = s.dirtPrizePerRun > s.turfPrizePerRun;
+                      const r = 4 + (s.n / nMax) * 10;
+                      const x = px(s.turfAptitude), y = py(s.dirtPrizePerRun);
+                      const isSel = s.name === azkiSel;
+                      return (
+                        <circle key={s.name} cx={x} cy={y} r={r}
+                          onClick={() => setAzkiSel(isSel ? null : s.name)}
+                          style={{ cursor:"pointer" }}
                           fill={dirtWins ? "rgba(122,74,30,0.55)" : "rgba(42,122,58,0.5)"}
-                          stroke={dirtWins ? G.dirtDark : "#2a7a3a"} strokeWidth={1} />
-                        <text x={x} y={y - r - 3} fontSize={8} fill="#555" textAnchor="middle">{s.name}</text>
-                      </g>
-                    );
-                  })}
-                </svg>
+                          stroke={isSel ? "#222" : (dirtWins ? G.dirtDark : "#2a7a3a")}
+                          strokeWidth={isSel ? 2.5 : 1} />
+                      );
+                    })}
+                  </svg>
+                  {/* 選択した種牡馬の詳細カード（タップで表示） */}
+                  <div style={{
+                    marginTop:8, borderRadius:8, padding:"8px 10px", minHeight:20,
+                    background: selSire ? "#f7f5f0" : "transparent",
+                    fontSize:11, color:"#555", textAlign:"center",
+                  }}>
+                    {selSire ? (
+                      <span>
+                        <span style={{ fontWeight:800, color:"#222" }} translate="no">{selSire.name}</span>
+                        {"　ダ1走賞 "}<b style={{ color:G.dirtDark }}>{Math.round(selSire.dirtPrizePerRun)}</b>
+                        {"　芝1走賞 "}<b style={{ color:"#2a7a3a" }}>{Math.round(selSire.turfPrizePerRun)}</b>
+                        {"　芝適性 "}{selSire.turfAptitude?.toFixed(2)}
+                        {"　頭数 "}{selSire.n}
+                      </span>
+                    ) : "円をタップすると詳細が表示されます"}
+                  </div>
+                </>
               );
             })()}
-            <div style={{ padding:"6px 4px 8px", fontSize:9.5, color:"#bbb", textAlign:"center" }}>
+            <div style={{ padding:"8px 4px 4px", fontSize:9.5, color:"#bbb", textAlign:"center" }}>
               茶色＝ダート適性優勢　緑＝芝適性優勢（円が大きいほど産駒頭数が多い）
             </div>
           </div>
