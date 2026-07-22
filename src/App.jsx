@@ -2646,11 +2646,10 @@ function BanzukeScreen() {
 // ダート種牡馬研究画面
 // ================================================================
 
-function StallionScreen({ stallions, results, stallionLeading, azkiBubble, azkiTrends }) {
+function StallionScreen({ stallions, results, stallionLeading, azkiBubble }) {
   const [selectedId, setSelectedId] = useState(null);
   const [selectedArticleId, setSelectedArticleId] = useState(null);
   const [activeSection, setActiveSection] = useState("column"); // column | article | leading | sire_rank | pog_pt | azki
-  const [azkiSireSel, setAzkiSireSel] = useState(null); // トレンド詳細を開いている種牡馬名
   const [leadingYear, setLeadingYear] = useState(null); // null = 最新年度
   const [leadingCategory, setLeadingCategory] = useState("dirt_jpn"); // dirt_jpn | turf_jpn | jpn_total | dirt_usa
 
@@ -2697,12 +2696,11 @@ function StallionScreen({ stallions, results, stallionLeading, azkiBubble, azkiT
     { key:"azki",     label:"🔬 種牡馬データラボ" },
   ];
 
-  // あずきラボ由来データ：砂遊び関連種牡馬に絞って表示
+  // 種牡馬データラボ由来データ：砂遊び関連種牡馬に絞って表示
   const azkiBubbleSires = azkiBubble?.sires || [];
-  const azkiTrendSires  = azkiTrends?.sires || {};
   const pogSireNames = new Set(sireRanking.map(s => s.sire));
   const azkiRelevant = azkiBubbleSires
-    .filter(s => pogSireNames.has(s.name) || azkiTrendSires[s.name])
+    .filter(s => pogSireNames.has(s.name))
     .sort((a, b) => b.dirtPrizePerRun - a.dirtPrizePerRun);
 
   // リーディングデータ（カテゴリー別）
@@ -3178,52 +3176,6 @@ function StallionScreen({ stallions, results, stallionLeading, azkiBubble, azkiT
             </div>
           </div>
 
-          {/* 種牡馬別トレンドグラフ */}
-          <div style={{ fontSize:11, color:"#999", marginBottom:8 }}>種牡馬トレンドグラフ（2017〜2023年産・年別成績推移）</div>
-          {Object.entries(azkiTrendSires).map(([name, rows]) => {
-            const isOpen = azkiSireSel === name;
-            const W = 300, H = 90, PAD = 8;
-            const maxWr = Math.max(...rows.map(r => r.winRate || 0), 10);
-            const xStep = rows.length > 1 ? (W - PAD*2) / (rows.length - 1) : 0;
-            const pts = rows.map((r, i) => ({
-              x: rows.length===1 ? W/2 : PAD + i*xStep,
-              y: H - PAD - ((r.winRate||0)/maxWr) * (H - PAD*2),
-              r,
-            }));
-            const polyline = pts.map(p => `${p.x},${p.y}`).join(" ");
-            return (
-              <div key={name} style={{ background:"#fff", borderRadius:10, marginBottom:10, overflow:"hidden", boxShadow:"0 1px 4px rgba(0,0,0,0.08)" }}>
-                <button onClick={() => setAzkiSireSel(isOpen ? null : name)} style={{
-                  width:"100%", background:"none", border:"none", cursor:"pointer",
-                  padding:"10px 14px", display:"flex", alignItems:"center", gap:8, textAlign:"left",
-                }}>
-                  <span style={{ flex:1, fontWeight:700, fontSize:13, color:"#222" }} translate="no">{name}</span>
-                  <span style={{ fontSize:11, color:"#999" }}>勝ち上がり率の推移</span>
-                  <span style={{ fontSize:11, color:"#aaa" }}>{isOpen ? "▲" : "▼"}</span>
-                </button>
-                {isOpen && (
-                  <div style={{ padding:"0 14px 14px" }}>
-                    <svg viewBox={`0 0 ${W} ${H}`} width="100%" height={H} style={{ display:"block" }}>
-                      <polyline points={polyline} fill="none" stroke={G.dirt} strokeWidth={2} />
-                      {pts.map((p, i) => (
-                        <circle key={i} cx={p.x} cy={p.y} r={2.5} fill={G.dirtDark} />
-                      ))}
-                    </svg>
-                    <div style={{ display:"flex", justifyContent:"space-between", fontSize:9, color:"#aaa", marginTop:2 }}>
-                      {rows.map((r, i) => <span key={i}>{r.y}</span>)}
-                    </div>
-                    <div style={{ display:"flex", flexWrap:"wrap", gap:6, marginTop:10 }}>
-                      {rows.map((r, i) => (
-                        <div key={i} style={{ fontSize:9.5, background:"#f7f5f0", borderRadius:6, padding:"3px 7px", color:"#666" }}>
-                          {r.y}年: 勝上{r.winRate}% AEI{r.aei ?? "－"} 頭数{r.n}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
-            );
-          })}
         </div>
       )}
     </div>
@@ -3883,7 +3835,6 @@ export default function App() {
   const [stallions, setStallions] = useState({ columns: [] });
   const [stallionLeading, setStallionLeading] = useState({ years: {} });
   const [azkiBubble, setAzkiBubble] = useState(null);
-  const [azkiTrends, setAzkiTrends] = useState(null);
   const [ptr, setPtr] = useState({ active:false, y:0, pulling:false }); // pull-to-refresh
   const [refreshToast, setRefreshToast] = useState(false); // 更新完了トースト
 
@@ -3900,7 +3851,6 @@ export default function App() {
     fetch(`${base}data/stallions.json${q}`).then(r => r.json()).then(setStallions).catch(() => {});
     fetch(`${base}data/stallion_leading.json${q}`).then(r => r.json()).then(setStallionLeading).catch(() => {});
     fetch(`${base}data/azki_sire_bubble.json${q}`).then(r => r.json()).then(setAzkiBubble).catch(() => {});
-    fetch(`${base}data/azki_sire_trends.json${q}`).then(r => r.json()).then(setAzkiTrends).catch(() => {});
   };
 
   useEffect(() => { loadAll(); }, []);
@@ -3985,7 +3935,7 @@ export default function App() {
     content = <BanzukeScreen />;
   } else if (tab === "stallion") {
     title = "ダート種牡馬研究";
-    content = <StallionScreen stallions={stallions} results={results} stallionLeading={stallionLeading} azkiBubble={azkiBubble} azkiTrends={azkiTrends} />;
+    content = <StallionScreen stallions={stallions} results={results} stallionLeading={stallionLeading} azkiBubble={azkiBubble} />;
   } else if (tab === "game") {
     title = "砂遊びゲーム";
     content = <GameScreen />;
