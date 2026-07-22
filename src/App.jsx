@@ -2694,7 +2694,7 @@ function StallionScreen({ stallions, results, stallionLeading, azkiBubble, azkiT
     { key:"leading",  label:"📈 リーディング" },
     { key:"sire_rank",label:"👨‍👧 指名馬の父" },
     { key:"pog_pt",   label:"🏆 POGポイント" },
-    { key:"azki",     label:"🔬 あずきラボ" },
+    { key:"azki",     label:"🔬 種牡馬データラボ" },
   ];
 
   // あずきラボ由来データ：砂遊び関連種牡馬に絞って表示
@@ -3104,19 +3104,50 @@ function StallionScreen({ stallions, results, stallionLeading, azkiBubble, azkiT
 
       {activeSection === "azki" && (
         <div>
-          {/* 出典クレジット */}
-          <div style={{
-            background:"#fff", borderRadius:10, padding:"12px 14px", marginBottom:12,
-            border:`1px solid ${G.dirtLight}`, fontSize:11, color:"#666", lineHeight:1.7,
-          }}>
-            🔬 種牡馬の適性データ・成績推移は
-            <a href="https://azki-lab.com/" target="_blank" rel="noopener noreferrer"
-              style={{ color:G.green, fontWeight:700 }}> あずきラボ</a>
-            さんのデータを、ご本人確認のうえ砂遊び関連種牡馬に絞って掲載しています。
+          {/* 適性グラフ（芝適性指数 × ダート1走賞金・バブルサイズ=頭数） */}
+          <div style={{ fontSize:11, color:"#999", marginBottom:8 }}>種牡馬適性グラフ（横軸：芝適性指数／縦軸：ダート1走当賞金／円の大きさ：産駒頭数）</div>
+          <div style={{ background:"#fff", borderRadius:10, padding:"12px 10px 6px", marginBottom:16, boxShadow:"0 1px 4px rgba(0,0,0,0.08)" }}>
+            {azkiRelevant.length === 0 ? (
+              <div style={{ padding:30, textAlign:"center", color:"#bbb", fontSize:13 }}>データ読み込み中...</div>
+            ) : (() => {
+              const W = 320, H = 260, PAD = 34;
+              const xs = azkiRelevant.map(s => s.turfAptitude);
+              const ys = azkiRelevant.map(s => s.dirtPrizePerRun);
+              const xMin = Math.min(...xs), xMax = Math.max(...xs);
+              const yMin = 0, yMax = Math.max(...ys) * 1.08;
+              const nMax = Math.max(...azkiRelevant.map(s => s.n));
+              const px = v => PAD + ((v - xMin) / (xMax - xMin || 1)) * (W - PAD * 2);
+              const py = v => H - PAD - ((v - yMin) / (yMax - yMin || 1)) * (H - PAD * 2);
+              return (
+                <svg viewBox={`0 0 ${W} ${H}`} width="100%" height={H} style={{ display:"block" }}>
+                  {/* 軸 */}
+                  <line x1={PAD} y1={H-PAD} x2={W-6} y2={H-PAD} stroke="#ddd" strokeWidth={1} />
+                  <line x1={PAD} y1={6} x2={PAD} y2={H-PAD} stroke="#ddd" strokeWidth={1} />
+                  <text x={W-6} y={H-PAD+14} fontSize={9} fill="#999" textAnchor="end">芝適性指数 →</text>
+                  <text x={PAD-4} y={14} fontSize={9} fill="#999" textAnchor="start">ダ1走賞(万円)↑</text>
+                  {azkiRelevant.map(s => {
+                    const dirtWins = s.dirtPrizePerRun > s.turfPrizePerRun;
+                    const r = 4 + (s.n / nMax) * 14;
+                    const x = px(s.turfAptitude), y = py(s.dirtPrizePerRun);
+                    return (
+                      <g key={s.name}>
+                        <circle cx={x} cy={y} r={r}
+                          fill={dirtWins ? "rgba(122,74,30,0.55)" : "rgba(42,122,58,0.5)"}
+                          stroke={dirtWins ? G.dirtDark : "#2a7a3a"} strokeWidth={1} />
+                        <text x={x} y={y - r - 3} fontSize={8} fill="#555" textAnchor="middle">{s.name}</text>
+                      </g>
+                    );
+                  })}
+                </svg>
+              );
+            })()}
+            <div style={{ padding:"6px 4px 8px", fontSize:9.5, color:"#bbb", textAlign:"center" }}>
+              茶色＝ダート適性優勢　緑＝芝適性優勢（円が大きいほど産駒頭数が多い）
+            </div>
           </div>
 
           {/* 適性分布（ダート実績per-run順） */}
-          <div style={{ fontSize:11, color:"#999", marginBottom:8 }}>種牡馬適性分布（砂遊び関連種牡馬・ダートの1走当賞金順）</div>
+          <div style={{ fontSize:11, color:"#999", marginBottom:8 }}>種牡馬適性分布（ダートの1走当賞金順）</div>
           <div style={{ background:"#fff", borderRadius:10, overflow:"hidden", boxShadow:"0 1px 4px rgba(0,0,0,0.08)", marginBottom:16 }}>
             <div style={{ background:G.dirtDark, display:"grid", gridTemplateColumns:"1fr 52px 52px 44px", padding:"8px 10px", gap:4 }}>
               {["種牡馬","ダ1走賞","芝1走賞","芝適性"].map(h => (
@@ -3126,7 +3157,6 @@ function StallionScreen({ stallions, results, stallionLeading, azkiBubble, azkiT
             {azkiRelevant.length === 0 ? (
               <div style={{ padding:30, textAlign:"center", color:"#bbb", fontSize:13 }}>データ読み込み中...</div>
             ) : azkiRelevant.map((s, i) => {
-              const isPogSire = pogSireNames.has(s.name);
               const dirtWins = s.dirtPrizePerRun > s.turfPrizePerRun;
               return (
                 <div key={s.name} style={{
@@ -3136,7 +3166,6 @@ function StallionScreen({ stallions, results, stallionLeading, azkiBubble, azkiT
                 }}>
                   <div style={{ minWidth:0 }}>
                     <span style={{ fontSize:12, fontWeight:700, color:"#222" }} translate="no">{s.name}</span>
-                    {isPogSire && <span style={{ marginLeft:5, fontSize:9, fontWeight:700, color:"#fff", background:G.green, borderRadius:8, padding:"1px 6px" }}>砂遊び</span>}
                   </div>
                   <div style={{ fontSize:11, textAlign:"center", fontWeight: dirtWins?800:400, color: dirtWins?G.dirtDark:"#666" }}>{Math.round(s.dirtPrizePerRun)}</div>
                   <div style={{ fontSize:11, textAlign:"center", fontWeight: !dirtWins?800:400, color: !dirtWins?"#2a7a3a":"#666" }}>{Math.round(s.turfPrizePerRun)}</div>
@@ -3145,7 +3174,7 @@ function StallionScreen({ stallions, results, stallionLeading, azkiBubble, azkiT
               );
             })}
             <div style={{ padding:"8px 10px", fontSize:10, color:"#bbb", textAlign:"center" }}>
-              単位：万円　太字＝ダート/芝どちらの適性が高いか　出典：あずきラボ（2026年ダービー終了時点）
+              単位：万円　太字＝ダート/芝どちらの適性が高いか（2026年ダービー終了時点）
             </div>
           </div>
 
