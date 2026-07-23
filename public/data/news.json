@@ -1,5 +1,14 @@
 [
   {
+    "horse": "ホウオウシュウ",
+    "player": "P06",
+    "title": "【土曜札幌・２歳新馬】ホウオウシュウがデビュー - 日刊ゲンダイ競馬",
+    "desc": "【土曜札幌・２歳新馬】ホウオウシュウがデビュー&nbsp;&nbsp;日刊ゲンダイ競馬",
+    "source": "日刊ゲンダイ競馬",
+    "date": "2026/07/23",
+    "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE94ZF9BOGM5UGpQcWVxSUlmalk5VENMSHc2VjlVSWllbkNEX2QyTXloMGc4Y04xYm9XN3FvQjZvc08yNUJFd0xzekNnaUxya2NsdXVzSURKNk14a28?oc=5"
+  },
+  {
     "horse": "アトミックリーチ",
     "player": "P02",
     "title": "アトミックリーチが２週前追い切り、戸崎騎手「軽い走り」８・８新潟デビュー予定／POG情報 - ２歳馬特集 | 競馬写真ニュース - 日刊スポーツ",
@@ -34,15 +43,6 @@
     "source": "netkeiba",
     "date": "2026/07/21",
     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE0wMVJkNG5SdjF1YmdPdVhMMXg4b0txTDFEWndnSGt6bWZFNTlFTU8xc1RhVVdETDJuWU12VFRpSHlKM1oycElfLVEtSmF0QS1yWThVQnZ4Unk2ZThXZzcwZFF4ZkUzRWZZcWV3X1pMTHPSAXZBVV95cUxQMW42WFE2aVR2Zm5iMjlkOEFqdGdMUzFRcWR4MDFMb1VSMHcyXzU4N29OWU1vX0tRaG14MzM1ZkEyWHp1d19ZZkhvMUpPTXVwSDJiQXRlckhVaWQtZWhSQmVsdFV5M19jTnVBMGhJcmhRN29Md0FR?oc=5"
-  },
-  {
-    "horse": "ダノンチャンピオン",
-    "player": "P02",
-    "title": "【今週のトク注新馬】ダノンデサイル半弟ダノンチャンピオンが横山武史騎手で２６日中京デビュー 安田調教師「大人びています」 - ライブドアニュース",
-    "desc": "【今週のトク注新馬】ダノンデサイル半弟ダノンチャンピオンが横山武史騎手で２６日中京デビュー 安田調教師「大人びています」&nbsp;&nbsp;ライブドアニュース",
-    "source": "ライブドアニュース",
-    "date": "2026/07/21",
-    "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE5Va2d0b005MnB6UEFXRjNvWkM1NC1iQlZ5UGtiWGJiWTY0U3V6OE00cmFnSHliVDE0WFA3ek1oTEw1cVpvWkswb1pHSHVyeDZnaVlnNnBPUlZ3V1dERndWRW10SUgzVDNGYjhHZ0o1WWt4c2VycUJwbA?oc=5"
   },
   {
     "horse": "ダノンチャンピオン",
@@ -281,15 +281,6 @@
   {
     "horse": "エスクアドラ",
     "player": "P01",
-    "title": "【福島5R新馬戦結果】レイデオロ産駒エスクアドラが差し切り新馬勝ち - netkeiba",
-    "desc": "【福島5R新馬戦結果】レイデオロ産駒エスクアドラが差し切り新馬勝ち&nbsp;&nbsp;netkeiba",
-    "source": "netkeiba",
-    "date": "2026/07/05",
-    "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBEbHFyd2d0ZjFjQTV6czBYQWZobTZlOU1HRHdoMWZvSE94QkdTSXgwWnJpVFAyekZQYkFDSnhOdnVqUzhyQ1ZsTnNVRjNaTFpyQXdrT2tOT1JCWWlaTmtV?oc=5"
-  },
-  {
-    "horse": "エスクアドラ",
-    "player": "P01",
     "title": "エスクアドラ鮮やか差し切り勝ち「勉強しながら勝つことができて良かった」坂井騎手／新馬戦 - ２歳馬特集 | 競馬写真ニュース - 日刊スポーツ",
     "desc": "エスクアドラ鮮やか差し切り勝ち「勉強しながら勝つことができて良かった」坂井騎手／新馬戦 - ２歳馬特集 | 競馬写真ニュース&nbsp;&nbsp;日刊スポーツ",
     "source": "日刊スポーツ",
@@ -308,6 +299,15 @@
   {
     "horse": "エスクアドラ",
     "player": "P01",
+    "title": "【メイクデビュー福島5Rレース後コメント】エスクアドラ坂井瑠星騎手ら - netkeiba",
+    "desc": "【メイクデビュー福島5Rレース後コメント】エスクアドラ坂井瑠星騎手ら&nbsp;&nbsp;netkeiba",
+    "source": "netkeiba",
+    "date": "2026/07/05",
+    "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5WalY0Ym1VbHU4bk8tMzBJY2g3QXp5bVVKS3FtUVF4dnBQUUFYR19LcDgyRXBCc2docHN6NlR4Q21EbGhQWm9GUlFnYktwN21uaFcwMXpmOW5ubzdEWF8w?oc=5"
+  },
+  {
+    "horse": "エスクアドラ",
+    "player": "P01",
     "title": "【福島5R・2歳新馬】豪脚一閃!良血エスクアドラがデビュー勝ち 坂井瑠星騎手「いい意味で遊びがある感じです」 - netkeiba",
     "desc": "【福島5R・2歳新馬】豪脚一閃!良血エスクアドラがデビュー勝ち 坂井瑠星騎手「いい意味で遊びがある感じです」&nbsp;&nbsp;netkeiba",
     "source": "netkeiba",
@@ -322,15 +322,6 @@
     "source": "netkeiba",
     "date": "2026/07/05",
     "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1tNEFSUUdTbGtCZHlBeFAxci1oa3BxVzhLaEFRbnBLcndnWXV3eEFGZ3pCcFQzamtKMDRSR09YWE9BbHMzZ1dOZ043R0lRUGZaTnhoWFRMZWNlaVgtamMw?oc=5"
-  },
-  {
-    "horse": "エスクアドラ",
-    "player": "P01",
-    "title": "【メイクデビュー福島5Rレース後コメント】エスクアドラ坂井瑠星騎手ら - netkeiba",
-    "desc": "【メイクデビュー福島5Rレース後コメント】エスクアドラ坂井瑠星騎手ら&nbsp;&nbsp;netkeiba",
-    "source": "netkeiba",
-    "date": "2026/07/05",
-    "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5WalY0Ym1VbHU4bk8tMzBJY2g3QXp5bVVKS3FtUVF4dnBQUUFYR19LcDgyRXBCc2docHN6NlR4Q21EbGhQWm9GUlFnYktwN21uaFcwMXpmOW5ubzdEWF8w?oc=5"
   },
   {
     "horse": "エスクアドラ",
@@ -988,15 +979,6 @@
     "source": "スポニチ競馬Web",
     "date": "2026/06/13",
     "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1NT001bS1nTWhETWtNdndjdlBYV1hfZHVqcUU0a01rd2thcTdOVUp2ZEQ5Y3ZTNUF0a0xiWXZ3aFRKR2ZoR0taR0k2THNYX2pCOEE2LWpZaUgzcHRoaVRyVFYzY245cUdTYXc?oc=5"
-  },
-  {
-    "horse": "デミアン",
-    "player": "P02",
-    "title": "【東京6R新馬】フライトライン産駒のデミアンが直線で抜け出して快勝 レーン騎手「ポテンシャルあるタイプですね」 - 中日新聞Web",
-    "desc": "【東京6R新馬】フライトライン産駒のデミアンが直線で抜け出して快勝 レーン騎手「ポテンシャルあるタイプですね」&nbsp;&nbsp;中日新聞Web",
-    "source": "中日新聞Web",
-    "date": "2026/06/13",
-    "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE10X1hwVTdJUmQ0YzI2SVNIUFh1bGRkRmYtNjNjSkZYcHdDOFI4U1o4c2N5Qnc5V1FySEtxQVJSV0MwcTJUMXdhcV9waUF6T2xVQ3ozSQ?oc=5"
   },
   {
     "horse": "デミアン",
