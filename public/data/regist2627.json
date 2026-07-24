@@ -65,7 +65,7 @@
       },
       {
         "name": "レッドマウロア",
-        "active": false,
+        "active": true,
         "sire": "クリソベリル",
         "dam": "レッドアネラ"
       },
@@ -125,7 +125,7 @@
       },
       {
         "name": "コナパームス",
-        "active": false,
+        "active": true,
         "sire": "アドマイヤマーズ",
         "dam": "コナブリュワーズ"
       },
@@ -137,7 +137,7 @@
       },
       {
         "name": "コックスコーム",
-        "active": true,
+        "active": false,
         "sire": "ナダル",
         "dam": "スーブレット"
       },
@@ -557,7 +557,7 @@
     "horses": [
       {
         "name": "ムーンベリル",
-        "active": true,
+        "active": false,
         "sire": "クリソベリル",
         "dam": "クインズムーン"
       },
