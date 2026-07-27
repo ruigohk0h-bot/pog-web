@@ -119,7 +119,7 @@
       },
       {
         "name": "ヴェルバーニア",
-        "active": true,
+        "active": false,
         "sire": "キタサンブラック",
         "dam": "アドマイヤローザ"
       },
@@ -401,8 +401,8 @@
       },
       {
         "name": null,
-        "active": false,
-        "sire": "母パラダイスコーブ",
+        "active": true,
+        "sire": "ルヴァンスレーヴ",
         "dam": "パラダイスコーブ"
       },
       {
@@ -503,7 +503,7 @@
       },
       {
         "name": "ケンシロウワールド",
-        "active": true,
+        "active": false,
         "sire": "Violence",
         "dam": "Colby Cakes"
       },
