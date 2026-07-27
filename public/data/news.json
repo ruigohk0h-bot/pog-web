@@ -1,5 +1,14 @@
 [
   {
+    "horse": "ホウオウシュウ",
+    "player": "P06",
+    "title": "JRA北海道シリーズ札幌開催が開幕する",
+    "desc": "&emsp;7月25日、札幌市中央区にある札幌競馬場において、JRA北海道シリーズの札幌開催が開幕した。\n&emsp;過ごしやすい天候に恵まれた開幕初日は、競馬場の入場料が無料となる｢フリーパスの日｣ということもあり、札幌競馬の開幕を心待ちにしていた多くの競馬ファンやファミリー層が、8時40分の開門前から入場ゲート前で待機。入場人員は15,307名となり、昨年の開幕初日より14,000人以上増えた。\n&emsp;この日の札幌競馬場では、先着10,000名に再来場抽選券付オリジナルプリッツをプレゼントしたほか、ハムスターボール体験プール、抽選で20組が参加できるジョッキー写真撮影会、ポムポムプリンスペシャルステージ、ソメスサドル馬具展示&鞍づくり実演、第1回札幌競馬大抽選会、厚岸町物産展、厚岸ウイスキーハイボール販売といった特別イベントを実施。ビギナーズセミナー、Welcomeチャンス、ウマガチャ、ウマにまつわる雑学クイズラリー、4競馬場合同スタンプラリー企画などのレギュラーイベントと同様に賑わいを見せた。\n&emsp;第5競走の2歳新馬戦、メイクデビュー札幌(ダート･右1,700m)は、横山和生騎手が騎乗した2番人気のレガメデルヴェントが、2着のホウオウシュウ以下に大差をつける1分45秒1のタイムで優勝。札幌競馬の新馬勝ち第一号に輝いた。\n&emsp;デビュー戦を圧勝したレバメデルヴェントは、父がルヴァンスレーヴ、母がアルヴェント、母の父がマジェスティックウォリアーという血統。街風隆雄氏が所有、美浦の伊坂重信厩舎が管理、安平町追分向陽にある追分ファームが生産した鹿毛の牡馬で、ゴールドアリュール、ペルシアンナイト、ミッキーヌチバナ、ソロル、ゴールスキー、ディアマイダーリンといった重賞ウィナーと同じファミリーになる。\n&emsp;本年の札幌競馬は7月25日から9月6日まで、2開催14日間の日程で開催。重賞競走は8月2日にクイーンS(G3)、8月8日にエルムS(G3)、8月16日に札幌記念(G2)、8月23日にキーンランドC(G3)、9月5日に札幌2歳S(G3)と5競走行われる。\n&emsp;7月25日から8月30日まで、新潟競馬と中京競馬の｢競走時間帯の拡大｣を実施する期間は、札幌競馬場では馬券の現金発売を札幌12レース発売締切時刻で終了し、以降はUMACA発売のみとなる。",
+    "source": "うまふる",
+    "date": "2026/07/27",
+    "url": "https://uma-furusato.com/news/entry-68519.html"
+  },
+  {
     "horse": "ダノンチャンピオン",
     "player": "P02",
     "title": "【中京２Ｒ・２歳新馬】ダノンデサイルの弟ダノンチャンピオンは４着　横山武史騎手「背中のよさはありますが...」 - ｄメニューニュース",
@@ -79,15 +88,6 @@
     "source": "スポニチ Sponichi Annex",
     "date": "2026/07/26",
     "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNbFNlUnFLbVFSZ0kydXJTWVpjNW9mNUROclZPNzF4VEUyeWEzRG5DR0k5MFJObS1fMkpsUUVTNWg4UDdCYmJCeGFlcFVjYmw1ejlCNzV4NWRmS1FIbWE5WUZkTFNNMUlxYjVYaTVuUU41V19kZnRRMVdEMW5UcWE0NjZnV2ExYXhtbmgwazRZQmVIZw?oc=5"
-  },
-  {
-    "horse": "ダノンチャンピオン",
-    "player": "P02",
-    "title": "マイPOG馬、ダノンチャンピオン中京02R出走 - 競馬予想のウマニティ",
-    "desc": "マイPOG馬、ダノンチャンピオン中京02R出走&nbsp;&nbsp;競馬予想のウマニティ",
-    "source": "競馬予想のウマニティ",
-    "date": "2026/07/25",
-    "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE5PVFpZeHphLVRXMGxSWXRlQmRaREJUT1lVS0ZseUx3QVNhTU1MdlJVVnREekFGWjFLZnhMUkpxdUszSnhNaEc1Z2VzN3o2N1Q2NkN6QmZlYlNiWmJJVExzQlVUQ3dta0o3TFctOF9XZDVGUXMwdlJOWHBVdVQ?oc=5"
   },
   {
     "horse": "ヤングリッチ",
@@ -225,6 +225,15 @@
     "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBHcVV2UDVNUWJYTnlCVkZFaHNyVlNsUzdZQmVfRU95U0ZZbnA4SV9PbGNOQnpUcmRpX1dwZnVUZTN5ZTNSbThFTVotQ1U3SEN3eXRhazlLeXlTMm5MWlNZ?oc=5"
   },
   {
+    "horse": "ヴェルバーニア",
+    "player": "P01",
+    "title": "【今日の注目新馬】名牝系出身のヴェルバーニア 手塚久師「動き自体には素軽さが出てきた。気持ちは前向き」／福島5R - サンスポ",
+    "desc": "【今日の注目新馬】名牝系出身のヴェルバーニア 手塚久師「動き自体には素軽さが出てきた。気持ちは前向き」／福島5R&nbsp;&nbsp;サンスポ",
+    "source": "サンスポ",
+    "date": "2026/07/19",
+    "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNRVRSakRhSWlMM3o4b2JGTFJLOHFMZHp4OVk4aC1iR2JTMG4xNnN0WHRmR0ZtV1l3UzNIZWJYYTlyYXFXWS1td3RKZDdLbEJjNS1fajRQbVlGb2R5aTdPMkVqUVJOSnNoWnVIak1vRFhUZnA1Z0pLSVNlenE1TW4yMmNDLWFiTFk?oc=5"
+  },
+  {
     "horse": "ムーンベリル",
     "player": "P03",
     "title": "【2歳未勝利福島1Rレース後コメント】ムーンベリル坂井瑠星騎手ら - netkeiba",
@@ -232,15 +241,6 @@
     "source": "netkeiba",
     "date": "2026/07/19",
     "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1QeTRFUmxkc1VlWm44bzQwY3Q0QjNsWG05akhheUVZMzVDS2NTWVQySnJ3TmJXX0Q3Mkk0VXplQS1Hc1FHcmZLVVdqUUhZdHkzM29uU3R6WlJkS01tYTFJ?oc=5"
-  },
-  {
-    "horse": "ヴェルバーニア",
-    "player": "P01",
-    "title": "【今日の注目新馬】名牝系出身のヴェルバーニア 手塚久師「動き自体には素軽さが出てきた。気持ちは前向き」／福島5R - サンスポ",
-    "desc": "【今日の注目新馬】名牝系出身のヴェルバーニア 手塚久師「動き自体には素軽さが出てきた。気持ちは前向き」／福島5R&nbsp;&nbsp;サンスポ",
-    "source": "サンスポ",
-    "date": "2026/07/18",
-    "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNRVRSakRhSWlMM3o4b2JGTFJLOHFMZHp4OVk4aC1iR2JTMG4xNnN0WHRmR0ZtV1l3UzNIZWJYYTlyYXFXWS1td3RKZDdLbEJjNS1fajRQbVlGb2R5aTdPMkVqUVJOSnNoWnVIak1vRFhUZnA1Z0pLSVNlenE1TW4yMmNDLWFiTFk?oc=5"
   },
   {
     "horse": "ヴェルバーニア",
@@ -349,15 +349,6 @@
     "source": "スポーツブル",
     "date": "2026/07/16",
     "url": "https://news.google.com/rss/articles/CBMiR0FVX3lxTFBETHRUMVF6YmZPRVlWcXNmYW5Nc2E4cndBRWFyYmRJQjkzMUJXa2xRZUFQYmRJeThPc215VHVyWTNRcW5NTlVv?oc=5"
-  },
-  {
-    "horse": "ヴェルバーニア",
-    "player": "P01",
-    "title": "【ＰＯＧ】母系にエアグルーヴ ヴェルバーニアが１９日福島・芝２０００メートルでデビュー 手塚久調教師「まだ少し不器用ですね」 - ライブドアニュース",
-    "desc": "【ＰＯＧ】母系にエアグルーヴ ヴェルバーニアが１９日福島・芝２０００メートルでデビュー 手塚久調教師「まだ少し不器用ですね」&nbsp;&nbsp;ライブドアニュース",
-    "source": "ライブドアニュース",
-    "date": "2026/07/16",
-    "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5TU0duVVVYclJmZDRoMWp5cG1Ebmx3TEVJMzQ3eE0yUjdjNlVGN1dSdnhZVURMby1MU0hqeGw3R0U3aXFDbHIwMHhuSTltd3JERXNMVjhyRnY1Q05VanNF?oc=5"
   },
   {
     "horse": "ヴェルバーニア",
@@ -533,20 +524,20 @@
   {
     "horse": "ウィンターブリーズ",
     "player": "P07",
-    "title": "4番人気コスモハナミズキが逃げ切り　単勝1・1倍ウィンターブリーズを振り切る【2歳未勝利・福島1R】 - ｄメニューニュース",
-    "desc": "4番人気コスモハナミズキが逃げ切り　単勝1・1倍ウィンターブリーズを振り切る【2歳未勝利・福島1R】&nbsp;&nbsp;ｄメニューニュース",
-    "source": "ｄメニューニュース",
-    "date": "2026/07/04",
-    "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQUS1NVE1ia09EbDNqU3dRdlpKWGxiWE43TEY5dmZYb1BPS21EYjFVQXhYR1JrRjQ0Q0cxQXFVbjNZbzJMSnNoc1hsV01hNFFIajFVZ29nMzcwbkhqbTBsbjBXaTdXQTRqREJ5TVlUUmpwa3FyWHV3eC1XOC1nNGVTbdIBhgFBVV95cUxOQTlON1dkNHZiMlJjeWR4cEpqMkF0Nk9mRWF2X0x4cUc1YWRIZk1KT3N3eVVEVXFaNzNjdm1lZmlLaVY3bHE5elAtdkplT2pyT3FMclJkay1rRi0yVWQ0a3pHUk9NbHh4VHd0dDRuSU1zSFQ1R1E3NWdnNlprOVV0OVNZamxUdw?oc=5"
-  },
-  {
-    "horse": "ウィンターブリーズ",
-    "player": "P07",
     "title": "【福島1R・2歳未勝利】単勝1・1倍のウィンターブリーズは首差の2着 戸崎圭太騎手「追ってから浮くような…」 - netkeiba",
     "desc": "【福島1R・2歳未勝利】単勝1・1倍のウィンターブリーズは首差の2着 戸崎圭太騎手「追ってから浮くような…」&nbsp;&nbsp;netkeiba",
     "source": "netkeiba",
     "date": "2026/07/04",
     "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE4xOGN5QWxVWUp4dk5hYW5RTi1FVklYeXJSTXhtc0tuSGU2Y2w4c1hzUmpma1FTRFJIWlVuSy0zc054clMwMWZKbU9kTzBYNW1wdmE5OVlwalozYjJobmZn?oc=5"
+  },
+  {
+    "horse": "ウィンターブリーズ",
+    "player": "P07",
+    "title": "4番人気コスモハナミズキが逃げ切り　単勝1・1倍ウィンターブリーズを振り切る【2歳未勝利・福島1R】 - ｄメニューニュース",
+    "desc": "4番人気コスモハナミズキが逃げ切り　単勝1・1倍ウィンターブリーズを振り切る【2歳未勝利・福島1R】&nbsp;&nbsp;ｄメニューニュース",
+    "source": "ｄメニューニュース",
+    "date": "2026/07/04",
+    "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQUS1NVE1ia09EbDNqU3dRdlpKWGxiWE43TEY5dmZYb1BPS21EYjFVQXhYR1JrRjQ0Q0cxQXFVbjNZbzJMSnNoc1hsV01hNFFIajFVZ29nMzcwbkhqbTBsbjBXaTdXQTRqREJ5TVlUUmpwa3FyWHV3eC1XOC1nNGVTbdIBhgFBVV95cUxOQTlON1dkNHZiMlJjeWR4cEpqMkF0Nk9mRWF2X0x4cUc1YWRIZk1KT3N3eVVEVXFaNzNjdm1lZmlLaVY3bHE5elAtdkplT2pyT3FMclJkay1rRi0yVWQ0a3pHUk9NbHh4VHd0dDRuSU1zSFQ1R1E3NWdnNlprOVV0OVNZamxUdw?oc=5"
   },
   {
     "horse": "クロダテ",
@@ -587,11 +578,11 @@
   {
     "horse": "エスクアドラ",
     "player": "P01",
-    "title": "【新馬戦】エスクアドラ いざ先制攻撃 良血の一撃なるか 鹿戸師は反応の良さ強調 (2026年7月1日掲載) - ライブドアニュース",
-    "desc": "【新馬戦】エスクアドラ いざ先制攻撃 良血の一撃なるか 鹿戸師は反応の良さ強調 (2026年7月1日掲載)&nbsp;&nbsp;ライブドアニュース",
+    "title": "【新馬戦】エスクアドラ いざ先制攻撃 良血の一撃なるか 鹿戸師は反応の良さ強調 - ライブドアニュース",
+    "desc": "【新馬戦】エスクアドラ いざ先制攻撃 良血の一撃なるか 鹿戸師は反応の良さ強調&nbsp;&nbsp;ライブドアニュース",
     "source": "ライブドアニュース",
     "date": "2026/07/01",
-    "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTFB1UzJMWVcxRlZOR0ZuN1NFOVBQajZsLTFxVTN3V2JNTmtRSWR2ZzY0V19jZlFsQkRpY3U2ZzBQeGJ3VHZ0c0ZKOFZ1NzFqYTZqYnJXa0RybVNON0N2Z1E?oc=5"
+    "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE15Tk9qYlhTVkRBaE9adlI3T3E3NC1zYzBfLXdOTFJoTEJJN0NnVENKRk1GSGVsM184WUlWX3pwcWdjb3BvYld6dDZUbEJyenpYOUhzbmExWGFjSVJIbEp3?oc=5"
   },
   {
     "horse": "エスクアドラ",
@@ -682,6 +673,15 @@
     "source": "東スポ競馬",
     "date": "2026/06/24",
     "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE00Mm56aW9fc3Zkc2l0UFpqRnI3VHk3akZQUE5BWU50Nlp1RzYzOFBKX0tiTE50X045NmlfRUdDd1FsRDdqeEVvTGFBXzR6T3c1UmFxaA?oc=5"
+  },
+  {
+    "horse": "デミアン",
+    "player": "P02",
+    "title": "🔥🤣【競馬界騒然】デミアンにダミアン騎乗で大混乱‼️🐎💥「実況どうする!?」ファン爆笑の奇跡コンビ誕生😂🎤 Saturday Night Live Episode 19 (3ugFV0p7LP) - Fathom Journal",
+    "desc": "🔥🤣【競馬界騒然】デミアンにダミアン騎乗で大混乱‼️🐎💥「実況どうする!?」ファン爆笑の奇跡コンビ誕生😂🎤 Saturday Night Live Episode 19 (3ugFV0p7LP)&nbsp;&nbsp;Fathom Journal",
+    "source": "Fathom Journal",
+    "date": "2026/06/23",
+    "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE1yN1JDSmhYaTkwTS1pMlFHNU1Rd19MeGFtY3NsWFVPWHpRdkNNRnQ5THlvXzlWUzlHcEpyMzVWdXkyNS1yWlFQLWE0VE1NVUZDRXFkWk9LQjR4RE5FSTg3bHp5YWQ?oc=5"
   },
   {
     "horse": "レッジェランツァ",
@@ -1260,6 +1260,15 @@
     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1OMnJtaEQ2YXhvVjNwdHpvdW5ETE1NdDNFWlN0NzVlWFJVTE5xbVBSTno0R29DQU52c2ZIWVAwdDJrYnNtLXFrZkpEZ3plUGhMTlMyVUE2TFNlMENUZExHWmlLX0oxbUdsZDBtZ1N3czbSAXZBVV95cUxPaDJHMWJIa0NkMzF0eWt3N3RWU09sd2xmV3ZNRmtRdU5Pc29SZGpERWpWcmZLbzdfY1FrMlVRN2xMVXFhSkh1RWdITm9xNlhJYlVsVEp6WW9iTFlhbk1UYjBibGFmcUlwYVhaLU1oTzFyY1llREtR?oc=5"
   },
   {
+    "horse": "ディーヴァレギオン",
+    "player": "P05",
+    "title": "シャドウディーヴァの初子ディーヴァレギオンがデビューへ - 日刊スポーツ",
+    "desc": "シャドウディーヴァの初子ディーヴァレギオンがデビューへ&nbsp;&nbsp;日刊スポーツ",
+    "source": "日刊スポーツ",
+    "date": "2026/06/11",
+    "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTFAxb1hMZnJHaktSRzYxNU9jUVdHZXpSX3hEX0VYNlZoUlpXMm1OUVNuVHpGdDBqUktsdnRXUHdwVkpYU0UzWktIRTdYejl2Vjk1b3doSklkTHVhMGdmZFVPZ1RQOUVqZVV6dVcyZGZmVzdPQVNvQk02YkJqZm9iUdIBdEFVX3lxTE93ZDZlQ2Q2aDE0ZzlCaFk0WGI3U0ZveVBQR0hhQTdia2VVSTdYN29mREszUUJCRm1QSEFVSkhYWU9SSXFGT01tcVlwdGNBT2paa0pLMk9pZ001RjdPUHAxNHZBZDJwS0ptZ2lfd0xadzhud0pO?oc=5"
+  },
+  {
     "horse": "ヴィルダースヴィル",
     "player": "P05",
     "title": "コパノキッキングの半弟ヴィルダースヴィルに新谷師「ここまで順調にきた」／新馬戦 - 日刊スポーツ",
@@ -1438,6 +1447,15 @@
     "source": "サンスポ",
     "date": "2026/05/27",
     "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPSVBsRGRvUi1GMmJZQ0M2eWhhMi1LWmtGMWxoand2cDh5cnpUSXhjREhzWnloMVRJRUNpNm95X2hCdlE4TVlNWW5VdnpSdDIzdEpCVzNKMzhDQURFaVJIeHJDeGNuelNxbW45ejZsOWNDWF9oeWxGbl9ja0JZWU96UlNENFJrSXM?oc=5"
+  },
+  {
+    "horse": "ウィンターブリーズ",
+    "player": "P07",
+    "title": "田中博厩舎ウィンターブリーズは６・６東京マイルで初陣　レーン騎手「前向きで元気」／POG情報 - 日刊スポーツ",
+    "desc": "田中博厩舎ウィンターブリーズは６・６東京マイルで初陣　レーン騎手「前向きで元気」／POG情報&nbsp;&nbsp;日刊スポーツ",
+    "source": "日刊スポーツ",
+    "date": "2026/05/19",
+    "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBPWDlHaGtCM1kzRDlCS3FwazdnUktYWWxwX2RBak1vbURDcHV6dUJhRWJkRGZrV3ZjWmJuSEVvaVBQNW9UVDBGS0p3TEFEWk5zVnV1RUlIbHZZNXplWEp5czZQUXpDcGQtdHBBSdIBdEFVX3lxTE9yLWVYUTRBS3NIY1c4UzVNSHM5TDBiT25XWGd0NDlWX1NfY1kzclo1RE9JU3NiaDBrU0pzTHNlRDlIZ2RFMzZhbHFucTctYzhYWTNxbGt5X19mMUFPWENwSzlxTlRnY1Fac01iU0pOVHNhdzN6?oc=5"
   },
   {
     "horse": "トゥザファイナル",
