@@ -122,7 +122,7 @@ const PLAYERS_2627 = [
       { no:2,  name:"オールシティキング",  sire:"Flightline",       dam:"セルフレスリー" },
       { no:3,  name:"デュガピー",          sire:"クリソベリル",     dam:"エスメラルディーナ" },
       { no:4,  name:"ウラノグラフィア",    sire:"ナダル",           dam:"リュラ" },
-      { no:5,  name:null,               dam:"パラダイスコーブ" },
+      { no:5,  name:"ロンバルディア", sire:"ルヴァンスレーヴ", dam:"パラダイスコーブ" },
       { no:6,  name:null,               dam:"ショウサンウルル" },
       { no:7,  name:null,               dam:"ドリームライター" },
       { no:8,  name:null,               dam:"スターリーウインド" },
