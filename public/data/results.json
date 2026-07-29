@@ -448,6 +448,22 @@
     "_ts": "06/07"
   },
   {
+    "date": "06/07",
+    "venue": "東京",
+    "race": "新馬",
+    "course": "芝1800",
+    "surface": "turf",
+    "dist": 1800,
+    "horse": "セイルトゥグローリ",
+    "player": "P02",
+    "order": 7,
+    "grade": null,
+    "local": false,
+    "rawPt": 0,
+    "turfPt": 0,
+    "_ts": "06/07"
+  },
+  {
     "date": "06/06",
     "venue": "阪神",
     "race": "未勝利",
@@ -509,6 +525,22 @@
     "local": false,
     "rawPt": 580,
     "turfPt": 0,
+    "_ts": "06/06"
+  },
+  {
+    "date": "06/06",
+    "venue": "東京",
+    "race": "新馬",
+    "course": "芝1600",
+    "surface": "turf",
+    "dist": 1600,
+    "horse": "ウィンターブリーズ",
+    "player": "P07",
+    "order": 2,
+    "grade": null,
+    "local": false,
+    "rawPt": 0,
+    "turfPt": 310,
     "_ts": "06/06"
   },
   {
