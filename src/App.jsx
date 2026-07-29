@@ -312,12 +312,13 @@ const getHorses = (pid, results = null) => {
   return p.horses.map(h => {
     // results.json から各馬の獲得pt・成績（1着-2着-3着-着外）を集計
     // turfPt = 芝レースのため砂遊びでは0ptだが、芝もアリなら得られたpt
-    let pt = 0, turfPt = 0, w = 0, pl = 0, sh = 0, o = 0, dirtWins = 0;
+    let pt = 0, turfPt = 0, w = 0, pl = 0, sh = 0, o = 0, dirtWins = 0, turfStarts = 0;
     if (results && h.name) {
       for (const r of results) {
         if (r.horse !== h.name) continue;
         pt     += r.rawPt  || 0;
         turfPt += r.turfPt || 0;
+        if (r.surface === "turf" && r.order) turfStarts++;
         if      (r.order === 1) { w++; if (r.surface === "dirt") dirtWins++; }
         else if (r.order === 2) pl++;
         else if (r.order === 3) sh++;
@@ -329,6 +330,7 @@ const getHorses = (pid, results = null) => {
       pt,
       turfPt,
       dirtWins,
+      turfStarts,
       record: `${w}-${pl}-${sh}-${o}`,
       active: h.active !== undefined ? h.active : true,
     };
@@ -1221,6 +1223,12 @@ function PlayerDetailScreen({ userId, onBack, onSelectHorse, kettonums, regist26
             <div style={{ flex:1, minWidth:0, cursor:"pointer" }} onClick={() => onSelectHorse(h)}>
               <div style={{ fontWeight:700, fontSize:12, display:"flex", alignItems:"center", gap:3, whiteSpace:"nowrap", overflow:"hidden", textOverflow:"ellipsis" }}>
                 {h.name}
+                {h.turfStarts > 0 && (
+                  <span title="芝レースに出走（砂遊びでは芝は0pt）" style={{
+                    fontSize:8.5, fontWeight:800, color:"#2a7a3a", border:"1px solid #2a7a3a",
+                    borderRadius:3, padding:"0 3px", flexShrink:0, lineHeight:1.4,
+                  }}>芝</span>
+                )}
               </div>
               <div style={{ fontSize:9, color:"#aaa", lineHeight:1.2 }}>
                 {h.sire && <span>父<span translate="no">{h.sire}</span></span>}
