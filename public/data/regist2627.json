@@ -143,7 +143,7 @@
       },
       {
         "name": "ラキアーヴェ",
-        "active": false,
+        "active": true,
         "sire": "ルヴァンスレーヴ",
         "dam": "クラーベセクレタ"
       },
@@ -203,7 +203,7 @@
       },
       {
         "name": "ダノンチャンピオン",
-        "active": true,
+        "active": false,
         "sire": "ホットロッドチャーリー",
         "dam": "トップデサイル"
       },
@@ -395,7 +395,7 @@
       },
       {
         "name": "ウラノグラフィア",
-        "active": false,
+        "active": true,
         "sire": "ナダル",
         "dam": "リュラ"
       },
