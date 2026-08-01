@@ -1,5 +1,5 @@
 {
-  "updated": "2026/07/31 19:38",
+  "updated": "2026/08/01 11:31",
   "source": "https://pogstarion.com/newresultlist.do?group_num=0601093409",
   "schedule_results": [
     {
@@ -10,8 +10,8 @@
       "距離": "芝2000",
       "馬名": "ディーヴァレギオン",
       "騎手": "吉村誠之",
-      "順位": "",
-      "賞金": "",
+      "順位": "10",
+      "賞金": "0",
       "所有者": "田崎厩舎",
       "_links": [
         "http://race.netkeiba.com/?pid=race&id=c202607020301&mode=shutuba",
