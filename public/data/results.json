@@ -1,5 +1,37 @@
 [
   {
+    "date": "08/02",
+    "venue": "新潟",
+    "race": "新馬",
+    "course": "ダ1800",
+    "surface": "dirt",
+    "dist": 1800,
+    "horse": "ステラガーネット",
+    "player": "P06",
+    "order": 4,
+    "grade": null,
+    "local": false,
+    "rawPt": 120,
+    "turfPt": 0,
+    "_ts": "08/02"
+  },
+  {
+    "date": "08/02",
+    "venue": "中京",
+    "race": "新馬",
+    "course": "ダ1800",
+    "surface": "dirt",
+    "dist": 1800,
+    "horse": "ハイウェイワン",
+    "player": "P05",
+    "order": 5,
+    "grade": null,
+    "local": false,
+    "rawPt": 78,
+    "turfPt": 0,
+    "_ts": "08/02"
+  },
+  {
     "date": "08/01",
     "venue": "中京",
     "race": "未勝利",

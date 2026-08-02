@@ -1,5 +1,5 @@
 {
-  "updated": "2026/08/01 18:58",
+  "updated": "2026/08/02 11:29",
   "source": "https://pogstarion.com/newresultlist.do?group_num=0601093409",
   "schedule_results": [
     {
@@ -27,8 +27,8 @@
       "距離": "ダ1800",
       "馬名": "ステラガーネット",
       "騎手": "田辺裕信",
-      "順位": "",
-      "賞金": "",
+      "順位": "4",
+      "賞金": "120",
       "所有者": "涼子厩舎",
       "_links": [
         "http://race.netkeiba.com/?pid=race&id=c202604020402&mode=shutuba",
@@ -44,8 +44,8 @@
       "距離": "ダ1800",
       "馬名": "ハイウェイワン",
       "騎手": "川田将雅",
-      "順位": "",
-      "賞金": "",
+      "順位": "5",
+      "賞金": "78",
       "所有者": "田崎厩舎",
       "_links": [
         "http://race.netkeiba.com/?pid=race&id=c202607020402&mode=shutuba",
