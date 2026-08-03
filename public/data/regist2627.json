@@ -59,7 +59,7 @@
       },
       {
         "name": "サンクサンス",
-        "active": false,
+        "active": true,
         "sire": "American",
         "dam": "エリーズスマイル"
       },
@@ -149,7 +149,7 @@
       },
       {
         "name": "ミシェルバローズ",
-        "active": false,
+        "active": true,
         "sire": "ナダル",
         "dam": "メリッサーニ"
       },
@@ -233,7 +233,7 @@
       },
       {
         "name": "ヤングリッチ",
-        "active": true,
+        "active": false,
         "sire": "レイデオロ",
         "dam": "フォエヴァーダーリング"
       },
@@ -377,7 +377,7 @@
     "horses": [
       {
         "name": "ホウオウシュウ",
-        "active": true,
+        "active": false,
         "sire": "レイデオロ",
         "dam": "スペシャルグルーヴ"
       },
@@ -515,7 +515,7 @@
       },
       {
         "name": "ヴァグラム",
-        "active": false,
+        "active": true,
         "sire": "マジェスティックウォリアー",
         "dam": "グロリアーナ"
       },
