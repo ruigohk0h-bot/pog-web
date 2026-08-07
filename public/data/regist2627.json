@@ -29,7 +29,7 @@
       },
       {
         "name": "ミクニブレイブ",
-        "active": false,
+        "active": true,
         "sire": "ナダル",
         "dam": "アンナミルト"
       },
@@ -257,7 +257,7 @@
       },
       {
         "name": "セイルトゥグローリ",
-        "active": false,
+        "active": true,
         "sire": "エフフォーリア",
         "dam": "セイリングホーム"
       },
@@ -383,7 +383,7 @@
       },
       {
         "name": "ステラガーネット",
-        "active": true,
+        "active": false,
         "sire": "アルクトス",
         "dam": "シャインガーネット"
       },
@@ -431,7 +431,7 @@
       },
       {
         "name": "ヴェトロテンペスタ",
-        "active": false,
+        "active": true,
         "sire": "コントレイル",
         "dam": "シャンパンエニワン"
       },
@@ -491,7 +491,7 @@
       },
       {
         "name": "ディーヴァレギオン",
-        "active": true,
+        "active": false,
         "sire": "ナダル",
         "dam": "シャドウディーヴァ"
       },

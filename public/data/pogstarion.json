@@ -1,6 +1,24 @@
 {
-  "updated": "2026/08/06 19:38",
+  "updated": "2026/08/07 10:09",
   "source": "https://pogstarion.com/newresultlist.do?group_num=0601093409",
-  "schedule_results": [],
+  "schedule_results": [
+    {
+      "日時": "08/08",
+      "競走": "新潟03R",
+      "col2": "",
+      "レース名": "新馬",
+      "距離": "芝1800",
+      "馬名": "アトミックリーチ",
+      "騎手": "戸崎圭太",
+      "順位": "",
+      "賞金": "",
+      "所有者": "川村厩舎",
+      "_links": [
+        "http://race.netkeiba.com/?pid=race&id=c202604020503&mode=shutuba",
+        "umaracelist.do?group_num=0601093409&user_num=407303&kettonum=2024106508",
+        "userumalist.do?group_num=0601093409&user_num=407303"
+      ]
+    }
+  ],
   "special_regist": []
 }
