@@ -1,5 +1,21 @@
 [
   {
+    "date": "08/08",
+    "venue": "新潟",
+    "race": "新馬",
+    "course": "芝1800",
+    "surface": "turf",
+    "dist": 1800,
+    "horse": "アトミックリーチ",
+    "player": "P02",
+    "order": 4,
+    "grade": null,
+    "local": false,
+    "rawPt": 0,
+    "turfPt": 120,
+    "_ts": "08/08"
+  },
+  {
     "date": "08/02",
     "venue": "新潟",
     "race": "新馬",

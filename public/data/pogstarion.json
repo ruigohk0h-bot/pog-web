@@ -1,5 +1,5 @@
 {
-  "updated": "2026/08/08 10:19",
+  "updated": "2026/08/08 12:04",
   "source": "https://pogstarion.com/newresultlist.do?group_num=0601093409",
   "schedule_results": [
     {
@@ -10,8 +10,8 @@
       "距離": "芝1800",
       "馬名": "アトミックリーチ",
       "騎手": "戸崎圭太",
-      "順位": "",
-      "賞金": "",
+      "順位": "4",
+      "賞金": "120",
       "所有者": "川村厩舎",
       "_links": [
         "http://race.netkeiba.com/?pid=race&id=c202604020503&mode=shutuba",
