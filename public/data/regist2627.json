@@ -438,7 +438,7 @@
       {
         "name": null,
         "active": false,
-        "sire": "母フェータルローズ",
+        "sire": "オルフェーヴル",
         "dam": "フェータルローズ"
       },
       {
@@ -479,7 +479,7 @@
       },
       {
         "name": "ハイウェイワン",
-        "active": true,
+        "active": false,
         "sire": "カリフォルニアクローム",
         "dam": "シルバーポジー"
       },
@@ -557,7 +557,7 @@
     "horses": [
       {
         "name": "ムーンベリル",
-        "active": false,
+        "active": true,
         "sire": "クリソベリル",
         "dam": "クインズムーン"
       },
