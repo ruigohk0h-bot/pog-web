@@ -35,7 +35,7 @@
       },
       {
         "name": "ヘイヴァイタヒチ",
-        "active": true,
+        "active": false,
         "sire": "ナダル",
         "dam": "タヒチアンダンス"
       },
@@ -155,7 +155,7 @@
       },
       {
         "name": "タイセイシュペール",
-        "active": true,
+        "active": false,
         "sire": "ルヴァンスレーヴ",
         "dam": "オーサムウインド"
       },
@@ -203,7 +203,7 @@
       },
       {
         "name": "アトミックリーチ",
-        "active": true,
+        "active": false,
         "sire": "コントレイル",
         "dam": "パリスビキニ"
       },
@@ -263,7 +263,7 @@
       },
       {
         "name": "ハーモニープルーフ",
-        "active": false,
+        "active": true,
         "sire": "ナダル",
         "dam": "ゴールデンプルーフ"
       }
@@ -389,7 +389,7 @@
       },
       {
         "name": "オールシティキング",
-        "active": false,
+        "active": true,
         "sire": "Flightline",
         "dam": "セルフレスリー"
       },
@@ -515,7 +515,7 @@
       },
       {
         "name": "ヴァグラム",
-        "active": true,
+        "active": false,
         "sire": "マジェスティックウォリアー",
         "dam": "グロリアーナ"
       },
@@ -617,7 +617,7 @@
       },
       {
         "name": "モナークミニスター",
-        "active": false,
+        "active": true,
         "sire": "シニスターミニスター",
         "dam": "スズカモナミ"
       },
