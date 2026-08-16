@@ -1,5 +1,37 @@
 [
   {
+    "date": "08/16",
+    "venue": "中京",
+    "race": "新馬",
+    "course": "ダ1400",
+    "surface": "dirt",
+    "dist": 1400,
+    "horse": "ソルテヴェローチェ",
+    "player": "P07",
+    "order": 12,
+    "grade": null,
+    "local": false,
+    "rawPt": 0,
+    "turfPt": 0,
+    "_ts": "08/16"
+  },
+  {
+    "date": "08/16",
+    "venue": "新潟",
+    "race": "未勝利",
+    "course": "ダ1200",
+    "surface": "dirt",
+    "dist": 1200,
+    "horse": "ラキアーヴェ",
+    "player": "P01",
+    "order": 1,
+    "grade": null,
+    "local": false,
+    "rawPt": 590,
+    "turfPt": 0,
+    "_ts": "08/16"
+  },
+  {
     "date": "08/15",
     "venue": "新潟",
     "race": "未勝利",

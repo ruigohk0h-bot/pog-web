@@ -1,5 +1,5 @@
 {
-  "updated": "2026/08/16 10:07",
+  "updated": "2026/08/16 11:36",
   "source": "https://pogstarion.com/newresultlist.do?group_num=0601093409",
   "schedule_results": [
     {
@@ -27,8 +27,8 @@
       "距離": "ダ1400",
       "馬名": "ソルテヴェローチェ",
       "騎手": "岩田望来",
-      "順位": "",
-      "賞金": "",
+      "順位": "12",
+      "賞金": "0",
       "所有者": "成田厩舎",
       "_links": [
         "http://race.netkeiba.com/?pid=race&id=c202607020802&mode=shutuba",
@@ -44,8 +44,8 @@
       "距離": "ダ1200",
       "馬名": "ラキアーヴェ",
       "騎手": "戸崎圭太",
-      "順位": "",
-      "賞金": "",
+      "順位": "1",
+      "賞金": "590",
       "所有者": "前田厩舎",
       "_links": [
         "http://race.netkeiba.com/?pid=race&id=c202604020803&mode=shutuba",
