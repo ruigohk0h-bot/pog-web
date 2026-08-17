@@ -329,7 +329,7 @@
       },
       {
         "name": "テンブレイクワン",
-        "active": false,
+        "active": true,
         "sire": "Volatile",
         "dam": "Nothing But Tom"
       },
@@ -341,14 +341,14 @@
       },
       {
         "name": "アンドレバローズ",
-        "active": false,
+        "active": true,
         "sire": "ルヴァンスレーヴ",
         "dam": "ジェラスキャット"
       },
       {
         "name": null,
         "active": false,
-        "sire": "母アストロロジカル",
+        "sire": "Life",
         "dam": "アストロロジカル"
       },
       {
