@@ -50,7 +50,7 @@ const PLAYERS_2627 = [
   {
     id:"P04", name:"ミリオン厩舎", emoji:"💰",
     horses:[
-      { no:1,  name:null,               dam:"サンドクイーン" },
+      { no:1,  name:"ベルウッドワタル", sire:"ルヴァンスレーヴ", dam:"サンドクイーン" },
       { no:2,  name:"ミクニブレイブ",     sire:"ナダル",               dam:"アンナミルト" },
       { no:3,  name:"ヘイヴァイタヒチ", sire:"ナダル", dam:"タヒチアンダンス" },
       { no:4,  name:"トゥザファイナル",   sire:"ナダル",               dam:"スパークオンアイス" },
@@ -111,7 +111,7 @@ const PLAYERS_2627 = [
       { no:8,  name:"テンブレイクワン",   sire:"Volatile",              dam:"Nothing But Tom" },
       { no:9,  name:"ダノンブレイズ",      sire:"Violence",              dam:"ミスエンパイアメント" },
       { no:10, name:"アンドレバローズ",   sire:"ルヴァンスレーヴ",      dam:"ジェラスキャット" },
-      { no:11, name:null,               dam:"アストロロジカル" },
+      { no:11, name:"スターシーカー", sire:"Life", dam:"アストロロジカル" },
       { no:12, name:"イレイザー",         sire:"ヘニーヒューズ",        dam:"アーサーズシスター" },
     ],
   },
