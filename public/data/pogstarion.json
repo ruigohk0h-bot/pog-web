@@ -1,58 +1,6 @@
 {
-  "updated": "2026/08/19 18:25",
+  "updated": "2026/08/20 10:01",
   "source": "https://pogstarion.com/newresultlist.do?group_num=0601093409",
-  "schedule_results": [
-    {
-      "日時": "08/15",
-      "競走": "新潟01R",
-      "col2": "",
-      "レース名": "未勝利",
-      "距離": "芝1800",
-      "馬名": "コナパームス",
-      "騎手": "戸崎圭太",
-      "順位": "5",
-      "賞金": "59",
-      "所有者": "前田厩舎",
-      "_links": [
-        "http://race.netkeiba.com/?pid=race&id=c202604020701&mode=shutuba",
-        "umaracelist.do?group_num=0601093409&user_num=407310&kettonum=2024106309",
-        "userumalist.do?group_num=0601093409&user_num=407310"
-      ]
-    },
-    {
-      "日時": "08/16",
-      "競走": "中京02R",
-      "col2": "",
-      "レース名": "新馬",
-      "距離": "ダ1400",
-      "馬名": "ソルテヴェローチェ",
-      "騎手": "岩田望来",
-      "順位": "12",
-      "賞金": "0",
-      "所有者": "成田厩舎",
-      "_links": [
-        "http://race.netkeiba.com/?pid=race&id=c202607020802&mode=shutuba",
-        "umaracelist.do?group_num=0601093409&user_num=407305&kettonum=2024106640",
-        "userumalist.do?group_num=0601093409&user_num=407305"
-      ]
-    },
-    {
-      "日時": "08/16",
-      "競走": "新潟03R",
-      "col2": "",
-      "レース名": "未勝利",
-      "距離": "ダ1200",
-      "馬名": "ラキアーヴェ",
-      "騎手": "戸崎圭太",
-      "順位": "1",
-      "賞金": "590",
-      "所有者": "前田厩舎",
-      "_links": [
-        "http://race.netkeiba.com/?pid=race&id=c202604020803&mode=shutuba",
-        "umaracelist.do?group_num=0601093409&user_num=407310&kettonum=2024106284",
-        "userumalist.do?group_num=0601093409&user_num=407310"
-      ]
-    }
-  ],
+  "schedule_results": [],
   "special_regist": []
 }
