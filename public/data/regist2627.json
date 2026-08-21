@@ -125,7 +125,7 @@
       },
       {
         "name": "コナパームス",
-        "active": true,
+        "active": false,
         "sire": "アドマイヤマーズ",
         "dam": "コナブリュワーズ"
       },
@@ -311,7 +311,7 @@
       },
       {
         "name": "ソルテヴェローチェ",
-        "active": true,
+        "active": false,
         "sire": "マテラスカイ",
         "dam": "ミニーアイル"
       },
@@ -467,7 +467,7 @@
     "horses": [
       {
         "name": "ブックオブケルズ",
-        "active": false,
+        "active": true,
         "sire": "リアルスティール",
         "dam": "シャンブルドット"
       },
