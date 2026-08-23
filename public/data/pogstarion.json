@@ -1,5 +1,5 @@
 {
-  "updated": "2026/08/23 10:09",
+  "updated": "2026/08/23 11:39",
   "source": "https://pogstarion.com/newresultlist.do?group_num=0601093409",
   "schedule_results": [
     {
@@ -44,8 +44,8 @@
       "距離": "芝1400",
       "馬名": "サンクサンス",
       "騎手": "松若風馬",
-      "順位": "",
-      "賞金": "",
+      "順位": "3",
+      "賞金": "200",
       "所有者": "ミリオン厩舎",
       "_links": [
         "http://race.netkeiba.com/?pid=race&id=c202607030203&mode=shutuba",
