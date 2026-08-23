@@ -128,20 +128,20 @@
   {
     "horse": "サンクサンス",
     "player": "P04",
-    "title": "イトコに名馬ドウデュース サンクサンスがデビュー勝ちなるか - スポーツブル",
-    "desc": "イトコに名馬ドウデュース サンクサンスがデビュー勝ちなるか&nbsp;&nbsp;スポーツブル",
-    "source": "スポーツブル",
-    "date": "2026/08/20",
-    "url": "https://news.google.com/rss/articles/CBMiR0FVX3lxTE93YTB5SFRBanI2enNDNnl6UzZyWHRvNEptRTRuSmpZV0ZycGJQNS1kUjhnR2VNRXE3OEJMTzRZaGFiazR4VW1Z?oc=5"
-  },
-  {
-    "horse": "サンクサンス",
-    "player": "P04",
     "title": "イトコに名馬ドウデュース サンクサンスがデビュー勝ちなるか - netkeiba",
     "desc": "イトコに名馬ドウデュース サンクサンスがデビュー勝ちなるか&nbsp;&nbsp;netkeiba",
     "source": "netkeiba",
     "date": "2026/08/20",
     "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5KdG9feGIwcG5uZFI0VG1LYjNxUXFmSl9JS09mcGRJcF9GNVhheEd1amlJLVpCLWVoOUl5UXRXZnBGQ1FsUDlKamVjeGp4bFZIeHRvV3hIbnRpQ1U1bDVV?oc=5"
+  },
+  {
+    "horse": "サンクサンス",
+    "player": "P04",
+    "title": "イトコに名馬ドウデュース サンクサンスがデビュー勝ちなるか - スポーツブル",
+    "desc": "イトコに名馬ドウデュース サンクサンスがデビュー勝ちなるか&nbsp;&nbsp;スポーツブル",
+    "source": "スポーツブル",
+    "date": "2026/08/20",
+    "url": "https://news.google.com/rss/articles/CBMiR0FVX3lxTE93YTB5SFRBanI2enNDNnl6UzZyWHRvNEptRTRuSmpZV0ZycGJQNS1kUjhnR2VNRXE3OEJMTzRZaGFiazR4VW1Z?oc=5"
   },
   {
     "horse": "セイルトゥグローリ",
@@ -434,6 +434,15 @@
   {
     "horse": "アトミックリーチ",
     "player": "P02",
+    "title": "【新馬戦】アトミックリーチ ２５年セレクトセール２億８０００万円での取引馬が本領発揮 宮田師「いいものを持っている」 - ライブドアニュース",
+    "desc": "【新馬戦】アトミックリーチ ２５年セレクトセール２億８０００万円での取引馬が本領発揮 宮田師「いいものを持っている」&nbsp;&nbsp;ライブドアニュース",
+    "source": "ライブドアニュース",
+    "date": "2026/08/05",
+    "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE5UNlc5TXV0QmRoT0R6TW9Ybl9PeWJ4ck9hcnVaZXA5M0JpZ0VWUE1nY2hZRWJkLXFCVFJTOE8xQThCQmpoN1B3MmstdUktZlJiTk5KUWV6a2g1aVhxU0E?oc=5"
+  },
+  {
+    "horse": "アトミックリーチ",
+    "player": "P02",
     "title": "【新潟新馬戦】2・8億円馬アトミックリーチ、期待のコントレイル産駒がベール脱ぐ - netkeiba",
     "desc": "【新潟新馬戦】2・8億円馬アトミックリーチ、期待のコントレイル産駒がベール脱ぐ&nbsp;&nbsp;netkeiba",
     "source": "netkeiba",
@@ -567,6 +576,15 @@
     "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5GZWZzcF9mb1Y5UkRCRi1fUEdQeENHa2pRcUxMN3o1N2xuYzJOcXJfa0VkaUdEMU5pYVF0STBUUFRGMkxFOW5rbThzWm1zak1BNUJ3ZVZqT3RidWtGNmcw?oc=5"
   },
   {
+    "horse": "ダノンチャンピオン",
+    "player": "P02",
+    "title": "【中京2R・2歳新馬】ダノンデサイルの弟ダノンチャンピオンは4着 横山武史騎手「背中のよさはありますが...」 - netkeiba",
+    "desc": "【中京2R・2歳新馬】ダノンデサイルの弟ダノンチャンピオンは4着 横山武史騎手「背中のよさはありますが...」&nbsp;&nbsp;netkeiba",
+    "source": "netkeiba",
+    "date": "2026/07/26",
+    "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1ybFJkV2tGQWpZNnBLbDlWZDdwRmttdjA5elhjQlRKT25FZmFUZUphcmQzRWNyMV9HN0RJMl8zNUNUcTN2cEZ6WTkyTVBBVWhhU0Rra1ZiQVg3cEp5V0RJ?oc=5"
+  },
+  {
     "horse": "ヤングリッチ",
     "player": "P02",
     "title": "【ＰＯＧ】フォーエバーヤングの半弟ヤングリッチがゲート試験合格 坂井瑠星騎手「当時のフォーエバーヤングよりしっかりしている」 - デイリースポーツ",
@@ -610,6 +628,15 @@
     "source": "スポーツブル",
     "date": "2026/07/23",
     "url": "https://news.google.com/rss/articles/CBMiR0FVX3lxTE9oYURaeHliZVRXMmU0YkZwZFZZNVRzMjhmeGUzdE1NMy1INnk1cEJFTVNqUVFibUNYYkYtcUw0NzcwajlXMlpv?oc=5"
+  },
+  {
+    "horse": "ホウオウシュウ",
+    "player": "P06",
+    "title": "田中博康厩舎ゆかりの良血 ホウオウシュウがデビュー勝ち狙う（netkeiba） - Yahoo!ニュース",
+    "desc": "田中博康厩舎ゆかりの良血 ホウオウシュウがデビュー勝ち狙う（netkeiba）&nbsp;&nbsp;Yahoo!ニュース",
+    "source": "Yahoo!ニュース",
+    "date": "2026/07/23",
+    "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE91d1pyNjBxQzljQjI1UVlJeVVVbTl2M2xrWVJHZGhUMktTYk5rQ2t2QUo3eUxaUXY1RWdxM0tLSEdZYUlHOWRQQWRmMUtOazQ4TkZMUFpPQjFmdGdnMkdHSDhYLTZZd3JEVXN2WG44SmxQWGJrZE91MVduYm8tRzQ?oc=5"
   },
   {
     "horse": "ホウオウシュウ",
@@ -1136,6 +1163,15 @@
   {
     "horse": "タクティシアン",
     "player": "P07",
+    "title": "【東京4R・新馬戦】1番人気タクティシアンが差し切る ルメール「サリオスの子らしい速い脚」 - スポニチ Sponichi Annex",
+    "desc": "【東京4R・新馬戦】1番人気タクティシアンが差し切る ルメール「サリオスの子らしい速い脚」&nbsp;&nbsp;スポニチ Sponichi Annex",
+    "source": "スポニチ Sponichi Annex",
+    "date": "2026/06/21",
+    "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOSGpxaVNYalAwVmxzUVZBcjJvN0E0UXdSRERjVHluU1NxZWExOHZ5cVAwanBfWGNGaC1MZUdTS3Z3UGlBM1JOS1dUZU94S3l6VHhTMHlDanBiUmJ3dmthcmRvaDVaV1BnY19kOFI5T1BtTEJCYkd1UXE4dTlsVkoyLUtKd1NYNUJxdHdkag?oc=5"
+  },
+  {
+    "horse": "タクティシアン",
+    "player": "P07",
     "title": "【新馬/東京4R】サリオス産駒・タクティシアンが完勝デビューV - keibana.com",
     "desc": "【新馬/東京4R】サリオス産駒・タクティシアンが完勝デビューV&nbsp;&nbsp;keibana.com",
     "source": "keibana.com",
@@ -1154,20 +1190,20 @@
   {
     "horse": "タクティシアン",
     "player": "P07",
-    "title": "【東京4R・新馬戦】1番人気タクティシアンが差し切る ルメール「サリオスの子らしい速い脚」 - スポニチ Sponichi Annex",
-    "desc": "【東京4R・新馬戦】1番人気タクティシアンが差し切る ルメール「サリオスの子らしい速い脚」&nbsp;&nbsp;スポニチ Sponichi Annex",
-    "source": "スポニチ Sponichi Annex",
-    "date": "2026/06/21",
-    "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOSGpxaVNYalAwVmxzUVZBcjJvN0E0UXdSRERjVHluU1NxZWExOHZ5cVAwanBfWGNGaC1MZUdTS3Z3UGlBM1JOS1dUZU94S3l6VHhTMHlDanBiUmJ3dmthcmRvaDVaV1BnY19kOFI5T1BtTEJCYkd1UXE4dTlsVkoyLUtKd1NYNUJxdHdkag?oc=5"
-  },
-  {
-    "horse": "タクティシアン",
-    "player": "P07",
     "title": "またサリオス産駒！タクティシアンＶ　父担当の森一師「どんどん勝ってもらえれば」／新馬戦 - 日刊スポーツ",
     "desc": "またサリオス産駒！タクティシアンＶ　父担当の森一師「どんどん勝ってもらえれば」／新馬戦&nbsp;&nbsp;日刊スポーツ",
     "source": "日刊スポーツ",
     "date": "2026/06/21",
     "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9MVFlXbmYzMzdMQTRONmFmNUpxSjBST2xXQWE1dWFXVzY5YW9JTURBMEpnSktoZmw2ZndxOWN2VndTbl9NbF96TU5yRDNZWS1UaXJkU29sR29PSFJtSnJYVDRuS0RQOHV6WUY2ctIBdEFVX3lxTE4xM0Jja251OWpoNEJ6aE9SU19rZXgxWDZDT2ZVQ2JIclJTMFJqVHRRbnNSUW9ER2xfYzVUTERWdXk3MUVOYmdUdzlhY0t5WXlUY2Utb1ZkZWh5aGFJTnc1SUtORWJPeHlIbjNuTjNnNl9meDBi?oc=5"
+  },
+  {
+    "horse": "タクティシアン",
+    "player": "P07",
+    "title": "【東京4R新馬】1番人気のタクティシアンが1馬身差をつけて初陣V ルメール騎手「サリオスの子だけに重い馬場も合う」 - 中日新聞Web",
+    "desc": "【東京4R新馬】1番人気のタクティシアンが1馬身差をつけて初陣V ルメール騎手「サリオスの子だけに重い馬場も合う」&nbsp;&nbsp;中日新聞Web",
+    "source": "中日新聞Web",
+    "date": "2026/06/21",
+    "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE9heHdRMmZvOWlINVZ5Y0VSNmNvXzFhdGV6LVkzTlZxNFhHN1ZyMzcwRGFVdGtTRFFRY1RmZVVmZlc5VHZsMFA2cEI0TDlYWjNxeDF1Wg?oc=5"
   },
   {
     "horse": "タクティシアン",
