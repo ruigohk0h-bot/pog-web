@@ -1,14 +1,5 @@
 [
   {
-    "horse": "サンクサンス",
-    "player": "P04",
-    "title": "【中京3R新馬戦結果】キズナ産駒ファミーリエが突き抜け快勝",
-    "desc": "23日、中京競馬場3Rで行われた新馬戦(2歳・芝1400m・9頭)は、好位追走から直線で突き抜けた吉村誠之助騎手騎乗の2番人気ファミーリエ(牝2、栗東・清水久詞厩舎)が、7番人気コトテーラー(牝2、栗東・緒方努厩舎)に3馬身差をつけ優勝した。勝ちタイムは1分22秒0(良)。\n\n　さらにハナ差の3着に8番人気サンクサンス(牝2、栗東・小栗実厩舎)が入った。なお、1番人気エイダンバローズ(牡2、栗東・上村洋行厩舎)は4着に、3番人気ス...",
-    "source": "netkeiba",
-    "date": "2026/08/23",
-    "url": "https://news.netkeiba.com/?pid=news_view&no=340465"
-  },
-  {
     "horse": "トゥザファイナル",
     "player": "P04",
     "title": "国枝栄元調教師がヘルパー厩務員として初勝利 「調教師の時とは全然違うよ。ヘルパーやって良かった」 ルメールを背に担当馬トゥザファイナルがＶ 鞍上も「ダービーに行きましょうか（笑）」と上機嫌 - デイリースポーツ",
@@ -43,6 +34,15 @@
     "source": "サンスポ",
     "date": "2026/08/22",
     "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNXzA3QnBWTmN3X2hUVlU4UzlyVXpKRGRvM2c1OTdSNUNGMmlOQ0RHYUtLTHVPRUF4bWRzMU5rcC0ydzZWVzNkUVAxYTl5b1pqNF9hck50anJSMmtpdUdzNHk4TXFydldramJaeFQ5YnUwLXZ2elo5NkpBcHV1VEtWYXVMTzVrdVBkdklKbnpHLVdNOWsyOGNkXzBwWndpQlp2T0RubXhDQ3ZUM0xxcWY0b1lFMA?oc=5"
+  },
+  {
+    "horse": "トゥザファイナル",
+    "player": "P04",
+    "title": "やった！国枝栄“厩務員”が初勝利！調教師引退後に転身、ルメール騎乗のトゥザファイナルがＶ - ２歳馬特集 | 競馬写真ニュース - 日刊スポーツ",
+    "desc": "やった！国枝栄“厩務員”が初勝利！調教師引退後に転身、ルメール騎乗のトゥザファイナルがＶ - ２歳馬特集 | 競馬写真ニュース&nbsp;&nbsp;日刊スポーツ",
+    "source": "日刊スポーツ",
+    "date": "2026/08/22",
+    "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNanc3VTcwb2xvYWYzYmo2eDR3emktZ1hfSk5QSUxJYV9mUEsxbk9EM0RRTUYxYV9idzNKNHVhbDVzX05zbnFYX0dkU2lCRWxIWk0ySUtBS1FlcjcySzBPYWRLdjVoYTZSZUk4aDJiZHdhWkVEaHl6YUQ0SGViVDFleERpTDdaSTNPazdN?oc=5"
   },
   {
     "horse": "トゥザファイナル",
@@ -106,6 +106,15 @@
     "source": "netkeiba",
     "date": "2026/08/22",
     "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFAwMk9MN2dHNWRqMEhUX1d5YU5WdWt1VmxrdzBqVTJfN0JZMWI0NW9yaThlVnI2d1hKVUQtNE9aV2xzcFB5dW1JX1VvWnVsb2I3R0Q5aXE0RnRkMzFKbk12MmdzZFhqdmdUUnM4Z1RnY0ZGR1RjTGfSAXZBVV95cUxQMDJPTDdnRzVkajBIVF9XeWFOVnVrdVZsa3cwalUyXzdCWTFiNDVvcmk4ZVZyNndYSlVELTRPWldsc3BQeXVtSV9Vb1p1bG9iN0dEOWlxNEZ0ZDMxSm5NdjJnc2RYanZnVFJzOGdUZ2NGRkdUY0xn?oc=5"
+  },
+  {
+    "horse": "トゥザファイナル",
+    "player": "P04",
+    "title": "【２２日の注目・札幌１Ｒ】ルメール騎手が２か月ぶりのＪＲＡ復帰戦　国枝厩務員が手がけるトゥザファイナルに騎乗 - Infoseek",
+    "desc": "【２２日の注目・札幌１Ｒ】ルメール騎手が２か月ぶりのＪＲＡ復帰戦　国枝厩務員が手がけるトゥザファイナルに騎乗&nbsp;&nbsp;Infoseek",
+    "source": "Infoseek",
+    "date": "2026/08/21",
+    "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE05RWsyUnlmVXZ1U3ZSMk52dG03YVR3dHZ1cWtCdVRnMlZHaEgyUzZCWVFPa2RjeVJnX2ZqWnJUUVQ3SGhmWVVzeDZ6OUQzZFVqTzZEaW8wR05fcE5uVFZRWHRrTUFvR3F0Mm9qRG9QSTVzOUtJ0gF0QVVfeXFMTTlFazJSeWZVdnVTdlIyTnZ0bTdhVHd0dnVxa0J1VGcyVkdoSDJTNkJZUU9rZGN5UmdfZmpaclRRVDdIaGZZVXN4Nno5RDNkVWpPNkRpbzBHTl9wTm5UVlFYdGtNQW9HcXQyb2pEb1BJNXM5S0k?oc=5"
   },
   {
     "horse": "トゥザファイナル",
@@ -223,6 +232,15 @@
     "source": "中日新聞Web",
     "date": "2026/08/13",
     "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTFBISmM2TGtDdDRENVVNbUM0N0ZEenM2UnBUY3lsQVNBVUJJQ2sycFVBNmxFd2tOc0E2UFR2b0JtRGxIQV9Ib093azBUMDdHV3d5cHV3WA?oc=5"
+  },
+  {
+    "horse": "ヤングリッチ",
+    "player": "P02",
+    "title": "【藤田晋】2024年産所有馬まとめ【ヤングリッチ/マイクストーリー/ギャルズマインド】 Alex Pereira (jmwa6NBtlr) - Mshale",
+    "desc": "【藤田晋】2024年産所有馬まとめ【ヤングリッチ/マイクストーリー/ギャルズマインド】 Alex Pereira (jmwa6NBtlr)&nbsp;&nbsp;Mshale",
+    "source": "Mshale",
+    "date": "2026/08/11",
+    "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5aYWtUSHhvWEF5cUluemxFUUw5eU5rLXF4U2t0eHNDbWh5cE1NMnhlTTNoeG0tMVI1VW9IUEhwTEpZNFJGWC0xQ2ZNMDloMng1WWw4YktmYjY1LU9tVzVmSw?oc=5"
   },
   {
     "horse": "アトミックリーチ",
@@ -425,6 +443,15 @@
   {
     "horse": "アトミックリーチ",
     "player": "P02",
+    "title": "【新馬戦】アトミックリーチ ２５年セレクトセール２億８０００万円での取引馬が本領発揮 宮田師「いいものを持っている」 - ライブドアニュース",
+    "desc": "【新馬戦】アトミックリーチ ２５年セレクトセール２億８０００万円での取引馬が本領発揮 宮田師「いいものを持っている」&nbsp;&nbsp;ライブドアニュース",
+    "source": "ライブドアニュース",
+    "date": "2026/08/05",
+    "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE5UNlc5TXV0QmRoT0R6TW9Ybl9PeWJ4ck9hcnVaZXA5M0JpZ0VWUE1nY2hZRWJkLXFCVFJTOE8xQThCQmpoN1B3MmstdUktZlJiTk5KUWV6a2g1aVhxU0E?oc=5"
+  },
+  {
+    "horse": "アトミックリーチ",
+    "player": "P02",
     "title": "【新潟新馬戦】2・8億円馬アトミックリーチ、期待のコントレイル産駒がベール脱ぐ - netkeiba",
     "desc": "【新潟新馬戦】2・8億円馬アトミックリーチ、期待のコントレイル産駒がベール脱ぐ&nbsp;&nbsp;netkeiba",
     "source": "netkeiba",
@@ -549,6 +576,24 @@
     "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE96YUgyUjMtc2YxMVdxWjhUZUh6R3JMVHpmXzd1cXhUazBhbTV2ZHhPWG9INDRnR3FUOFNQMDB1RUlFUHk5eVdyYTd3aEZKYWlyMmw0YlJCWTZ0RTMzdDZj?oc=5"
   },
   {
+    "horse": "ダノンチャンピオン",
+    "player": "P02",
+    "title": "中京2R新馬戦 1番人気ダノンチャンピオンは4着 横山武「背中の良さはあるんですけど」 - netkeiba",
+    "desc": "中京2R新馬戦 1番人気ダノンチャンピオンは4着 横山武「背中の良さはあるんですけど」&nbsp;&nbsp;netkeiba",
+    "source": "netkeiba",
+    "date": "2026/07/26",
+    "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5GZWZzcF9mb1Y5UkRCRi1fUEdQeENHa2pRcUxMN3o1N2xuYzJOcXJfa0VkaUdEMU5pYVF0STBUUFRGMkxFOW5rbThzWm1zak1BNUJ3ZVZqT3RidWtGNmcw?oc=5"
+  },
+  {
+    "horse": "ダノンチャンピオン",
+    "player": "P02",
+    "title": "【中京2R・2歳新馬】ダノンデサイルの弟ダノンチャンピオンは4着 横山武史騎手「背中のよさはありますが...」 - netkeiba",
+    "desc": "【中京2R・2歳新馬】ダノンデサイルの弟ダノンチャンピオンは4着 横山武史騎手「背中のよさはありますが...」&nbsp;&nbsp;netkeiba",
+    "source": "netkeiba",
+    "date": "2026/07/26",
+    "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1ybFJkV2tGQWpZNnBLbDlWZDdwRmttdjA5elhjQlRKT25FZmFUZUphcmQzRWNyMV9HN0RJMl8zNUNUcTN2cEZ6WTkyTVBBVWhhU0Rra1ZiQVg3cEp5V0RJ?oc=5"
+  },
+  {
     "horse": "ヤングリッチ",
     "player": "P02",
     "title": "【ＰＯＧ】フォーエバーヤングの半弟ヤングリッチがゲート試験合格 坂井瑠星騎手「当時のフォーエバーヤングよりしっかりしている」 - デイリースポーツ",
@@ -569,6 +614,15 @@
   {
     "horse": "ダノンチャンピオン",
     "player": "P02",
+    "title": "【JRA新馬戦】リバティアイランドの半弟ダノンダックス、ダノンデサイルの半弟ダノンチャンピオンなどがデビュー | 競馬ニュース - netkeiba - netkeiba",
+    "desc": "【JRA新馬戦】リバティアイランドの半弟ダノンダックス、ダノンデサイルの半弟ダノンチャンピオンなどがデビュー | 競馬ニュース - netkeiba&nbsp;&nbsp;netkeiba",
+    "source": "netkeiba",
+    "date": "2026/07/23",
+    "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE56OGkzLTJNaktIV2x5UnFGaW10UUxIaW9pb1RCcUZhOFdjdENzWXRPV2Z3RTRzNmVacGREVEJBNTRDMmRtT1hXODdKY2gwWWRIX1pCOHdkNzhvRkQxOW81Rl9BaGxXRnBObndTWWxBSE_SAXZBVV95cUxORXBZZEFTWTB2c2pSdHpMRHhPakxrRkUteG5VcWpPbDZTdFMwbmhIVGNFYkFET081d091TjVoaDRDNXg2ekZLRFo3Nmt6ZEN1SVRBel9hZ19lLWdibzFZVEZmdlJTNEpNLVZoMjUwM0ZiWmNKNXhB?oc=5"
+  },
+  {
+    "horse": "ダノンチャンピオン",
+    "player": "P02",
     "title": "【JRA新馬戦】リバティアイランドの半弟ダノンダックス、ダノンデサイルの半弟ダノンチャンピオンなどがデビュー（netkeiba） - Yahoo!ニュース",
     "desc": "【JRA新馬戦】リバティアイランドの半弟ダノンダックス、ダノンデサイルの半弟ダノンチャンピオンなどがデビュー（netkeiba）&nbsp;&nbsp;Yahoo!ニュース",
     "source": "Yahoo!ニュース",
@@ -583,15 +637,6 @@
     "source": "スポーツブル",
     "date": "2026/07/23",
     "url": "https://news.google.com/rss/articles/CBMiR0FVX3lxTE9oYURaeHliZVRXMmU0YkZwZFZZNVRzMjhmeGUzdE1NMy1INnk1cEJFTVNqUVFibUNYYkYtcUw0NzcwajlXMlpv?oc=5"
-  },
-  {
-    "horse": "ダノンチャンピオン",
-    "player": "P02",
-    "title": "【JRA新馬戦】リバティアイランドの半弟ダノンダックス、ダノンデサイルの半弟ダノンチャンピオンなどがデビュー - netkeiba",
-    "desc": "【JRA新馬戦】リバティアイランドの半弟ダノンダックス、ダノンデサイルの半弟ダノンチャンピオンなどがデビュー&nbsp;&nbsp;netkeiba",
-    "source": "netkeiba",
-    "date": "2026/07/23",
-    "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1UUkE4ZFZmaGRBU0gyRWhsUnZmTERxZGtZTFdITU53RDZVcHc1b0hvaFBxcVB1aHloV3hfX3U1bE5wZS1rQ05IWFdwM1dCcnpzYU9Ia2c2QjRLalRlVlQ0?oc=5"
   },
   {
     "horse": "ホウオウシュウ",
@@ -1618,15 +1663,6 @@
     "source": "netkeiba",
     "date": "2026/06/09",
     "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE00YkRfNHJxdzZhWWpqbE9ia2FDNXBwV1pzWTB5amk0X3NXaC1FUEF6bkVEZXZqQW8xS1pWc3EyYkViRmdTWmg3S2JpUW9jdGpHX0lUUk12ZFVnZDZyLTlJ?oc=5"
-  },
-  {
-    "horse": "ウィンターブリーズ",
-    "player": "P07",
-    "title": "【POG】開幕週から様々な新種牡馬の産駒が登場　ホットロッドチャーリー産駒ウィンターブリーズに大化けの可能性 | 競馬ニュース - netkeiba - netkeiba",
-    "desc": "【POG】開幕週から様々な新種牡馬の産駒が登場　ホットロッドチャーリー産駒ウィンターブリーズに大化けの可能性 | 競馬ニュース - netkeiba&nbsp;&nbsp;netkeiba",
-    "source": "netkeiba",
-    "date": "2026/06/09",
-    "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFA3OFN6NGF1V1Z4SklWdUNqNF9rbHp3Uy1vODhKSUw2ZG96R0ZXMjJmTEVVWnZlY3p6SG53S3AtN2pKd0gwX2JRM0k3YktPUkhJSUpkQk1aSGplRmJSNEpzRWoxeWVrZHo1aTZVajlDeUzSAXZBVV95cUxNYkQ0V0FMd2MwWUhvenR0dmcwVTJXX1V6TFpfRzFMcnpmN21UX2JuNWd2RzZpc01CNUZlS0hrOGt3by0ybjl6TVlTZzlOWEFKYzdVY2V2aFoyUlFPcEhXNnZTRDZDM1RCMEk0Q2tPZUJ4eHFwX0ZR?oc=5"
   },
   {
     "horse": "デミアン",
