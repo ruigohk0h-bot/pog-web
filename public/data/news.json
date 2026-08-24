@@ -78,7 +78,7 @@
     "desc": "国枝栄厩務員が初V「ヘルパーやって良かった」 担当馬トゥザファイナルが未勝利勝ち（写真・画像 1/1）&nbsp;&nbsp;サンスポ",
     "source": "サンスポ",
     "date": "2026/08/22",
-    "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNXzA3QnBWTmN3X2hUVlU4UzlyVXpKRGRvM2c1OTdSNUNGMmlOQ0RHYUtLTHVPRUF4bWRzMU5rcC0ydzZWVzNkUVAxYTl5b1pqNF9hck50anJSMmtpdUdzNHk4TXFydldramJaeFQ5YnUwLXZ2elo5NkpBcHV1VEtWYXVMTzVrdVBkdklKbnpHLVdNOWsyOGNkXzBwWndpQlp2T0RubXhDQ3ZUM0xxcWY0b1lFMA?oc=5"
+    "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPTkktUWFTZk9zaU9ZY2t1WXUwNGk1RjNRZGRCa19aeDhabHA0QmV4MklvaHRuQUxIa0FwRzdQbmVjdE1LX0tES0ttSDYwbmhIMXpmakVocm5Ob183d0tzaXJRVXpZbl9raG80ODBOeURHTmtPZVRPclNNWm5oNHp2RzhLMDVQbnRIRkJ4MDJqdHhpXzIwRWVyb0VDYW5tZW00RnV3V1A5SVRMdTVJX2ItX1hB?oc=5"
   },
   {
     "horse": "トゥザファイナル",
@@ -263,15 +263,6 @@
   {
     "horse": "アトミックリーチ",
     "player": "P02",
-    "title": "2.8億円ホース・アトミックリーチはデビュー4着…藤田晋オーナー所有、馬名は「麻雀のリーチの極限状態」 (2026年8月8日掲載) - ライブドアニュース",
-    "desc": "2.8億円ホース・アトミックリーチはデビュー4着…藤田晋オーナー所有、馬名は「麻雀のリーチの極限状態」 (2026年8月8日掲載)&nbsp;&nbsp;ライブドアニュース",
-    "source": "ライブドアニュース",
-    "date": "2026/08/08",
-    "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9DMmhBNTFaQ041YUdwZW9raFZZS0ZSa2ZXYVJPRUxDcnRVbk9HR2Y1RjBTQk5rRXBIdWNYbEd2MkN0MkRjeElGa2pRRVQxZkZpRHk1RGhPWjJkUG5uYXc?oc=5"
-  },
-  {
-    "horse": "アトミックリーチ",
-    "player": "P02",
     "title": "「一発は難しかったか…」話題の２・８億円馬アトミックリーチ 新潟３Ｒの初陣は馬券圏外の４着に沈む（馬トク報知） - Yahoo!ニュース",
     "desc": "「一発は難しかったか…」話題の２・８億円馬アトミックリーチ 新潟３Ｒの初陣は馬券圏外の４着に沈む（馬トク報知）&nbsp;&nbsp;Yahoo!ニュース",
     "source": "Yahoo!ニュース",
@@ -322,6 +313,15 @@
     "source": "Yahoo!ニュース",
     "date": "2026/08/08",
     "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPSjlkSUNGaEdBNUs3ZXNNZUtSX0ZweHdhNW9mV0FPdVl1ajNQUndwS09PNndaNmpmREZGcXl3VU9oVVY4X1NLNTZQT1kyY2NnWTNxNFFlOUphZ1VWRGItUEtiY1ctQkJGRHRiYzY4Uk5COFZNb2I0T1dFWS0yYWtwa19uNW02LXZTQnZGSXRB?oc=5"
+  },
+  {
+    "horse": "アトミックリーチ",
+    "player": "P02",
+    "title": "2.8億円ホース・アトミックリーチはデビュー4着…藤田晋オーナー所有、馬名は「麻雀のリーチの極限状態」 (2026年8月8日掲載) - ライブドアニュース",
+    "desc": "2.8億円ホース・アトミックリーチはデビュー4着…藤田晋オーナー所有、馬名は「麻雀のリーチの極限状態」 (2026年8月8日掲載)&nbsp;&nbsp;ライブドアニュース",
+    "source": "ライブドアニュース",
+    "date": "2026/08/08",
+    "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9DMmhBNTFaQ041YUdwZW9raFZZS0ZSa2ZXYVJPRUxDcnRVbk9HR2Y1RjBTQk5rRXBIdWNYbEd2MkN0MkRjeElGa2pRRVQxZkZpRHk1RGhPWjJkUG5uYXc?oc=5"
   },
   {
     "horse": "アトミックリーチ",
@@ -551,20 +551,20 @@
   {
     "horse": "ダノンチャンピオン",
     "player": "P02",
-    "title": "ダノンデサイル弟ダノンチャンピオン初陣は４着、横山武史騎手「勝ち上がるには時間が」／新馬戦 - 日刊スポーツ",
-    "desc": "ダノンデサイル弟ダノンチャンピオン初陣は４着、横山武史騎手「勝ち上がるには時間が」／新馬戦&nbsp;&nbsp;日刊スポーツ",
-    "source": "日刊スポーツ",
-    "date": "2026/07/26",
-    "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTFBMN292TWt2MXlwRkZvZk5RTFRtajBCbmxiUWtjRktNRXM1RTdlZ2JoWS1MVmRZVXNxM1ZBZk9fOXlGQUpuY25PRHl1dGNUaFhQVVRvZDYtb0Qybk9kNE5OZ0pabEF5OU5QNUtvX2MxU052T29ENmJLOVZzNkhVQdIBdEFVX3lxTE1Rb3dSUTFaalFqVXFKNjk3MHBWVXdySy1RVEtuY2J5dTVyYWpfNzJlX0NPc2g0SDUybGNjdVdXY0tDUG5LcFpKbHlzcTgwVWZzdVZVOGFVTWZJZjBzNlJKVnd2Y3E4SGI1bjZ2NkJJVlJ6QzdR?oc=5"
-  },
-  {
-    "horse": "ダノンチャンピオン",
-    "player": "P02",
     "title": "【中京２Ｒ・２歳新馬】ダノンデサイルの弟ダノンチャンピオンは４着 横山武史騎手「背中のよさはありますが...」 - スポーツ報知",
     "desc": "【中京２Ｒ・２歳新馬】ダノンデサイルの弟ダノンチャンピオンは４着 横山武史騎手「背中のよさはありますが...」&nbsp;&nbsp;スポーツ報知",
     "source": "スポーツ報知",
     "date": "2026/07/26",
     "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE5EbW9RZkxPbTZRVzFpdGdkNlY2dm16SkZHY0dCeG9mSGJWMTdjTHZLdmZrOGFuQWhaN2EyZmhWQkd5LURYVTFXZHJDd2lIN0lwMkRuNDEzc2xqOTVpN0FqZzJn?oc=5"
+  },
+  {
+    "horse": "ダノンチャンピオン",
+    "player": "P02",
+    "title": "ダノンデサイル弟ダノンチャンピオン初陣は４着、横山武史騎手「勝ち上がるには時間が」／新馬戦 - 日刊スポーツ",
+    "desc": "ダノンデサイル弟ダノンチャンピオン初陣は４着、横山武史騎手「勝ち上がるには時間が」／新馬戦&nbsp;&nbsp;日刊スポーツ",
+    "source": "日刊スポーツ",
+    "date": "2026/07/26",
+    "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPY1pFdzVkdG51LUU4T1kzX2htdU4yNUZ6VU9PZDljMFZyblRtWlhsREFtVXVNRWc2d3FhWXUzUFBxUUdVVTJLNHNVM2d5Ymg5YkpHcm5YWmJaOERXek01VFB4azFBOFl4VTdaTGgzZnBZWWpPVmhydTJjQlUydGNqbFlPU21qeWRvcE8w?oc=5"
   },
   {
     "horse": "ダノンチャンピオン",
@@ -1089,6 +1089,15 @@
     "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE13OFVidW9WLTJ4eDJmV3Z0LUdXSWRvdVBrNHpSeGR2SGVXT0N4Qm94TUxMd25YVzBJaWhBNGdFWDNURkRmMmdVRDVFT2hfOG9ZalNxLUR3R3NSc3ViQk9J?oc=5"
   },
   {
+    "horse": "ゼットターム",
+    "player": "P03",
+    "title": "ゼットタームの写真一覧 - netkeiba",
+    "desc": "ゼットタームの写真一覧&nbsp;&nbsp;netkeiba",
+    "source": "netkeiba",
+    "date": "2026/06/22",
+    "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxONm56UkVNMkE2Q3h3d0Z4aVMwdU9VUHBYZHRoSFEyQ0JBSmFtOExobHJOQ1VZOHRwYVJoMXFkelp0UGZHOE85LWx3azRCdlozOXpvaE5fcHl1cDdvQ0NhR0xGRDMtRlJwQmJ1R2pXUEJzakdneTdUb29zQnRoQXM4eFE0YkhVMER0c1kwWTN5RHRQVzRP?oc=5"
+  },
+  {
     "horse": "タクティシアン",
     "player": "P07",
     "title": "【新馬戦】タクティシアン 人気に応えた ルメール「いい加速をしてくれた」サリオス産駒に今後も期待 - デイリースポーツ",
@@ -1186,15 +1195,6 @@
     "source": "日刊スポーツ",
     "date": "2026/06/21",
     "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9MVFlXbmYzMzdMQTRONmFmNUpxSjBST2xXQWE1dWFXVzY5YW9JTURBMEpnSktoZmw2ZndxOWN2VndTbl9NbF96TU5yRDNZWS1UaXJkU29sR29PSFJtSnJYVDRuS0RQOHV6WUY2ctIBdEFVX3lxTE4xM0Jja251OWpoNEJ6aE9SU19rZXgxWDZDT2ZVQ2JIclJTMFJqVHRRbnNSUW9ER2xfYzVUTERWdXk3MUVOYmdUdzlhY0t5WXlUY2Utb1ZkZWh5aGFJTnc1SUtORWJPeHlIbjNuTjNnNl9meDBi?oc=5"
-  },
-  {
-    "horse": "タクティシアン",
-    "player": "P07",
-    "title": "【東京4R新馬】1番人気のタクティシアンが1馬身差をつけて初陣V ルメール騎手「サリオスの子だけに重い馬場も合う」 - 中日新聞Web",
-    "desc": "【東京4R新馬】1番人気のタクティシアンが1馬身差をつけて初陣V ルメール騎手「サリオスの子だけに重い馬場も合う」&nbsp;&nbsp;中日新聞Web",
-    "source": "中日新聞Web",
-    "date": "2026/06/21",
-    "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE9heHdRMmZvOWlINVZ5Y0VSNmNvXzFhdGV6LVkzTlZxNFhHN1ZyMzcwRGFVdGtTRFFRY1RmZVVmZlc5VHZsMFA2cEI0TDlYWjNxeDF1Wg?oc=5"
   },
   {
     "horse": "タクティシアン",
