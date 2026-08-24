@@ -1,5 +1,5 @@
 {
-  "updated": "2026/08/23 18:55",
+  "updated": "2026/08/24 09:36",
   "source": "https://pogstarion.com/newresultlist.do?group_num=0601093409",
   "schedule_results": [
     {
@@ -54,5 +54,20 @@
       ]
     }
   ],
-  "special_regist": []
+  "special_regist": [
+    {
+      "日時": "08/29",
+      "競走": "札幌10R",
+      "col2": "特別",
+      "レース名": "すずらん賞",
+      "距離": "芝1200",
+      "馬名": "ムーンベリル",
+      "所有者": "長谷部厩舎",
+      "_links": [
+        "http://umachu.com/r/26/01/010203_10.html/",
+        "umaracelist.do?group_num=0601093409&user_num=407304&kettonum=2024106276",
+        "userumalist.do?group_num=0601093409&user_num=407304"
+      ]
+    }
+  ]
 }
