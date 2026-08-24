@@ -35,7 +35,7 @@
       },
       {
         "name": "ミクニブレイブ",
-        "active": true,
+        "active": false,
         "sire": "ナダル",
         "dam": "アンナミルト"
       },
@@ -113,7 +113,7 @@
       },
       {
         "name": "ラキアーヴェ",
-        "active": true,
+        "active": false,
         "sire": "ルヴァンスレーヴ",
         "dam": "クラーベセクレタ"
       },
@@ -509,7 +509,7 @@
       },
       {
         "name": "ケンシロウワールド",
-        "active": false,
+        "active": true,
         "sire": "Violence",
         "dam": "Colby Cakes"
       },
@@ -599,7 +599,7 @@
       },
       {
         "name": "ゼットターム",
-        "active": false,
+        "active": true,
         "sire": "ニューイヤーズデイ",
         "dam": "ファシネートゼット"
       },
