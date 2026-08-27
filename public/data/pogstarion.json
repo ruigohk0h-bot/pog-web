@@ -1,59 +1,7 @@
 {
-  "updated": "2026/08/26 18:33",
+  "updated": "2026/08/27 16:04",
   "source": "https://pogstarion.com/newresultlist.do?group_num=0601093409",
-  "schedule_results": [
-    {
-      "日時": "08/22",
-      "競走": "札幌01R",
-      "col2": "",
-      "レース名": "未勝利",
-      "距離": "ダ1700",
-      "馬名": "トゥザファイナル",
-      "騎手": "ルメール",
-      "順位": "1",
-      "賞金": "590",
-      "所有者": "ミリオン厩舎",
-      "_links": [
-        "http://race.netkeiba.com/?pid=race&id=c202601020101&mode=shutuba",
-        "umaracelist.do?group_num=0601093409&user_num=407309&kettonum=2024106404",
-        "userumalist.do?group_num=0601093409&user_num=407309"
-      ]
-    },
-    {
-      "日時": "08/22",
-      "競走": "新潟02R",
-      "col2": "",
-      "レース名": "未勝利",
-      "距離": "ダ1800",
-      "馬名": "セイルトゥグローリ",
-      "騎手": "田辺裕信",
-      "順位": "11",
-      "賞金": "0",
-      "所有者": "川村厩舎",
-      "_links": [
-        "http://race.netkeiba.com/?pid=race&id=c202604030102&mode=shutuba",
-        "umaracelist.do?group_num=0601093409&user_num=407303&kettonum=2024107327",
-        "userumalist.do?group_num=0601093409&user_num=407303"
-      ]
-    },
-    {
-      "日時": "08/23",
-      "競走": "中京03R",
-      "col2": "",
-      "レース名": "新馬",
-      "距離": "芝1400",
-      "馬名": "サンクサンス",
-      "騎手": "松若風馬",
-      "順位": "3",
-      "賞金": "200",
-      "所有者": "ミリオン厩舎",
-      "_links": [
-        "http://race.netkeiba.com/?pid=race&id=c202607030203&mode=shutuba",
-        "umaracelist.do?group_num=0601093409&user_num=407309&kettonum=2024103392",
-        "userumalist.do?group_num=0601093409&user_num=407309"
-      ]
-    }
-  ],
+  "schedule_results": [],
   "special_regist": [
     {
       "日時": "08/29",
