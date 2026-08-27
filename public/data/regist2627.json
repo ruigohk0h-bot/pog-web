@@ -23,7 +23,7 @@
       },
       {
         "name": "サンクサンス",
-        "active": true,
+        "active": false,
         "sire": "American",
         "dam": "エリーズスマイル"
       },
@@ -71,7 +71,7 @@
       },
       {
         "name": "レガシーマインド",
-        "active": false,
+        "active": true,
         "sire": "マインドユアビスケッツ",
         "dam": "アンデスクイーン"
       },
@@ -167,7 +167,7 @@
       },
       {
         "name": "エピドゥブレ",
-        "active": false,
+        "active": true,
         "sire": "ゴールドドリーム",
         "dam": "クインアマランサス"
       },
@@ -293,7 +293,7 @@
       },
       {
         "name": "ウィンターブリーズ",
-        "active": false,
+        "active": true,
         "sire": "ホットロッドチャーリー",
         "dam": "アイスパステル"
       },
@@ -311,7 +311,7 @@
       },
       {
         "name": "ソルテヴェローチェ",
-        "active": false,
+        "active": true,
         "sire": "マテラスカイ",
         "dam": "ミニーアイル"
       },
@@ -611,7 +611,7 @@
       },
       {
         "name": "オールベット",
-        "active": false,
+        "active": true,
         "sire": "キズナ",
         "dam": "エスティロタレントーソ"
       },
