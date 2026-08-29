@@ -1,5 +1,5 @@
 {
-  "updated": "2026/08/29 14:30",
+  "updated": "2026/08/29 20:48",
   "source": "https://pogstarion.com/newresultlist.do?group_num=0601093409",
   "schedule_results": [
     {
@@ -27,8 +27,8 @@
       "距離": "芝1200",
       "馬名": "ムーンベリル",
       "騎手": "北村友一",
-      "順位": "",
-      "賞金": "",
+      "順位": "9",
+      "賞金": "0",
       "所有者": "長谷部厩舎",
       "_links": [
         "http://race.netkeiba.com/?pid=race&id=c202601020310&mode=shutuba",

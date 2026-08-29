@@ -2,6 +2,22 @@
   {
     "date": "08/29",
     "venue": "札幌",
+    "race": "すずらん賞",
+    "course": "芝1200",
+    "surface": "turf",
+    "dist": 1200,
+    "horse": "ムーンベリル",
+    "player": "P03",
+    "order": 9,
+    "grade": null,
+    "local": false,
+    "rawPt": 0,
+    "turfPt": 0,
+    "_ts": "08/29"
+  },
+  {
+    "date": "08/29",
+    "venue": "札幌",
     "race": "新馬",
     "course": "ダ1700",
     "surface": "dirt",
