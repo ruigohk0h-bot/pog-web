@@ -257,7 +257,7 @@
       },
       {
         "name": "セイルトゥグローリ",
-        "active": true,
+        "active": false,
         "sire": "エフフォーリア",
         "dam": "セイリングホーム"
       },
@@ -527,7 +527,7 @@
       },
       {
         "name": "オメガマサヤ",
-        "active": false,
+        "active": true,
         "sire": "オメガパフューム",
         "dam": "スターズバース"
       },
