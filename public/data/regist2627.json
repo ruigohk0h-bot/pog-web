@@ -17,13 +17,13 @@
     "horses": [
       {
         "name": "トゥザファイナル",
-        "active": true,
+        "active": false,
         "sire": "ナダル",
         "dam": "スパークオンアイス"
       },
       {
         "name": "レッドマウロア",
-        "active": true,
+        "active": false,
         "sire": "クリソベリル",
         "dam": "レッドアネラ"
       },
@@ -119,7 +119,7 @@
       },
       {
         "name": "スターフラッシュ",
-        "active": false,
+        "active": true,
         "sire": "Yaupon",
         "dam": "Shanghai Starlet"
       },
@@ -137,7 +137,7 @@
       },
       {
         "name": "レッジェランツァ",
-        "active": false,
+        "active": true,
         "sire": "シスキン",
         "dam": "エレヴァテッツァ"
       },
@@ -377,7 +377,7 @@
     "horses": [
       {
         "name": "ウラノグラフィア",
-        "active": true,
+        "active": false,
         "sire": "ナダル",
         "dam": "リュラ"
       },
@@ -617,7 +617,7 @@
       },
       {
         "name": "モナークミニスター",
-        "active": true,
+        "active": false,
         "sire": "シニスターミニスター",
         "dam": "スズカモナミ"
       },
