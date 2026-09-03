@@ -2149,7 +2149,8 @@ function Season2627Screen() {
 const BANZUKE_2YO = {
   title:    "ダート二歳番付",
   subtitle: "2026年産（2歳）ダートホース番付　〜開幕号〜",
-  updated:  "2026年7月",
+  updated:  "2026年9月",
+  version:  "2026-09-03", // 更新のたびに日付を変更するとバナーで再通知される
   note:     "netkeiba「2歳ダートタイム指数ランキング」を基に砂遊び編集部が番付を作成",
   rows: [
     { rank:"横綱", nth:"東", name:"レガメデルヴェント", sex:"牡", sire:"ルヴァンスレーヴ", stable:"美浦・伊坂重信", nkId:"2024106872", move:"☆",
@@ -3575,6 +3576,7 @@ export default function App() {
 
   const switchTab = (t) => {
     sessionStorage.setItem("pog_tab", t);
+    if (t === "banzuke") localStorage.setItem("pog_banzuke_seen", BANZUKE_2YO.version); // 番付を開いたら既読化
     setTab(t); setSPId(null); setSHorse(null); setSHallP(null);
   };
 
@@ -3654,9 +3656,15 @@ export default function App() {
   })();
 
   const cornerPromo = "🏅 新コーナー「ダート二歳番付」登場！今年の2歳ダート注目馬を番付でチェック🐎　種牡馬コーナーも好評公開中📖";
-  const telopText = recentWinners.length > 0
-    ? `🎉 祝・勝利！ ${recentWinners.join("・")} が勝ち上がり！おめでとうございます🏆　　${cornerPromo}`
-    : cornerPromo;
+  // 番付が更新されたら、見ていない間だけテロップで通知（見たらタブ切り替え時に既読化）
+  const banzukeUpdated = typeof localStorage !== "undefined" && localStorage.getItem("pog_banzuke_seen") !== BANZUKE_2YO.version;
+  const banzukeMsg = "🏅 番付が更新されました！最新の顔ぶれをチェック👀";
+  const telopParts = [
+    banzukeUpdated ? banzukeMsg : null,
+    recentWinners.length > 0 ? `🎉 祝・勝利！ ${recentWinners.join("・")} が勝ち上がり！おめでとうございます🏆` : null,
+    cornerPromo,
+  ].filter(Boolean);
+  const telopText = telopParts.join("　　");
 
   const navItems = [
     { key:"ranking",  label:"順位",   icon:"🏆" },
