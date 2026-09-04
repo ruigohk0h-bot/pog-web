@@ -49,9 +49,34 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add public/data/results.json public/data/upcoming.json public/data/kettonums.json public/data/news.json public/data/updated.json public/data/pogstarion.json public/data/regist2627.json kettonum_cache.json src/App.jsx
-          git diff --staged --quiet || git commit -m "自動更新: 最新レース結果 $(date '+%Y/%m/%d %H:%M')"
-          git stash || true
-          git pull --rebase origin main
-          git stash pop || true
+          DATA_FILES="public/data/results.json public/data/upcoming.json public/data/kettonums.json public/data/news.json public/data/updated.json public/data/pogstarion.json public/data/regist2627.json kettonum_cache.json"
+          git add $DATA_FILES src/App.jsx
+          if git diff --staged --quiet; then
+            echo "変更なし。終了します。"
+            exit 0
+          fi
+          git commit -m "自動更新: 最新レース結果 $(date '+%Y/%m/%d %H:%M')"
+
+          # 実行時間が長引き他の実行と競合した場合、自動生成データファイルは
+          # 「今回スクレイピングした新しい内容」を優先してrebase衝突を自動解決する。
+          success=0
+          for i in 1 2 3; do
+            if git pull --rebase origin main; then
+              success=1
+              break
+            fi
+            echo "rebase衝突を検出（試行 $i）。自動生成データは新しい内容を優先して解決します。"
+            git checkout --theirs $DATA_FILES 2>/dev/null || true
+            git add $DATA_FILES
+            if git rebase --continue --no-edit; then
+              success=1
+              break
+            fi
+            git rebase --abort || true
+          done
+
+          if [ "$success" != "1" ]; then
+            echo "::error::rebaseに失敗しました。手動確認が必要です。"
+            exit 1
+          fi
           git push

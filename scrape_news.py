@@ -426,6 +426,24 @@ def main():
     out_dir = os.path.join(os.path.dirname(__file__), "public", "data")
     os.makedirs(out_dir, exist_ok=True)
     out_path = os.path.join(out_dir, "news.json")
+
+    # Google News側の一時障害(503連発)などで取得件数が極端に少ない場合、
+    # 既存のnews.jsonを空/激減した内容で上書きしてしまわないようガードする。
+    # （前回件数の1/5未満、かつ絶対数も少なければ「取得失敗」とみなしスキップ）
+    existing_count = 0
+    if os.path.exists(out_path):
+        try:
+            with open(out_path, encoding="utf-8") as f:
+                existing = json.load(f)
+            existing_count = len(existing) if isinstance(existing, list) else len(existing.get("news", []))
+        except Exception:
+            existing_count = 0
+
+    if existing_count >= 20 and len(unique_news) < max(5, existing_count // 5):
+        print(f"\n⚠️ 取得件数が異常に少ない（{len(unique_news)}件 / 前回{existing_count}件）ため、"
+              f"上流障害の疑いがあり保存をスキップして既存のnews.jsonを維持します。", flush=True)
+        return
+
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(unique_news, f, ensure_ascii=False, indent=2)
 
