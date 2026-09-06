@@ -1,5 +1,21 @@
 [
   {
+    "date": "09/06",
+    "venue": "中山",
+    "race": "新馬",
+    "course": "ダ1800",
+    "surface": "dirt",
+    "dist": 1800,
+    "horse": "ハーモニープルーフ",
+    "player": "P02",
+    "order": 11,
+    "grade": null,
+    "local": false,
+    "rawPt": 0,
+    "turfPt": 0,
+    "_ts": "09/06"
+  },
+  {
     "date": "09/05",
     "venue": "中山",
     "race": "新馬",

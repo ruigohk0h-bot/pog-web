@@ -1,5 +1,5 @@
 {
-  "updated": "2026/09/06 11:47",
+  "updated": "2026/09/06 16:21",
   "source": "https://pogstarion.com/newresultlist.do?group_num=0601093409",
   "schedule_results": [
     {
@@ -44,8 +44,8 @@
       "距離": "ダ1800",
       "馬名": "ハーモニープルーフ",
       "騎手": "ルメール",
-      "順位": "",
-      "賞金": "",
+      "順位": "11",
+      "賞金": "0",
       "所有者": "川村厩舎",
       "_links": [
         "http://race.netkeiba.com/?pid=race&id=c202606040206&mode=shutuba",
