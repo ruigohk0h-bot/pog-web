@@ -77,8 +77,8 @@
       },
       {
         "name": null,
-        "active": false,
-        "sire": "母ラタンドレス",
+        "active": true,
+        "sire": "オメガパフューム",
         "dam": "ラタンドレス"
       },
       {
@@ -227,7 +227,7 @@
       },
       {
         "name": "ギルデッドグロス",
-        "active": false,
+        "active": true,
         "sire": "クリソベリル",
         "dam": "ギルデッドミラー"
       },
@@ -305,8 +305,8 @@
       },
       {
         "name": null,
-        "active": false,
-        "sire": "母ブランクチェック",
+        "active": true,
+        "sire": "ディスクリートキャット",
         "dam": "ブランクチェック"
       },
       {
@@ -407,7 +407,7 @@
       },
       {
         "name": "オールシティキング",
-        "active": true,
+        "active": false,
         "sire": "Flightline",
         "dam": "セルフレスリー"
       },
@@ -443,7 +443,7 @@
       },
       {
         "name": "ホーフアイゼン",
-        "active": false,
+        "active": true,
         "sire": "American",
         "dam": "Chain of Love"
       }
@@ -497,8 +497,8 @@
       },
       {
         "name": null,
-        "active": false,
-        "sire": "母アーモニーズエンジェル",
+        "active": true,
+        "sire": "Gun",
         "dam": "アーモニーズエンジェル"
       },
       {
@@ -557,7 +557,7 @@
     "horses": [
       {
         "name": "ムーンベリル",
-        "active": true,
+        "active": false,
         "sire": "クリソベリル",
         "dam": "クインズムーン"
       },
