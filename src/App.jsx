@@ -60,7 +60,7 @@ const PLAYERS_2627 = [
       { no:8,  name:"サンクサンス",        sire:"American Pharoah",      dam:"エリーズスマイル" },
       { no:9,  name:"レッドマウロア",     sire:"クリソベリル",          dam:"レッドアネラ" },
       { no:10, name:"レガシーマインド", sire:"マインドユアビスケッツ", dam:"アンデスクイーン" },
-      { no:11, name:null,               dam:"ラタンドレス" },
+      { no:11, name:"ニーケーセナ", sire:"オメガパフューム", dam:"ラタンドレス" },
       { no:12, name:"ヨハンナ",            sire:"クリソベリル",          dam:"ロッテンマイヤー" },
     ],
   },
@@ -101,7 +101,7 @@ const PLAYERS_2627 = [
   {
     id:"P07", name:"成田厩舎", emoji:"🎯",
     horses:[
-      { no:1,  name:null,               dam:"ブランクチェック" },
+      { no:1,  name:"ディスクリートサム", sire:"ディスクリートキャット", dam:"ブランクチェック" },
       { no:2,  name:"ウィンターブリーズ", sire:"ホットロッドチャーリー", dam:"アイスパステル" },
       { no:3,  name:null,               dam:"プリディカメント" },
       { no:4,  name:"ソルテヴェローチェ", sire:"マテラスカイ",          dam:"ミニーアイル" },
@@ -137,7 +137,7 @@ const PLAYERS_2627 = [
     horses:[
       { no:1,  name:null,               dam:"コンパルティシオン" },
       { no:2,  name:"ディーヴァレギオン", sire:"ナダル",               dam:"シャドウディーヴァ" },
-      { no:3,  name:null,               dam:"アーモニーズエンジェル" },
+      { no:3,  name:"ハイファイネスト", sire:"Gun", dam:"アーモニーズエンジェル" },
       { no:4,  name:"ヴィルダースヴィル", sire:"ドレフォン",           dam:"セラドン" },
       { no:5,  name:"ディルイーヤ",       sire:"コントレイル",         dam:"メメントモリ" },
       { no:6,  name:"ブックオブケルズ",   sire:"リアルスティール",     dam:"シャンブルドット" },
