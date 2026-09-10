@@ -11,9 +11,9 @@
   {
     "horse": "エピドゥブレ",
     "player": "P01",
-    "title": "【新馬戦スペシャリストくりーく厳選･今週の注目新馬】エピドゥブレなど今週デビュー予定の5頭をチョイス - 競馬予想のウマニティ",
-    "desc": "【新馬戦スペシャリストくりーく厳選･今週の注目新馬】エピドゥブレなど今週デビュー予定の5頭をチョイス&nbsp;&nbsp;競馬予想のウマニティ",
-    "source": "競馬予想のウマニティ",
+    "title": "【新馬戦スペシャリストくりーく厳選･今週の注目新馬】エピドゥブレなど今週デビュー予定の5頭をチョイス - umanity.jp",
+    "desc": "【新馬戦スペシャリストくりーく厳選･今週の注目新馬】エピドゥブレなど今週デビュー予定の5頭をチョイス&nbsp;&nbsp;umanity.jp",
+    "source": "umanity.jp",
     "date": "2026/09/09",
     "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE5SY0VmRF9zMTFYYklUbnl0UXh4U29udVRMLU5HTWdKVVRSTFJyelphNzNRbWNNTHZ3bUh6VWhYeHY5YmplcllzX3NpS0g0SEJfdnVtUEpJT0wxcXZQdDBTZG1hYXlZb2R0?oc=5"
   },
@@ -160,15 +160,6 @@
     "source": "ライブドアニュース",
     "date": "2026/09/05",
     "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE90TGNIdGFURTZ1cHoyeHBBRDltVklJN1VKNGlGY3dGRnItQXdDRm5EZG8wV0pwem1wWlFLZnRTUFlYdV9zWjVVcDRWWXFkS0Rrd3JxUDFNLW5LeWdNZUE?oc=5"
-  },
-  {
-    "horse": "ブックオブケルズ",
-    "player": "P05",
-    "title": "ブックオブケルズ掲示板 通報フォーム - netkeiba",
-    "desc": "ブックオブケルズ掲示板 通報フォーム&nbsp;&nbsp;netkeiba",
-    "source": "netkeiba",
-    "date": "2026/09/05",
-    "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE90TkdtVzB1U1pPd1BfTktud3ZIVzFBMWViVEZpZUtxajhXbDU1Mnd6MnV3YU8xT3FKTGlQQ1h1U3hyWUdOR1dVQTVSeS1xMmV6OVk1cnl4N0pwS3JxcWQtRklPM2phUnpVQWhz?oc=5"
   },
   {
     "horse": "ヴェトロテンペスタ",
@@ -578,20 +569,20 @@
   {
     "horse": "トゥザファイナル",
     "player": "P04",
-    "title": "国枝栄厩務員が初V「ヘルパーやって良かった」 担当馬トゥザファイナルが未勝利勝ち - サンスポ",
-    "desc": "国枝栄厩務員が初V「ヘルパーやって良かった」 担当馬トゥザファイナルが未勝利勝ち&nbsp;&nbsp;サンスポ",
-    "source": "サンスポ",
-    "date": "2026/08/22",
-    "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQdDNnWVlXbkxZaThYU3FWSFhJTEFZWlVTNU92WEczUV9EV0Y5cE9SeE53cEZpN1J0Z2wxc1NsQTBRbU9HcXZPREJRYnpOcW94cU5CLW5iSE4xcldWTTAyQ29wLTdWVTVFOVJlZXhHLXRLWWhXUWJpcGhIeUdib1lXMC1hWWRYTDA?oc=5"
-  },
-  {
-    "horse": "トゥザファイナル",
-    "player": "P04",
     "title": "【22日の注目・札幌1R】ルメール騎手が2か月ぶりのJRA復帰戦 国枝厩務員が手がけるトゥザファイナルに騎乗 - netkeiba",
     "desc": "【22日の注目・札幌1R】ルメール騎手が2か月ぶりのJRA復帰戦 国枝厩務員が手がけるトゥザファイナルに騎乗&nbsp;&nbsp;netkeiba",
     "source": "netkeiba",
     "date": "2026/08/22",
     "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBVa0Z6VWl0RHRsVGd2X1Y2b1J1WkxGcHg4ZGRuZE0xYVlZdWFVWE9TenBTZmFKUzlial9QdEZzSktrNnEyVWdISkFpejQxa3F1dUtEanA4NVpOLVNibjBn?oc=5"
+  },
+  {
+    "horse": "トゥザファイナル",
+    "player": "P04",
+    "title": "国枝栄厩務員が初V「ヘルパーやって良かった」 担当馬トゥザファイナルが未勝利勝ち - サンスポ",
+    "desc": "国枝栄厩務員が初V「ヘルパーやって良かった」 担当馬トゥザファイナルが未勝利勝ち&nbsp;&nbsp;サンスポ",
+    "source": "サンスポ",
+    "date": "2026/08/22",
+    "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQdDNnWVlXbkxZaThYU3FWSFhJTEFZWlVTNU92WEczUV9EV0Y5cE9SeE53cEZpN1J0Z2wxc1NsQTBRbU9HcXZPREJRYnpOcW94cU5CLW5iSE4xcldWTTAyQ29wLTdWVTVFOVJlZXhHLXRLWWhXUWJpcGhIeUdib1lXMC1hWWRYTDA?oc=5"
   },
   {
     "horse": "トゥザファイナル",
@@ -655,6 +646,15 @@
     "source": "netkeiba",
     "date": "2026/08/16",
     "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1NME0zRWRNeWlpdnh5Y2wtdHZZQ0JEUjBSeGZOLW5rdVhlWjJzVFZ1ZHY4UnJGMkp6VGhuSHpqRHBGWW00MzBUYlNYbUR6dkxyY0RzeDROYlZfd0RZV0Vj?oc=5"
+  },
+  {
+    "horse": "ソルテヴェローチェ",
+    "player": "P07",
+    "title": "【今日の注目新馬】ソルテヴェローチェは全姉が重賞勝ち馬 上村調教師「走らせるとシャンと進んでいく」／中京2R - サンスポ",
+    "desc": "【今日の注目新馬】ソルテヴェローチェは全姉が重賞勝ち馬 上村調教師「走らせるとシャンと進んでいく」／中京2R&nbsp;&nbsp;サンスポ",
+    "source": "サンスポ",
+    "date": "2026/08/16",
+    "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOTnNmalRvY21ESk40MzlYQlFDa1F4SUVOU3l5LXFFSWNFSE8za1lYY3Z5a25keXVSSVd3aVJQdVZ2RXJWRzl1TGVmb3Zuc1pLZFhITjJCMFVxOExaSTd2NGNrcVp1ZmFaU2t6X3lGUVhVWXdfYVd2SHRzM182eU5uTUh5QjNTTTQ?oc=5"
   },
   {
     "horse": "ウラノグラフィア",
@@ -1406,9 +1406,9 @@
   {
     "horse": "ディーヴァレギオン",
     "player": "P05",
-    "title": "【2歳次走報】ディーヴァレギオンは新潟未勝利へ - 競馬予想のウマニティ",
-    "desc": "【2歳次走報】ディーヴァレギオンは新潟未勝利へ&nbsp;&nbsp;競馬予想のウマニティ",
-    "source": "競馬予想のウマニティ",
+    "title": "【2歳次走報】ディーヴァレギオンは新潟未勝利へ - umanity.jp",
+    "desc": "【2歳次走報】ディーヴァレギオンは新潟未勝利へ&nbsp;&nbsp;umanity.jp",
+    "source": "umanity.jp",
     "date": "2026/07/02",
     "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE1aUDZtcnhxcWRhRjNIN1RRSjBnNUFSaGd6eVVlZFcyR1pIX1ZDT2RhOUt0VHo4WkEwV2lQTTNENVBmSXVnNDFPWWRYZlpNTVM5ZVlFaTdsRzdQcGRqc2hXOVhOcWRGQTRE?oc=5"
   },
@@ -1730,9 +1730,9 @@
   {
     "horse": "エスクアドラ",
     "player": "P01",
-    "title": "【POG調査隊】エスクアドラは7月5日の福島芝2000メートル戦が目標 - 競馬予想のウマニティ",
-    "desc": "【POG調査隊】エスクアドラは7月5日の福島芝2000メートル戦が目標&nbsp;&nbsp;競馬予想のウマニティ",
-    "source": "競馬予想のウマニティ",
+    "title": "【POG調査隊】エスクアドラは7月5日の福島芝2000メートル戦が目標 - umanity.jp",
+    "desc": "【POG調査隊】エスクアドラは7月5日の福島芝2000メートル戦が目標&nbsp;&nbsp;umanity.jp",
+    "source": "umanity.jp",
     "date": "2026/06/17",
     "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE9icW5ydkFGVDBiUm1qZWsxd0NzUkpPOW1LU19qMTVkc09ZTTZIdHhaVzdVSmlXLXJOTXNxWlpaSzZfV3ZVeHg4QWsxQ2owaHBOX3pZU0R5VGRFMXZtV0ExNUZ4MUVzcjhJ?oc=5"
   },
@@ -1874,9 +1874,9 @@
   {
     "horse": "デミアン",
     "player": "P02",
-    "title": "【2歳新馬・東京6R】デミアンはフライトライン産駒の世界初V！ 海外ファンも祝福「何て美しい馬なんだ！」 - 競馬予想のウマニティ",
-    "desc": "【2歳新馬・東京6R】デミアンはフライトライン産駒の世界初V！ 海外ファンも祝福「何て美しい馬なんだ！」&nbsp;&nbsp;競馬予想のウマニティ",
-    "source": "競馬予想のウマニティ",
+    "title": "【2歳新馬・東京6R】デミアンはフライトライン産駒の世界初V！ 海外ファンも祝福「何て美しい馬なんだ！」 - umanity.jp",
+    "desc": "【2歳新馬・東京6R】デミアンはフライトライン産駒の世界初V！ 海外ファンも祝福「何て美しい馬なんだ！」&nbsp;&nbsp;umanity.jp",
+    "source": "umanity.jp",
     "date": "2026/06/13",
     "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE1DNnNlbXJ6dlFJbHdSeHBQUGp5MVB6aWJYZEM0X0lHUGkyU2hyN1NXNjVvS1VuYjR3MVFSWTJ5OHpxR2p6U2J2R1VaaUZhM3RRSUs1UV9vN25OMldPREVEd195ZlAtVmFZ?oc=5"
   },
