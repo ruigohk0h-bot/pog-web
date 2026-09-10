@@ -131,7 +131,7 @@
       },
       {
         "name": "ヴェルバーニア",
-        "active": false,
+        "active": true,
         "sire": "キタサンブラック",
         "dam": "アドマイヤローザ"
       },
@@ -143,7 +143,7 @@
       },
       {
         "name": "コックスコーム",
-        "active": false,
+        "active": true,
         "sire": "ナダル",
         "dam": "スーブレット"
       },
@@ -197,7 +197,7 @@
     "horses": [
       {
         "name": "デミアン",
-        "active": false,
+        "active": true,
         "sire": "Flightline",
         "dam": "Mira Alta"
       },
@@ -383,7 +383,7 @@
       },
       {
         "name": "ヴェトロテンペスタ",
-        "active": true,
+        "active": false,
         "sire": "コントレイル",
         "dam": "シャンパンエニワン"
       },
