@@ -1,5 +1,5 @@
 {
-  "updated": "2026/09/13 17:08",
+  "updated": "2026/09/13 22:19",
   "source": "https://pogstarion.com/newresultlist.do?group_num=0601093409",
   "schedule_results": [
     {
@@ -36,5 +36,20 @@
       ]
     }
   ],
-  "special_regist": []
+  "special_regist": [
+    {
+      "日時": "09/19",
+      "競走": "阪神09R",
+      "col2": "特別",
+      "レース名": "野路菊ステークス",
+      "距離": "芝1600",
+      "馬名": "ケンシロウワールド",
+      "所有者": "田崎厩舎",
+      "_links": [
+        "http://umachu.com/r/26/09/090405_09.html/",
+        "umaracelist.do?group_num=0601093409&user_num=407307&kettonum=2024108272",
+        "userumalist.do?group_num=0601093409&user_num=407307"
+      ]
+    }
+  ]
 }
