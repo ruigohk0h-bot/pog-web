@@ -23,7 +23,7 @@
       },
       {
         "name": "レッドマウロア",
-        "active": false,
+        "active": true,
         "sire": "クリソベリル",
         "dam": "レッドアネラ"
       },
@@ -59,8 +59,8 @@
       },
       {
         "name": null,
-        "active": false,
-        "sire": "母Stellar",
+        "active": true,
+        "sire": "Gun",
         "dam": "Stellar Wind"
       },
       {
@@ -155,7 +155,7 @@
       },
       {
         "name": "ミシェルバローズ",
-        "active": true,
+        "active": false,
         "sire": "ナダル",
         "dam": "メリッサーニ"
       },
@@ -251,8 +251,8 @@
       },
       {
         "name": null,
-        "active": false,
-        "sire": "母ナターレ",
+        "active": true,
+        "sire": "ドレフォン",
         "dam": "ナターレ"
       },
       {
@@ -263,7 +263,7 @@
       },
       {
         "name": "ハーモニープルーフ",
-        "active": true,
+        "active": false,
         "sire": "ナダル",
         "dam": "ゴールデンプルーフ"
       }
