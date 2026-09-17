@@ -53,7 +53,7 @@
       },
       {
         "name": "ルヴァンアレー",
-        "active": false,
+        "active": true,
         "sire": "ルヴァンスレーヴ",
         "dam": "ラテュロス"
       },
@@ -605,7 +605,7 @@
       },
       {
         "name": "エクレアカミング",
-        "active": false,
+        "active": true,
         "sire": "ドレフォン",
         "dam": "エクレアサンライズ"
       },
