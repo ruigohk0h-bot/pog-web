@@ -2,6 +2,22 @@
   {
     "date": "09/19",
     "venue": "阪神",
+    "race": "新馬",
+    "course": "ダ1800",
+    "surface": "dirt",
+    "dist": 1800,
+    "horse": "アンドレバローズ",
+    "player": "P07",
+    "order": 1,
+    "grade": null,
+    "local": false,
+    "rawPt": 780,
+    "turfPt": 0,
+    "_ts": "09/19"
+  },
+  {
+    "date": "09/19",
+    "venue": "阪神",
     "race": "未勝利",
     "course": "ダ1800",
     "surface": "dirt",

@@ -1,5 +1,5 @@
 {
-  "updated": "2026/09/19 12:01",
+  "updated": "2026/09/19 16:57",
   "source": "https://pogstarion.com/newresultlist.do?group_num=0601093409",
   "schedule_results": [
     {
@@ -43,8 +43,8 @@
       "距離": "ダ1800",
       "馬名": "アンドレバローズ",
       "騎手": "岩田望来",
-      "順位": "",
-      "賞金": "",
+      "順位": "1",
+      "賞金": "780",
       "所有者": "成田厩舎",
       "_links": [
         "http://race.netkeiba.com/?pid=race&id=c202609040506&mode=shutuba",
