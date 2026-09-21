@@ -1,5 +1,5 @@
 {
-  "updated": "2026/09/21 11:11",
+  "updated": "2026/09/21 12:07",
   "source": "https://pogstarion.com/newresultlist.do?group_num=0601093409",
   "schedule_results": [
     {
@@ -110,8 +110,8 @@
       "距離": "芝1200",
       "馬名": "ケンシロウワールド",
       "騎手": "和田陽希",
-      "順位": "",
-      "賞金": "",
+      "順位": "13",
+      "賞金": "0",
       "所有者": "田崎厩舎",
       "_links": [
         "http://race.netkeiba.com/?pid=race&id=c202609040703&mode=shutuba",
