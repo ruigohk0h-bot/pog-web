@@ -153,7 +153,7 @@ const PLAYERS_2627 = [
     id:"P03", name:"長谷部厩舎", emoji:"🏆",
     horses:[
       { no:1,  name:"クロダテ",           sire:"キタサンブラック",    dam:"ファッショニスタ" },
-      { no:2,  name:null,               dam:"オムニプレゼンス" },
+      { no:2,  name:"ライデン", sire:"サンダースノー", dam:"オムニプレゼンス" },
       { no:3,  name:"ツキノエ",           sire:"シスターミニスター",  dam:"メイショウトモシビ" },
       { no:4,  name:"マーゴットセレッソ", sire:"ニューイヤーズデイ", dam:"サリネロ" },
       { no:5,  name:null,               dam:"カラフルデイズ" },
