@@ -47,13 +47,13 @@
       },
       {
         "name": "ヘイヴァイタヒチ",
-        "active": false,
+        "active": true,
         "sire": "ナダル",
         "dam": "タヒチアンダンス"
       },
       {
         "name": "ルヴァンアレー",
-        "active": true,
+        "active": false,
         "sire": "ルヴァンスレーヴ",
         "dam": "ラテュロス"
       },
@@ -71,13 +71,13 @@
       },
       {
         "name": "レガシーマインド",
-        "active": true,
+        "active": false,
         "sire": "マインドユアビスケッツ",
         "dam": "アンデスクイーン"
       },
       {
         "name": "ニーケーセナ",
-        "active": true,
+        "active": false,
         "sire": "オメガパフューム",
         "dam": "ラタンドレス"
       },
@@ -131,7 +131,7 @@
       },
       {
         "name": "コナパームス",
-        "active": false,
+        "active": true,
         "sire": "アドマイヤマーズ",
         "dam": "コナブリュワーズ"
       },
@@ -209,7 +209,7 @@
       },
       {
         "name": "ダノンチャンピオン",
-        "active": false,
+        "active": true,
         "sire": "ホットロッドチャーリー",
         "dam": "トップデサイル"
       },
@@ -233,7 +233,7 @@
       },
       {
         "name": "ヤングリッチ",
-        "active": false,
+        "active": true,
         "sire": "レイデオロ",
         "dam": "フォエヴァーダーリング"
       },
@@ -509,7 +509,7 @@
       },
       {
         "name": "ケンシロウワールド",
-        "active": true,
+        "active": false,
         "sire": "Violence",
         "dam": "Colby Cakes"
       },
