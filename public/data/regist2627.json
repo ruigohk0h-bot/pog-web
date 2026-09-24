@@ -569,7 +569,11 @@
       },
       {
         "name": "ライデン",
+<<<<<<< Updated upstream
         "active": true,
+=======
+        "active": false,
+>>>>>>> Stashed changes
         "sire": "サンダースノー",
         "dam": "オムニプレゼンス"
       },
