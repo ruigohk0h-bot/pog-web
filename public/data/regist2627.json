@@ -569,7 +569,7 @@
       },
       {
         "name": "ライデン",
-        "active": false,
+        "active": true,
         "sire": "サンダースノー",
         "dam": "オムニプレゼンス"
       },
