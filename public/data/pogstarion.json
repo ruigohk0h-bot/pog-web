@@ -1,5 +1,5 @@
 {
-  "updated": "2026/09/26 22:27",
+  "updated": "2026/09/27 12:31",
   "source": "https://pogstarion.com/newresultlist.do?group_num=0601093409",
   "schedule_results": [
     {
@@ -25,15 +25,15 @@
       "col2": "",
       "レース名": "未勝利",
       "距離": "ダ1800",
-      "馬名": "レッジェランツァ",
-      "騎手": "坂井瑠星",
-      "順位": "",
-      "賞金": "",
-      "所有者": "前田厩舎",
+      "馬名": "レッドマウロア",
+      "騎手": "ルメール",
+      "順位": "2",
+      "賞金": "240",
+      "所有者": "ミリオン厩舎",
       "_links": [
         "http://race.netkeiba.com/?pid=race&id=c202606040903&mode=shutuba",
-        "umaracelist.do?group_num=0601093409&user_num=407310&kettonum=2024106982",
-        "userumalist.do?group_num=0601093409&user_num=407310"
+        "umaracelist.do?group_num=0601093409&user_num=407309&kettonum=2024101427",
+        "userumalist.do?group_num=0601093409&user_num=407309"
       ]
     },
     {
@@ -42,14 +42,14 @@
       "col2": "",
       "レース名": "未勝利",
       "距離": "ダ1800",
-      "馬名": "レッドマウロア",
-      "騎手": "ルメール",
+      "馬名": "レッジェランツァ",
+      "騎手": "坂井瑠星",
       "順位": "",
       "賞金": "",
-      "所有者": "ミリオン厩舎",
+      "所有者": "前田厩舎",
       "_links": [
-        "umaracelist.do?group_num=0601093409&user_num=407309&kettonum=2024101427",
-        "userumalist.do?group_num=0601093409&user_num=407309"
+        "umaracelist.do?group_num=0601093409&user_num=407310&kettonum=2024106982",
+        "userumalist.do?group_num=0601093409&user_num=407310"
       ]
     },
     {
@@ -60,8 +60,8 @@
       "距離": "ダ1800",
       "馬名": "ブックオブケルズ",
       "騎手": "北村友一",
-      "順位": "",
-      "賞金": "",
+      "順位": "1",
+      "賞金": "590",
       "所有者": "田崎厩舎",
       "_links": [
         "http://race.netkeiba.com/?pid=race&id=c202609040903&mode=shutuba",
