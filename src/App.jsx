@@ -703,6 +703,19 @@ const fmt = (n) => n.toLocaleString("ja-JP");
 const playerName = (id) => PLAYERS.find(p => p.id === id)?.name ?? id;
 const playerEmoji = (id) => PLAYERS.find(p => p.id === id)?.emoji ?? "🐎";
 
+// "M/D"形式の日付から曜日を返す（年またぎのPOGシーズンでも「今日」との前後関係から
+// 自動で正しい年を推測するため、シーズンが変わっても手直し不要）
+const dateStrToDay = (dateStr) => {
+  const [m, d] = (dateStr || "").split("/").map(Number);
+  if (!m || !d) return "";
+  const now = new Date();
+  let yr = now.getFullYear();
+  const curMonth = now.getMonth() + 1;
+  if (m >= 7 && curMonth < 7) yr -= 1;      // 例: 今は1月だが日付は昨年7月以降 → 前年
+  else if (m < 7 && curMonth >= 7) yr += 1; // 例: 今は9月だが日付は1〜6月 → 翌年
+  return ["日","月","火","水","木","金","土"][new Date(yr, m - 1, d).getDay()];
+};
+
 function displayPt(r) {
   return r.surface === "turf" ? 0 : r.rawPt;
 }
@@ -1248,7 +1261,7 @@ function ResultsScreen({ results, upcoming, loaded, news }) {
                   {groups.map(g => (
                     <div key={g.date}>
                       <div style={{ padding:"5px 10px", background:"#e8f0eb", fontSize:11, fontWeight:800, color:"#2d6a4f", borderBottom:"1px solid #c5daca", borderTop:"2px solid #c5daca", letterSpacing:1 }}>
-                        {(() => { const [m,d]=g.date.split("/").map(Number); const yr=m>=7?2025:2026; const day=new Date(yr,m-1,d).getDay(); return `📅 ${g.date} (${["日","月","火","水","木","金","土"][day]})`; })()}
+                        {`📅 ${g.date} (${dateStrToDay(g.date)})`}
                       </div>
                       {g.rows.map((r,i) => <ResultRow key={i} r={r} />)}
                     </div>
@@ -1776,11 +1789,7 @@ function StatusScreen({ data, kettonums = {} }) {
     return map;
   })();
 
-  const dayStr = (dateStr) => {
-    const [m,d] = (dateStr||"").split("/").map(Number);
-    if (isNaN(m)) return "";
-    return ["日","月","火","水","木","金","土"][new Date(2026,m-1,d).getDay()];
-  };
+  const dayStr = dateStrToDay;
 
   const Section = ({ icon, title, note, list, empty, withResult }) => {
     if (list.length === 0) return (
