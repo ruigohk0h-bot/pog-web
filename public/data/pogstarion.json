@@ -1,6 +1,58 @@
 {
-  "updated": "2026/10/01 12:55",
+  "updated": "2026/10/01 17:18",
   "source": "https://pogstarion.com/newresultlist.do?group_num=0601093409",
-  "schedule_results": [],
+  "schedule_results": [
+    {
+      "日時": "10/03",
+      "競走": "東京01R",
+      "col2": "",
+      "レース名": "未勝利",
+      "距離": "ダ1600",
+      "馬名": "スターフラッシュ",
+      "騎手": "ルメール",
+      "順位": "",
+      "賞金": "",
+      "所有者": "前田厩舎",
+      "_links": [
+        "http://race.netkeiba.com/?pid=race&id=c202605040101&mode=shutuba",
+        "umaracelist.do?group_num=0601093409&user_num=407310&kettonum=2024108240",
+        "userumalist.do?group_num=0601093409&user_num=407310"
+      ]
+    },
+    {
+      "日時": "10/03",
+      "競走": "京都04R",
+      "col2": "",
+      "レース名": "新馬",
+      "距離": "ダ1800",
+      "馬名": "ハイファイネスト",
+      "騎手": "鮫島克駿",
+      "順位": "",
+      "賞金": "",
+      "所有者": "田崎厩舎",
+      "_links": [
+        "http://race.netkeiba.com/?pid=race&id=c202608040104&mode=shutuba",
+        "umaracelist.do?group_num=0601093409&user_num=407307&kettonum=2024106163",
+        "userumalist.do?group_num=0601093409&user_num=407307"
+      ]
+    },
+    {
+      "日時": "10/04",
+      "競走": "京都01R",
+      "col2": "",
+      "レース名": "未勝利",
+      "距離": "ダ1800",
+      "馬名": "ボードゥロレーヌ",
+      "騎手": "吉村誠之",
+      "順位": "",
+      "賞金": "",
+      "所有者": "長谷部厩舎",
+      "_links": [
+        "http://race.netkeiba.com/?pid=race&id=c202608040201&mode=shutuba",
+        "umaracelist.do?group_num=0601093409&user_num=407304&kettonum=2024106998",
+        "userumalist.do?group_num=0601093409&user_num=407304"
+      ]
+    }
+  ],
   "special_regist": []
 }
