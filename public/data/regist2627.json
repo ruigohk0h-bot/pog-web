@@ -317,7 +317,7 @@
       },
       {
         "name": "ソルテヴェローチェ",
-        "active": true,
+        "active": false,
         "sire": "マテラスカイ",
         "dam": "ミニーアイル"
       },
@@ -437,7 +437,7 @@
       },
       {
         "name": "クリムゾンペタル",
-        "active": false,
+        "active": true,
         "sire": "オルフェーヴル",
         "dam": "フェータルローズ"
       },
@@ -467,13 +467,13 @@
     "horses": [
       {
         "name": "ブックオブケルズ",
-        "active": true,
+        "active": false,
         "sire": "リアルスティール",
         "dam": "シャンブルドット"
       },
       {
         "name": "オメガマサヤ",
-        "active": true,
+        "active": false,
         "sire": "オメガパフューム",
         "dam": "スターズバース"
       },
@@ -569,7 +569,7 @@
       },
       {
         "name": "ゼットターム",
-        "active": true,
+        "active": false,
         "sire": "ニューイヤーズデイ",
         "dam": "ファシネートゼット"
       },
