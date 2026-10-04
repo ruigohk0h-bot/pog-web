@@ -1,5 +1,5 @@
 {
-  "updated": "2026/10/04 13:10",
+  "updated": "2026/10/04 19:36",
   "source": "https://pogstarion.com/newresultlist.do?group_num=0601093409",
   "schedule_results": [
     {
@@ -54,5 +54,34 @@
       ]
     }
   ],
-  "special_regist": []
+  "special_regist": [
+    {
+      "日時": "10/10",
+      "競走": "東京11R",
+      "col2": "GⅢ",
+      "レース名": "サウジアラビアＲＣ",
+      "距離": "芝1600",
+      "馬名": "デミアン",
+      "所有者": "川村厩舎",
+      "_links": [
+        "http://umachu.com/r/26/05/050403_11.html/",
+        "umaracelist.do?group_num=0601093409&user_num=407303&kettonum=2024108228",
+        "userumalist.do?group_num=0601093409&user_num=407303"
+      ]
+    },
+    {
+      "日時": "10/12",
+      "競走": "東京09R",
+      "col2": "特別",
+      "レース名": "プラタナス賞",
+      "距離": "ダ1600",
+      "馬名": "ウィンターブリーズ",
+      "所有者": "成田厩舎",
+      "_links": [
+        "http://umachu.com/r/26/05/050405_09.html/",
+        "umaracelist.do?group_num=0601093409&user_num=407305&kettonum=2024106106",
+        "userumalist.do?group_num=0601093409&user_num=407305"
+      ]
+    }
+  ]
 }
