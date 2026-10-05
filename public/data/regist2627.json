@@ -17,7 +17,7 @@
     "horses": [
       {
         "name": "トゥザファイナル",
-        "active": false,
+        "active": true,
         "sire": "ナダル",
         "dam": "スパークオンアイス"
       },
@@ -203,7 +203,7 @@
       },
       {
         "name": "アトミックリーチ",
-        "active": false,
+        "active": true,
         "sire": "コントレイル",
         "dam": "パリスビキニ"
       },
@@ -251,7 +251,7 @@
       },
       {
         "name": "ツリートッパー",
-        "active": true,
+        "active": false,
         "sire": "ドレフォン",
         "dam": "ナターレ"
       },
@@ -347,7 +347,7 @@
       },
       {
         "name": "スターシーカー",
-        "active": false,
+        "active": true,
         "sire": "Life",
         "dam": "アストロロジカル"
       },
@@ -389,7 +389,7 @@
       },
       {
         "name": "ホウオウシュウ",
-        "active": false,
+        "active": true,
         "sire": "レイデオロ",
         "dam": "スペシャルグルーヴ"
       },
@@ -479,7 +479,7 @@
       },
       {
         "name": "ハイファイネスト",
-        "active": true,
+        "active": false,
         "sire": "Gun",
         "dam": "アーモニーズエンジェル"
       },
@@ -587,7 +587,7 @@
       },
       {
         "name": "ツキノエ",
-        "active": true,
+        "active": false,
         "sire": "シニスターミニスター",
         "dam": "メイショウトモシビ"
       },
