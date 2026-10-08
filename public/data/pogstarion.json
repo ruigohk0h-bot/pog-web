@@ -1,7 +1,142 @@
 {
-  "updated": "2026/10/08 13:18",
+  "updated": "2026/10/08 17:24",
   "source": "https://pogstarion.com/newresultlist.do?group_num=0601093409",
-  "schedule_results": [],
+  "schedule_results": [
+    {
+      "日時": "10/10",
+      "競走": "東京03R",
+      "col2": "",
+      "レース名": "未勝利",
+      "距離": "ダ1600",
+      "馬名": "ディスクリートサム",
+      "騎手": "田辺裕信",
+      "順位": "",
+      "賞金": "",
+      "所有者": "成田厩舎",
+      "_links": [
+        "http://race.netkeiba.com/?pid=race&id=c202605040303&mode=shutuba",
+        "umaracelist.do?group_num=0601093409&user_num=407305&kettonum=2024100688",
+        "userumalist.do?group_num=0601093409&user_num=407305"
+      ]
+    },
+    {
+      "日時": "10/10",
+      "競走": "東京03R",
+      "col2": "",
+      "レース名": "未勝利",
+      "距離": "ダ1600",
+      "馬名": "レッジェランツァ",
+      "騎手": "津村明秀",
+      "順位": "",
+      "賞金": "",
+      "所有者": "前田厩舎",
+      "_links": [
+        "umaracelist.do?group_num=0601093409&user_num=407310&kettonum=2024106982",
+        "userumalist.do?group_num=0601093409&user_num=407310"
+      ]
+    },
+    {
+      "日時": "10/10",
+      "競走": "東京11R",
+      "col2": "GⅢ",
+      "レース名": "サウジアラビアＲＣ",
+      "距離": "芝1600",
+      "馬名": "デミアン",
+      "騎手": "斎藤新",
+      "順位": "",
+      "賞金": "",
+      "所有者": "川村厩舎",
+      "_links": [
+        "http://race.netkeiba.com/?pid=race&id=c202605040311&mode=shutuba",
+        "umaracelist.do?group_num=0601093409&user_num=407303&kettonum=2024108228",
+        "userumalist.do?group_num=0601093409&user_num=407303"
+      ]
+    },
+    {
+      "日時": "10/11",
+      "競走": "東京01R",
+      "col2": "",
+      "レース名": "未勝利",
+      "距離": "ダ1600",
+      "馬名": "サンクサンス",
+      "騎手": "吉村誠之",
+      "順位": "",
+      "賞金": "",
+      "所有者": "ミリオン厩舎",
+      "_links": [
+        "http://race.netkeiba.com/?pid=race&id=c202605040401&mode=shutuba",
+        "umaracelist.do?group_num=0601093409&user_num=407309&kettonum=2024103392",
+        "userumalist.do?group_num=0601093409&user_num=407309"
+      ]
+    },
+    {
+      "日時": "10/11",
+      "競走": "東京01R",
+      "col2": "",
+      "レース名": "未勝利",
+      "距離": "ダ1600",
+      "馬名": "ステラガーネット",
+      "騎手": "横山和生",
+      "順位": "",
+      "賞金": "",
+      "所有者": "涼子厩舎",
+      "_links": [
+        "umaracelist.do?group_num=0601093409&user_num=407306&kettonum=2024106348",
+        "userumalist.do?group_num=0601093409&user_num=407306"
+      ]
+    },
+    {
+      "日時": "10/11",
+      "競走": "東京03R",
+      "col2": "",
+      "レース名": "未勝利",
+      "距離": "芝2000",
+      "馬名": "ヴェルバーニア",
+      "騎手": "ルメール",
+      "順位": "",
+      "賞金": "",
+      "所有者": "前田厩舎",
+      "_links": [
+        "http://race.netkeiba.com/?pid=race&id=c202605040403&mode=shutuba",
+        "umaracelist.do?group_num=0601093409&user_num=407310&kettonum=2024106139",
+        "userumalist.do?group_num=0601093409&user_num=407310"
+      ]
+    },
+    {
+      "日時": "10/11",
+      "競走": "東京04R",
+      "col2": "",
+      "レース名": "新馬",
+      "距離": "ダ1600",
+      "馬名": "ギルデッドグロス",
+      "騎手": "ルメール",
+      "順位": "",
+      "賞金": "",
+      "所有者": "川村厩舎",
+      "_links": [
+        "http://race.netkeiba.com/?pid=race&id=c202605040404&mode=shutuba",
+        "umaracelist.do?group_num=0601093409&user_num=407303&kettonum=2024106274",
+        "userumalist.do?group_num=0601093409&user_num=407303"
+      ]
+    },
+    {
+      "日時": "10/12",
+      "競走": "東京08R",
+      "col2": "特別",
+      "レース名": "プラタナス賞",
+      "距離": "ダ1600",
+      "馬名": "ウィンターブリーズ",
+      "騎手": "ルメール",
+      "順位": "",
+      "賞金": "",
+      "所有者": "成田厩舎",
+      "_links": [
+        "http://race.netkeiba.com/?pid=race&id=c202605040508&mode=shutuba",
+        "umaracelist.do?group_num=0601093409&user_num=407305&kettonum=2024106106",
+        "userumalist.do?group_num=0601093409&user_num=407305"
+      ]
+    }
+  ],
   "special_regist": [
     {
       "日時": "10/10",
