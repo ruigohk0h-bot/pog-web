@@ -119,7 +119,7 @@
       },
       {
         "name": "ラキアーヴェ",
-        "active": false,
+        "active": true,
         "sire": "ルヴァンスレーヴ",
         "dam": "クラーベセクレタ"
       },
@@ -377,7 +377,7 @@
     "horses": [
       {
         "name": "ウラノグラフィア",
-        "active": false,
+        "active": true,
         "sire": "ナダル",
         "dam": "リュラ"
       },
@@ -557,7 +557,7 @@
     "horses": [
       {
         "name": "ムーンベリル",
-        "active": false,
+        "active": true,
         "sire": "クリソベリル",
         "dam": "クインズムーン"
       },
