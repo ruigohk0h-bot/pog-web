@@ -1,5 +1,5 @@
 {
-  "updated": "2026/10/10 00:42",
+  "updated": "2026/10/10 13:12",
   "source": "https://pogstarion.com/newresultlist.do?group_num=0601093409",
   "schedule_results": [
     {
@@ -10,8 +10,8 @@
       "距離": "ダ1600",
       "馬名": "ディスクリートサム",
       "騎手": "田辺裕信",
-      "順位": "",
-      "賞金": "",
+      "順位": "6",
+      "賞金": "0",
       "所有者": "成田厩舎",
       "_links": [
         "http://race.netkeiba.com/?pid=race&id=c202605040303&mode=shutuba",
@@ -27,8 +27,8 @@
       "距離": "ダ1600",
       "馬名": "レッジェランツァ",
       "騎手": "津村明秀",
-      "順位": "",
-      "賞金": "",
+      "順位": "7",
+      "賞金": "0",
       "所有者": "前田厩舎",
       "_links": [
         "umaracelist.do?group_num=0601093409&user_num=407310&kettonum=2024106982",
