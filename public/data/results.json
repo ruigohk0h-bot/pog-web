@@ -2,6 +2,22 @@
   {
     "date": "10/10",
     "venue": "東京",
+    "race": "サウジアラビアＲＣ",
+    "course": "芝1600",
+    "surface": "turf",
+    "dist": 1600,
+    "horse": "デミアン",
+    "player": "P02",
+    "order": 9,
+    "grade": null,
+    "local": false,
+    "rawPt": 0,
+    "turfPt": 0,
+    "_ts": "10/10"
+  },
+  {
+    "date": "10/10",
+    "venue": "東京",
     "race": "未勝利",
     "course": "ダ1600",
     "surface": "dirt",
