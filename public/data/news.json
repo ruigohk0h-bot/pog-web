@@ -119,15 +119,6 @@
   {
     "horse": "ウィンターブリーズ",
     "player": "P07",
-    "title": "【東京8R・プラタナス賞】ウィンターブリーズが5馬身差で圧勝 ルメール「凄くパワフルな走り」 - スポニチ競馬Web",
-    "desc": "【東京8R・プラタナス賞】ウィンターブリーズが5馬身差で圧勝 ルメール「凄くパワフルな走り」&nbsp;&nbsp;スポニチ競馬Web",
-    "source": "スポニチ競馬Web",
-    "date": "2026/10/12",
-    "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE00ZkE4ZXdiM3Z1TV9BMVdvMnRkZFRlbHBJV3VMbjVmRVVNZTRWU2FZRWhMVklueDRXX01QaWhNNkNTbERTQl92aG9icFUtM3E2N29FODNFV2JpUlFTLVRkVjJ5TVZmdTdVZmc?oc=5"
-  },
-  {
-    "horse": "ウィンターブリーズ",
-    "player": "P07",
     "title": "【プラタナス賞】ウィンターブリーズが5馬身差の快勝でオープン入り ルメール騎手「すごくパワフル」（サンケイスポーツ） - Yahoo!ニュース",
     "desc": "【プラタナス賞】ウィンターブリーズが5馬身差の快勝でオープン入り ルメール騎手「すごくパワフル」（サンケイスポーツ）&nbsp;&nbsp;Yahoo!ニュース",
     "source": "Yahoo!ニュース",
@@ -929,20 +920,20 @@
   {
     "horse": "アンドレバローズ",
     "player": "P07",
-    "title": "【新馬戦】アンドレバローズ ２馬身差デビュー星 岩田望が精神面成長に期待「もっと走れる馬」 - netkeiba",
-    "desc": "【新馬戦】アンドレバローズ ２馬身差デビュー星 岩田望が精神面成長に期待「もっと走れる馬」&nbsp;&nbsp;netkeiba",
-    "source": "netkeiba",
-    "date": "2026/09/20",
-    "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5ldzhCVW1rcnpGT1k0QW9jRkxqbFNWX0RVUVFpcjJicVVQeGxHYXNQWHNMUVhVMXZDUmtHMktNcDYwUjZTOG5WbkZzUW1xbzFtQWFvMWw1c3VRU3FDT1ZV?oc=5"
-  },
-  {
-    "horse": "アンドレバローズ",
-    "player": "P07",
     "title": "【阪神新馬戦】アンドレバローズ 能力で押し切りV 岩田望「今後の精神面に期待したい」 - netkeiba",
     "desc": "【阪神新馬戦】アンドレバローズ 能力で押し切りV 岩田望「今後の精神面に期待したい」&nbsp;&nbsp;netkeiba",
     "source": "netkeiba",
     "date": "2026/09/20",
     "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5wQVMxUm9vOFE1Z2Y3R1g3TGFQSkpXU2xQMEN3RTVwZElXellyb1VxSUlQbHZHQnJzZTRhS1l3QnBmY0VzakZPSW9pMWNjQ1g1YktReV9TbEphNmNyMENz?oc=5"
+  },
+  {
+    "horse": "アンドレバローズ",
+    "player": "P07",
+    "title": "【新馬戦】アンドレバローズ ２馬身差デビュー星 岩田望が精神面成長に期待「もっと走れる馬」 - netkeiba",
+    "desc": "【新馬戦】アンドレバローズ ２馬身差デビュー星 岩田望が精神面成長に期待「もっと走れる馬」&nbsp;&nbsp;netkeiba",
+    "source": "netkeiba",
+    "date": "2026/09/20",
+    "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5ldzhCVW1rcnpGT1k0QW9jRkxqbFNWX0RVUVFpcjJicVVQeGxHYXNQWHNMUVhVMXZDUmtHMktNcDYwUjZTOG5WbkZzUW1xbzFtQWFvMWw1c3VRU3FDT1ZV?oc=5"
   },
   {
     "horse": "アンドレバローズ",
@@ -965,6 +956,15 @@
   {
     "horse": "アンドレバローズ",
     "player": "P07",
+    "title": "アンドレバローズが2馬身差でデビューV　岩田望来「精神面の成長に期待したい」【2歳新馬・阪神6R】 - ｄメニューニュース",
+    "desc": "アンドレバローズが2馬身差でデビューV　岩田望来「精神面の成長に期待したい」【2歳新馬・阪神6R】&nbsp;&nbsp;ｄメニューニュース",
+    "source": "ｄメニューニュース",
+    "date": "2026/09/19",
+    "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPeTlyMWIzdjA0cEZ3SUVhcV9iVzBRM1Z4Q0s5LU14amlEc0wyYmNLZXBrZjFCcHhqN2UxYXdMV3VPZ2liVGdWaXVfbzBMVURXeDVic1JDSms5bDRGSU0ydEU5OW1JVGlqU3pxWWhaaG1EdExnamxMRU94d3JENWxVcdIBhgFBVV95cUxPMHpjZ3lURjRNZVJxZ0NsREVNaWg5SWtKMVNuVGdqTWpDOEFsYXhZN1MzQ2FBU3VRVFRuVXRQRWhfdFFfSk95RGRCeXNWNWlqZU5UdmdPbG5lTGJOazdJaEZXUkd0Y0JNWFVuc2tqS3MybWN5NDJ3VS1wWjJ5aDEtTlY1aGdCdw?oc=5"
+  },
+  {
+    "horse": "アンドレバローズ",
+    "player": "P07",
     "title": "アンドレバローズが2馬身差でデビューV 岩田望来「精神面の成長に期待したい」【2歳新馬・阪神6R】 (東スポ競馬) - Yahoo!ニュース",
     "desc": "アンドレバローズが2馬身差でデビューV 岩田望来「精神面の成長に期待したい」【2歳新馬・阪神6R】 (東スポ競馬)&nbsp;&nbsp;Yahoo!ニュース",
     "source": "Yahoo!ニュース",
@@ -979,15 +979,6 @@
     "source": "サンスポ",
     "date": "2026/09/19",
     "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQX05ESnNRZGpFUG83S0dRNE0wYldrRlltZnBCUUZBd1FBV2owOFVud28wQWNFVXk2Q0VORFZjb3BhWHBLaHlWLS13YjFGWTRUMFpoWl90dmE5d3kwNFBIZ0JIMENqdC05eDZDQ2hnTXhfUXR1RVIwM2t3TElDUTNfN0ZFRGhaRXVWSXhhTzl0OHRPRUw0RmxCRGxDa1lqN1BkQlBnUEkzYmZ2WXRESWdCV2RJdw?oc=5"
-  },
-  {
-    "horse": "アンドレバローズ",
-    "player": "P07",
-    "title": "アンドレバローズが2馬身差でデビューV 岩田望来「精神面の成長に期待したい」【2歳新馬・阪神6R】（東スポ競馬） - Yahoo!ニュース",
-    "desc": "アンドレバローズが2馬身差でデビューV 岩田望来「精神面の成長に期待したい」【2歳新馬・阪神6R】（東スポ競馬）&nbsp;&nbsp;Yahoo!ニュース",
-    "source": "Yahoo!ニュース",
-    "date": "2026/09/19",
-    "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1oa19YRWtRZzZfTWRrTHZoZFZzdW9WSTVqN1FjUm1JRTNnWTNOeE1VeG9Vb0VJdTZNZU44Tm9nMU9oSmVBWnJVdjNrNlFXSDhvUnJ0cHB6Y2pGOHlLZFV2N05RWGpNRmx6UUxqcU5NbnFONkJyMGIyVU9VVDFVaUU?oc=5"
   },
   {
     "horse": "アンドレバローズ",
@@ -1352,6 +1343,15 @@
   {
     "horse": "ウラノグラフィア",
     "player": "P06",
+    "title": "【新馬戦総括】ウラノグラフィア　ダート界大物の予感　ヴァンクライ　勝ちっぷり秀逸 | 競馬ニュース - netkeiba - netkeiba",
+    "desc": "【新馬戦総括】ウラノグラフィア　ダート界大物の予感　ヴァンクライ　勝ちっぷり秀逸 | 競馬ニュース - netkeiba&nbsp;&nbsp;netkeiba",
+    "source": "netkeiba",
+    "date": "2026/09/01",
+    "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE4tYW5VSFhlbGY4clQyUG1DSVFpa05aRzJnblpNZThleUFjdnl4MFAwODhFTU1mdTluYnl4d2Z6MVlIVk5tVUQ4MGRDbmtnSVNqU0V4TzFRMFVVSkZBdGkxSG9MTFh0dGVYTXN0U21KRDjSAXZBVV95cUxQYWVLZGpBOXJjTzNwUHk1aEZHdFRxRXcwaWZTX2U5WDh3QnlhNTBBdjdUOXUza2F3amJnNWlScXVUSllzSDc1Y3RtNzliWm9FWkhPM2VqUHhsWUxya3pRVEVWNVJYSjhDLWVSS3BJdGp0TmJmRVJ3?oc=5"
+  },
+  {
+    "horse": "ウラノグラフィア",
+    "player": "P06",
     "title": "【新馬戦総括】ウラノグラフィア ダート界大物の予感 ヴァンクライ 勝ちっぷり秀逸 - netkeiba",
     "desc": "【新馬戦総括】ウラノグラフィア ダート界大物の予感 ヴァンクライ 勝ちっぷり秀逸&nbsp;&nbsp;netkeiba",
     "source": "netkeiba",
@@ -1505,8 +1505,8 @@
   {
     "horse": "ウラノグラフィア",
     "player": "P06",
-    "title": "２歳新馬 ウラノグラフィア | 2026/8/30 新潟2R レース情報(JRA) - netkeiba.com - netkeiba",
-    "desc": "２歳新馬 ウラノグラフィア | 2026/8/30 新潟2R レース情報(JRA) - netkeiba.com&nbsp;&nbsp;netkeiba",
+    "title": "２歳新馬 ウラノグラフィア | 2026/8/30 新潟2R レース情報(JRA) - netkeiba",
+    "desc": "２歳新馬 ウラノグラフィア | 2026/8/30 新潟2R レース情報(JRA)&nbsp;&nbsp;netkeiba",
     "source": "netkeiba",
     "date": "2026/08/30",
     "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNSmpacGdIV3ZDZ1ppc2hhQy1IN2FMQXdLSVFjd3R4T1RwSHVjVmFlemNBMFlucTlRR3ItR0hvLTU1OVZYb2lST0FNMUlpUVB2TldGaEl5OXBjZ2s3TlVGVk1sa2N2RlZtM2R0WnZIZXBHQ1FKbzBGVXBIZ1VFVFpCSUhrOGtjUlUxNVV6akwyTQ?oc=5"
@@ -1784,11 +1784,11 @@
   {
     "horse": "アトミックリーチ",
     "player": "P02",
-    "title": "「ウマ娘」藤田晋オーナーの2.8億円馬 アトミックリーチに要注目だ - netkeiba",
-    "desc": "「ウマ娘」藤田晋オーナーの2.8億円馬 アトミックリーチに要注目だ&nbsp;&nbsp;netkeiba",
+    "title": "「ウマ娘」藤田晋オーナーの2.8億円馬 アトミックリーチに要注目だ | 競馬ニュース - netkeiba - netkeiba",
+    "desc": "「ウマ娘」藤田晋オーナーの2.8億円馬 アトミックリーチに要注目だ | 競馬ニュース - netkeiba&nbsp;&nbsp;netkeiba",
     "source": "netkeiba",
     "date": "2026/08/07",
-    "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9DVDM4bzVtLThHVkJYOS1xWHJNcWF2UmdzaTRwTXdNcG1udEhhbTBuUURyZDh3SUNQdWdJdVJHVGVwbUJsZnJnUmtnN2J2ZHpZaFZGNEExdVpFeHBoUUJB?oc=5"
+    "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE8wcnB3NFk2UkNhMUNqaU9tMFE0dEU3Z3d6cDNyNnJEei16YWNjM3dJUXhCVkxOTzh1NDdVYVNUd2NBcXd6Z1A3X0NESnI1SmpKWmRQMUVXemszQmV2YjdIc05PUm56dGhQRWlPQy1RVVbSAXZBVV95cUxNNmo4bWlEM0ZCdkZiMDNZdEZMV0paRzVmY3F4dXFMQXdHMnlJbzhTNGRyaFJUc1hYaUtWazhOQkJhM1VVM1NGR3l3aUJJUmd2VTJlbWhEMjFSOUMwekZ1M0QtYUZJR2U3MWdiWTRtUE5TS1p6akFR?oc=5"
   },
   {
     "horse": "オールシティキング",
