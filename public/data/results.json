@@ -1,5 +1,21 @@
 [
   {
+    "date": "10/12",
+    "venue": "東京",
+    "race": "プラタナス賞",
+    "course": "ダ1600",
+    "surface": "dirt",
+    "dist": 1600,
+    "horse": "ウィンターブリーズ",
+    "player": "P07",
+    "order": 1,
+    "grade": null,
+    "local": false,
+    "rawPt": 1140,
+    "turfPt": 0,
+    "_ts": "10/12"
+  },
+  {
     "date": "10/11",
     "venue": "東京",
     "race": "未勝利",
