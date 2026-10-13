@@ -143,7 +143,7 @@
       },
       {
         "name": "レッジェランツァ",
-        "active": true,
+        "active": false,
         "sire": "シスキン",
         "dam": "エレヴァテッツァ"
       },
@@ -563,7 +563,7 @@
       },
       {
         "name": "クロダテ",
-        "active": false,
+        "active": true,
         "sire": "キタサンブラック",
         "dam": "ファッショニスタ"
       },
