@@ -35,7 +35,7 @@
       },
       {
         "name": "サンクサンス",
-        "active": true,
+        "active": false,
         "sire": "American",
         "dam": "エリーズスマイル"
       },
@@ -65,7 +65,7 @@
       },
       {
         "name": "ソメデイストワール",
-        "active": false,
+        "active": true,
         "sire": "マインドユアビスケッツ",
         "dam": "ミラクルレジェンド"
       },
@@ -107,13 +107,13 @@
     "horses": [
       {
         "name": "エスクアドラ",
-        "active": false,
+        "active": true,
         "sire": "レイデオロ",
         "dam": "ジューヌエコール"
       },
       {
         "name": "エピドゥブレ",
-        "active": false,
+        "active": true,
         "sire": "ゴールドドリーム",
         "dam": "クインアマランサス"
       },
@@ -203,7 +203,7 @@
       },
       {
         "name": "ギルデッドグロス",
-        "active": true,
+        "active": false,
         "sire": "クリソベリル",
         "dam": "ギルデッドミラー"
       },
@@ -263,7 +263,7 @@
       },
       {
         "name": "ハーモニープルーフ",
-        "active": false,
+        "active": true,
         "sire": "ナダル",
         "dam": "ゴールデンプルーフ"
       }
@@ -311,7 +311,7 @@
       },
       {
         "name": "ディスクリートサム",
-        "active": true,
+        "active": false,
         "sire": "ディスクリートキャット",
         "dam": "ブランクチェック"
       },
@@ -515,7 +515,7 @@
       },
       {
         "name": "ケンシロウワールド",
-        "active": false,
+        "active": true,
         "sire": "Violence",
         "dam": "Colby Cakes"
       },
