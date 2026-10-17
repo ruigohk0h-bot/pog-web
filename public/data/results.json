@@ -1,5 +1,21 @@
 [
   {
+    "date": "10/17",
+    "venue": "東京",
+    "race": "未勝利",
+    "course": "ダ1600",
+    "surface": "dirt",
+    "dist": 1600,
+    "horse": "レッドマウロア",
+    "player": "P04",
+    "order": 2,
+    "grade": null,
+    "local": false,
+    "rawPt": 240,
+    "turfPt": 0,
+    "_ts": "10/17"
+  },
+  {
     "date": "10/12",
     "venue": "東京",
     "race": "プラタナス賞",
