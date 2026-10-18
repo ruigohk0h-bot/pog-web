@@ -1,5 +1,5 @@
 {
-  "updated": "2026/10/18 11:55",
+  "updated": "2026/10/18 16:47",
   "source": "https://pogstarion.com/newresultlist.do?group_num=0601093409",
   "schedule_results": [
     {
@@ -110,8 +110,8 @@
       "距離": "芝2000",
       "馬名": "ヤングリッチ",
       "騎手": "坂井瑠星",
-      "順位": "",
-      "賞金": "",
+      "順位": "3",
+      "賞金": "200",
       "所有者": "川村厩舎",
       "_links": [
         "http://race.netkeiba.com/?pid=race&id=c202608040705&mode=shutuba",
@@ -127,8 +127,8 @@
       "距離": "芝1400",
       "馬名": "タクティシアン",
       "騎手": "川田将雅",
-      "順位": "",
-      "賞金": "",
+      "順位": "6",
+      "賞金": "0",
       "所有者": "成田厩舎",
       "_links": [
         "http://race.netkeiba.com/?pid=race&id=c202605040706&mode=shutuba",
