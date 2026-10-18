@@ -1,5 +1,5 @@
 {
-  "updated": "2026/10/18 16:47",
+  "updated": "2026/10/18 21:14",
   "source": "https://pogstarion.com/newresultlist.do?group_num=0601093409",
   "schedule_results": [
     {
@@ -137,5 +137,34 @@
       ]
     }
   ],
-  "special_regist": []
+  "special_regist": [
+    {
+      "日時": "10/24",
+      "競走": "京都09R",
+      "col2": "特別",
+      "レース名": "なでしこ賞",
+      "距離": "ダ1400",
+      "馬名": "ムーンベリル",
+      "所有者": "長谷部厩舎",
+      "_links": [
+        "http://umachu.com/r/26/08/080408_09.html/",
+        "umaracelist.do?group_num=0601093409&user_num=407304&kettonum=2024106276",
+        "userumalist.do?group_num=0601093409&user_num=407304"
+      ]
+    },
+    {
+      "日時": "10/25",
+      "競走": "京都09R",
+      "col2": "",
+      "レース名": "萩ステークス",
+      "距離": "芝1800",
+      "馬名": "デミアン",
+      "所有者": "川村厩舎",
+      "_links": [
+        "http://umachu.com/r/26/08/080409_09.html/",
+        "umaracelist.do?group_num=0601093409&user_num=407303&kettonum=2024108228",
+        "userumalist.do?group_num=0601093409&user_num=407303"
+      ]
+    }
+  ]
 }
