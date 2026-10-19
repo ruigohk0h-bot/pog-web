@@ -23,7 +23,7 @@
       },
       {
         "name": "レッドマウロア",
-        "active": true,
+        "active": false,
         "sire": "クリソベリル",
         "dam": "レッドアネラ"
       },
@@ -287,7 +287,7 @@
     "horses": [
       {
         "name": "ウィンターブリーズ",
-        "active": true,
+        "active": false,
         "sire": "ホットロッドチャーリー",
         "dam": "アイスパステル"
       },
@@ -425,8 +425,8 @@
       },
       {
         "name": null,
-        "active": false,
-        "sire": "母ドリームライター",
+        "active": true,
+        "sire": "キタサンブラック",
         "dam": "ドリームライター"
       },
       {
@@ -479,7 +479,7 @@
       },
       {
         "name": "ハイファイネスト",
-        "active": false,
+        "active": true,
         "sire": "Gun",
         "dam": "アーモニーズエンジェル"
       },
@@ -581,7 +581,7 @@
       },
       {
         "name": "ライデン",
-        "active": true,
+        "active": false,
         "sire": "サンダースノー",
         "dam": "オムニプレゼンス"
       },
