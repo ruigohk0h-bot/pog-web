@@ -149,7 +149,7 @@
       },
       {
         "name": "コックスコーム",
-        "active": true,
+        "active": false,
         "sire": "ナダル",
         "dam": "スーブレット"
       },
@@ -293,13 +293,13 @@
       },
       {
         "name": "タクティシアン",
-        "active": true,
+        "active": false,
         "sire": "サリオス",
         "dam": "モルジアナ"
       },
       {
         "name": "アンドレバローズ",
-        "active": false,
+        "active": true,
         "sire": "ルヴァンスレーヴ",
         "dam": "ジェラスキャット"
       },
@@ -575,7 +575,7 @@
       },
       {
         "name": "ボードゥロレーヌ",
-        "active": true,
+        "active": false,
         "sire": "クリソベリル",
         "dam": "サイモンミラベル"
       },
