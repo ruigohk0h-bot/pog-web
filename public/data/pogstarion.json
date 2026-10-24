@@ -1,5 +1,5 @@
 {
-  "updated": "2026/10/24 12:10",
+  "updated": "2026/10/24 17:06",
   "source": "https://pogstarion.com/newresultlist.do?group_num=0601093409",
   "schedule_results": [
     {
@@ -44,8 +44,8 @@
       "距離": "芝2000",
       "馬名": "クリムゾンペタル",
       "騎手": "杉原誠人",
-      "順位": "",
-      "賞金": "",
+      "順位": "13",
+      "賞金": "0",
       "所有者": "涼子厩舎",
       "_links": [
         "http://race.netkeiba.com/?pid=race&id=c202604040305&mode=shutuba",
@@ -61,8 +61,8 @@
       "距離": "ダ1400",
       "馬名": "ムーンベリル",
       "騎手": "岩田康誠",
-      "順位": "",
-      "賞金": "",
+      "順位": "6",
+      "賞金": "0",
       "所有者": "長谷部厩舎",
       "_links": [
         "http://race.netkeiba.com/?pid=race&id=c202608040809&mode=shutuba",

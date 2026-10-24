@@ -1,39 +1,5 @@
 [
   {
-    "日時": "10/24",
-    "競走": "新潟05R",
-    "col2": "",
-    "レース名": "新馬",
-    "距離": "芝2000",
-    "馬名": "クリムゾンペタル",
-    "騎手": "杉原誠人",
-    "順位": "",
-    "賞金": "",
-    "所有者": "涼子厩舎",
-    "_links": [
-      "http://race.netkeiba.com/?pid=race&id=c202604040305&mode=shutuba",
-      "umaracelist.do?group_num=0601093409&user_num=407306&kettonum=2024107044",
-      "userumalist.do?group_num=0601093409&user_num=407306"
-    ]
-  },
-  {
-    "日時": "10/24",
-    "競走": "京都09R",
-    "col2": "特別",
-    "レース名": "なでしこ賞",
-    "距離": "ダ1400",
-    "馬名": "ムーンベリル",
-    "騎手": "岩田康誠",
-    "順位": "",
-    "賞金": "",
-    "所有者": "長谷部厩舎",
-    "_links": [
-      "http://race.netkeiba.com/?pid=race&id=c202608040809&mode=shutuba",
-      "umaracelist.do?group_num=0601093409&user_num=407304&kettonum=2024106276",
-      "userumalist.do?group_num=0601093409&user_num=407304"
-    ]
-  },
-  {
     "日時": "10/25",
     "競走": "東京02R",
     "col2": "",
