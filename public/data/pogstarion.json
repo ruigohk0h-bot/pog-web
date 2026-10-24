@@ -1,5 +1,5 @@
 {
-  "updated": "2026/10/23 22:59",
+  "updated": "2026/10/24 12:10",
   "source": "https://pogstarion.com/newresultlist.do?group_num=0601093409",
   "schedule_results": [
     {
@@ -10,8 +10,8 @@
       "距離": "ダ1400",
       "馬名": "スターフラッシュ",
       "騎手": "ルメール",
-      "順位": "",
-      "賞金": "",
+      "順位": "1",
+      "賞金": "590",
       "所有者": "前田厩舎",
       "_links": [
         "http://race.netkeiba.com/?pid=race&id=c202605040801&mode=shutuba",
@@ -27,8 +27,8 @@
       "距離": "ダ1600",
       "馬名": "ヘイヴァイタヒチ",
       "騎手": "西村淳也",
-      "順位": "",
-      "賞金": "",
+      "順位": "1",
+      "賞金": "780",
       "所有者": "ミリオン厩舎",
       "_links": [
         "http://race.netkeiba.com/?pid=race&id=c202605040804&mode=shutuba",
