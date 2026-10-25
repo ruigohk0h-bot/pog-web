@@ -1,5 +1,5 @@
 {
-  "updated": "2026/10/24 22:02",
+  "updated": "2026/10/25 12:05",
   "source": "https://pogstarion.com/newresultlist.do?group_num=0601093409",
   "schedule_results": [
     {
@@ -78,8 +78,8 @@
       "距離": "芝2000",
       "馬名": "ヴェルバーニア",
       "騎手": "横山武史",
-      "順位": "",
-      "賞金": "",
+      "順位": "3",
+      "賞金": "150",
       "所有者": "前田厩舎",
       "_links": [
         "http://race.netkeiba.com/?pid=race&id=c202605040902&mode=shutuba",
@@ -106,20 +106,6 @@
     }
   ],
   "special_regist": [
-    {
-      "日時": "10/24",
-      "競走": "京都09R",
-      "col2": "特別",
-      "レース名": "なでしこ賞",
-      "距離": "ダ1400",
-      "馬名": "ムーンベリル",
-      "所有者": "長谷部厩舎",
-      "_links": [
-        "http://umachu.com/r/26/08/080408_09.html/",
-        "umaracelist.do?group_num=0601093409&user_num=407304&kettonum=2024106276",
-        "userumalist.do?group_num=0601093409&user_num=407304"
-      ]
-    },
     {
       "日時": "10/25",
       "競走": "京都09R",
