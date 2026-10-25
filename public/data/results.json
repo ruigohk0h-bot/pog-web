@@ -1,6 +1,22 @@
 [
   {
     "date": "10/25",
+    "venue": "京都",
+    "race": "萩ステークス",
+    "course": "芝1800",
+    "surface": "turf",
+    "dist": 1800,
+    "horse": "デミアン",
+    "player": "P02",
+    "order": 9,
+    "grade": null,
+    "local": false,
+    "rawPt": 0,
+    "turfPt": 0,
+    "_ts": "10/25"
+  },
+  {
+    "date": "10/25",
     "venue": "東京",
     "race": "未勝利",
     "course": "芝2000",
