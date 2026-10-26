@@ -137,7 +137,7 @@
       },
       {
         "name": "コナパームス",
-        "active": true,
+        "active": false,
         "sire": "アドマイヤマーズ",
         "dam": "コナブリュワーズ"
       },
@@ -215,7 +215,7 @@
       },
       {
         "name": "ヤングリッチ",
-        "active": true,
+        "active": false,
         "sire": "レイデオロ",
         "dam": "フォエヴァーダーリング"
       },
@@ -341,7 +341,7 @@
       },
       {
         "name": "ダノンブレイズ",
-        "active": false,
+        "active": true,
         "sire": "Violence",
         "dam": "ミスエンパイアメント"
       },
@@ -377,7 +377,7 @@
     "horses": [
       {
         "name": "ウラノグラフィア",
-        "active": true,
+        "active": false,
         "sire": "ナダル",
         "dam": "リュラ"
       },
@@ -437,7 +437,7 @@
       },
       {
         "name": "クリムゾンペタル",
-        "active": true,
+        "active": false,
         "sire": "オルフェーヴル",
         "dam": "フェータルローズ"
       },
@@ -503,7 +503,7 @@
       },
       {
         "name": "ディーヴァレギオン",
-        "active": false,
+        "active": true,
         "sire": "ナダル",
         "dam": "シャドウディーヴァ"
       },
