@@ -29,7 +29,7 @@
       },
       {
         "name": "ヘイヴァイタヒチ",
-        "active": true,
+        "active": false,
         "sire": "ナダル",
         "dam": "タヒチアンダンス"
       },
@@ -71,7 +71,7 @@
       },
       {
         "name": "レガシーマインド",
-        "active": false,
+        "active": true,
         "sire": "マインドユアビスケッツ",
         "dam": "アンデスクイーン"
       },
@@ -107,7 +107,7 @@
     "horses": [
       {
         "name": "スターフラッシュ",
-        "active": true,
+        "active": false,
         "sire": "Yaupon",
         "dam": "Shanghai Starlet"
       },
@@ -131,7 +131,7 @@
       },
       {
         "name": "ヴェルバーニア",
-        "active": true,
+        "active": false,
         "sire": "キタサンブラック",
         "dam": "アドマイヤローザ"
       },
@@ -197,7 +197,7 @@
     "horses": [
       {
         "name": "デミアン",
-        "active": true,
+        "active": false,
         "sire": "Flightline",
         "dam": "Mira Alta"
       },
@@ -491,7 +491,7 @@
       },
       {
         "name": "ハイウェイワン",
-        "active": false,
+        "active": true,
         "sire": "カリフォルニアクローム",
         "dam": "シルバーポジー"
       },
@@ -557,7 +557,7 @@
     "horses": [
       {
         "name": "ムーンベリル",
-        "active": true,
+        "active": false,
         "sire": "クリソベリル",
         "dam": "クインズムーン"
       },
