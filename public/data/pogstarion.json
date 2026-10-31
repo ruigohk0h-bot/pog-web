@@ -1,5 +1,5 @@
 {
-  "updated": "2026/10/31 12:58",
+  "updated": "2026/10/31 19:13",
   "source": "https://pogstarion.com/newresultlist.do?group_num=0601093409",
   "schedule_results": [
     {
@@ -60,8 +60,8 @@
       "距離": "ダ1400",
       "馬名": "スターシーカー",
       "騎手": "武豊",
-      "順位": "",
-      "賞金": "",
+      "順位": "3",
+      "賞金": "200",
       "所有者": "成田厩舎",
       "_links": [
         "http://race.netkeiba.com/?pid=race&id=c202608041006&mode=shutuba",
@@ -77,8 +77,8 @@
       "距離": "ダ1400",
       "馬名": "ホーフアイゼン",
       "騎手": "斎藤新",
-      "順位": "",
-      "賞金": "",
+      "順位": "7",
+      "賞金": "0",
       "所有者": "涼子厩舎",
       "_links": [
         "umaracelist.do?group_num=0601093409&user_num=407306&kettonum=2024108212",
