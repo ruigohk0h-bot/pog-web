@@ -1,5 +1,5 @@
 {
-  "updated": "2026/10/31 00:29",
+  "updated": "2026/10/31 12:58",
   "source": "https://pogstarion.com/newresultlist.do?group_num=0601093409",
   "schedule_results": [
     {
@@ -8,15 +8,15 @@
       "col2": "",
       "レース名": "未勝利",
       "距離": "ダ1600",
-      "馬名": "ハイファイネスト",
-      "騎手": "横山武史",
-      "順位": "",
-      "賞金": "",
-      "所有者": "田崎厩舎",
+      "馬名": "ホウオウシュウ",
+      "騎手": "プーシャ",
+      "順位": "1",
+      "賞金": "590",
+      "所有者": "涼子厩舎",
       "_links": [
         "http://race.netkeiba.com/?pid=race&id=c202605041001&mode=shutuba",
-        "umaracelist.do?group_num=0601093409&user_num=407307&kettonum=2024106163",
-        "userumalist.do?group_num=0601093409&user_num=407307"
+        "umaracelist.do?group_num=0601093409&user_num=407306&kettonum=2024106410",
+        "userumalist.do?group_num=0601093409&user_num=407306"
       ]
     },
     {
@@ -25,14 +25,14 @@
       "col2": "",
       "レース名": "未勝利",
       "距離": "ダ1600",
-      "馬名": "ホウオウシュウ",
-      "騎手": "プーシャ",
-      "順位": "",
-      "賞金": "",
-      "所有者": "涼子厩舎",
+      "馬名": "ハイファイネスト",
+      "騎手": "横山武史",
+      "順位": "5",
+      "賞金": "59",
+      "所有者": "田崎厩舎",
       "_links": [
-        "umaracelist.do?group_num=0601093409&user_num=407306&kettonum=2024106410",
-        "userumalist.do?group_num=0601093409&user_num=407306"
+        "umaracelist.do?group_num=0601093409&user_num=407307&kettonum=2024106163",
+        "userumalist.do?group_num=0601093409&user_num=407307"
       ]
     },
     {
@@ -43,8 +43,8 @@
       "距離": "芝2000",
       "馬名": "アトミックリーチ",
       "騎手": "ルメール",
-      "順位": "",
-      "賞金": "",
+      "順位": "1",
+      "賞金": "590",
       "所有者": "川村厩舎",
       "_links": [
         "http://race.netkeiba.com/?pid=race&id=c202605041003&mode=shutuba",
