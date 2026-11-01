@@ -1,5 +1,5 @@
 {
-  "updated": "2026/10/31 23:57",
+  "updated": "2026/11/01 13:11",
   "source": "https://pogstarion.com/newresultlist.do?group_num=0601093409",
   "schedule_results": [
     {
@@ -93,8 +93,8 @@
       "距離": "芝1400",
       "馬名": "ステラガーネット",
       "騎手": "田辺裕信",
-      "順位": "",
-      "賞金": "",
+      "順位": "9",
+      "賞金": "0",
       "所有者": "涼子厩舎",
       "_links": [
         "http://race.netkeiba.com/?pid=race&id=c202605041101&mode=shutuba",
@@ -110,8 +110,8 @@
       "距離": "ダ1800",
       "馬名": "オールベット",
       "騎手": "北村友一",
-      "順位": "",
-      "賞金": "",
+      "順位": "0",
+      "賞金": "0",
       "所有者": "長谷部厩舎",
       "_links": [
         "http://race.netkeiba.com/?pid=race&id=c202608041106&mode=shutuba",
