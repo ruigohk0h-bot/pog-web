@@ -173,7 +173,7 @@
       },
       {
         "name": "ジャストグロリアス",
-        "active": true,
+        "active": false,
         "sire": "Justify",
         "dam": "シンプリーグロリアス"
       }
