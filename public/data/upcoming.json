@@ -1,1 +1,136 @@
-[]
+[
+  {
+    "日時": "11/07",
+    "競走": "東京01R",
+    "col2": "",
+    "レース名": "未勝利",
+    "距離": "ダ1600",
+    "馬名": "ハーモニープルーフ",
+    "騎手": "マーカン",
+    "順位": "",
+    "賞金": "",
+    "所有者": "川村厩舎",
+    "_links": [
+      "http://race.netkeiba.com/?pid=race&id=c202605050101&mode=shutuba",
+      "umaracelist.do?group_num=0601093409&user_num=407303&kettonum=2024106320",
+      "userumalist.do?group_num=0601093409&user_num=407303"
+    ]
+  },
+  {
+    "日時": "11/07",
+    "競走": "京都02R",
+    "col2": "",
+    "レース名": "未勝利",
+    "距離": "芝1400",
+    "馬名": "ケンシロウワールド",
+    "騎手": "松本大輝",
+    "順位": "",
+    "賞金": "",
+    "所有者": "田崎厩舎",
+    "_links": [
+      "http://race.netkeiba.com/?pid=race&id=c202608050102&mode=shutuba",
+      "umaracelist.do?group_num=0601093409&user_num=407307&kettonum=2024108272",
+      "userumalist.do?group_num=0601093409&user_num=407307"
+    ]
+  },
+  {
+    "日時": "11/07",
+    "競走": "京都03R",
+    "col2": "",
+    "レース名": "未勝利",
+    "距離": "ダ1800",
+    "馬名": "ダノンチャンピオン",
+    "騎手": "横山和生",
+    "順位": "",
+    "賞金": "",
+    "所有者": "川村厩舎",
+    "_links": [
+      "http://race.netkeiba.com/?pid=race&id=c202608050103&mode=shutuba",
+      "umaracelist.do?group_num=0601093409&user_num=407303&kettonum=2024105963",
+      "userumalist.do?group_num=0601093409&user_num=407303"
+    ]
+  },
+  {
+    "日時": "11/08",
+    "競走": "京都05R",
+    "col2": "",
+    "レース名": "新馬",
+    "距離": "芝2000",
+    "馬名": "エクレアカミング",
+    "騎手": "坂井瑠星",
+    "順位": "",
+    "賞金": "",
+    "所有者": "長谷部厩舎",
+    "_links": [
+      "http://race.netkeiba.com/?pid=race&id=c202608050205&mode=shutuba",
+      "umaracelist.do?group_num=0601093409&user_num=407304&kettonum=2024104290",
+      "userumalist.do?group_num=0601093409&user_num=407304"
+    ]
+  },
+  {
+    "日時": "11/08",
+    "競走": "東京09R",
+    "col2": "特別",
+    "レース名": "百日草特別",
+    "距離": "芝2000",
+    "馬名": "エスクアドラ",
+    "騎手": "プーシャ",
+    "順位": "",
+    "賞金": "",
+    "所有者": "前田厩舎",
+    "_links": [
+      "http://race.netkeiba.com/?pid=race&id=c202605050209&mode=shutuba",
+      "umaracelist.do?group_num=0601093409&user_num=407310&kettonum=2024106386",
+      "userumalist.do?group_num=0601093409&user_num=407310"
+    ]
+  },
+  {
+    "日時": "11/08",
+    "競走": "京都09R",
+    "col2": "特別",
+    "レース名": "もちの木賞",
+    "距離": "ダ1800",
+    "馬名": "アンドレバローズ",
+    "騎手": "酒井学",
+    "順位": "",
+    "賞金": "",
+    "所有者": "成田厩舎",
+    "_links": [
+      "http://race.netkeiba.com/?pid=race&id=c202608050209&mode=shutuba",
+      "umaracelist.do?group_num=0601093409&user_num=407305&kettonum=2024100442",
+      "userumalist.do?group_num=0601093409&user_num=407305"
+    ]
+  },
+  {
+    "日時": "11/08",
+    "競走": "京都09R",
+    "col2": "特別",
+    "レース名": "もちの木賞",
+    "距離": "ダ1800",
+    "馬名": "エピドゥブレ",
+    "騎手": "Ｃ．デム",
+    "順位": "",
+    "賞金": "",
+    "所有者": "前田厩舎",
+    "_links": [
+      "umaracelist.do?group_num=0601093409&user_num=407310&kettonum=2024106275",
+      "userumalist.do?group_num=0601093409&user_num=407310"
+    ]
+  },
+  {
+    "日時": "11/08",
+    "競走": "京都09R",
+    "col2": "特別",
+    "レース名": "もちの木賞",
+    "距離": "ダ1800",
+    "馬名": "トゥザファイナル",
+    "騎手": "Ｍ．デム",
+    "順位": "",
+    "賞金": "",
+    "所有者": "ミリオン厩舎",
+    "_links": [
+      "umaracelist.do?group_num=0601093409&user_num=407309&kettonum=2024106404",
+      "userumalist.do?group_num=0601093409&user_num=407309"
+    ]
+  }
+]
