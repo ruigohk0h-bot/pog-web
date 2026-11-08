@@ -1,5 +1,5 @@
 {
-  "updated": "2026/11/08 20:23",
+  "updated": "2026/11/09 00:43",
   "source": "https://pogstarion.com/newresultlist.do?group_num=0601093409",
   "schedule_results": [
     {
@@ -138,60 +138,6 @@
     }
   ],
   "special_regist": [
-    {
-      "日時": "11/08",
-      "競走": "東京09R",
-      "col2": "特別",
-      "レース名": "百日草特別",
-      "距離": "芝2000",
-      "馬名": "エスクアドラ",
-      "所有者": "前田厩舎",
-      "_links": [
-        "http://umachu.com/r/26/05/050502_09.html/",
-        "umaracelist.do?group_num=0601093409&user_num=407310&kettonum=2024106386",
-        "userumalist.do?group_num=0601093409&user_num=407310"
-      ]
-    },
-    {
-      "日時": "11/08",
-      "競走": "京都09R",
-      "col2": "特別",
-      "レース名": "もちの木賞",
-      "距離": "ダ1800",
-      "馬名": "アンドレバローズ",
-      "所有者": "成田厩舎",
-      "_links": [
-        "http://umachu.com/r/26/08/080502_09.html/",
-        "umaracelist.do?group_num=0601093409&user_num=407305&kettonum=2024100442",
-        "userumalist.do?group_num=0601093409&user_num=407305"
-      ]
-    },
-    {
-      "日時": "11/08",
-      "競走": "京都09R",
-      "col2": "特別",
-      "レース名": "もちの木賞",
-      "距離": "ダ1800",
-      "馬名": "エピドゥブレ",
-      "所有者": "前田厩舎",
-      "_links": [
-        "umaracelist.do?group_num=0601093409&user_num=407310&kettonum=2024106275",
-        "userumalist.do?group_num=0601093409&user_num=407310"
-      ]
-    },
-    {
-      "日時": "11/08",
-      "競走": "京都09R",
-      "col2": "特別",
-      "レース名": "もちの木賞",
-      "距離": "ダ1800",
-      "馬名": "トゥザファイナル",
-      "所有者": "ミリオン厩舎",
-      "_links": [
-        "umaracelist.do?group_num=0601093409&user_num=407309&kettonum=2024106404",
-        "userumalist.do?group_num=0601093409&user_num=407309"
-      ]
-    },
     {
       "日時": "11/15",
       "競走": "福島09R",
