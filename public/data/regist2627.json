@@ -91,8 +91,8 @@
   },
   "P01": {
     "dam_to_name": {
-      "Shanghai Starlet": "スターフラッシュ",
       "ジューヌエコール": "エスクアドラ",
+      "Shanghai Starlet": "スターフラッシュ",
       "クインアマランサス": "エピドゥブレ",
       "クラーベセクレタ": "ラキアーヴェ",
       "アドマイヤローザ": "ヴェルバーニア",
@@ -106,16 +106,16 @@
     },
     "horses": [
       {
-        "name": "スターフラッシュ",
-        "active": false,
-        "sire": "Yaupon",
-        "dam": "Shanghai Starlet"
-      },
-      {
         "name": "エスクアドラ",
         "active": true,
         "sire": "レイデオロ",
         "dam": "ジューヌエコール"
+      },
+      {
+        "name": "スターフラッシュ",
+        "active": false,
+        "sire": "Yaupon",
+        "dam": "Shanghai Starlet"
       },
       {
         "name": "エピドゥブレ",

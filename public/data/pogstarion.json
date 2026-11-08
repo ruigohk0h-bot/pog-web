@@ -1,5 +1,5 @@
 {
-  "updated": "2026/11/08 13:17",
+  "updated": "2026/11/08 20:23",
   "source": "https://pogstarion.com/newresultlist.do?group_num=0601093409",
   "schedule_results": [
     {
@@ -78,8 +78,8 @@
       "距離": "芝2000",
       "馬名": "エスクアドラ",
       "騎手": "プーシャ",
-      "順位": "",
-      "賞金": "",
+      "順位": "1",
+      "賞金": "1140",
       "所有者": "前田厩舎",
       "_links": [
         "http://race.netkeiba.com/?pid=race&id=c202605050209&mode=shutuba",
@@ -93,29 +93,13 @@
       "col2": "特別",
       "レース名": "もちの木賞",
       "距離": "ダ1800",
-      "馬名": "アンドレバローズ",
-      "騎手": "酒井学",
-      "順位": "",
-      "賞金": "",
-      "所有者": "成田厩舎",
-      "_links": [
-        "http://race.netkeiba.com/?pid=race&id=c202608050209&mode=shutuba",
-        "umaracelist.do?group_num=0601093409&user_num=407305&kettonum=2024100442",
-        "userumalist.do?group_num=0601093409&user_num=407305"
-      ]
-    },
-    {
-      "日時": "11/08",
-      "競走": "京都09R",
-      "col2": "特別",
-      "レース名": "もちの木賞",
-      "距離": "ダ1800",
       "馬名": "エピドゥブレ",
       "騎手": "Ｃ．デム",
-      "順位": "",
-      "賞金": "",
+      "順位": "3",
+      "賞金": "290",
       "所有者": "前田厩舎",
       "_links": [
+        "http://race.netkeiba.com/?pid=race&id=c202608050209&mode=shutuba",
         "umaracelist.do?group_num=0601093409&user_num=407310&kettonum=2024106275",
         "userumalist.do?group_num=0601093409&user_num=407310"
       ]
@@ -128,12 +112,28 @@
       "距離": "ダ1800",
       "馬名": "トゥザファイナル",
       "騎手": "Ｍ．デム",
-      "順位": "",
-      "賞金": "",
+      "順位": "7",
+      "賞金": "0",
       "所有者": "ミリオン厩舎",
       "_links": [
         "umaracelist.do?group_num=0601093409&user_num=407309&kettonum=2024106404",
         "userumalist.do?group_num=0601093409&user_num=407309"
+      ]
+    },
+    {
+      "日時": "11/08",
+      "競走": "京都09R",
+      "col2": "特別",
+      "レース名": "もちの木賞",
+      "距離": "ダ1800",
+      "馬名": "アンドレバローズ",
+      "騎手": "酒井学",
+      "順位": "10",
+      "賞金": "0",
+      "所有者": "成田厩舎",
+      "_links": [
+        "umaracelist.do?group_num=0601093409&user_num=407305&kettonum=2024100442",
+        "userumalist.do?group_num=0601093409&user_num=407305"
       ]
     }
   ],
@@ -190,6 +190,20 @@
       "_links": [
         "umaracelist.do?group_num=0601093409&user_num=407309&kettonum=2024106404",
         "userumalist.do?group_num=0601093409&user_num=407309"
+      ]
+    },
+    {
+      "日時": "11/15",
+      "競走": "福島09R",
+      "col2": "特別",
+      "レース名": "福島２歳ステークス",
+      "距離": "芝1200",
+      "馬名": "ラキアーヴェ",
+      "所有者": "前田厩舎",
+      "_links": [
+        "http://umachu.com/r/26/03/030304_09.html/",
+        "umaracelist.do?group_num=0601093409&user_num=407310&kettonum=2024106284",
+        "userumalist.do?group_num=0601093409&user_num=407310"
       ]
     }
   ]
