@@ -251,7 +251,7 @@
       },
       {
         "name": "ツリートッパー",
-        "active": false,
+        "active": true,
         "sire": "ドレフォン",
         "dam": "ナターレ"
       },
@@ -305,7 +305,7 @@
       },
       {
         "name": "スターシーカー",
-        "active": true,
+        "active": false,
         "sire": "Life",
         "dam": "アストロロジカル"
       },
@@ -389,7 +389,7 @@
       },
       {
         "name": "ヴェトロテンペスタ",
-        "active": false,
+        "active": true,
         "sire": "コントレイル",
         "dam": "シャンパンエニワン"
       },
@@ -515,7 +515,7 @@
       },
       {
         "name": "ケンシロウワールド",
-        "active": true,
+        "active": false,
         "sire": "Violence",
         "dam": "Colby Cakes"
       },
