@@ -1,5 +1,14 @@
 [
   {
+    "horse": "ムーンベリル",
+    "player": "P03",
+    "title": "ムーンベリル: 競走馬データ詳細 - SPAIA競馬",
+    "desc": "ムーンベリル: 競走馬データ詳細&nbsp;&nbsp;SPAIA競馬",
+    "source": "SPAIA競馬",
+    "date": "2026/11/11",
+    "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBHNDE1d1k2V000LTFRV2x1aG5NUjdVMTlIa0E2LXJJZ2R0Z3BpZ1hLWmN1SEdyb3cxWGwxQjBZV1k3eGVVYU1sWDRIWnNCczlRcjFnRTJaSVNpcFY5UDZuWk9RR0VIMHZpaWVWa1FhUUM?oc=5"
+  },
+  {
     "horse": "アトミックリーチ",
     "player": "P02",
     "title": "【2歳次走報】5馬身差Vジーフォーリアは葉牡丹賞へ アトミックリーチはゆりかもめ賞を視野 - サンスポ",
@@ -16,15 +25,6 @@
     "source": "netkeiba",
     "date": "2026/11/11",
     "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE5oXzc3NlZhVXEtUzVsUEF4QUlRZElFQ1Zjald1am04R0dIR091RzNGeGlWbmJ5MXF3M2JXdUlJMi12VXQ5RnBaSDFkNVJiTXpQQ3Q1ZWJQRkdvZHN0cjBuaGdBSVlDRWJNV2pDNjdzaWdkU0k?oc=5"
-  },
-  {
-    "horse": "ウラノグラフィア",
-    "player": "P06",
-    "title": "ウラノグラフィアの個別ラップ - netkeiba",
-    "desc": "ウラノグラフィアの個別ラップ&nbsp;&nbsp;netkeiba",
-    "source": "netkeiba",
-    "date": "2026/11/10",
-    "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE56UXNlVEtMX0hmQ1BYQUt2bENZUUxmamgwdWpvVVJuLVIxcFZHbVZiU1BqUzVrY2d1dFZldUZ4RG9ualV4SElGX1VlbXAzLUJ6Zmw5RWMwVWRaaFRfQndSTWdqODNJM0ZDenNsU2Vfc0QxSmc?oc=5"
   },
   {
     "horse": "エスクアドラ",
@@ -223,6 +223,15 @@
     "source": "netkeiba",
     "date": "2026/11/07",
     "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNa0c1RzhXdExwV09LYmtIQTQ1TzFFdjFiZ3hPTnFDandjVjBCNEJiZEN1dzhxaTdWVjdWSVJ3bllnVFF3UW0xV2NxeUlDV0hNM0ZfZW9RcUtodzdpQkpCNmJhdjNwUmtOTWRKVjkxMzFGUW4xei1CUnpOTjdCTk1abG1IaEVOU3psU0FRblc2UQ?oc=5"
+  },
+  {
+    "horse": "エクレアカミング",
+    "player": "P03",
+    "title": "２歳新馬 エクレアカミング | 2026/11/8 京都5R レース情報(JRA) - netkeiba.com - netkeiba",
+    "desc": "２歳新馬 エクレアカミング | 2026/11/8 京都5R レース情報(JRA) - netkeiba.com&nbsp;&nbsp;netkeiba",
+    "source": "netkeiba",
+    "date": "2026/11/07",
+    "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQTE4zVU42ZWtmM2Z2dTVXNnU1Qk5majNWYjhLaDJSZkZrXzlWbWU1dEdGT2hHNmNpZ19QaTNNXzZ4UVRyT2VjWTJ2NkhWTWhtZnZRandhZVJ1VmRSOGFWOXVtQmE5dnFwNUsyUm1ZMUc1ZGJzd0JYNi05OVdCNWlXQ19WQ0FPTlhhdGViMDBZdTg2U0hyd1RfYXNQLTVvUjAydHRtdWVR?oc=5"
   },
   {
     "horse": "ヴェトロテンペスタ",
@@ -486,15 +495,6 @@
     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE1YaHNMQ2pvdXQ2QmpLMGVVcWNGMzhpczg2YzBodG4xMk03SXJUbFlvMWdKaTJfcjRIOHN0V3o3YUNOcTlaYnh3RlNtVm84S3NHZ2VxMVlYd1p5SGtfZExVaDd4bThCVTIxN3F2MDhwbw?oc=5"
   },
   {
-    "horse": "ヘイヴァイタヒチ",
-    "player": "P04",
-    "title": "【新馬戦】ヘイヴァイタヒチ　まさに横綱相撲だ！３馬身半差デビューＶ　西村淳も納得「厩舎の自信通りの結果出せた」 | 競馬ニュース - netkeiba - netkeiba",
-    "desc": "【新馬戦】ヘイヴァイタヒチ　まさに横綱相撲だ！３馬身半差デビューＶ　西村淳も納得「厩舎の自信通りの結果出せた」 | 競馬ニュース - netkeiba&nbsp;&nbsp;netkeiba",
-    "source": "netkeiba",
-    "date": "2026/10/25",
-    "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1XSmtTc1ZNMi1ZbDRtNUhUVndrWWM3TnhZU2pRNjdITzQwd0tXVFNyWm5USmFfclIyWEVDLWpSa190VG9ZWnl1RmFLMnlldTUzMWdGd3dyVFZGYXlPamR5RFZTLXNyYWVkS0VvRTB6YWnSAXZBVV95cUxOMTJwRVFCWGlSSTdjWkd3MXpsQ0R5czE2dW8xOHpNd29xTlVra3dVemVJMkJoLWxjWTE2bnVrcXJLZ2pUZk1BRFZyV0tMVXZubW9ic0JMVTFvRWI1R1otbUhlMzI2V2QxczRWdk5FLWFQTzRNWHdB?oc=5"
-  },
-  {
     "horse": "ヴェトロテンペスタ",
     "player": "P06",
     "title": "【2歳次走報】ヴェトロテンペスタは葉牡丹賞で連勝狙う - サンスポ",
@@ -569,6 +569,15 @@
   {
     "horse": "ヘイヴァイタヒチ",
     "player": "P04",
+    "title": "【メイクデビュー東京4Rレース後コメント】ヘイヴァイタヒチ西村淳也騎手ら | 競馬ニュース - netkeiba - netkeiba",
+    "desc": "【メイクデビュー東京4Rレース後コメント】ヘイヴァイタヒチ西村淳也騎手ら | 競馬ニュース - netkeiba&nbsp;&nbsp;netkeiba",
+    "source": "netkeiba",
+    "date": "2026/10/24",
+    "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5MRXFFUGVHZlRDekl2MnZDTDQtbC1IVnpFWVN5WVhCLU1TV3RkTThPNGdneEMxNkhXZHNNOTlzVm9lSVo5S0U1dGZsS0ViVkh3bVZYaG5HWDJSZlpsTXI0Wm1zTjBZNlFueGJWRzN4UkfSAXZBVV95cUxPcWFqQWtaRWRRTWpLQTFNRk94YXRMbjN2VnlmVFQyX0RkVDM5SE1XMGE3Y2RJdUFiLUJFbjl2RHZqYUVwR0RwVmhVQ1dHVktheHhYclYwUzdwNlVmQlplMzQwQmgzUU9CcW9OMTZKbWVnYUlsaVZR?oc=5"
+  },
+  {
+    "horse": "ヘイヴァイタヒチ",
+    "player": "P04",
     "title": "【2歳新馬・東京4R】ヘイヴァイタヒチが危なげなく3馬身半差で快勝！ 西村騎手「きょうはいろいろ経験ができて、よかったです」（写真・画像 1/1） - サンスポ",
     "desc": "【2歳新馬・東京4R】ヘイヴァイタヒチが危なげなく3馬身半差で快勝！ 西村騎手「きょうはいろいろ経験ができて、よかったです」（写真・画像 1/1）&nbsp;&nbsp;サンスポ",
     "source": "サンスポ",
@@ -592,15 +601,6 @@
     "source": "スポニチ Sponichi Annex",
     "date": "2026/10/24",
     "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNdWtZTlN0dS1yWkoxcGN1QVhHazB1TkdmN1pLX3J4VjRrZ0FCaExxS1I5cUtnSFlpWU9rYmRzSWhxMUFJTmVieURTclRDTmVYTHM1V2Q3Mm80NmsxYTJBaXlVemhYWVdfMzA5MTExR1RxcHR3UTlPVnpZVW1GX1B0VnZJVC1kb25QYWdPYQ?oc=5"
-  },
-  {
-    "horse": "ヘイヴァイタヒチ",
-    "player": "P04",
-    "title": "【メイクデビュー東京4Rレース後コメント】ヘイヴァイタヒチ西村淳也騎手ら | 競馬ニュース - netkeiba - netkeiba",
-    "desc": "【メイクデビュー東京4Rレース後コメント】ヘイヴァイタヒチ西村淳也騎手ら | 競馬ニュース - netkeiba&nbsp;&nbsp;netkeiba",
-    "source": "netkeiba",
-    "date": "2026/10/24",
-    "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5MRXFFUGVHZlRDekl2MnZDTDQtbC1IVnpFWVN5WVhCLU1TV3RkTThPNGdneEMxNkhXZHNNOTlzVm9lSVo5S0U1dGZsS0ViVkh3bVZYaG5HWDJSZlpsTXI0Wm1zTjBZNlFueGJWRzN4UkfSAXZBVV95cUxPcWFqQWtaRWRRTWpLQTFNRk94YXRMbjN2VnlmVFQyX0RkVDM5SE1XMGE3Y2RJdUFiLUJFbjl2RHZqYUVwR0RwVmhVQ1dHVktheHhYclYwUzdwNlVmQlplMzQwQmgzUU9CcW9OMTZKbWVnYUlsaVZR?oc=5"
   },
   {
     "horse": "ヘイヴァイタヒチ",
@@ -632,15 +632,6 @@
   {
     "horse": "ヘイヴァイタヒチ",
     "player": "P04",
-    "title": "【東京4R・新馬戦】2番人気ヘイヴァイタヒチが3馬身半差化快勝　加藤征師は「内容は凄く良かったです」 | 競馬ニュース - netkeiba - netkeiba",
-    "desc": "【東京4R・新馬戦】2番人気ヘイヴァイタヒチが3馬身半差化快勝　加藤征師は「内容は凄く良かったです」 | 競馬ニュース - netkeiba&nbsp;&nbsp;netkeiba",
-    "source": "netkeiba",
-    "date": "2026/10/24",
-    "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1DTHUzT2R3YVZOSE9BaV93dGM3andSdTVTblpySDJJdjJzendRN05JUEduNlJodlFRMTFfNXdYX0d2VXEzWVd5RnNad0pjLXFuMmM5ejJlNW8tZHVwbTFjcHdSR1RPMVVaUEV4THIwTk_SAXZBVV95cUxOX29oakdpYThtNmE3YmhyWG43NXdCMnJxd01QRENxWS05bWxad2RhVXNsZXNnTGMtVkJJSTdDRzVSaTlEeXlyX3lCYkl3MWpaNHMwdHFXTXlFczFXMy1oMkI2N0Jyb01ud3RWS2p3SHFYLURtUDVB?oc=5"
-  },
-  {
-    "horse": "ヘイヴァイタヒチ",
-    "player": "P04",
     "title": "【東京4R・新馬戦】2番人気ヘイヴァイタヒチが3馬身半差化快勝 加藤征師は「内容は凄く良かったです」 - netkeiba",
     "desc": "【東京4R・新馬戦】2番人気ヘイヴァイタヒチが3馬身半差化快勝 加藤征師は「内容は凄く良かったです」&nbsp;&nbsp;netkeiba",
     "source": "netkeiba",
@@ -664,15 +655,6 @@
     "source": "日刊スポーツ",
     "date": "2026/10/24",
     "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOMGFjQkdtYnNZMnFweWRhY0JHRjFCckVCYzVpVFdad0tIV0owTUcyN3hadWlJaWlMSy1DQVVTVXc3WDFaMVRoSXlsNlBkQndMUGNvekN2YWFNSDFXMGxkeTVueEFuWEtMSmt3dENwRFNRaGR4cUZwRlpuMkxuRUloVFRBcC1sZkVoS2x3?oc=5"
-  },
-  {
-    "horse": "ムーンベリル",
-    "player": "P03",
-    "title": "なでしこ賞(1勝クラス) ムーンベリル | 2026/10/24 京都9R レース情報(JRA) - netkeiba.com - netkeiba",
-    "desc": "なでしこ賞(1勝クラス) ムーンベリル | 2026/10/24 京都9R レース情報(JRA) - netkeiba.com&nbsp;&nbsp;netkeiba",
-    "source": "netkeiba",
-    "date": "2026/10/23",
-    "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPUjNIODdxekhNOVdzMmk3UUw4RUN0MG10S1ZLcWs0UFRidVpNU3VheVpVNnQ1azVUS2NOSHY3RHhYTVJWMEZpWVUzMFRZN1pPQWdhOE5OOHZLTWZDZ3duQUxZQjQ3bkdBb0xWdDZIVm9iNEpObHlfaUw1MWJsQTg4d0JiNDlPWV9KVTFqWGYwaw?oc=5"
   },
   {
     "horse": "ヤングリッチ",
@@ -729,13 +711,13 @@
     "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOM1V6SFc0SUt5UkdwdGV2ak4td051MVNpZ0w5S2VlTzZJbjY5bF9Ld2xhQ05BdzVPb0w3XzhjWWRrMWYzSjJPODNUUnJrVkRoZGo3QzRXdHFGZUlnX2hkcUN2NlNCNC1FVndFUHJOU3NzRjNDU1BxRlFMOGhPTktvQkpxTHRISUVoZ1E?oc=5"
   },
   {
-    "horse": "デミアン",
-    "player": "P02",
-    "title": "萩Ｓ(L) デミアン | 2026/10/25 京都9R レース情報(JRA) - netkeiba.com - netkeiba",
-    "desc": "萩Ｓ(L) デミアン | 2026/10/25 京都9R レース情報(JRA) - netkeiba.com&nbsp;&nbsp;netkeiba",
+    "horse": "サンクサンス",
+    "player": "P04",
+    "title": "サンクサンスレース後短評 - netkeiba",
+    "desc": "サンクサンスレース後短評&nbsp;&nbsp;netkeiba",
     "source": "netkeiba",
-    "date": "2026/10/18",
-    "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPLVdLRkp5UzZkbWJnOTlvU0pmYlRVLW90WjFoR0JRRkVWNWhHNHU3R0YyODRJTGdHNmVSWEk4QUhEcTc4LXdYUkdUWllMeUJFOUhOR2s2YjgwN2JheWhjeWlDbnpRWERqaHZjOEM2bGVQZjRMQjBPS0tOTUdqcGtBR3o2THRxMjNLeUl5WDJvcw?oc=5"
+    "date": "2026/10/19",
+    "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQYTg4ZmZFckFKR1ZJMXJfS0FOZEZWUUhJTHBVN2NYTlNWWm93d3Q4WGtlc3BjQzlwaU9QOHdaMGFCM3lqeTdOUmNjMFp6SnhoWDVLV2ZaZFpuZ29OZFZfdXRFa1VOdVZENk9ZVFg1c2Z5S29yellQTXY2aUR1OUpPbkowRWRjcFJycEE?oc=5"
   },
   {
     "horse": "ヤングリッチ",
@@ -1105,15 +1087,6 @@
     "source": "netkeiba",
     "date": "2026/10/12",
     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5IbDBkMG1NRWc1Sk1yVEhVaXBiUG81N2tEQWhWcjBNZlRrN2RwRFlVcVI4Q3lVaExXN2Q2SkwtRDc4VmxGLU1hTXR0ckxqREZyQ1hoU291X3VvamZMZW11cGdzdGNfaUN5M0VSQjhTX3nSAXZBVV95cUxQa0R0T1NEZERNWms4X0VIa3RUV2hva19iRWlFWjVsNk5zNE5kSkUzcTMwRFNIR1p5LTB4dG5WWlpVR3lkOVVNYU1QN0hKcTR5WlhDYkZ1dGRraGJPczNITXZ4UkxoQ3pXbXlkM19JOTJ1MUlpWktR?oc=5"
-  },
-  {
-    "horse": "ウィンターブリーズ",
-    "player": "P07",
-    "title": "【12日の注目・東京8R】底見せぬ2頭が激突　レコード大幅更新ウィンターブリーズ×大差勝ちレガメデルヴェント | 競馬ニュース - netkeiba - netkeiba",
-    "desc": "【12日の注目・東京8R】底見せぬ2頭が激突　レコード大幅更新ウィンターブリーズ×大差勝ちレガメデルヴェント | 競馬ニュース - netkeiba&nbsp;&nbsp;netkeiba",
-    "source": "netkeiba",
-    "date": "2026/10/12",
-    "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9aQTZ4NUZuVXo2UWJtUnlVZDg5NEFNc2JrZVJxN1pVVWhjLUEtY3pmTkdnSnRaZ3RpUTJDSFcwSlJzdGozWnZuVmd6Z2JhYXl1Y21fRUpGMGsyMXpibHZNR0xoUkpBMHJJcEIybHNwTmTSAXZBVV95cUxPNldZMDhtUXU4ZUJZNWNJLWRBTXZYUU1fdEpJeDl2R1Q4RUdHbnRNZDY1TWVoaUlhT2o3LUt3djdjdHN5LVhsODRHNDEtd3FzMHlfWmRHUUpSR3ZrdWhCRmlyeFRJbDBLbmlCdk5EWGVQSkkzSkZR?oc=5"
   },
   {
     "horse": "ウィンターブリーズ",
@@ -1838,6 +1811,15 @@
   {
     "horse": "ヴェトロテンペスタ",
     "player": "P06",
+    "title": "【新馬/中山5R】ルメールがJRA年間100勝！コントレイル産駒ヴェトロテンペスタが3馬身差V - 千葉テレビ放送株式会社",
+    "desc": "【新馬/中山5R】ルメールがJRA年間100勝！コントレイル産駒ヴェトロテンペスタが3馬身差V&nbsp;&nbsp;千葉テレビ放送株式会社",
+    "source": "千葉テレビ放送株式会社",
+    "date": "2026/09/05",
+    "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9QcHd5b2JadmZBZXZLMkgzd3d0WjlsazN5NkJNbUVPcEhvVmFMX3FtVTl6dkdSRm9XeEY5cTM3QllUc1BFejUteG9RY2UxN3NhWHBSc0NmRTNBazJEUVln?oc=5"
+  },
+  {
+    "horse": "ヴェトロテンペスタ",
+    "player": "P06",
     "title": "ルメール騎手が年間100勝一番乗り「夏競馬が終わって…」 中山5R・2歳新馬をヴェトロテンペスタで制す - netkeiba",
     "desc": "ルメール騎手が年間100勝一番乗り「夏競馬が終わって…」 中山5R・2歳新馬をヴェトロテンペスタで制す&nbsp;&nbsp;netkeiba",
     "source": "netkeiba",
@@ -1870,15 +1852,6 @@
     "source": "netkeiba",
     "date": "2026/09/05",
     "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFByRWhsXzBteVhtcjhYNFY4YU1zVUxLQ3dTM0kyb1FROEJKa2pCekFfdXh5c2tXNnFFTER3UHZZdVJhWFhOaUE1WEVoVUF1UExqM1JMT3J6S1RaUjViX1Vv?oc=5"
-  },
-  {
-    "horse": "ヴェトロテンペスタ",
-    "player": "P06",
-    "title": "【新馬/中山5R】ルメールがJRA年間100勝！コントレイル産駒ヴェトロテンペスタが3馬身差V - 千葉テレビ放送株式会社",
-    "desc": "【新馬/中山5R】ルメールがJRA年間100勝！コントレイル産駒ヴェトロテンペスタが3馬身差V&nbsp;&nbsp;千葉テレビ放送株式会社",
-    "source": "千葉テレビ放送株式会社",
-    "date": "2026/09/05",
-    "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9QcHd5b2JadmZBZXZLMkgzd3d0WjlsazN5NkJNbUVPcEhvVmFMX3FtVTl6dkdSRm9XeEY5cTM3QllUc1BFejUteG9RY2UxN3NhWHBSc0NmRTNBazJEUVln?oc=5"
   },
   {
     "horse": "ヴェトロテンペスタ",
