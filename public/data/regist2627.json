@@ -107,7 +107,7 @@
     "horses": [
       {
         "name": "エスクアドラ",
-        "active": true,
+        "active": false,
         "sire": "レイデオロ",
         "dam": "ジューヌエコール"
       },
@@ -137,7 +137,7 @@
       },
       {
         "name": "コナパームス",
-        "active": false,
+        "active": true,
         "sire": "アドマイヤマーズ",
         "dam": "コナブリュワーズ"
       },
@@ -215,7 +215,7 @@
       },
       {
         "name": "ギルデッドグロス",
-        "active": false,
+        "active": true,
         "sire": "クリソベリル",
         "dam": "ギルデッドミラー"
       },
@@ -263,7 +263,7 @@
       },
       {
         "name": "ハーモニープルーフ",
-        "active": true,
+        "active": false,
         "sire": "ナダル",
         "dam": "ゴールデンプルーフ"
       }
@@ -473,7 +473,7 @@
       },
       {
         "name": "オメガマサヤ",
-        "active": false,
+        "active": true,
         "sire": "オメガパフューム",
         "dam": "スターズバース"
       },
