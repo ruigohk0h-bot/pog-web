@@ -1,5 +1,5 @@
 {
-  "updated": "2026/11/15 13:42",
+  "updated": "2026/11/15 21:19",
   "source": "https://pogstarion.com/newresultlist.do?group_num=0601093409",
   "schedule_results": [
     {
@@ -61,8 +61,8 @@
       "距離": "芝1200",
       "馬名": "ラキアーヴェ",
       "騎手": "丸山元気",
-      "順位": "",
-      "賞金": "",
+      "順位": "11",
+      "賞金": "0",
       "所有者": "前田厩舎",
       "_links": [
         "http://race.netkeiba.com/?pid=race&id=c202603030409&mode=shutuba",

@@ -1,6 +1,22 @@
 [
   {
     "date": "11/15",
+    "venue": "福島",
+    "race": "福島２歳ステークス",
+    "course": "芝1200",
+    "surface": "turf",
+    "dist": 1200,
+    "horse": "ラキアーヴェ",
+    "player": "P01",
+    "order": 11,
+    "grade": null,
+    "local": false,
+    "rawPt": 0,
+    "turfPt": 0,
+    "_ts": "11/15"
+  },
+  {
+    "date": "11/15",
     "venue": "東京",
     "race": "未勝利",
     "course": "ダ1400",
