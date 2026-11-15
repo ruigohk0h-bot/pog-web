@@ -1,5 +1,5 @@
 {
-  "updated": "2026/11/15 21:19",
+  "updated": "2026/11/16 01:01",
   "source": "https://pogstarion.com/newresultlist.do?group_num=0601093409",
   "schedule_results": [
     {
@@ -71,20 +71,5 @@
       ]
     }
   ],
-  "special_regist": [
-    {
-      "日時": "11/15",
-      "競走": "福島09R",
-      "col2": "特別",
-      "レース名": "福島２歳ステークス",
-      "距離": "芝1200",
-      "馬名": "ラキアーヴェ",
-      "所有者": "前田厩舎",
-      "_links": [
-        "http://umachu.com/r/26/03/030304_09.html/",
-        "umaracelist.do?group_num=0601093409&user_num=407310&kettonum=2024106284",
-        "userumalist.do?group_num=0601093409&user_num=407310"
-      ]
-    }
-  ]
+  "special_regist": []
 }
