@@ -107,7 +107,7 @@ const PLAYERS_2627 = [
       { no:4,  name:"ソルテヴェローチェ", sire:"マテラスカイ",          dam:"ミニーアイル" },
       { no:5,  name:"トリプルウィン",     sire:"ドレフォン",            dam:"ラヴェリータ" },
       { no:6,  name:"タクティシアン",     sire:"サリオス",              dam:"モルジアナ" },
-      { no:7,  name:null,               dam:"ベッラガンバ" },
+      { no:7,  name:"クラウドレススカイ", sire:"Flightline", dam:"ベッラガンバ" },
       { no:8,  name:"テンブレイクワン",   sire:"Volatile",              dam:"Nothing But Tom" },
       { no:9,  name:"ダノンブレイズ",      sire:"Violence",              dam:"ミスエンパイアメント" },
       { no:10, name:"アンドレバローズ",   sire:"ルヴァンスレーヴ",      dam:"ジェラスキャット" },
