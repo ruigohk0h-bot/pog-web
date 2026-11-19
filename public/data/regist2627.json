@@ -29,7 +29,7 @@
       },
       {
         "name": "ヘイヴァイタヒチ",
-        "active": false,
+        "active": true,
         "sire": "ナダル",
         "dam": "タヒチアンダンス"
       },
@@ -41,7 +41,7 @@
       },
       {
         "name": "サンクサンス",
-        "active": false,
+        "active": true,
         "sire": "American",
         "dam": "エリーズスマイル"
       },
@@ -83,7 +83,7 @@
       },
       {
         "name": "ヨハンナ",
-        "active": true,
+        "active": false,
         "sire": "クリソベリル",
         "dam": "ロッテンマイヤー"
       }
@@ -125,7 +125,7 @@
       },
       {
         "name": "ラキアーヴェ",
-        "active": true,
+        "active": false,
         "sire": "ルヴァンスレーヴ",
         "dam": "クラーベセクレタ"
       },
@@ -209,7 +209,7 @@
       },
       {
         "name": "ダノンチャンピオン",
-        "active": true,
+        "active": false,
         "sire": "ホットロッドチャーリー",
         "dam": "トップデサイル"
       },
@@ -425,7 +425,7 @@
       },
       {
         "name": "サラササンブラック",
-        "active": true,
+        "active": false,
         "sire": "キタサンブラック",
         "dam": "ドリームライター"
       },
