@@ -1,5 +1,21 @@
 [
   {
+    "date": "11/21",
+    "venue": "福島",
+    "race": "未勝利",
+    "course": "ダ1700",
+    "surface": "dirt",
+    "dist": 1700,
+    "horse": "レガシーマインド",
+    "player": "P04",
+    "order": 13,
+    "grade": null,
+    "local": false,
+    "rawPt": 0,
+    "turfPt": 0,
+    "_ts": "11/21"
+  },
+  {
     "date": "11/15",
     "venue": "福島",
     "race": "福島２歳ステークス",
