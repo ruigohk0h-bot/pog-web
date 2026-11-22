@@ -1,5 +1,5 @@
 {
-  "updated": "2026/11/22 01:33",
+  "updated": "2026/11/22 13:57",
   "source": "https://pogstarion.com/newresultlist.do?group_num=0601093409",
   "schedule_results": [
     {
@@ -27,8 +27,8 @@
       "距離": "ダ1600",
       "馬名": "ダノンブレイズ",
       "騎手": "マーカン",
-      "順位": "",
-      "賞金": "",
+      "順位": "10",
+      "賞金": "0",
       "所有者": "成田厩舎",
       "_links": [
         "http://race.netkeiba.com/?pid=race&id=c202605050504&mode=shutuba",
