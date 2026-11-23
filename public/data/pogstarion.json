@@ -1,5 +1,5 @@
 {
-  "updated": "2026/11/23 14:33",
+  "updated": "2026/11/23 19:14",
   "source": "https://pogstarion.com/newresultlist.do?group_num=0601093409",
   "schedule_results": [
     {
@@ -54,5 +54,33 @@
       ]
     }
   ],
-  "special_regist": []
+  "special_regist": [
+    {
+      "日時": "11/29",
+      "競走": "東京09R",
+      "col2": "特別",
+      "レース名": "カトレアステークス",
+      "距離": "ダ1600",
+      "馬名": "アンドレバローズ",
+      "所有者": "成田厩舎",
+      "_links": [
+        "http://umachu.com/r/26/05/050508_09.html/",
+        "umaracelist.do?group_num=0601093409&user_num=407305&kettonum=2024100442",
+        "userumalist.do?group_num=0601093409&user_num=407305"
+      ]
+    },
+    {
+      "日時": "11/29",
+      "競走": "東京09R",
+      "col2": "特別",
+      "レース名": "カトレアステークス",
+      "距離": "ダ1600",
+      "馬名": "ウィンターブリーズ",
+      "所有者": "成田厩舎",
+      "_links": [
+        "umaracelist.do?group_num=0601093409&user_num=407305&kettonum=2024106106",
+        "userumalist.do?group_num=0601093409&user_num=407305"
+      ]
+    }
+  ]
 }
