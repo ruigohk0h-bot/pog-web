@@ -23,7 +23,7 @@
       },
       {
         "name": "レッドマウロア",
-        "active": false,
+        "active": true,
         "sire": "クリソベリル",
         "dam": "レッドアネラ"
       },
@@ -47,7 +47,7 @@
       },
       {
         "name": "ミクニブレイブ",
-        "active": false,
+        "active": true,
         "sire": "ナダル",
         "dam": "アンナミルト"
       },
@@ -257,7 +257,7 @@
       },
       {
         "name": "セイルトゥグローリ",
-        "active": false,
+        "active": true,
         "sire": "エフフォーリア",
         "dam": "セイリングホーム"
       },
@@ -293,7 +293,7 @@
       },
       {
         "name": "タクティシアン",
-        "active": false,
+        "active": true,
         "sire": "サリオス",
         "dam": "モルジアナ"
       },
@@ -377,7 +377,7 @@
     "horses": [
       {
         "name": "ホウオウシュウ",
-        "active": false,
+        "active": true,
         "sire": "レイデオロ",
         "dam": "スペシャルグルーヴ"
       },
@@ -509,7 +509,7 @@
       },
       {
         "name": "ヴィルダースヴィル",
-        "active": false,
+        "active": true,
         "sire": "ドレフォン",
         "dam": "セラドン"
       },
@@ -581,7 +581,7 @@
       },
       {
         "name": "ライデン",
-        "active": false,
+        "active": true,
         "sire": "サンダースノー",
         "dam": "オムニプレゼンス"
       },
