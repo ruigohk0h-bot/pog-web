@@ -1,12 +1,39 @@
 [
   {
-    "horse": "ウィンターブリーズ",
-    "player": "P07",
-    "title": "ホットロッドチャーリー初年度産駒ウィンターブリーズがダートで3連勝へ「楽しみ」／カトレアＳ - ２歳馬特集 | 競馬写真ニュース - 日刊スポーツ",
-    "desc": "ホットロッドチャーリー初年度産駒ウィンターブリーズがダートで3連勝へ「楽しみ」／カトレアＳ - ２歳馬特集 | 競馬写真ニュース&nbsp;&nbsp;日刊スポーツ",
-    "source": "日刊スポーツ",
+    "horse": "クロダテ",
+    "player": "P03",
+    "title": "２歳未勝利 クロダテ | 2026/11/28 東京2R レース情報(JRA) - netkeiba.com - netkeiba",
+    "desc": "２歳未勝利 クロダテ | 2026/11/28 東京2R レース情報(JRA) - netkeiba.com&nbsp;&nbsp;netkeiba",
+    "source": "netkeiba",
+    "date": "2026/11/25",
+    "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNekc2ZHNpaUZnTEZkeHNMTmdpdFo2bmdVellCWTRYbVJpR09wQUU4cURrY1ZzTHhVeGd3Y3VlNDJBUU1GdkVvY01EUmgxaExCOHZZTXZWVEhOb2VTQ1pEbXQwU2JhZnRmWHp3eXNETmZ1clhNUVRQWmQwZ0FEUlRydmpsTXhicjIwQ2FTVGNDSXJveGppdGpRLTVDSzVwaWdVeHF1bDBKLU0yeUE?oc=5"
+  },
+  {
+    "horse": "コナパームス",
+    "player": "P01",
+    "title": "２歳未勝利 コナパームス | 2026/11/29 東京3R レース情報(JRA) - netkeiba.com - netkeiba",
+    "desc": "２歳未勝利 コナパームス | 2026/11/29 東京3R レース情報(JRA) - netkeiba.com&nbsp;&nbsp;netkeiba",
+    "source": "netkeiba",
+    "date": "2026/11/25",
+    "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQVEgtVThyUy1VT3ljVnh2ZnhTMGVIUi12N0RoYkpEWnZCTlp0M3VlYmxacXNKZHpTSDZhUFE0TUluWTZIdkl0WmE4UTNTWkU5VzBYSGJ1WXY2QktkMmt1enJKZDBpUDFoUVUxVXdLYzZrcUlKT2J3UkVrWUxNUmFKQnFHYXdJUHd4QTlINXRLcEFvR1Z4NXQ0ak5KMC1uWl8zQW9NXzNTSkpodG8?oc=5"
+  },
+  {
+    "horse": "ゼットターム",
+    "player": "P03",
+    "title": "ゼットタームの個別ラップ - netkeiba",
+    "desc": "ゼットタームの個別ラップ&nbsp;&nbsp;netkeiba",
+    "source": "netkeiba",
     "date": "2026/11/24",
-    "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQaUd4ZkZCQVhBdUQtQVk1X1EtRXVoLWFYQzFHX3FWN1I1S2xZSUt1Y1ZMbXpyQ01jMVBsUjd1V1poNXptMGRLdFZlT0ZJdUNSMFdoNmVMQTQ5YnQyV25fNnhQR25zUTFwMlpMU28xQ0dSZDZ3YUY2NmdiQlEtLUEyQjJUS1VIWWlZOHVF?oc=5"
+    "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1CUDBpSzJ3VF81QzVGamk1dk9DX2poM2pQdnZVbFNBT25BUGFzdmptSGZjU3BrY0hrYmdfOUFlN2NralhPVHhHSzMzOHUtU0NHN3ZUNEIwanhOT3J4Vm5tNGl3cVlNS1FtY0FEcVFxc1VmZFE?oc=5"
+  },
+  {
+    "horse": "ライデン",
+    "player": "P03",
+    "title": "スオウライデンの掲示板 - netkeiba",
+    "desc": "スオウライデンの掲示板&nbsp;&nbsp;netkeiba",
+    "source": "netkeiba",
+    "date": "2026/11/24",
+    "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE96Wk15Z0hIQVhzdi1UcFQ0cDdZU0dEZ3p6bjl1dkl5dTF6NjBNelFKdkhMX1VtaWxGWFV6T1BESHpudTV2bG5qcENCSFhic0FjT1hkeTl4Z005ZWdT?oc=5"
   },
   {
     "horse": "ウィンターブリーズ",
@@ -16,6 +43,15 @@
     "source": "netkeiba",
     "date": "2026/11/24",
     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9jeVltMkdSMGdkT3RITjZzVFNobWhvX1p1RkxmYlFLODRmeUF6S1RweTlBeVhWV2pqSXYtZW1nbkpBZVViN09oUUZraEE1amhhdjRiZVhGN0NhNHliaHR1WlA0VldFWHdYNWJXWDl2UUbSAXZBVV95cUxNV0x3eDVsSndjQW01Q1pZZVI3aGdPeng3YTlsY3lIakNBUDVKbGZYZzE2U0Y5Q0JRT0lESG9uNlZDM09uaWM4THdVRjlOcThabUdnMUdRYmxDUnlySmZHSEt4NE5vZ3NMYzF2QzA5ZVJpTHBTcVBn?oc=5"
+  },
+  {
+    "horse": "ウィンターブリーズ",
+    "player": "P07",
+    "title": "【カトレアＳ・高野の特注馬】非凡な才能が目を引くウィンターブリーズ “世界”を見据えて落とせない一戦 - au Webポータル",
+    "desc": "【カトレアＳ・高野の特注馬】非凡な才能が目を引くウィンターブリーズ “世界”を見据えて落とせない一戦&nbsp;&nbsp;au Webポータル",
+    "source": "au Webポータル",
+    "date": "2026/11/24",
+    "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5LeXZzbTVKU0dUVGlXLW14ZlA3NElCMHV3amxLMkxkbm9VQ3FPVzh2WnpaWFc1YXZPSmxqRi02bmh6MWdZYXBiR1Bta0lYVTd2cGJmZTZtMnZBcm15ZFRpSlBURWl3TlpJcXRtMzNR?oc=5"
   },
   {
     "horse": "ウィンターブリーズ",
@@ -54,6 +90,15 @@
     "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE81emtqX1U3M1RNc1FXZzhGUmdRN3RNYV85SUxiaU9QMGRsT0RCQUJocExlMXFBTHZZOWh1OF9INHlQMEtBZlA5b2hySGZRYzJpdGtzZVFCaGdOSXVBVnFmVzhVZTlNVDdNTGFHNnZCOXZidDg?oc=5"
   },
   {
+    "horse": "ライデン",
+    "player": "P03",
+    "title": "ハナライデン - netkeiba",
+    "desc": "ハナライデン&nbsp;&nbsp;netkeiba",
+    "source": "netkeiba",
+    "date": "2026/11/22",
+    "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBnM0RoWmhrRTdYYmJiY01vNkJQZldSYmJBTjRKX1JSTnZhcDQ3Zy12M0RWc3QwSHUyOVhVcllMYkFtWXUzSHBIV2laSGtsR1kyMnNJ?oc=5"
+  },
+  {
     "horse": "ダノンブレイズ",
     "player": "P07",
     "title": "ダノンブレイズの個別ラップ - netkeiba",
@@ -70,6 +115,15 @@
     "source": "東スポ競馬",
     "date": "2026/11/20",
     "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE54dmVlcjd6SmNQOXRjeUVxZU0xN3NDU29xOTR5OXZWVGVWREN6Yi1hWS0tcnE1TTBjX0U0NVhhd3A1UmN1VllOQWtkaDMxTHJSNlB6aDV5aTFrZw?oc=5"
+  },
+  {
+    "horse": "アトミックリーチ",
+    "player": "P02",
+    "title": "アトミックリーチ 写真｜競走馬データ - 東スポ競馬",
+    "desc": "アトミックリーチ 写真｜競走馬データ&nbsp;&nbsp;東スポ競馬",
+    "source": "東スポ競馬",
+    "date": "2026/11/19",
+    "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5Bd1FldF90SzlDWU1VeXVGS2hwaEh6dy13UWZXS0V6ODhIZVRhazlvV1I1QVRnejYzN0dvdTFycjNmLWlzaTFjODZJaXp4c044YUdXbG54R0VWdw?oc=5"
   },
   {
     "horse": "レガシーマインド",
@@ -117,6 +171,24 @@
     "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE4xbG02Q0h5RERTNzNNOGZHYURxS3VoYUJmMVdVelEtT2x3aXp0Mk1OSWlxbjIyVG5FV0NpU28xOFljUVhLZ3hodjV2N2hBUktRTHp2emNuaXljUkhXRldRWkFyRnpUX3dnSzlvOWE3WjdwVllMaGtmTA?oc=5"
   },
   {
+    "horse": "ライデン",
+    "player": "P03",
+    "title": "ジュンライデン プロフィール｜競走馬データ - 東スポ競馬",
+    "desc": "ジュンライデン プロフィール｜競走馬データ&nbsp;&nbsp;東スポ競馬",
+    "source": "東スポ競馬",
+    "date": "2026/11/17",
+    "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9NN3QxVjBwOFdQbHQyVkV0S2M0M0lvNzhSaEtvR2xuOGF4SWhKWW1MNlpYdW1wWENqWmNubkVOclBBQjNlc0VVMW54X3NpU1Jqanh6SlBtTFhYTmM?oc=5"
+  },
+  {
+    "horse": "ライデン",
+    "player": "P03",
+    "title": "ジュンライデン 写真｜競走馬データ - 東スポ競馬",
+    "desc": "ジュンライデン 写真｜競走馬データ&nbsp;&nbsp;東スポ競馬",
+    "source": "東スポ競馬",
+    "date": "2026/11/17",
+    "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFA2eTgzSkk1azJtdlVZZi1VdnpTR2VlYXlsX09zQlRHVERfLTB4R0tSUnAyMm5pc0lnZ1llX09xRTVhNXZpUm54bzRzVjI2V05EYjFHSjlqZU1Pdw?oc=5"
+  },
+  {
     "horse": "ニーケーセナ",
     "player": "P04",
     "title": "ニーケーセナ2024年産 - 競馬予想のウマニティ",
@@ -135,6 +207,24 @@
     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFA0YmdTWElxTG1BU2dVZEFPSzlhLWVrdzFoakxHSnE4Y25teHYtWVl0UnZqLURFbDJXZDMxUkZ0ZVc4R3Q3WnJQa3lEQUhHSWlqektzSWkydEpUUHM?oc=5"
   },
   {
+    "horse": "ライデン",
+    "player": "P03",
+    "title": "ライデンリーダーの掲示板 - netkeiba",
+    "desc": "ライデンリーダーの掲示板&nbsp;&nbsp;netkeiba",
+    "source": "netkeiba",
+    "date": "2026/11/16",
+    "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE1lbUZ0LXdSWU14Skx2cXRoYTdKSUVseWVWQXdjYVFnMFBaelJjWGx5UDNYVnZsemltSDJwOEtsYXBFZUNWSEZhbU41Q1NyQXlTdUhzYXgzcklQQzNwWTlHTDZWMFJHZzFLVkJn?oc=5"
+  },
+  {
+    "horse": "ライデン",
+    "player": "P03",
+    "title": "ライデンユニバースの掲示板 - netkeiba",
+    "desc": "ライデンユニバースの掲示板&nbsp;&nbsp;netkeiba",
+    "source": "netkeiba",
+    "date": "2026/11/16",
+    "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE1NMGdDNTFPTV9HNkU5QXYyd3g0UnNfdHl2OHhDaDFJMzhtUkVsY0ZraWdUbnA4bjB0T2JtRmVnaWNYX3ZLZ1FPSExYQVZFUmpQcTNFQUFKMk5jVVZlT0xoMFl3?oc=5"
+  },
+  {
     "horse": "ミシェルバローズ",
     "player": "P01",
     "title": "ミシェルバローズ掲示板投稿者ランキング - netkeiba",
@@ -151,6 +241,24 @@
     "source": "netkeiba",
     "date": "2026/11/15",
     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE0zOVNHZ0FkcDRaM01jMU5SOHE5TVVhLUhTdHBDNXJwclNXdXVhdmZqTTRzWkExSXZZeUdZMUJsZjJ2QjA1dk1UVTQyRlR0U3UwZzI1SzdWWENlZU12QmpMZ3ViOGI0WERscTR3LVBnZw?oc=5"
+  },
+  {
+    "horse": "ライデン",
+    "player": "P03",
+    "title": "マコトライデンの掲示板 - netkeiba",
+    "desc": "マコトライデンの掲示板&nbsp;&nbsp;netkeiba",
+    "source": "netkeiba",
+    "date": "2026/11/15",
+    "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE9WYTVnREs3S3FsVy01N0FmMXFLVjMxM2diYkVNdkRQRFJNZkFicUl3QjFvdkdoamowZ1pyLV9SRDBQaTFyTVFXVm1QbWZCbEhpUGhCNnhpNGhRZFduQTgxRGpn?oc=5"
+  },
+  {
+    "horse": "ライデン",
+    "player": "P03",
+    "title": "トミケンライデン 戦績詳細｜競走馬データ - 東スポ競馬",
+    "desc": "トミケンライデン 戦績詳細｜競走馬データ&nbsp;&nbsp;東スポ競馬",
+    "source": "東スポ競馬",
+    "date": "2026/11/14",
+    "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE1RcmVEQV9CYkdLc0JSNWxkNHN6SkZSb0laYW04SFdkaVNkLUs2LXNzQmxCZDc1dnl6OXpuVGJEdmR6TV8zRF9fSGszZ0pKUGRm?oc=5"
   },
   {
     "horse": "ギルデッドグロス",
@@ -241,15 +349,6 @@
     "source": "netkeiba",
     "date": "2026/11/14",
     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9zekZrd05JdGp1U3NzZHdoQUw2VG5wRnZrWE8zR2JobTZvQXJSVUZqaDludzExV3FSTndzcUZNUV9mdG9tQmlfWnJoWlRMSDNidnpERDUxZjcyZmVvMWpqYkhfVU1iSU4yUlRtTlkwOA?oc=5"
-  },
-  {
-    "horse": "ボードゥロレーヌ",
-    "player": "P03",
-    "title": "ボードゥロレーヌの個別ラップ｜競走馬データ - netkeiba",
-    "desc": "ボードゥロレーヌの個別ラップ｜競走馬データ&nbsp;&nbsp;netkeiba",
-    "source": "netkeiba",
-    "date": "2026/11/14",
-    "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9DOWhVUHViRHJoY2xRYlc1emdGYjZGNXNyQ1EteFRjWVZpUWJza2tEbkVIOHc5bmJRR0hNWERtbG1WaVZxMWd4cDFva3VLd0VvU3BFVHV6elp3T0FCa3FGVmpaNnBCMHRPa3haazJrWQ?oc=5"
   },
   {
     "horse": "セイルトゥグローリ",
@@ -551,15 +650,6 @@
   {
     "horse": "エスクアドラ",
     "player": "P01",
-    "title": "エスクアドラ掲示板投稿者ランキング - netkeiba",
-    "desc": "エスクアドラ掲示板投稿者ランキング&nbsp;&nbsp;netkeiba",
-    "source": "netkeiba",
-    "date": "2026/11/09",
-    "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE5WZS1WNnY0Vk9RMjQ4QzdMMGZoMlh5Yy1GMWNPUmNwREpqNEhtZTlkeXRDWGJRMDROWFFLYWJJOHQ1QmJlcGxlVTJ3TjdYS3ZyM3JlRVY0UEZNWE5ITGl0bXdjWmNncXBEWlN1TWhKN3NLUkxWbnVfUUs1NVVPdw?oc=5"
-  },
-  {
-    "horse": "エスクアドラ",
-    "player": "P01",
     "title": "【百日草特別】エスクアドラ　豪快末脚で連勝　プーシャン「能力の高さ感じた」 | 競馬ニュース - netkeiba - netkeiba",
     "desc": "【百日草特別】エスクアドラ　豪快末脚で連勝　プーシャン「能力の高さ感じた」 | 競馬ニュース - netkeiba&nbsp;&nbsp;netkeiba",
     "source": "netkeiba",
@@ -592,15 +682,6 @@
     "source": "netkeiba",
     "date": "2026/11/09",
     "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE56elk0SElMQXRBakEyenRMbVlLMzllc21tNTZaMkNBU1dtUkJCNGQ1VklEZnQyeTN1d2VuTVFzYUJTRU5PU0RIM1pTY3k3ekpsQU1TLTQtbUdxbHVraDE2djhmN2ZCRlhTMmhaMTVicW9hYUpRekxVVml2Vzkwdw?oc=5"
-  },
-  {
-    "horse": "ヴェトロテンペスタ",
-    "player": "P06",
-    "title": "ヴェトロテンペスタの個別ラップ｜競走馬データ - netkeiba",
-    "desc": "ヴェトロテンペスタの個別ラップ｜競走馬データ&nbsp;&nbsp;netkeiba",
-    "source": "netkeiba",
-    "date": "2026/11/09",
-    "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE80VnJmQWg2My0taFU2QzdpQ1hFYjRpMFRtemtlUElSN01HaUJsN2hMLTI4ZFhCcGNJTVROdHhpbEhTU2l5MllBdGNJM2pEUlpPUmwxWXJfTm5QakJ1emJ5a2EwX3otc3VKcGlmeFUwZw?oc=5"
   },
   {
     "horse": "トゥザファイナル",
@@ -731,20 +812,20 @@
   {
     "horse": "オールベット",
     "player": "P03",
-    "title": "【１日の注目・京都６Ｒ】ダート２冠馬フィンガーの弟オールベットがデビュー 先週には１７分の１を引いてしまい除外も（馬トク報知） - Yahoo!ニュース",
-    "desc": "【１日の注目・京都６Ｒ】ダート２冠馬フィンガーの弟オールベットがデビュー 先週には１７分の１を引いてしまい除外も（馬トク報知）&nbsp;&nbsp;Yahoo!ニュース",
-    "source": "Yahoo!ニュース",
-    "date": "2026/11/01",
-    "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5fZlp3NmF1ci03UUZ5bm5ZRUhtSW94WWxFNDNnbUx1WEt0WUNwRWxLbzhQTEhIRWx6QVUzaFNrSzB0QmlqOUtTQk5mSmJVZ0hoTDhWSXNBTDdJbVhWY0M5NjVUaGFOSXlKS0VGaEpRUWdYVktqT2UzZGZqRC1LbzA?oc=5"
-  },
-  {
-    "horse": "オールベット",
-    "player": "P03",
     "title": "北村友一騎手が京都6Rの落馬で首と右腕を負傷 8、11Rで乗り替わり フィンガーの半弟オールベットに騎乗 - netkeiba",
     "desc": "北村友一騎手が京都6Rの落馬で首と右腕を負傷 8、11Rで乗り替わり フィンガーの半弟オールベットに騎乗&nbsp;&nbsp;netkeiba",
     "source": "netkeiba",
     "date": "2026/11/01",
     "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE90d2dUc0lNU3dJSDNoOHRlb3hEc3hJNkdGdVdxaG1OQnNZa3M4cnBMUHhSWi1lTmJHQXc0RlFIUUt0dE1nMlFVdC0wbWVEVS0xSXVSeEx2dmtSdy0wMlZ3?oc=5"
+  },
+  {
+    "horse": "オールベット",
+    "player": "P03",
+    "title": "【1日の注目・京都6R】ダート2冠馬フィンガーの弟オールベットがデビュー 先週には17分の1を引いてしまい除外も - netkeiba",
+    "desc": "【1日の注目・京都6R】ダート2冠馬フィンガーの弟オールベットがデビュー 先週には17分の1を引いてしまい除外も&nbsp;&nbsp;netkeiba",
+    "source": "netkeiba",
+    "date": "2026/11/01",
+    "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5LME9fZlcxLXd6Q3AwX3hiQjJZRkhtU2J1aWxsWkMyWjY4OTNiTkVydG05cXF6RUs2c1JXeDNvZGQ0d0Z3a3JKZFliekZ1S0xsdUxoakFlejFKNGhkNW9j?oc=5"
   },
   {
     "horse": "オールベット",
@@ -900,15 +981,6 @@
     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1ObHpiUXVXV3VhMi14VTVHdkIyc20tQ3JlcGpic3AyRUV0VTJ5NV9hN0VrZHJHZGhtSFVsUTBQeG5fTjNpTHl6THprakM3YjRveGNLaFpCSHFOc2xfUDlmUVFEOUljd0lCVktuRnlwUG7SAXZBVV95cUxNYnVsRkl3OXR4QVRaamxNcmRsOEVaLWxIVFJYOVBGcEF0bGkyMjRST2ktYmhRS2tJcGg0ODNiYXhBWlRyYUZHRWVxM2JfeHZ6ZVFUTlZLNTdDU3NSalRsVFJQVGZyM2dYUlBaLUh3Q0V2Q0JEX0Z3?oc=5"
   },
   {
-    "horse": "ウィンターブリーズ",
-    "player": "P07",
-    "title": "プラタナス賞圧勝のウィンターブリーズは11・29カトレアSへ／有力馬情報 - 日刊スポーツ",
-    "desc": "プラタナス賞圧勝のウィンターブリーズは11・29カトレアSへ／有力馬情報&nbsp;&nbsp;日刊スポーツ",
-    "source": "日刊スポーツ",
-    "date": "2026/10/27",
-    "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFB5ai1LLW5QaXdsZDQtRkJaZW15OFprX29hcUxzSk43ZGxfclZEVXlOVE5IUU0walV6MzRKUnRjWFdZa2dSbzgzRWgyWGw4cUNjb2syendJaTBjaUlpc0FnYkZvN25EMFppVDB2WtIBdEFVX3lxTFByNmlBY2x3UWliaVpkaGRYMVl5V2VPQnlrZHZUaGF2dnFCNDNCeW01RUhjelVSYlpzSG02eTAxenUzdC1kTmZrTTlCUVQ2STFBbmRFaFFObGFKbDNuSTlvSjZNZTdOTlRLS1JOZVFKTGl3b21V?oc=5"
-  },
-  {
     "horse": "ステラガーネット",
     "player": "P06",
     "title": "ステラガーネットの写真一覧 - netkeiba",
@@ -929,11 +1001,20 @@
   {
     "horse": "ヘイヴァイタヒチ",
     "player": "P04",
-    "title": "【新馬戦】ヘイヴァイタヒチ まさに横綱相撲だ！３馬身半差デビューＶ 西村淳も納得「厩舎の自信通りの結果出せた」 - デイリースポーツ",
-    "desc": "【新馬戦】ヘイヴァイタヒチ まさに横綱相撲だ！３馬身半差デビューＶ 西村淳も納得「厩舎の自信通りの結果出せた」&nbsp;&nbsp;デイリースポーツ",
-    "source": "デイリースポーツ",
+    "title": "【新馬戦】ヘイヴァイタヒチ まさに横綱相撲だ！３馬身半差デビューＶ 西村淳も納得「厩舎の自信通りの結果出せた」 - ライブドアニュース",
+    "desc": "【新馬戦】ヘイヴァイタヒチ まさに横綱相撲だ！３馬身半差デビューＶ 西村淳も納得「厩舎の自信通りの結果出せた」&nbsp;&nbsp;ライブドアニュース",
+    "source": "ライブドアニュース",
     "date": "2026/10/25",
-    "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE1YaHNMQ2pvdXQ2QmpLMGVVcWNGMzhpczg2YzBodG4xMk03SXJUbFlvMWdKaTJfcjRIOHN0V3o3YUNOcTlaYnh3RlNtVm84S3NHZ2VxMVlYd1p5SGtfZExVaDd4bThCVTIxN3F2MDhwbw?oc=5"
+    "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFAwYW9sLW12bjZMZU1zeHA2RElWNFNsTlRad1ZiYTMwcXZsellGYzNJd1Jaa0pqLVBrMjZSUEpLNmZkN1FfM251akQ1NFNrbEU3SVZqYWdic0pCbzZJeVFR?oc=5"
+  },
+  {
+    "horse": "ヘイヴァイタヒチ",
+    "player": "P04",
+    "title": "【新馬戦】ヘイヴァイタヒチ まさに横綱相撲だ！３馬身半差デビューＶ 西村淳も納得「厩舎の自信通りの結果出せた」 - netkeiba",
+    "desc": "【新馬戦】ヘイヴァイタヒチ まさに横綱相撲だ！３馬身半差デビューＶ 西村淳も納得「厩舎の自信通りの結果出せた」&nbsp;&nbsp;netkeiba",
+    "source": "netkeiba",
+    "date": "2026/10/25",
+    "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9Yam4zZHczOXZuclhLRFBXU2xYVWRtNXE3YzdkV2N4VmtUcEx0Ym1VNGwzSmhYNlVTMVFGT0ZBSG9zd2xaQndRZmVhTl83eWJ1R3FyX3NLUnpGZm1mYUFV?oc=5"
   },
   {
     "horse": "ヴェトロテンペスタ",
@@ -974,15 +1055,6 @@
   {
     "horse": "ヘイヴァイタヒチ",
     "player": "P04",
-    "title": "【2歳新馬・東京4R】ヘイヴァイタヒチが危なげなく3馬身半差で快勝！ 西村騎手「きょうはいろいろ経験ができて、よかったです」 - サンスポ",
-    "desc": "【2歳新馬・東京4R】ヘイヴァイタヒチが危なげなく3馬身半差で快勝！ 西村騎手「きょうはいろいろ経験ができて、よかったです」&nbsp;&nbsp;サンスポ",
-    "source": "サンスポ",
-    "date": "2026/10/24",
-    "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOYTFVT09FTzJyQ2dCeWM5REFTMlFsUVBZMDlXMTU2QXQydFREdHktZnJlMDYwT2c1bnk0UTBKS0NoSU5MTTdSaDktQ0VkMEhCQUdwSk9UdVQ2TzRtWVNqYWM3b0w2YkpROWUwWG9kUS1Uekp6MEpsa3kxcEVYc1pFZUNvS002cU0?oc=5"
-  },
-  {
-    "horse": "ヘイヴァイタヒチ",
-    "player": "P04",
     "title": "【東京4R・新馬戦】2番人気ヘイヴァイタヒチが3馬身半差化快勝 加藤征師は「内容は凄く良かったです」 - スポニチ競馬Web",
     "desc": "【東京4R・新馬戦】2番人気ヘイヴァイタヒチが3馬身半差化快勝 加藤征師は「内容は凄く良かったです」&nbsp;&nbsp;スポニチ競馬Web",
     "source": "スポニチ競馬Web",
@@ -992,11 +1064,11 @@
   {
     "horse": "ヘイヴァイタヒチ",
     "player": "P04",
-    "title": "【新馬/東京4R】ナダル産駒ヘイヴァイタヒチが3馬身半差の圧勝デビュー！断然人気スペシャルブレンドは2着 - au Webポータル",
-    "desc": "【新馬/東京4R】ナダル産駒ヘイヴァイタヒチが3馬身半差の圧勝デビュー！断然人気スペシャルブレンドは2着&nbsp;&nbsp;au Webポータル",
-    "source": "au Webポータル",
+    "title": "【2歳新馬・東京4R】ヘイヴァイタヒチが危なげなく3馬身半差で快勝！ 西村騎手「きょうはいろいろ経験ができて、よかったです」 - サンスポ",
+    "desc": "【2歳新馬・東京4R】ヘイヴァイタヒチが危なげなく3馬身半差で快勝！ 西村騎手「きょうはいろいろ経験ができて、よかったです」&nbsp;&nbsp;サンスポ",
+    "source": "サンスポ",
     "date": "2026/10/24",
-    "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBnVVJaOEtZZmxDT1oxdzNCYnRwRXgtd1pabndjUDZlSUgtMU1fby1XaTJrSXFWbi1QY2drQ3ZNQi1KdldTazdXLW5zYTk0XzFKbmg0bXVsVEJhbXY1UmlzRXkwRXM0NkdLUWtKTUZn?oc=5"
+    "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOYTFVT09FTzJyQ2dCeWM5REFTMlFsUVBZMDlXMTU2QXQydFREdHktZnJlMDYwT2c1bnk0UTBKS0NoSU5MTTdSaDktQ0VkMEhCQUdwSk9UdVQ2TzRtWVNqYWM3b0w2YkpROWUwWG9kUS1Uekp6MEpsa3kxcEVYc1pFZUNvS002cU0?oc=5"
   },
   {
     "horse": "ヘイヴァイタヒチ",
@@ -1006,6 +1078,15 @@
     "source": "netkeiba",
     "date": "2026/10/24",
     "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1wNVRKVUoxUS1udVBSMDdfZ1J4bFQtQV9WclN5VTl4elA0WGtBalJDbkFiVkszVUd6QzQ4bHFaSEo4N1VUektpOWRYMVYtSXBWUmdBZGs2aVRibnQzMnBz?oc=5"
+  },
+  {
+    "horse": "ヘイヴァイタヒチ",
+    "player": "P04",
+    "title": "【新馬/東京4R】ナダル産駒ヘイヴァイタヒチが3馬身半差の圧勝デビュー！断然人気スペシャルブレンドは2着 - au Webポータル",
+    "desc": "【新馬/東京4R】ナダル産駒ヘイヴァイタヒチが3馬身半差の圧勝デビュー！断然人気スペシャルブレンドは2着&nbsp;&nbsp;au Webポータル",
+    "source": "au Webポータル",
+    "date": "2026/10/24",
+    "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBnVVJaOEtZZmxDT1oxdzNCYnRwRXgtd1pabndjUDZlSUgtMU1fby1XaTJrSXFWbi1QY2drQ3ZNQi1KdldTazdXLW5zYTk0XzFKbmg0bXVsVEJhbXY1UmlzRXkwRXM0NkdLUWtKTUZn?oc=5"
   },
   {
     "horse": "ヘイヴァイタヒチ",
@@ -1053,22 +1134,13 @@
     "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE8tWTFWeEpUUjR6cmRfdlVxOGZnZFlhYVF6LWJJczI0c2dsdHY4VngzTTBYMnQ2TE40S3I2RGRqX2luRWxXUk9hZWxIQ2psNF9ESy1mSDNQVloyUWhVUXc?oc=5"
   },
   {
-    "horse": "ヘイヴァイタヒチ",
-    "player": "P04",
-    "title": "【東京4R・新馬戦】2番人気ヘイヴァイタヒチが3馬身半差化快勝 加藤征師は「内容は凄く良かったです」 - netkeiba",
-    "desc": "【東京4R・新馬戦】2番人気ヘイヴァイタヒチが3馬身半差化快勝 加藤征師は「内容は凄く良かったです」&nbsp;&nbsp;netkeiba",
-    "source": "netkeiba",
-    "date": "2026/10/24",
-    "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9vLWFOVkY1MHpNZFctMjExcVdZdEd5Wkcwa3NUUkJaTlFKVkE3SjNiOVdHbWE0OHhFeHBLTk1fbC1HcGJSOHAzQS1pVnJzMWVka0NNSFJ2NnF4ZjhjeGMw?oc=5"
-  },
-  {
     "horse": "ヤングリッチ",
     "player": "P02",
-    "title": "【POG】初戦3着のヤングリッチ次走は確勝級/馬三郎のつぶやき - netkeiba",
-    "desc": "【POG】初戦3着のヤングリッチ次走は確勝級/馬三郎のつぶやき&nbsp;&nbsp;netkeiba",
+    "title": "【POG】初戦3着のヤングリッチ次走は確勝級/馬三郎のつぶやき | 競馬ニュース - netkeiba - netkeiba",
+    "desc": "【POG】初戦3着のヤングリッチ次走は確勝級/馬三郎のつぶやき | 競馬ニュース - netkeiba&nbsp;&nbsp;netkeiba",
     "source": "netkeiba",
     "date": "2026/10/23",
-    "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5kWVpyQm5ndW5OVmdJdmM0RmY4LVFTRndnTlkyd0drY0V3RWNPamhhMnd5Y1pOcl9jSWFTSDI0TkFrWlVjNFJ2NTNsN2tUZXM0U0UyMExuMFJKLUtYd2Nj?oc=5"
+    "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1ELV9RdHlOTW1kQUJRNDE0NFVsbnBUMldYaFNDWHB4NUVlVWg1U1hDbHoyQVJ5a2NxYzhCS0EzTDhBUmJ6NnZxdWhDdUVUTE1jaTlsSmhZU20xR3ZFQVVWaWhEZEVGblRidzQtMjlySVDSAXZBVV95cUxPNkw4LThVOWtNZC1OcVBtVFY4S0NjOFd5RzhmMWxneUxIQlBTanluanc5SXBPS1g3NWFldld5WVhFUnN4ZDZ0M1hKZHQwSmU4QkQ4YUFIdXNHWHMxVHlvb1BhN3luLURjdU9iLXZJSDhNbFh2TkpR?oc=5"
   },
   {
     "horse": "アトミックリーチ",
@@ -1078,51 +1150,6 @@
     "source": "netkeiba",
     "date": "2026/10/22",
     "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5VOHlFYmlzTVpJTVdpb2pfV2hOOTNsMzNQMlpwTzRHTEZtOURjMnp4Zk5wSV80dERiN0JwRDU2YnFpcmZaNFFVRlU1Z1F0NFVkVkQyNFNyX3dXSFlaTXZN?oc=5"
-  },
-  {
-    "horse": "ウィンターブリーズ",
-    "player": "P07",
-    "title": "ダートで連勝中のウィンターブリーズはカトレアSから全日本2歳優駿へ - サンスポ",
-    "desc": "ダートで連勝中のウィンターブリーズはカトレアSから全日本2歳優駿へ&nbsp;&nbsp;サンスポ",
-    "source": "サンスポ",
-    "date": "2026/10/22",
-    "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNWnJkZzBuTXRBeVFyc1ZhTElBal9HVlRXWEdVRXdIUUQ4WUFRNmZURUxiWWZfMFg4aTBBaDNxNmU5M3NhWThvcjVvcFhORDdCRkE0MEt3TzJlN2JiMnVKUVdtRTVVRGFZaVF2ZVZIV0FQTC1FMXBGTW5ONlFPWFZ4SzlDZ3FkOFk?oc=5"
-  },
-  {
-    "horse": "デミアン",
-    "player": "P02",
-    "title": "萩Ｓ(L) デミアン | 2026/10/25 京都9R レース情報(JRA) - netkeiba.com - netkeiba",
-    "desc": "萩Ｓ(L) デミアン | 2026/10/25 京都9R レース情報(JRA) - netkeiba.com&nbsp;&nbsp;netkeiba",
-    "source": "netkeiba",
-    "date": "2026/10/18",
-    "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPLVdLRkp5UzZkbWJnOTlvU0pmYlRVLW90WjFoR0JRRkVWNWhHNHU3R0YyODRJTGdHNmVSWEk4QUhEcTc4LXdYUkdUWllMeUJFOUhOR2s2YjgwN2JheWhjeWlDbnpRWERqaHZjOEM2bGVQZjRMQjBPS0tOTUdqcGtBR3o2THRxMjNLeUl5WDJvcw?oc=5"
-  },
-  {
-    "horse": "ヤングリッチ",
-    "player": "P02",
-    "title": "フォーエバーヤングの半弟ヤングリッチは３着　坂井騎手「次につながる内容」／新馬戦 - 日刊スポーツ",
-    "desc": "フォーエバーヤングの半弟ヤングリッチは３着　坂井騎手「次につながる内容」／新馬戦&nbsp;&nbsp;日刊スポーツ",
-    "source": "日刊スポーツ",
-    "date": "2026/10/18",
-    "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1SeVdYNXp3akZDX18yUWtJaFdLU0RFdlUxTXlqZVdheHJ2VUtxeWo2VXdqd1VDaElqSS1yZkZDMlJhRmhzVTRsanhWUlp6NmdyUENqOXRvZVdXSlAyRWYyeWp5YUhPNEpzUEg3NkdXT1ZTcjJCVTJyaDFNM3UtZ9IBdEFVX3lxTE9FcmhZWVY5S21sY2xKU0RsSHJNUVUwZTdtSFhVaUxIb1pfbmVSdExlTDFkMlRKbWRmRGs2N09vUGdXRTdRZ3h0ekZjMjVZaElCT0JfMklTTUFNLUExMzdHZXZtUkZPUDZyRjhTWEo4Q1YyaE5j?oc=5"
-  },
-  {
-    "horse": "ヤングリッチ",
-    "player": "P02",
-    "title": "【新馬/京都5R】フォーエバーヤング半弟ヤングリッチはデビュー戦3着…1番人気ビンドゥングが初陣V - 競馬のおはなし",
-    "desc": "【新馬/京都5R】フォーエバーヤング半弟ヤングリッチはデビュー戦3着…1番人気ビンドゥングが初陣V&nbsp;&nbsp;競馬のおはなし",
-    "source": "競馬のおはなし",
-    "date": "2026/10/18",
-    "url": "https://news.google.com/rss/articles/CBMiR0FVX3lxTE1LblN6RUh2WE8zR3J6WmNWR0ZkbWxpbFZReGtzQUlGZUFOODZYRG8wYWhkUFVfck4xSEZqRFdUMkd3S20tb25n?oc=5"
-  },
-  {
-    "horse": "ヤングリッチ",
-    "player": "P02",
-    "title": "【新馬/京都5R】フォーエバーヤング半弟ヤングリッチはデビュー戦3着…1番人気ビンドゥングが初陣V（競馬のおはなし） - Yahoo!ニュース",
-    "desc": "【新馬/京都5R】フォーエバーヤング半弟ヤングリッチはデビュー戦3着…1番人気ビンドゥングが初陣V（競馬のおはなし）&nbsp;&nbsp;Yahoo!ニュース",
-    "source": "Yahoo!ニュース",
-    "date": "2026/10/18",
-    "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFB4bkVGQmFPaDh3bW9EOWN4OVIwV3o1ZTFMMXRaT2RCcW1fYkhkSC10OVdJZ2xHa3ktVWRSR0o3cnVOWjNXMTBxLUw0OFNvc1lXZWNXZzJjWnV6YkRVUGY5eTJ0SXVGVDlLcjVKSFRlTjllelluWkJ0dGlCSlQ0M1k?oc=5"
   },
   {
     "horse": "ヤングリッチ",
@@ -1188,15 +1215,6 @@
     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTFA0aF81bUZXc3R4SDR2RXRidFE5MHZEMmJhY3piMWtoTi16TUdCZkZsdnFfOVNKaGVXbUxfMlczMFJFQm0yYmtESEtvUjVVV2lPNnF1SHVBb01KUjhTYnVJWUJ3TnlnbXFzdzBkendJSQ?oc=5"
   },
   {
-    "horse": "ヤングリッチ",
-    "player": "P02",
-    "title": "【今週の注目新馬】フォーエバーヤングの弟ヤングリッチが出陣 木庭助手「折り合いの問題もなく、乗りやすい」／日曜京都5R - サンスポ",
-    "desc": "【今週の注目新馬】フォーエバーヤングの弟ヤングリッチが出陣 木庭助手「折り合いの問題もなく、乗りやすい」／日曜京都5R&nbsp;&nbsp;サンスポ",
-    "source": "サンスポ",
-    "date": "2026/10/16",
-    "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNeFo0dmRCNnpaVF9RZGo1Zm1QTEV4NDl0UGlIUHcwVVVCajdtSTVyd1QyZ3RySVVtek9hbm1EY0dVaGhMRjJFVW1Sb25sbG91WmhuY1ptVFhnV2lfTkJrbDRpLWRxbWRzUjR2Q09nNzJUTEQxZW9vTnpmTFdoOVRUZ1FrYTdjZUk?oc=5"
-  },
-  {
     "horse": "ヴィルダースヴィル",
     "player": "P05",
     "title": "ヴィルダースヴィルレース後短評 - netkeiba",
@@ -1251,22 +1269,22 @@
     "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE85Q0Z6akJmWFduZm5MMlBGYmg5Z3BOQ2RHRllOemVSTVY1UmxZYWFkWG9ocjFidXB0YmJKMFExV3BXdHVzblV5MmNhX19MZzFseGt5MQ?oc=5"
   },
   {
-    "horse": "ヤングリッチ",
-    "player": "P02",
-    "title": "【新馬戦】フォーエバーヤングの半弟ヤングリッチ 芝から第一歩踏み出す １週前追い切りでは上々の時計 - デイリースポーツ",
-    "desc": "【新馬戦】フォーエバーヤングの半弟ヤングリッチ 芝から第一歩踏み出す １週前追い切りでは上々の時計&nbsp;&nbsp;デイリースポーツ",
-    "source": "デイリースポーツ",
-    "date": "2026/10/14",
-    "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5nRmQ5dGhCQk9zMUNWeTJHODFxOUhLOXhJeF9ORG1aekUxdG9KdnVyLXFVRC1zb2o3bFFOVm9id1JMNzFrbk1CU3l6TTFTaTJoaDB5UTlrYlZsT3dKVVhueUVTRzdKYlRLTEpXQXpMbw?oc=5"
+    "horse": "ライデン",
+    "player": "P03",
+    "title": "【佐賀ダート1700m】歴史的コースを分析｜キャロルライデンのレコード・騎手・枠順・脚質・血統データ - note",
+    "desc": "【佐賀ダート1700m】歴史的コースを分析｜キャロルライデンのレコード・騎手・枠順・脚質・血統データ&nbsp;&nbsp;note",
+    "source": "note",
+    "date": "2026/10/15",
+    "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBmM0kxZFdsdUZBMUJKb0lFSlVrdWJBNGEzLVFaZV9OXzRZRG5wbFpiWmRoeU5tWVZSc0hNWFA2ZDlrSWZtNFA4M1JPa3dJdk5JVE9nQnRxdUlzUQ?oc=5"
   },
   {
     "horse": "ヤングリッチ",
     "player": "P02",
-    "title": "【2歳馬情報】フォーエバーヤングの弟・ヤングリッチが京都でデビュー！ (競馬ラボ) - Yahoo!ニュース",
-    "desc": "【2歳馬情報】フォーエバーヤングの弟・ヤングリッチが京都でデビュー！ (競馬ラボ)&nbsp;&nbsp;Yahoo!ニュース",
-    "source": "Yahoo!ニュース",
-    "date": "2026/10/13",
-    "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNazFEWTB3UnNzRGNkeDhFd3FjU0pNV0ItM0Y4RVFZejRkNDBudnZpOVhNTGlzOXNXX29nUGdqSjlScnFvNDdOVHZSVm1panZ2Sk5mZ3hRNjdDN2xIVTFVYXNSenpBRXNmcnN6MnloQ0FnTld2dlR0ZnA5WFZ6V3IzYkYybHlFeXZXcGxIZGJ3?oc=5"
+    "title": "【新馬戦】フォーエバーヤングの半弟ヤングリッチ 芝から第一歩踏み出す １週前追い切りでは上々の時計 - netkeiba",
+    "desc": "【新馬戦】フォーエバーヤングの半弟ヤングリッチ 芝から第一歩踏み出す １週前追い切りでは上々の時計&nbsp;&nbsp;netkeiba",
+    "source": "netkeiba",
+    "date": "2026/10/14",
+    "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBOdnpIMTBhVWRaOF8wcXlHcFJ6RXhlWW9UaGhQX3lOR2VLTHR6Z0xmajdQcDlDSE1DSFBaSTlZLUdzWEJ1dWx4RkdLNFNWQ0x3WE9rM1V3U3NsaHBnUm8w?oc=5"
   },
   {
     "horse": "ブックオブケルズ",
@@ -1366,42 +1384,6 @@
     "source": "netkeiba",
     "date": "2026/10/12",
     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9aMUdhb29mZF9wWUNRT1lfazVGcDZXZGFpRkJIMDNrSXNmOUJ6QVV4UHBsSGRuSGxURnlPUlBzRmlyZFNNNG1wNGxXZlNKM0hzcmV6d1hjak01SGd0cHAwajk5WkVIQ0JqcmhoR21PcGXSAXZBVV95cUxPVVFfc3NEc3JKVmpURS1EQUljdVNYd3lTM3MyM2FGR0t4TUNYUmRjWXA4VE1keTVPOElGYk1hUlJMVFNxOTRpQ09hbEhUY1A3N0JkVDdQWnJzdHY4VkZJdGtQS1gzWFNtZG1OZHdlM3Fxb0RLN3dR?oc=5"
-  },
-  {
-    "horse": "ウィンターブリーズ",
-    "player": "P07",
-    "title": "【東京8R】砂で2連勝のウィンターブリーズは全日本2歳優駿が目標 - スポニチ競馬Web",
-    "desc": "【東京8R】砂で2連勝のウィンターブリーズは全日本2歳優駿が目標&nbsp;&nbsp;スポニチ競馬Web",
-    "source": "スポニチ競馬Web",
-    "date": "2026/10/12",
-    "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE0xa2lUWk11YUpIN1Z2cmlfS1VOYWFucDA3d28xcm4xZGhBQjlobkNuVC1uam1lR1ptV3Y0bW9aNFpYX01hOW1MNUJ6S19zWnJycTNKeFVpZDNiX3hVSVFoOWc3NUpybUZzRlE?oc=5"
-  },
-  {
-    "horse": "ウィンターブリーズ",
-    "player": "P07",
-    "title": "【プラタナス賞】ウィンターブリーズが5馬身差の快勝でオープン入り ルメール騎手「すごくパワフル」（写真・画像 1/1） - サンスポ",
-    "desc": "【プラタナス賞】ウィンターブリーズが5馬身差の快勝でオープン入り ルメール騎手「すごくパワフル」（写真・画像 1/1）&nbsp;&nbsp;サンスポ",
-    "source": "サンスポ",
-    "date": "2026/10/12",
-    "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQalM3LXhqUTZMRjVDZjNYeHFVYVBYVXJnNnQtS3pMVDctZkdFS2paYmJWOWZrQ21ZQnZSWGVJY1dqaDZTR0Z0Q0ZIVTFDaDBrVjlRRUZSODNpOG9qUnpkWkhlYzQtUzhuSUE0TlFHbUl2ZWNQMGVsZkhRQmRJVWJzTFg3MFE0X0ZCMEY3TEQ3bTU4MFBwWGdYNTZWbkgwdW94MXgzYnY5MmJqQzNJdWZFWXRycw?oc=5"
-  },
-  {
-    "horse": "ウィンターブリーズ",
-    "player": "P07",
-    "title": "【プラタナス賞】ウィンターブリーズが馬なりで5馬身差圧勝！ダート替わりで2連勝…断然人気馬は3着に敗れる - 競馬のおはなし",
-    "desc": "【プラタナス賞】ウィンターブリーズが馬なりで5馬身差圧勝！ダート替わりで2連勝…断然人気馬は3着に敗れる&nbsp;&nbsp;競馬のおはなし",
-    "source": "競馬のおはなし",
-    "date": "2026/10/12",
-    "url": "https://news.google.com/rss/articles/CBMiR0FVX3lxTE1Qblhxd1V5X1l5c3g4ZkdtV0kydkxEeVhYZW9iWDJpYkJoWWVRVy1ub3F5VFh4eGw0MUZpLUdZTmxqZjRHZUww?oc=5"
-  },
-  {
-    "horse": "ウィンターブリーズ",
-    "player": "P07",
-    "title": "【東京8R・プラタナス賞】ウィンターブリーズが5馬身差で圧勝 ルメール「凄くパワフルな走り」 - スポニチ Sponichi Annex",
-    "desc": "【東京8R・プラタナス賞】ウィンターブリーズが5馬身差で圧勝 ルメール「凄くパワフルな走り」&nbsp;&nbsp;スポニチ Sponichi Annex",
-    "source": "スポニチ Sponichi Annex",
-    "date": "2026/10/12",
-    "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPXy1DQmdodkhNSE50MFNic3ViM1diVkVOTG1acmdSTjh4WlJyejRNTWlOYWZmTDJkdUZheXZzTjE2UzlJVWpxcVc0ZVBRT2NoZmg3dE9HbkM0WV9Bb1doUE1pd1lSSVEyWVF0cEtRNGtnTUw2RlQ3QjFPc04tS1BfMHM4SXQ4a2JaS0dwTg?oc=5"
   },
   {
     "horse": "ウィンターブリーズ",
@@ -1604,6 +1586,15 @@
   {
     "horse": "ライデン",
     "player": "P03",
+    "title": "ライデンリーダー記念(G) 出馬表 | 2025年12月30日 笠松10R レース情報(JRA) - netkeiba - netkeiba",
+    "desc": "ライデンリーダー記念(G) 出馬表 | 2025年12月30日 笠松10R レース情報(JRA) - netkeiba&nbsp;&nbsp;netkeiba",
+    "source": "netkeiba",
+    "date": "2026/10/04",
+    "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE5PbVhFNzlMa1R5RkRqYlktWXFKXzJfUlhoN2dOMGhIdmhFdkRaNzRsUERSMVJiazlsYUpJak9saFJSLS0tWEx1Qy00dVhtX3BadFZ2b253WnJhOWUxMXZmM0g5NWZENFNMM21iY0lkZ195QQ?oc=5"
+  },
+  {
+    "horse": "ライデン",
+    "player": "P03",
     "title": "シンエイライデン - netkeiba",
     "desc": "シンエイライデン&nbsp;&nbsp;netkeiba",
     "source": "netkeiba",
@@ -1683,15 +1674,6 @@
     "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOb1ZxOVhxRFVPdGRqV2YxbHNHUURUR3ZFdVh5YURidmlBcWxCbXZPMXpUNlhqcm1lQWNJWURSakJGdEoyeXVseFJrajRGczN2S0FiMlA3UzhKNnVCVmJ3RFluLTBqcGhxbWItcHFRQlkydkgxZWNIODZ1Z1lScDZ3dDdsNFNZNUZCT19j?oc=5"
   },
   {
-    "horse": "ウィンターブリーズ",
-    "player": "P07",
-    "title": "ダート1800メートルで2歳JRAレコード勝ちのウィンターブリーズはプラタナス賞へ - サンスポ",
-    "desc": "ダート1800メートルで2歳JRAレコード勝ちのウィンターブリーズはプラタナス賞へ&nbsp;&nbsp;サンスポ",
-    "source": "サンスポ",
-    "date": "2026/09/24",
-    "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPaEV6SHk0d1hXOTZEV0IzYUlOZmdHU2dqYmZIc2FoRGNSdVc5MjhCMHFOVkZoNjRfTFE4WkZZbWpQb0tvbWNTY3o3eldIVWoxM2RWblBDRS1zZUhuM0FmTWpOM0hLak55VTVrME1lZU9jcWRwcE9mb2dwNFlnMjloSy04MUFDVWM?oc=5"
-  },
-  {
     "horse": "デミアン",
     "player": "P02",
     "title": "フライトライン産駒デミアンは斎藤騎手との新コンビでサウジアラビアRCへ／有力馬情報 - 日刊スポーツ",
@@ -1730,29 +1712,20 @@
   {
     "horse": "ウィンターブリーズ",
     "player": "P07",
-    "title": "2歳未勝利のスーパーレコードにルメール騎手も思わず興奮「すごい」 ウィンターブリーズがダート初戦で圧勝 - netkeiba",
-    "desc": "2歳未勝利のスーパーレコードにルメール騎手も思わず興奮「すごい」 ウィンターブリーズがダート初戦で圧勝&nbsp;&nbsp;netkeiba",
-    "source": "netkeiba",
-    "date": "2026/09/20",
-    "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1KYVowRldWLW1CQ1hZSmNWZVRpMEd0QncyRjVoM19qazBpZnRMQ1ZpOHA5eEtZNWZJWndpTm1hS1lEZDU1SFJWTmRERTgycDVPRmw0Rk03Ymt6RG1tclU0?oc=5"
-  },
-  {
-    "horse": "ウィンターブリーズ",
-    "player": "P07",
-    "title": "【2歳未勝利・中山1R】ウィンターブリーズが初ダートで覚醒 中山ダート1800メートルの2歳JRAレコード - 競馬予想のウマニティ",
-    "desc": "【2歳未勝利・中山1R】ウィンターブリーズが初ダートで覚醒 中山ダート1800メートルの2歳JRAレコード&nbsp;&nbsp;競馬予想のウマニティ",
-    "source": "競馬予想のウマニティ",
-    "date": "2026/09/20",
-    "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE1YQVcyUUhZM2twUG1ZY19kTENQUTkwTEFxV2p3cnZqQ3ptOU1rLW4xZHdxdngtLWxjS0FLbm1nRHNFU0tYd2I3dFc5RXNYeTM5bnVGTE13dWNQdXYtQ042aXV6aWlBbVky?oc=5"
-  },
-  {
-    "horse": "ウィンターブリーズ",
-    "player": "P07",
     "title": "ウィンターブリーズ２歳レコードを１秒９更新！ルメール「能力がある」将来は海外挑戦も／中山1R - 日刊スポーツ",
     "desc": "ウィンターブリーズ２歳レコードを１秒９更新！ルメール「能力がある」将来は海外挑戦も／中山1R&nbsp;&nbsp;日刊スポーツ",
     "source": "日刊スポーツ",
     "date": "2026/09/20",
     "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE10YmE1RWZzSG9wbjk1dEprS1UwX0VLNFJxYkZYNGstRkdCUVNQSUlQYzdadFIwRVFqQVJabGhiSXpzalNsbnZjUFdRdG1md0Q2bFVYcFprTU9ZcjlVamRYTVFBSzF3c3dQUENDbXctWkFkbElubXYwZENnbzRiUdIBdEFVX3lxTE5Kb1doeDBEWjNxRHd6TUdLOWxNMko0dVhIakFMVVY0ZWZIZURtM0plRWx3cWpLbGtfdVpDdkx3R0FUQlJOVy1uMjlLQXpydDVfYlZNNTV6ek9Dby1fZnMweGJjbXBBZTFIYXhYcVJxZGlqREFF?oc=5"
+  },
+  {
+    "horse": "ウィンターブリーズ",
+    "player": "P07",
+    "title": "2歳未勝利のスーパーレコードにルメール騎手も思わず興奮「すごい」 ウィンターブリーズがダート初戦で圧勝 - netkeiba",
+    "desc": "2歳未勝利のスーパーレコードにルメール騎手も思わず興奮「すごい」 ウィンターブリーズがダート初戦で圧勝&nbsp;&nbsp;netkeiba",
+    "source": "netkeiba",
+    "date": "2026/09/20",
+    "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1KYVowRldWLW1CQ1hZSmNWZVRpMEd0QncyRjVoM19qazBpZnRMQ1ZpOHA5eEtZNWZJWndpTm1hS1lEZDU1SFJWTmRERTgycDVPRmw0Rk03Ymt6RG1tclU0?oc=5"
   },
   {
     "horse": "ウィンターブリーズ",
@@ -1766,56 +1739,11 @@
   {
     "horse": "ウィンターブリーズ",
     "player": "P07",
-    "title": "中山1Rで驚異の2歳日本レコード ウィンターブリーズがダート1800m1分50秒0で走破 - 東スポ競馬",
-    "desc": "中山1Rで驚異の2歳日本レコード ウィンターブリーズがダート1800m1分50秒0で走破&nbsp;&nbsp;東スポ競馬",
-    "source": "東スポ競馬",
+    "title": "【中山1R】初ダート・ウィンターブリーズが圧巻レコードV…2歳コースレコードを1.9秒更新（競馬のおはなし） - Yahoo!ニュース",
+    "desc": "【中山1R】初ダート・ウィンターブリーズが圧巻レコードV…2歳コースレコードを1.9秒更新（競馬のおはなし）&nbsp;&nbsp;Yahoo!ニュース",
+    "source": "Yahoo!ニュース",
     "date": "2026/09/20",
-    "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE8xZW9wTE91UW53MFFWcW94YjlBYmphbUU4Q2RGdE1fMGRRVnowUDlXWk5XM2NHMVJIVzI5ejVlUjhidXduOWlJUlRucjllRXVPSTM4TA?oc=5"
-  },
-  {
-    "horse": "ウィンターブリーズ",
-    "player": "P07",
-    "title": "【中山1R・映像】ウィンターブリーズ 初ダートでレコードを1秒9更新！ - スポニチ競馬Web",
-    "desc": "【中山1R・映像】ウィンターブリーズ 初ダートでレコードを1秒9更新！&nbsp;&nbsp;スポニチ競馬Web",
-    "source": "スポニチ競馬Web",
-    "date": "2026/09/20",
-    "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBuanB6eUdiVEdreEVBalA1ZlBRc3hrS2xGQkEzb0gxZ1NOa3pTMUQzMzJRVHBjODRhaXY1RkE4V1VsMWhUX3Jzb0RvYy11OXBjS0ZqNU5IdkhZOUt0UUdCUy1rSlcxV19FQlE?oc=5"
-  },
-  {
-    "horse": "ウィンターブリーズ",
-    "player": "P07",
-    "title": "【中山1R】初ダート・ウィンターブリーズが圧巻レコードV…2歳コースレコードを1.9秒更新 - 競馬のおはなし",
-    "desc": "【中山1R】初ダート・ウィンターブリーズが圧巻レコードV…2歳コースレコードを1.9秒更新&nbsp;&nbsp;競馬のおはなし",
-    "source": "競馬のおはなし",
-    "date": "2026/09/20",
-    "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE1tbk0yZENUZHlFeFd6ckRMSTZTTEJFeVJLN1hWa2FrMVRSM2VjZWNMd1ZObWEtSlpYSDhFR2NuMi1IQXdFeXdIUWpOYlVJWS16VnppdQ?oc=5"
-  },
-  {
-    "horse": "ウィンターブリーズ",
-    "player": "P07",
-    "title": "中山1Rで快記録が誕生！ ウィンターブリーズが2歳レコードを1秒9更新 ルメール「凄い時計」 - スポニチ Sponichi Annex",
-    "desc": "中山1Rで快記録が誕生！ ウィンターブリーズが2歳レコードを1秒9更新 ルメール「凄い時計」&nbsp;&nbsp;スポニチ Sponichi Annex",
-    "source": "スポニチ Sponichi Annex",
-    "date": "2026/09/20",
-    "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQQ19iRlU2Vzh3TlAxaDhHd1Y4NUlKc2EyelM2QWNQSDZVY2xDaGdLRllEQUVQVk9ndHZ0ZGF4Y2hIUUhCdjEwd3JzVVhkT3pJVHRib3N4eENIMzhPb1otUWdJakVITVVNNm10cEtMTjYzUnB5akJ1VTBJdXA5MF9ZM2ptVEFHeks5STRJdA?oc=5"
-  },
-  {
-    "horse": "ウィンターブリーズ",
-    "player": "P07",
-    "title": "中山１ＲでウィンターブリーズがＶ ダート１８００メートルの２歳レコードタイムを更新 - デイリースポーツ",
-    "desc": "中山１ＲでウィンターブリーズがＶ ダート１８００メートルの２歳レコードタイムを更新&nbsp;&nbsp;デイリースポーツ",
-    "source": "デイリースポーツ",
-    "date": "2026/09/20",
-    "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBMd00yY1BLelFVWC0yYms5RXpNQ1YtVXVGeTJBWWtvX1RWVk5RZUsycTdXSlJ0T2FmaVZyRlZKZDFpSkVSXzJobmtYQ29WQlI3MlVtYmlzWEpoS1FBYWNiTUtBc3JnTVdTMHEyZmhsTQ?oc=5"
-  },
-  {
-    "horse": "ウィンターブリーズ",
-    "player": "P07",
-    "title": "【中山1R】初ダート・ウィンターブリーズが圧巻レコードV…2歳コースレコードを1.9秒更新 - ライブドアニュース",
-    "desc": "【中山1R】初ダート・ウィンターブリーズが圧巻レコードV…2歳コースレコードを1.9秒更新&nbsp;&nbsp;ライブドアニュース",
-    "source": "ライブドアニュース",
-    "date": "2026/09/20",
-    "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBVbDA0LUhUVWRlYjZwR0d1aXMzTnNvalN1WHNDZC1vbWJWdERqVVEwSlN4eWkxdGNmcS1MWExiSmItVEJpTVJ1Mkl5aHpZYjhuZHNqeDRyWW1zWlNRVVZZ?oc=5"
+    "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1iNl9DelBqQjQ2UGhQaHJwQldNX2xQQ3hvYUN6Y0tmRGRCX1VGSGFPZTFfWV93eUFqTEdkQkZPb0t6Z3JVc3NNR1lad1BZU0psRHNVdDlXTGlXSFB2QUthdC1uSWVUOUlFM2JyTlN0U2lNaXd0MzU2em5zYUxEZlE?oc=5"
   },
   {
     "horse": "ウィンターブリーズ",
@@ -1825,6 +1753,15 @@
     "source": "netkeiba",
     "date": "2026/09/20",
     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5DMmctVlJZd1FtaU1HQ2g1bVF0b0FtSkl2dnROQm9CZzFSVEFfZURpTVdvSUxtYkd2V2ZXaVdXZm92R0Q3MXoxVHRtY3NSRWdDMWR4S2NTT1ZOcjVuSjJULVY0R0RYQ0NSYUlFaHpvbkfSAXZBVV95cUxORnhfdDdYWGhGcVdCV0JWOXlRQk1TVjRUZVZTS0JaUl9MNlBFOF9EN0wtcDhWdkJWaEU3OUdHYVUzQUZ1QnphbC1aMm5IbllKSXpTV3J6OG42cUtTWFMzWE03SkMwYXItMGdWb0lVUF95U3JQVlRB?oc=5"
+  },
+  {
+    "horse": "ウィンターブリーズ",
+    "player": "P07",
+    "title": "中山１ＲでウィンターブリーズがＶ ダート１８００メートルの２歳レコードタイムを更新 - netkeiba",
+    "desc": "中山１ＲでウィンターブリーズがＶ ダート１８００メートルの２歳レコードタイムを更新&nbsp;&nbsp;netkeiba",
+    "source": "netkeiba",
+    "date": "2026/09/20",
+    "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE52RUhxbnJTQkNNcTRSYTZPeVhWbFZvQjd6aThiUGJZdEVNVzNscDJOX00zdUNFb0JzVW5sdThPOXI3RlM0VTFicDJwRU5aTmVTc3FmQlRFQUh6b0JOZ2lv?oc=5"
   },
   {
     "horse": "ウィンターブリーズ",
@@ -1946,11 +1883,29 @@
   {
     "horse": "アンドレバローズ",
     "player": "P07",
+    "title": "【阪神6R・2歳新馬】精神面に課題残すもアンドレバローズが力でねじ伏せる　岩田望来騎手「もっと走れる馬」 | 競馬ニュース - netkeiba - netkeiba",
+    "desc": "【阪神6R・2歳新馬】精神面に課題残すもアンドレバローズが力でねじ伏せる　岩田望来騎手「もっと走れる馬」 | 競馬ニュース - netkeiba&nbsp;&nbsp;netkeiba",
+    "source": "netkeiba",
+    "date": "2026/09/19",
+    "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1xb0VjOU95eDdsc3Y3MVEtVkpQdGdoZmRYU0N6ZExJd1B5a0hPTDd0M2oyczBYVkJXeWlOWDRiNWczOHllYkhGeE1YWE5ITEp6LWtlbzF3RGFWSmZqX0pVZVAtY0puRERoY012TUJneF_SAXZBVV95cUxOejh2cnQ2Rm9sbE9nWXlIb2ZSTVo4RU0wc05kNW8tNnQ1T0J4a19Qc08zVFpTWHdkRDhLRmdzRElmSkdLcUhYLTdMTTAxSHZuWWx2SFJNZzdTcDJDRVB4RUk3amNhUXp0d0trZEV0SUtTSDh6dU5R?oc=5"
+  },
+  {
+    "horse": "アンドレバローズ",
+    "player": "P07",
     "title": "【阪神6R・2歳新馬】精神面に課題残すもアンドレバローズが力でねじ伏せる 岩田望来騎手「もっと走れる馬」 - netkeiba",
     "desc": "【阪神6R・2歳新馬】精神面に課題残すもアンドレバローズが力でねじ伏せる 岩田望来騎手「もっと走れる馬」&nbsp;&nbsp;netkeiba",
     "source": "netkeiba",
     "date": "2026/09/19",
     "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE8yWWJGVzZ0SS1SWHFfcERUY1c4cG42WUd3enlrUFJlaFREemkwWHZfX3JUZVNzd0lTLUxHYU1aem10Rk1ybXBQeUk5ZW1SdHZUYU9ZUXM5dXJodVE2eDNN?oc=5"
+  },
+  {
+    "horse": "コナパームス",
+    "player": "P01",
+    "title": "コナパームスの写真一覧 - netkeiba",
+    "desc": "コナパームスの写真一覧&nbsp;&nbsp;netkeiba",
+    "source": "netkeiba",
+    "date": "2026/09/18",
+    "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPWnc0YndJWlRFTjZZRWFvcFVDdzIyeTZoR3ZvRkhkRFRDWEw0ZjQ4UE52bUVtc08wMWhGWktqVmhfcWduSEZ0QVQ2bml5NmlsZ1RRYUpPLXItbWUyTFUyZEUzZmVwR1Q4ZkxwelBuTk0tOHVhRW9ua2p2c1p2amluVG1xckNJS0NuX2FDYWZBLVhZUUpXOUE?oc=5"
   },
   {
     "horse": "オールシティキング",
@@ -2009,20 +1964,47 @@
   {
     "horse": "エピドゥブレ",
     "player": "P01",
+    "title": "【新馬/阪神6R】ゴールドドリーム産駒エピドゥブレがデビューV…2馬身半差の快勝 - au Webポータル",
+    "desc": "【新馬/阪神6R】ゴールドドリーム産駒エピドゥブレがデビューV…2馬身半差の快勝&nbsp;&nbsp;au Webポータル",
+    "source": "au Webポータル",
+    "date": "2026/09/12",
+    "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9tY1hHQ1BWZW9DSTlsOGZDTFA1UGpQcEgwZUpXTEFjRjlKN09sbWdycVpYc2ZrR2NZQlpVaS0wM19oQVJXaUtZSFktX2pxNnhPdlQyZ3ZjX2VfV2hLTTFod2xuMXozX3FZaUlpcHBB?oc=5"
+  },
+  {
+    "horse": "エピドゥブレ",
+    "player": "P01",
+    "title": "【今日の注目新馬】エピドゥブレはダートで活躍するクレーキングの弟 高野師「初戦から頑張ってくれそう」／阪神6R（写真・画像 1/1） - サンスポ",
+    "desc": "【今日の注目新馬】エピドゥブレはダートで活躍するクレーキングの弟 高野師「初戦から頑張ってくれそう」／阪神6R（写真・画像 1/1）&nbsp;&nbsp;サンスポ",
+    "source": "サンスポ",
+    "date": "2026/09/12",
+    "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOZzZidjVfZFJBS05IR29NZHJNcjQySFRSelFEWnhGejlpVTFHQW9VUVoxUE1hSWZRdEdiYllkZkNrQURHNXpjMlBrSlBqYWNsZFJRcFVwUFp0dkxWVmlZX2dtRjBRczdVZ0pyOEN1LVZZa0d4ZndidEc0VEdneGdpZVdtYi0zSlZqb2s3YmNyRHZwaU4zb3FGMkEtNXVvdjA0X3dQZ1F6T0hwaDBqSUxoRzV1NA?oc=5"
+  },
+  {
+    "horse": "エピドゥブレ",
+    "player": "P01",
+    "title": "【今日の注目新馬】エピドゥブレはダートで活躍するクレーキングの弟 高野師「初戦から頑張ってくれそう」／阪神6R - サンスポ",
+    "desc": "【今日の注目新馬】エピドゥブレはダートで活躍するクレーキングの弟 高野師「初戦から頑張ってくれそう」／阪神6R&nbsp;&nbsp;サンスポ",
+    "source": "サンスポ",
+    "date": "2026/09/12",
+    "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQTG9jNC1lN1Fab2JpUHhtZldOQjFMbFNHMXFzVWwtSy1keDNsOGNub0phb3lpTU84UTlZQk5sM1BMcHdsM1NHWHZvb3JZMjkxcTdyMTdOMWdKbDdlbzJHS0NnVnpIQWxNVVc3RGVzQVBIVmpWR3Nkak9ueXFQaWxuWjJ0MmVOZEU?oc=5"
+  },
+  {
+    "horse": "エピドゥブレ",
+    "player": "P01",
+    "title": "【メイクデビュー阪神6Rレース後コメント】エピドゥブレ高野友和調教師ら - netkeiba",
+    "desc": "【メイクデビュー阪神6Rレース後コメント】エピドゥブレ高野友和調教師ら&nbsp;&nbsp;netkeiba",
+    "source": "netkeiba",
+    "date": "2026/09/12",
+    "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9aeE85WkIwQnV1a3FYbFptTkU5dDhBREYwdm5PU3VRNDBZb29CREdwV0pLNnZycHZKdVVrcWZqZk81aVBzUEpUSEVZMDloVjdZRGpNMVEyVlNjUTJjVGNV?oc=5"
+  },
+  {
+    "horse": "エピドゥブレ",
+    "player": "P01",
     "title": "【阪神6R・2歳新馬】1番人気エピドゥブレが2馬身半差の快勝 西村淳也騎手「ゲートだけですね…それ以外はすごく優等生」 - netkeiba",
     "desc": "【阪神6R・2歳新馬】1番人気エピドゥブレが2馬身半差の快勝 西村淳也騎手「ゲートだけですね…それ以外はすごく優等生」&nbsp;&nbsp;netkeiba",
     "source": "netkeiba",
     "date": "2026/09/12",
     "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFB3VnZOeDYtaGFEdmdnal84Q3dFUFFleEwxMEk4bWpzajRtTWdIS2p0emlhUXhNYmRnN3V6clkyUmlQbjNyVThoUXhqamw0b2ZBZEZkdWtIREVHcFBkQWZv?oc=5"
-  },
-  {
-    "horse": "エピドゥブレ",
-    "player": "P01",
-    "title": "【メイクデビュー阪神6Rレース後コメント】エピドゥブレ高野友和調教師ら | 競馬ニュース - netkeiba - netkeiba",
-    "desc": "【メイクデビュー阪神6Rレース後コメント】エピドゥブレ高野友和調教師ら | 競馬ニュース - netkeiba&nbsp;&nbsp;netkeiba",
-    "source": "netkeiba",
-    "date": "2026/09/12",
-    "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5xenp1YWFaX1pwbDg4WFU5cDVDYkNtcUEyMUtBRVpndlFuOHA5THk3OUJwWGJ0UHFoVTVSR0FhdWdmM2ttbE56ckFZZG01R2ZLbWk3MEhRMVp4MEhkOEY1YW9YSGFkYnhCSHBxcS05RTnSAXZBVV95cUxNY2R0UGdRb2NhUGN3bzJQTmZYRlFMS1FDcDZ3WmMxTEdiZEE5OTRZcjQ3VnVaX3puZHNIRnZNM3NmVkg3cGh3RWYtbGpYUl8wb1RlMGRyRXYyNk53N3VLYzhGR2JkN2pabHpRNTlTTU1ZYXF4OTdR?oc=5"
   },
   {
     "horse": "ベルウッドワタル",
@@ -2043,13 +2025,13 @@
     "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE5SY0VmRF9zMTFYYklUbnl0UXh4U29udVRMLU5HTWdKVVRSTFJyelphNzNRbWNNTHZ3bUh6VWhYeHY5YmplcllzX3NpS0g0SEJfdnVtUEpJT0wxcXZQdDBTZG1hYXlZb2R0?oc=5"
   },
   {
-    "horse": "ヴェトロテンペスタ",
-    "player": "P06",
-    "title": "【新馬戦】ヴェトロテンペスタ　快逃デビュー星　今季１００勝目のルメール「楽勝でした。次も楽しみ」 | 競馬ニュース - netkeiba - netkeiba",
-    "desc": "【新馬戦】ヴェトロテンペスタ　快逃デビュー星　今季１００勝目のルメール「楽勝でした。次も楽しみ」 | 競馬ニュース - netkeiba&nbsp;&nbsp;netkeiba",
+    "horse": "ライデン",
+    "player": "P03",
+    "title": "ヤマカツライデンの掲示板 - netkeiba",
+    "desc": "ヤマカツライデンの掲示板&nbsp;&nbsp;netkeiba",
     "source": "netkeiba",
     "date": "2026/09/06",
-    "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9mYWtKeGZiSUJTczg3eDAtbWIySEs0em8tNzlKUDNJOVNoaUFxQUNzbHFUczMtTGJUREZtZUMyNWktUTc3dTZ3dm0tQkt5cm0wdjFDb1NERGJueHJGTDdSVGlpbE9PcTZhbVYtODRxVnTSAXZBVV95cUxNNGs5czJmay1BaVhKVE1uaEl3N3FwZ1BHRVlsTnlQeUtKeTdKSmZManlGSkJtS1o3NU5PQUlQcE9aWDcwXzRXczZkVzEyVG9RNXJuazNyMGNlVXpGX2NqckREbHFxR0NWWHV1blpja3lnX1A5MXpn?oc=5"
+    "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE9fbE9SN1hXZHlNS1V5dVlVWHcyeG1wa0JtZVdQbjY3RG5QWG5yVkYwNkR6UHlrelhfblkyVjVEZ3huOEFubEM1Q3FwYm5EaGY1dUtyYVpOSXJ1djNHcm52aDBn?oc=5"
   },
   {
     "horse": "ヴェトロテンペスタ",
@@ -2059,6 +2041,15 @@
     "source": "netkeiba",
     "date": "2026/09/06",
     "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5nYWJKeWhRc2xCUWpfU1Q4andaU0Eyc3B4Yy1UTGtrYXBEbVEzYUFGb2hyZWxrYkVDRm5lQzh1WkJOVEhtZ2pqRTN3Zll1TVZuXzdhaVFKd1p5eVdkc2Q4?oc=5"
+  },
+  {
+    "horse": "ヴェトロテンペスタ",
+    "player": "P06",
+    "title": "【新馬戦】ヴェトロテンペスタ　快逃デビュー星　今季１００勝目のルメール「楽勝でした。次も楽しみ」 | 競馬ニュース - netkeiba - netkeiba",
+    "desc": "【新馬戦】ヴェトロテンペスタ　快逃デビュー星　今季１００勝目のルメール「楽勝でした。次も楽しみ」 | 競馬ニュース - netkeiba&nbsp;&nbsp;netkeiba",
+    "source": "netkeiba",
+    "date": "2026/09/06",
+    "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9mYWtKeGZiSUJTczg3eDAtbWIySEs0em8tNzlKUDNJOVNoaUFxQUNzbHFUczMtTGJUREZtZUMyNWktUTc3dTZ3dm0tQkt5cm0wdjFDb1NERGJueHJGTDdSVGlpbE9PcTZhbVYtODRxVnTSAXZBVV95cUxNNGs5czJmay1BaVhKVE1uaEl3N3FwZ1BHRVlsTnlQeUtKeTdKSmZManlGSkJtS1o3NU5PQUlQcE9aWDcwXzRXczZkVzEyVG9RNXJuazNyMGNlVXpGX2NqckREbHFxR0NWWHV1blpja3lnX1A5MXpn?oc=5"
   },
   {
     "horse": "ヴェトロテンペスタ",
@@ -2270,6 +2261,15 @@
   {
     "horse": "ウラノグラフィア",
     "player": "P06",
+    "title": "【新潟2R新馬戦結果】ナダル産駒ウラノグラフィアが人気に応えて快勝 - netkeiba",
+    "desc": "【新潟2R新馬戦結果】ナダル産駒ウラノグラフィアが人気に応えて快勝&nbsp;&nbsp;netkeiba",
+    "source": "netkeiba",
+    "date": "2026/08/30",
+    "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5HckVOUnJ5SmtzVlppMXpLSll1NG1NX3FsbjFhTGVjaEhwU0N6YlBwOFBzZFE3YVNLeTFtX3hxS2kycFNjcTl3NnowSTBnWFFRS0YtdmYzUDJYVmV0UUh3?oc=5"
+  },
+  {
+    "horse": "ウラノグラフィア",
+    "player": "P06",
     "title": "【新潟2R】岩田望来ウラノグラフィアが3馬身差V…人気に応えて快勝 - keibana.com",
     "desc": "【新潟2R】岩田望来ウラノグラフィアが3馬身差V…人気に応えて快勝&nbsp;&nbsp;keibana.com",
     "source": "keibana.com",
@@ -2284,15 +2284,6 @@
     "source": "スポニチ Sponichi Annex",
     "date": "2026/08/30",
     "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNZ0FvYm5DdkFCaWx4bGh5QXBqQWoxV3g0dWtSSHBtYW9BS1ZHdllVSi1CYWlkVFF6X3ZHdHNXcWYtTEtRNTJ2dFc3V1BmMGxPcUVONE5GWjdjWHVNSVZmb2ZEYWhISlY4c3dFc3FvY2JMdVNfN2tCRkl6dGRxVjlRbHQwVDZwOWYzNkdDeQ?oc=5"
-  },
-  {
-    "horse": "ウラノグラフィア",
-    "player": "P06",
-    "title": "【新潟2R新馬戦結果】ナダル産駒ウラノグラフィアが人気に応えて快勝 - netkeiba",
-    "desc": "【新潟2R新馬戦結果】ナダル産駒ウラノグラフィアが人気に応えて快勝&nbsp;&nbsp;netkeiba",
-    "source": "netkeiba",
-    "date": "2026/08/30",
-    "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5HckVOUnJ5SmtzVlppMXpLSll1NG1NX3FsbjFhTGVjaEhwU0N6YlBwOFBzZFE3YVNLeTFtX3hxS2kycFNjcTl3NnowSTBnWFFRS0YtdmYzUDJYVmV0UUh3?oc=5"
   },
   {
     "horse": "ウラノグラフィア",
