@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>ねこすな — ねこと遊べる落ちる砂</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#15131d;--panel:#221f2c;--ink:#f6f1e7;--muted:#a59fb3;--accent:#ffb347}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font-family:"M PLUS Rounded 1c","Hiragino Maru Gothic ProN","Yu Gothic",system-ui,sans-serif}
+body{display:flex;flex-direction:column;height:100dvh;overflow:hidden;overscroll-behavior:none;user-select:none;-webkit-user-select:none}
+header{display:flex;align-items:center;justify-content:space-between;padding:8px 12px 4px;gap:8px}
+h1{font-size:19px;margin:0;font-weight:800;letter-spacing:.04em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#hud{font-size:13px;color:var(--muted);font-weight:800;white-space:nowrap}
+#goal{display:none;margin:0 10px 6px;padding:7px 10px;border-radius:10px;background:#2c2838;font-size:12.5px;font-weight:800;line-height:1.35}
+#goal .p{color:var(--accent)}
+#wrap{flex:1;min-height:0;display:flex;justify-content:center;align-items:center;padding:0 8px 8px}
+canvas{image-rendering:pixelated;touch-action:none;border-radius:12px;display:block;box-shadow:0 0 0 1px #2e2a3a}
+#ui{padding:10px 10px calc(10px + env(safe-area-inset-bottom));background:var(--panel);border-radius:18px 18px 0 0;max-height:46dvh;overflow-y:auto}
+.row{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-bottom:8px}
+.tool{background:#363244;color:var(--ink);border:0;border-radius:999px;padding:7px 11px;font:inherit;font-size:12.5px;font-weight:800;cursor:pointer}
+.tool.on{background:var(--accent);color:#2a1a05}
+.lbl{font-size:12px;color:var(--muted)}
+.spacer{flex:1}
+.sec{font-size:11px;color:var(--muted);margin:2px 2px 5px;font-weight:800;letter-spacing:.08em}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(70px,1fr));gap:6px;margin-bottom:8px}
+.el{position:relative;border:0;border-radius:10px;padding:8px 2px;font:inherit;font-size:12.5px;font-weight:800;cursor:pointer;outline:2px solid transparent;outline-offset:1px;white-space:nowrap}
+.el.sel{outline-color:#fff;box-shadow:0 3px 0 rgba(0,0,0,.35)}
+.el.empty{opacity:.35}
+.el .n{display:block;font-size:10.5px;opacity:.85}
+#desc{font-size:12px;color:var(--muted);min-height:1.5em;margin:0 2px 8px}
+#desc b{color:var(--ink)}
+footer{font-size:10px;color:#6f6880;text-align:center;margin-top:2px}
+#ov{position:fixed;inset:0;background:rgba(12,10,18,.78);display:none;align-items:center;justify-content:center;padding:18px;z-index:9;backdrop-filter:blur(3px)}
+.card{background:#24212f;border-radius:20px;padding:20px 18px;width:100%;max-width:420px;max-height:92dvh;overflow:auto;box-shadow:0 10px 40px rgba(0,0,0,.5);text-align:center}
+.card h2{margin:0 0 4px;font-size:24px;font-weight:800}
+.card p{margin:6px 0 14px;color:#cfc8db;font-size:14px;line-height:1.6}
+.card .big{font-size:40px;letter-spacing:4px;margin:4px 0 10px}
+.btn{display:block;width:100%;border:0;border-radius:14px;padding:13px;font:inherit;font-size:15px;font-weight:800;cursor:pointer;margin-top:8px;background:#383349;color:var(--ink)}
+.btn.main{background:var(--accent);color:#2a1a05}
+.stages{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:12px 0 6px}
+.st{border:0;border-radius:12px;padding:9px 0 7px;font:inherit;font-weight:800;font-size:17px;background:#383349;color:var(--ink);cursor:pointer}
+.st small{display:block;font-size:10px;color:var(--accent);letter-spacing:1px;min-height:12px}
+.st.lock{opacity:.35;cursor:default}
+.tools-list{font-size:13px;color:var(--muted);margin:-6px 0 12px}
+</style>
+</head>
+<body>
+<header>
+  <h1 id="title">ねこすな 🐾</h1>
+  <div id="hud">🐱 ×0</div>
+</header>
+<div id="goal"></div>
+<div id="wrap"><canvas id="c"></canvas></div>
+<div id="ui">
+  <div id="desc"></div>
+  <div class="row">
+    <span class="lbl">ふで</span>
+    <button class="tool brush" data-r="0">小</button>
+    <button class="tool brush on" data-r="1">中</button>
+    <button class="tool brush" data-r="3">大</button>
+    <span class="spacer"></span>
+    <button class="tool" id="pause">⏸</button>
+    <button class="tool" id="retry">🔄</button>
+    <button class="tool" id="menu">🏠 メニュー</button>
+  </div>
+  <div id="pal"></div>
+  <footer>sandspiel に着想を得たオリジナル日本語版 ・ ねこは燃えたり溶けたりしません</footer>
+</div>
+<div id="ov"><div class="card" id="card"></div></div>
+
+<script>
+"use strict";
+const R=Math.random;
+// ================= 素材 =================
+const EMPTY=0,WALL=1,SAND=2,WATER=3,STONE=4,WOOD=5,FIRE=6,SMOKE=7,LAVA=8,ICE=9,PLANT=10,ACID=11,OIL=12,STEAM=13,CLONER=14,
+  CAT=15,CATNIP=16,FOXTAIL=17,HAIRBALL=18,KOTATSU=19,FISH=20,BONE=21,LITTER=22,CLUMP=23,SNOW=24,DIRT=25,DRAIN=26,NT=27,WETSAND=27,NC=28;
+const tbl=(list,v=1)=>{const a=new Uint8Array(NT);list.forEach(t=>a[t]=v);return a;};
+const D=new Uint8Array(NT).fill(9); D[EMPTY]=0;D[SMOKE]=0;D[STEAM]=0;D[OIL]=1;D[WATER]=2;D[ACID]=2;D[LAVA]=3;
+const FL=tbl([EMPTY,SMOKE,STEAM,OIL,WATER,ACID,LAVA]);
+const LIQ=tbl([OIL,WATER,ACID,LAVA]);
+const GAS=tbl([SMOKE,STEAM]);
+const POWDER=tbl([SAND,STONE,CATNIP,HAIRBALL,BONE,LITTER,SNOW]);
+const FLAM=new Float32Array(NT); FLAM[WOOD]=.015;FLAM[PLANT]=.08;FLAM[OIL]=.25;FLAM[HAIRBALL]=.12;FLAM[CATNIP]=.1;FLAM[FOXTAIL]=.1;
+const ACIDPROOF=tbl([EMPTY,WALL,ACID,CAT,KOTATSU,CLONER,SMOKE,STEAM,FIRE,FISH,WATER,DRAIN]);
+const CATPASS=tbl([EMPTY,SMOKE,STEAM]);
+const ATTR=tbl([KOTATSU,FISH,CATNIP,FOXTAIL]);
+const HEAT=tbl([FIRE,LAVA,KOTATSU,STEAM]);
+const FLAT=tbl([EMPTY,SMOKE,STEAM,FIRE,CAT,FISH,FOXTAIL,WATER,OIL,ACID,LAVA]); // 立体の陰影をつけないもの
+const N8X=[-1,0,1,-1,1,-1,0,1],N8Y=[-1,-1,-1,0,0,1,1,1],N4X=[0,1,0,-1],N4Y=[-1,0,1,0];
+const M_NONE=0,M_DRUNK=1,M_WET=2,M_SOOT=3,M_HAPPY=4;
+const A_WALK=0,A_SIT=1,A_GROOM=2,A_STRETCH=3,A_NAP=4,A_KOT=5;
+
+// ================= ワールド =================
+const W=100,H=120,PS=4,BW=W*PS,BH=H*PS,N=W*H;
+const T=new Uint8Array(N),V=new Uint8Array(N),L=new Uint16Array(N),S=new Uint8Array(N),F=new Uint8Array(N),
+      A=new Uint8Array(N),AT=new Uint16Array(N),VY=new Uint8Array(N);
+let tick=1,catCount=0,fishEaten=0;
+const CATMAX=250;
+
+function set(i,t){
+  T[i]=t;V[i]=(R()*256)|0;L[i]=0;S[i]=0;A[i]=0;AT[i]=0;VY[i]=0;F[i]=tick;
+  if(LIQ[t]) S[i]=R()<.5?1:0;
+  switch(t){
+    case FIRE:L[i]=18+(R()*35|0);break;
+    case SMOKE:L[i]=40+(R()*60|0);break;
+    case STEAM:L[i]=50+(R()*70|0);break;
+    case CAT:case FISH:S[i]=R()<.5?1:0;break;
+    case FOXTAIL:S[i]=4+(R()*6|0);break;
+  }
+}
+function swap(a,b){
+  let t=T[a];T[a]=T[b];T[b]=t; t=V[a];V[a]=V[b];V[b]=t; t=L[a];L[a]=L[b];L[b]=t; t=S[a];S[a]=S[b];S[b]=t;
+  t=A[a];A[a]=A[b];A[b]=t; t=AT[a];AT[a]=AT[b];AT[b]=t; t=VY[a];VY[a]=VY[b];VY[b]=t; F[a]=tick;F[b]=tick;
+}
+const canFall=(m,t)=>FL[t]===1&&D[m]>D[t];
+function emptyNb(x,y){const st=R()*8|0;
+  for(let n=0;n<8;n++){const k=(st+n)&7,nx=x+N8X[k],ny=y+N8Y[k];
+    if(nx>=0&&nx<W&&ny>=0&&ny<H){const j=ny*W+nx;if(T[j]===EMPTY)return j;}}return -1;}
+function spawnAt(x,y,t,kitten){
+  if(t===CAT&&catCount>=CATMAX)return;
+  const j=emptyNb(x,y);if(j<0)return;
+  set(j,t);if(t===CAT){catCount++;if(kitten)S[j]|=4;}
+}
+function ignite(j,nt){set(j,FIRE);if(nt===WOOD)L[j]=120+(R()*120|0);else if(nt===OIL)L[j]=25+(R()*20|0);}
+
+// ================= 物理 =================
+function powder(i,x,y,t,slide,maxSteps){
+  const v=VY[i];let cur=i,cy=y,fell=0;const steps=1+Math.min(maxSteps,v>>3);
+  for(let s=0;s<steps;s++){
+    if(cy+1>=H)break;const b=cur+W,tb=T[b];
+    if(!canFall(t,tb))break;
+    if(tb!==EMPTY&&R()<.5)break;
+    swap(cur,b);cur=b;cy++;fell++;
+    if(tb!==EMPTY){VY[cur-W]=0;break;}
+  }
+  if(fell){VY[cur]=v<40?v+1:40;return true;}
+  VY[i]=0;
+  if(y+1>=H)return false;
+  if(R()>slide&&v<6)return false;
+  const d=R()<.5?-1:1;
+  for(let s=0;s<2;s++){const dx=s?-d:d,nx=x+dx;if(nx<0||nx>=W)continue;
+    const j=i+W+dx;if(FL[T[i+dx]]&&canFall(t,T[j])){swap(i,j);VY[j]=v>>1;return true;}}
+  return false;
+}
+function liquid(i,x,y,t,spread){
+  const v=VY[i];let cur=i,cy=y,fell=0;const steps=1+Math.min(3,v>>3);
+  for(let s=0;s<steps;s++){if(cy+1<H&&canFall(t,T[cur+W])){swap(cur,cur+W);cur+=W;cy++;fell++;}else break;}
+  if(fell){VY[cur]=v<40?v+1:40;return;}
+  VY[i]=0;
+  if(t===WATER&&y+1<H&&T[i+W]===DIRT&&R()<.003){set(i,EMPTY);return;} // 土にしみこむ
+  if(y+1<H){const d=R()<.5?-1:1;
+    for(let s=0;s<2;s++){const dx=s?-d:d,nx=x+dx;if(nx<0||nx>=W)continue;
+      const j=i+W+dx;if(canFall(t,T[j])){swap(i,j);VY[j]=v;return;}}}
+  const dir=(S[i]&1)?1:-1,sp=spread+Math.min(4,v>>2);
+  let c2=i,cx=x;
+  for(let n=0;n<sp;n++){const nx=cx+dir;if(nx<0||nx>=W)break;const j=c2+dir;
+    if(canFall(t,T[j])){swap(c2,j);c2=j;cx=nx;if(cy+1<H&&canFall(t,T[c2+W]))break;}else break;}
+  if(c2===i)S[i]^=1;
+}
+function gas(i,x,y,t){
+  if(L[i]<=1){if(t===STEAM&&R()<.2)set(i,WATER);else set(i,EMPTY);return;}
+  L[i]--;
+  const r=R(),nx=x+(r<.28?-1:r<.56?1:0),ny=y-(R()<.85?1:0);
+  if(ny>=0&&nx>=0&&nx<W){const j=ny*W+nx,tj=T[j];
+    if(j!==i&&(tj===EMPTY||(LIQ[tj]&&R()<.3))){swap(i,j);return;}}
+  const sx=x+(R()<.5?-1:1);if(sx>=0&&sx<W&&T[i-x+sx]===EMPTY)swap(i,i-x+sx);
+}
+function fire(i,x,y){
+  if(L[i]<=1){set(i,R()<.4?SMOKE:EMPTY);return;}
+  L[i]--;
+  for(let k=0;k<8;k++){const nx=x+N8X[k],ny=y+N8Y[k];if(nx<0||nx>=W||ny<0||ny>=H)continue;
+    const j=ny*W+nx,nt=T[j];
+    if(nt===WATER||nt===SNOW||nt===ICE){set(i,EMPTY);set(j,nt===WATER?STEAM:WATER);return;}
+    const f=FLAM[nt];if(f>0&&R()<f)ignite(j,nt);}
+  if(R()<.45&&y>0){const nx=x+((R()*3|0)-1);if(nx>=0&&nx<W){const j=(y-1)*W+nx;if(T[j]===EMPTY){swap(i,j);L[j]=L[j]>4?L[j]-3:1;}}}
+}
+function lava(i,x,y){
+  for(let k=0;k<4;k++){const nx=x+N4X[k],ny=y+N4Y[k];if(nx<0||nx>=W||ny<0||ny>=H)continue;
+    const j=ny*W+nx,nt=T[j];
+    if(nt===WATER){set(i,STONE);set(j,STEAM);return;}
+    if(nt===ICE||nt===SNOW)set(j,WATER);
+    else if(FLAM[nt]>0&&R()<.3)ignite(j,nt);}
+  if(y>0&&T[i-W]===EMPTY&&R()<.004)set(i-W,FIRE);
+  if(R()<.4)liquid(i,x,y,LAVA,1);
+}
+function ice(i,x,y){
+  for(let k=0;k<4;k++){const nx=x+N4X[k],ny=y+N4Y[k];if(nx<0||nx>=W||ny<0||ny>=H)continue;
+    const j=ny*W+nx,nt=T[j];
+    if(HEAT[nt]&&R()<.03){set(i,WATER);return;}
+    if(nt===WATER&&R()<.002)set(j,ICE);}
+}
+function snow(i,x,y){
+  for(let k=0;k<4;k++){const nx=x+N4X[k],ny=y+N4Y[k];if(nx<0||nx>=W||ny<0||ny>=H)continue;
+    const nt=T[ny*W+nx];if((HEAT[nt]&&R()<.08)||(nt===WATER&&R()<.01)){set(i,WATER);return;}}
+  if(R()<.5){ // ゆらゆら降る
+    if(VY[i]===0&&y+1<H&&T[i+W]===EMPTY&&R()<.3){const nx=x+(R()<.5?-1:1);if(nx>=0&&nx<W&&T[i+W-x+nx]===EMPTY){swap(i,i+W-x+nx);return;}}
+    powder(i,x,y,SNOW,.3,0);}
+}
+function plant(i,x,y){const k=R()*4|0,nx=x+N4X[k],ny=y+N4Y[k];if(nx<0||nx>=W||ny<0||ny>=H)return;
+  const j=ny*W+nx;if(T[j]===WATER&&R()<.03)set(j,PLANT);}
+function acid(i,x,y){
+  const k=R()*4|0,nx=x+N4X[k],ny=y+N4Y[k];
+  if(nx>=0&&nx<W&&ny>=0&&ny<H){const j=ny*W+nx,nt=T[j];
+    if(!ACIDPROOF[nt]&&R()<.3){set(j,R()<.3?SMOKE:EMPTY);if(R()<.4){set(i,EMPTY);return;}}}
+  if(R()<.003){set(i,SMOKE);return;}
+  liquid(i,x,y,ACID,2);
+}
+function cloner(i,x,y){
+  if(S[i]===0){for(let k=0;k<8;k++){const nx=x+N8X[k],ny=y+N8Y[k];if(nx<0||nx>=W||ny<0||ny>=H)continue;
+      const nt=T[ny*W+nx];if(nt!==EMPTY&&nt!==CLONER&&nt!==WALL&&nt!==DRAIN){S[i]=nt;break;}}return;}
+  const ct=S[i];
+  if(ct===CAT){if(R()<.01)spawnAt(x,y,CAT);return;}
+  if(R()<.3){const j=emptyNb(x,y);if(j>=0)set(j,ct);}
+}
+function drain(i,x,y){for(let k=0;k<4;k++){const nx=x+N4X[k],ny=y+N4Y[k];if(nx<0||nx>=W||ny<0||ny>=H)continue;
+  const j=ny*W+nx;if(LIQ[T[j]]&&T[j]!==LAVA)set(j,EMPTY);}}
+function litter(i,x,y){for(let k=0;k<4;k++){const nx=x+N4X[k],ny=y+N4Y[k];if(nx<0||nx>=W||ny<0||ny>=H)continue;
+  const j=ny*W+nx;if(T[j]===WATER&&R()<.25){set(j,EMPTY);set(i,CLUMP);return true;}}return false;}
+function sand(i,x,y){
+  if(((tick+i)&7)===0){let wet=0;for(let k=0;k<4;k++){const nx=x+N4X[k],ny=y+N4Y[k];
+      if(nx>=0&&nx<W&&ny>=0&&ny<H){const nt=T[ny*W+nx];if(nt===WATER||(nt===SAND&&(S[ny*W+nx]&1)&&R()<.15))wet=1;}}
+    if(wet)S[i]|=1;else if(R()<.02)S[i]&=~1;}
+  powder(i,x,y,SAND,(S[i]&1)?.08:.8,3);
+}
+function foxtail(i,x,y){if(S[i]>0&&y>0&&R()<.03&&T[i-W]===EMPTY){const g=S[i]-1;S[i]=0;set(i-W,FOXTAIL);S[i-W]=g;}}
+function fish(i,x,y){
+  if(y+1<H){const tb=T[i+W];if(tb===EMPTY||GAS[tb]){swap(i,i+W);return;}}
+  let wet=false;for(let k=0;k<4;k++){const nx=x+N4X[k],ny=y+N4Y[k];
+    if(nx>=0&&nx<W&&ny>=0&&ny<H&&T[ny*W+nx]===WATER){wet=true;break;}}
+  if(wet){L[i]=0;
+    if(R()<.28){let dir=S[i]&1;if(R()<.03)dir^=1;S[i]=dir;
+      const dx=dir?1:-1,dy=R()<.3?(R()<.5?-1:1):0,nx=x+dx,ny=y+dy;
+      if(nx>=0&&nx<W&&ny>=0&&ny<H&&T[ny*W+nx]===WATER)swap(i,ny*W+nx);
+      else if(R()<.5)S[i]=dir^1;
+      else{const ny2=y+(R()<.5?-1:1);if(ny2>=0&&ny2<H&&T[ny2*W+x]===WATER)swap(i,ny2*W+x);}}
+  }else{L[i]++;if(L[i]>240){set(i,BONE);return;}
+    if(R()<.1){const nx=x+(R()<.5?-1:1);if(nx>=0&&nx<W&&T[i-x+nx]===EMPTY)swap(i,i-x+nx);}}
+}
+function seek(x,y){
+  for(let d=1;d<=60;d++)for(let s=-1;s<=1;s+=2){const nx=x+d*s;if(nx<0||nx>=W)continue;
+    for(let ny=y-12;ny<=y+12;ny++){if(ny<0||ny>=H)continue;if(ATTR[T[ny*W+nx]])return s;}}
+  return 0;
+}
+function putS(i,m,k,d){S[i]=(m<<4)|k|d;}
+function cat(i,x,y){
+  let mood=S[i]>>4,dir=S[i]&1,kb=S[i]&4;
+  if(L[i]>0){L[i]--;if(L[i]===0)mood=M_NONE;}
+  if(AT[i]>0)AT[i]--;
+  const above=y>0?T[i-W]:WALL;
+  if(LIQ[above]){mood=above===LAVA?M_SOOT:M_WET;L[i]=160;A[i]=A_WALK;putS(i,mood,kb,dir);swap(i,i-W);return;}
+  if(y+1<H&&CATPASS[T[i+W]]){ // 落下
+    const v=VY[i];let cur=i,cy=y;const steps=1+Math.min(2,v>>3);
+    for(let s=0;s<steps;s++){if(cy+1<H&&CATPASS[T[cur+W]]){swap(cur,cur+W);cur+=W;cy++;}else break;}
+    VY[cur]=v<40?v+1:40;A[cur]=A_WALK;putS(cur,mood,kb,dir);return;
+  }
+  VY[i]=0;
+  if(POWDER[above]&&R()<.35){putS(i,mood,kb,dir);swap(i,i-W);return;} // 砂からもぞもぞ出てくる
+  const below=y+1<H?T[i+W]:WALL;
+  let hot=0,nearK=false,jump=0;
+  for(let k=0;k<8;k++){
+    const nx=x+N8X[k],ny=y+N8Y[k];if(nx<0||nx>=W||ny<0||ny>=H)continue;
+    const j=ny*W+nx,nt=T[j];
+    if(nt===FIRE||nt===LAVA)hot=N8X[k]||(R()<.5?-1:1);
+    else if(nt===KOTATSU){if(N8X[k]===0||N8Y[k]===0)nearK=true;}
+    else if(nt===CATNIP){if(R()<.3){set(j,EMPTY);mood=M_DRUNK;L[i]=300;A[i]=A_WALK;if(R()<.25)spawnAt(x,y,CAT,true);}}
+    else if(nt===FISH){if(R()<.15){set(j,EMPTY);fishEaten++;mood=M_HAPPY;L[i]=150;kb=0;if(R()<.3)spawnAt(x,y,HAIRBALL);}}
+    else if(nt===FOXTAIL){if(R()<.06){if(R()<.25)set(j,EMPTY);if(mood!==M_DRUNK){mood=M_HAPPY;L[i]=60;}jump=2;A[i]=A_WALK;}}
+    else if(nt===WATER){if(mood===M_NONE||mood===M_HAPPY){mood=M_WET;L[i]=120;}}
+  }
+  for(let s=-2;s<=2;s+=4){const nx=x+s;if(nx>=0&&nx<W){const nt=T[i+s];if(nt===FIRE||nt===LAVA)hot=s;}}
+  if(R()<.05&&y+2<H){ // 水に前足を入れて魚をとる
+    const k=R()*5|0,fx=x+[-1,0,1,-2,2][k],fy=y+(k<3?2:1);
+    if(fx>=0&&fx<W&&T[fy*W+fx]===FISH&&R()<.3){set(fy*W+fx,WATER);fishEaten++;mood=M_HAPPY;L[i]=150;kb=0;}}
+  if(kb&&R()<.00015)kb=0; // 子ねこが大きくなる
+  if(hot){mood=M_SOOT;L[i]=200;dir=hot>0?0:1;jump=jump||1;A[i]=A_WALK;}
+  if(nearK&&mood!==M_DRUNK&&!hot){A[i]=A_KOT;putS(i,mood,kb,dir);return;}
+  if(LIQ[below]){ // 浮いて岸へ泳ぐ
+    mood=below===LAVA?M_SOOT:M_WET;L[i]=150;A[i]=A_WALK;
+    if(((tick+i)&15)===0){const sd=seek(x,y);if(sd)dir=sd>0?1:0;}
+    if(R()<.4){const dx=dir?1:-1,nx=x+dx;
+      if(nx<0||nx>=W)dir^=1;
+      else{const j=i+dx;
+        if(CATPASS[T[j]]){putS(i,mood,kb,dir);swap(i,j);return;}
+        if(y>0&&CATPASS[T[i-W]]&&CATPASS[T[j-W]]){putS(i,mood,kb,dir);swap(i,j-W);return;}
+        dir^=1;}}
+    putS(i,mood,kb,dir);return;
+  }
+  if(nearK&&mood!==M_DRUNK&&!hot){A[i]=A_KOT;putS(i,mood,kb,dir);return;}
+  if(A[i]===A_KOT)A[i]=A_WALK;
+  if(mood===M_DRUNK&&R()<.04)jump=2;
+  if(jump){let cur=i;
+    for(let n=0;n<=jump;n++){if(cur>=W&&CATPASS[T[cur-W]]){swap(cur,cur-W);cur-=W;}else break;}
+    if(cur!==i){const dx=dir?1:-1,cx=cur%W;if(cx+dx>=0&&cx+dx<W&&CATPASS[T[cur+dx]]){swap(cur,cur+dx);cur+=dx;}
+      putS(cur,mood,kb,dir);return;}}
+  if(A[i]!==A_WALK){ // しぐさ中
+    if(AT[i]===0){if(A[i]===A_SIT&&R()<.35){A[i]=A_GROOM;AT[i]=90+(R()*90|0);}
+      else if(A[i]===A_NAP){A[i]=A_STRETCH;AT[i]=50;}else A[i]=A_WALK;}
+    if(A[i]===A_GROOM&&R()<.0012)spawnAt(x,y,HAIRBALL);
+    putS(i,mood,kb,dir);return;
+  }
+  if(mood===M_NONE&&R()<.003){const r=R();
+    if(r<.5){A[i]=A_SIT;AT[i]=80+(R()*220|0);}else if(r<.75){A[i]=A_GROOM;AT[i]=100+(R()*100|0);}
+    else if(r<.88){A[i]=A_STRETCH;AT[i]=45;}else{A[i]=A_NAP;AT[i]=400+(R()*500|0);}
+    putS(i,mood,kb,dir);return;}
+  if(mood!==M_DRUNK&&((tick+i)&15)===0){const sd=seek(x,y);if(sd)dir=sd>0?1:0;}
+  const spd=mood===M_DRUNK?.9:mood===M_SOOT?.85:kb?.45:.33;
+  if(R()>spd){putS(i,mood,kb,dir);return;}
+  if(mood===M_DRUNK?R()<.15:R()<.008)dir^=1;
+  const dx=dir?1:-1,nx=x+dx;
+  if(nx<0||nx>=W){putS(i,mood,kb,dir^1);return;}
+  const j=i+dx;
+  if(CATPASS[T[j]]){
+    const bj=y+1<H?T[j+W]:WALL;
+    if((bj===FIRE||bj===LAVA||bj===ACID)&&mood!==M_SOOT){putS(i,mood,kb,dir^1);return;}
+    if(LIQ[bj]&&mood!==M_SOOT&&mood!==M_DRUNK&&R()<.9){A[i]=A_SIT;AT[i]=20+(R()*40|0);putS(i,mood,kb,R()<.5?dir^1:dir);return;}
+    if(nx+dx>=0&&nx+dx<W&&T[j+dx]===CAT&&A[j+dx]!==A_KOT&&R()<.6){A[i]=A_SIT;AT[i]=25+(R()*50|0);putS(i,mood,kb,dir);return;}
+    putS(i,mood,kb,dir);swap(i,j);return;
+  }
+  if(y>0&&CATPASS[T[i-W]]&&CATPASS[T[j-W]]){putS(i,mood,kb,dir);swap(i,j-W);return;}
+  // 2段までならジャンプで登る
+  if(!kb&&y>1&&CATPASS[T[i-W]]&&CATPASS[T[i-2*W]]&&CATPASS[T[j-2*W]]&&!CATPASS[T[j-W]]&&R()<.25){putS(i,mood,kb,dir);swap(i,j-2*W);return;}
+  if(R()<.5){putS(i,mood,kb,dir);return;} // 少し考える
+  putS(i,mood,kb,dir^1);
+}
+function step(){
+  tick=tick%250+1;const ltr=tick&1;
+  for(let y=H-1;y>=0;y--){const row=y*W;
+    for(let k=0;k<W;k++){const x=ltr?k:W-1-k,i=row+x,t=T[i];
+      if(t===EMPTY||F[i]===tick)continue;
+      switch(t){
+        case SAND:sand(i,x,y);break;
+        case BONE:powder(i,x,y,t,.6,3);break;
+        case HAIRBALL:powder(i,x,y,t,.3,3);break;
+        case CATNIP:powder(i,x,y,t,.5,2);break;
+        case STONE:powder(i,x,y,t,0,3);break;
+        case LITTER:if(!litter(i,x,y))powder(i,x,y,t,.6,3);break;
+        case SNOW:snow(i,x,y);break;
+        case WATER:liquid(i,x,y,t,4);break;
+        case OIL:liquid(i,x,y,t,3);break;
+        case ACID:acid(i,x,y);break;
+        case LAVA:lava(i,x,y);break;
+        case FIRE:fire(i,x,y);break;
+        case SMOKE:case STEAM:gas(i,x,y,t);break;
+        case ICE:ice(i,x,y);break;
+        case PLANT:plant(i,x,y);break;
+        case CLONER:cloner(i,x,y);break;
+        case DRAIN:drain(i,x,y);break;
+        case CAT:cat(i,x,y);break;
+        case FISH:fish(i,x,y);break;
+        case FOXTAIL:foxtail(i,x,y);break;
+      }}}
+}
+
+// ================= 色と質感 =================
+function hex(h){return[parseInt(h.slice(1,3),16),parseInt(h.slice(3,5),16),parseInt(h.slice(5,7),16)];}
+const cl=v=>v<0?0:v>255?255:v|0;
+const pk=(r,g,b)=>((255<<24)|(cl(b)<<16)|(cl(g)<<8)|cl(r))>>>0;
+const pkh=h=>{const c=hex(h);return pk(c[0],c[1],c[2]);};
+function mixh(a,b,t){const x=hex(a),y=hex(b);return pk(x[0]+(y[0]-x[0])*t,x[1]+(y[1]-x[1])*t,x[2]+(y[2]-x[2])*t);}
+function grad(a,b,n){const o=[];for(let k=0;k<n;k++)o.push(mixh(a,b,k/(n-1)));return o;}
+const BASE=['#121019','#6e6878','#e3c27a','#2f7fe0','#8d8984','#7a4a24','#ff7a2a','#3d3a44','#ff4d14','#bfe8ff',
+  '#46b04a','#a6ff3a','#4a3326','#9fb6c6','#c792ff','#f0a04b','#8fbf5e','#7bb055','#c4a280','#d6453a',
+  '#2f7fe0','#efe7d4','#d9d3c5','#a89f8c','#f2f6ff','#6b4a33','#2b2933','#b08c50'];
+const TEX=[0,.9,1,.2,1.4,1.8,0,0,0,.5,1.4,.3,.3,0,.6,0,1.3,1,1.4,.5,0,.7,1,1.4,.35,1.3,.4,1];
+const COLN=new Uint32Array(NC*16*6);
+for(let t=0;t<NC;t++){const c=hex(BASE[t]);
+  for(let k=0;k<16;k++){const kv=1+((k-7.5)/7.5)*.06*(TEX[t]>0?1:0);
+    const lv=[-.07,-.025,.025,.07].map(f=>f*TEX[t]);lv.push(.17,-.2);
+    for(let l=0;l<6;l++){const f=kv*(1+lv[l]);COLN[(t*16+k)*6+l]=pk(c[0]*f,c[1]*f,c[2]*f);}}}
+const BGR=grad('#1d1b30','#0d0c14',BH);
+const NZ=new Uint8Array(BW*BH);for(let p=0;p<NZ.length;p++)NZ[p]=R()*4|0;
+const LQ={[WATER]:{d:grad('#5aaef3','#0f3580',26),hi:pkh('#b9e2ff')},
+          [OIL]:{d:grad('#6b4a32','#1f120a',26),hi:pkh('#a8896a')},
+          [ACID]:{d:grad('#c4ff58','#447e10',26),hi:pkh('#efffb8')}};
+const LAVAC=['#ffd15a','#ffa133','#ff7424','#f2501a','#d53a12','#ff8a2c','#ffb847','#e8461a'].map(pkh);
+const FIREC=['#fff3a8','#ffd34d','#ffa22e','#ff6f22','#e8441a'].map(pkh);
+const SMK=grad('#121019','#4a4655',16),STM=grad('#121019','#c9dbe8',16);
+const KOTC=[pkh('#d6453a'),pkh('#f08a3c'),pkh('#b8362e')],BOARD=[pkh('#9a6a3c'),pkh('#b07c48'),pkh('#5e3e22')];
+const FOXG=pkh('#6aa84f'),FOXT=pkh('#e3cc8c'),FOXT2=pkh('#f6e6b8');
+const DRC=[pkh('#1a1820'),pkh('#4a4656')];
+// ねこ: 茶トラ・黒・白・グレー・三毛
+const COATS=[{f:'#f2a24e',e:'#c9681f',k:'#3a2412',a:'#d27a2a',n:'#e2867a'},
+  {f:'#2b2933',e:'#45414f',k:'#ffd23f',a:'#3b3946',n:'#5a4a52'},
+  {f:'#f4f1ea',e:'#f3a6b6',k:'#4a86d8',a:'#e0dacd',n:'#f29aa5'},
+  {f:'#9ca2ad',e:'#6f7480',k:'#3f9a4a',a:'#7c828d',n:'#d98a90'},
+  {f:'#f4f1ea',e:'#e08a32',k:'#3a2412',a:'#2b2933',n:'#f29aa5'}];
+const TINT=[null,['#ff7fbf',.38],['#5fa8ff',.42],['#1a1a1a',.6],null];
+const CC=[];
+for(let c=0;c<5;c++)for(let m=0;m<5;m++){const co=COATS[c],tn=TINT[m],tf=h=>tn?mixh(h,tn[0],tn[1]):pkh(h);
+  CC.push({E:tf(co.e),F:tf(co.f),A:tf(co.a),T:tf(c===4?co.a:co.a),L:tf(mixh(co.f,'#000000',.18)===0?co.f:co.f),
+    K:m===M_DRUNK?pkh('#ff3f9f'):m===M_HAPPY?tf(co.e):pkh(co.k),N:tf(co.n)});
+  CC[CC.length-1].L=tn?mixh(co.f,tn[0],tn[1]*.6):mixh(co.f,'#000000',.18);}
+// スプライト（右向き）
+const SP={
+ walk:[["T...E..E","T...FFFF",".TFFFFKF","..FAAFFN","..FFFFF.","..L...L."],
+       ["T...E..E","T...FFFF",".TFFFFKF","..FAAFFN","..FFFFF.","...L.L.."]],
+ sit:[["....E..E","....FFFF","...FFFKF","...FAFFN","..FFFF..","TTFLFL.."]],
+ groom:[["........","...E..E.","...FFFF.","..FFFKF.","..FAFFLN","TTFFFF.."],
+        ["........","....E..E","...FFFFF","..FFFFKF","..FAFFL.","TTFFFF.."]],
+ stretch:[["........","T.......","TF......",".FFF.E.E",".FAAFFKN",".L...LL."]],
+ nap:[["........","........","........","....E.E.",".FFAAFFF","TTFFFFFF"]],
+ kwalk:[["T..E.E",".TFFFF",".FFFKN",".L..L."],["T..E.E",".TFFFF",".FFFKN","..LL.."]],
+ ksit:[["...E.E","...FFF","..FFKN","TFLFL."]],
+ knap:[["......","......","..E.E.","TFFFFF"]]};
+const FISHS=[["...FF.","TFFFKF","...FF."],["T..FF.",".FFFKF","T..FF."]];
+const FISHC=[[pkh('#ff8a3d'),pkh('#d9622a')],[pkh('#c4dbea'),pkh('#8fb0c7')]],FEYE=pkh('#111111');
+const ZG=["zzz",".z.","zzz"],HG=[".h.h.","hhhhh",".hhh.","..h.."];
+
+let cv,ctx,img,buf;
+const spr=[],PT=[],dep=new Uint8Array(W);
+const ER=new Float32Array(N),EG=new Float32Array(N),EB=new Float32Array(N),TMP=new Float32Array(N);
+let stats={cats:0,kot:0,wet:0,fire:0};
+function sprite(ox,oy,rows,map,mirror,clipY,sc=1){
+  const w=rows[0].length;
+  for(let r=0;r<rows.length;r++){const row=rows[r];
+    for(let c=0;c<w;c++){const ch=mirror?row[w-1-c]:row[c];if(ch==='.')continue;const col=map[ch];
+      for(let a=0;a<sc;a++){const py=oy+r*sc+a;if(py<0||py>=BH||py>=clipY)continue;
+        for(let b=0;b<sc;b++){const px=ox+c*sc+b;if(px<0||px>=BW)continue;buf[py*BW+px]=col;}}}}
+}
+function boxH(src,dst,r){for(let y=0;y<H;y++){const o=y*W;let s=0;
+  for(let x=-r;x<=r;x++)if(x>=0&&x<W)s+=src[o+x];
+  for(let x=0;x<W;x++){dst[o+x]=s/(2*r+1);const a=x-r,b=x+r+1;if(a>=0)s-=src[o+a];if(b<W)s+=src[o+b];}}}
+function boxV(src,dst,r){for(let x=0;x<W;x++){let s=0;
+  for(let y=-r;y<=r;y++)if(y>=0&&y<H)s+=src[y*W+x];
+  for(let y=0;y<H;y++){dst[y*W+x]=s/(2*r+1);const a=y-r,b=y+r+1;if(a>=0)s-=src[a*W+x];if(b<H)s+=src[b*W+x];}}}
+function blur(a){boxH(a,TMP,5);boxV(TMP,a,5);boxH(a,TMP,5);boxV(TMP,a,5);}
+
+function render(live){
+  let cats=0,kot=0,wet=0,fires=0;spr.length=0;dep.fill(0);ER.fill(0);EG.fill(0);EB.fill(0);
+  for(let y=0;y<H;y++){const py0=y*PS;
+    for(let x=0;x<W;x++){
+      const i=y*W+x,t=T[i],b=py0*BW+x*PS;
+      if(LIQ[t]||t===FISH)dep[x]++;else dep[x]=0;
+      if(t===EMPTY||t===CAT){
+        for(let r=0;r<4;r++){const c=BGR[py0+r],o=b+r*BW;buf[o]=c;buf[o+1]=c;buf[o+2]=c;buf[o+3]=c;}
+        if(t===CAT){cats++;spr.push(i);const m=S[i]>>4;if(A[i]===A_KOT)kot++;if(m===M_WET)wet++;}
+        continue;}
+      if(t===WATER||t===OIL||t===ACID||t===FISH){
+        const q=LQ[t===FISH?WATER:t],d=Math.min(25,dep[x]-1),c=q.d[d],c2=q.d[Math.min(25,d+1)];
+        for(let r=0;r<4;r++){const o=b+r*BW;
+          for(let s=0;s<4;s++){let cc=(NZ[o+s]&1)?c:c2;
+            if(d===0&&r===0)cc=(((x*4+s+(tick>>2))%9)<4)?q.hi:c;
+            buf[o+s]=cc;}}
+        if(t===FISH)spr.push(i);
+        if(t===ACID){ER[i]=.08;EG[i]=.22;EB[i]=.02;}
+        if(t===FISH&&live&&R()<.006&&PT.length<500)PT.push({x:x*4+2,y:y*4,vx:0,vy:-.35,l:120,k:0});
+        continue;}
+      if(t===LAVA){
+        for(let r=0;r<4;r++){const o=b+r*BW;for(let s=0;s<4;s++)buf[o+s]=LAVAC[(NZ[o+s]+(V[i]>>5)+((tick+x*3+y*5)>>3))&7];}
+        ER[i]=1;EG[i]=.38;EB[i]=.08;
+        if(live&&R()<.0015&&PT.length<500)PT.push({x:x*4+2,y:y*4,vx:(R()-.5)*.6,vy:-.8-R(),l:30,k:3});
+        continue;}
+      if(t===FIRE){fires++;
+        const hot=L[i]>12?0:1;
+        for(let r=0;r<4;r++){const o=b+r*BW;for(let s=0;s<4;s++)buf[o+s]=R()<.15?BGR[py0+r]:FIREC[Math.min(4,(R()*3|0)+hot+(r>>1))];}
+        ER[i]=1;EG[i]=.55;EB[i]=.15;
+        if(live&&R()<.02&&PT.length<500)PT.push({x:x*4+2,y:y*4,vx:(R()-.5)*.5,vy:-.7-R()*.6,l:20+(R()*20|0),k:3});
+        continue;}
+      if(t===SMOKE||t===STEAM){const pal=t===SMOKE?SMK:STM,a=Math.min(15,L[i]>>2);
+        for(let r=0;r<4;r++){const o=b+r*BW;for(let s=0;s<4;s++)buf[o+s]=NZ[o+s]===0?BGR[py0+r]:pal[a];}
+        continue;}
+      if(t===FOXTAIL){
+        for(let r=0;r<4;r++){const c=BGR[py0+r],o=b+r*BW;buf[o]=c;buf[o+1]=c;buf[o+2]=c;buf[o+3]=c;}
+        if(y===0||T[i-W]!==FOXTAIL){const P=[".ab.","aaba","abaa",".gg."];
+          for(let r=0;r<4;r++)for(let s=0;s<4;s++){const ch=P[r][s];if(ch!=='.')buf[b+r*BW+s]=ch==='a'?FOXT:ch==='b'?FOXT2:FOXG;}}
+        else for(let r=0;r<4;r++){buf[b+r*BW+1]=FOXG;buf[b+r*BW+2]=FOXG;}
+        continue;}
+      if(t===KOTATSU){const top=y===0||T[i-W]!==KOTATSU,bot=y+1>=H||T[i+W]!==KOTATSU;
+        for(let r=0;r<4;r++){const o=b+r*BW;for(let s=0;s<4;s++){
+          buf[o+s]=top&&r<2?BOARD[r===0?1:0]:top&&r===2?BOARD[2]:KOTC[(((x*4+s)>>2)+((y*4+r)>>2))&1?0:1];}}
+        if(bot){ER[i]=.5;EG[i]=.2;EB[i]=.04;}else{ER[i]=.15;EG[i]=.06;}
+        continue;}
+      if(t===DRAIN){for(let r=0;r<4;r++){const o=b+r*BW;for(let s=0;s<4;s++)buf[o+s]=DRC[(s&1)];}continue;}
+      // 一般の素材（粒の質感＋上面のハイライトと下面の陰）
+      const ct=(t===SAND&&(S[i]&1))?WETSAND:t,base=(ct*16+(V[i]>>4))*6;
+      const flat=FLAT[t]===1,topE=!flat&&y>0&&CATPASS[T[i-W]],botE=!flat&&y+1<H&&CATPASS[T[i+W]];
+      for(let r=0;r<4;r++){const o=b+r*BW;for(let s=0;s<4;s++){
+        const lv=(r===0&&topE)?4:(r===3&&botE)?5:NZ[o+s];buf[o+s]=COLN[base+lv];}}
+      if(t===CLONER){ER[i]=.12;EG[i]=.06;EB[i]=.18;}
+    }}
+  // 魚
+  for(const i of spr){if(T[i]!==FISH)continue;const x=i%W,y=(i/W)|0,fc=FISHC[V[i]&1];
+    sprite(x*PS-4,y*PS-1,FISHS[((tick>>3)+V[i])&1],{F:fc[0],T:fc[1],K:FEYE},!(S[i]&1),BH,2);}
+  // ねこ
+  for(const i of spr){if(T[i]!==CAT)continue;
+    const x=i%W,y=(i/W)|0,s=S[i],mood=s>>4,kit=s&4,mir=!(s&1),act=A[i],map=CC[(V[i]%5)*5+mood];
+    const belowLiq=y+1<H&&LIQ[T[i+W]];
+    let rows;
+    if(kit){rows=act===A_KOT||act===A_NAP?SP.knap[0]:act!==A_WALK?SP.ksit[0]:SP.kwalk[x&1];
+      sprite(x*PS-4,y*PS-4+(belowLiq?4:0),rows,map,mir,belowLiq?y*PS+8:BH,2);}
+    else{rows=act===A_KOT||act===A_NAP?SP.nap[0]:act===A_SIT?SP.sit[0]:act===A_GROOM?SP.groom[(tick>>3)&1]:act===A_STRETCH?SP.stretch[0]:SP.walk[x&1];
+      sprite(x*PS-6,y*PS-8+(belowLiq?5:0),rows,map,mir,belowLiq?y*PS+9:BH,2);}
+    if(live&&PT.length<500){
+      if((act===A_KOT||act===A_NAP)&&R()<.012)PT.push({x:x*4+4,y:y*4-14,vx:.12,vy:-.22,l:80,k:1});
+      if(mood===M_DRUNK&&R()<.025)PT.push({x:x*4,y:y*4-16,vx:(R()-.5)*.3,vy:-.3,l:50,k:2});}
+  }
+  // 粒子（泡・zzz・ハート・火の粉）
+  for(let n=PT.length-1;n>=0;n--){const p=PT[n];
+    if(live){p.x+=p.vx+(p.k===0?(R()-.5)*.4:0);p.y+=p.vy;p.l--;}
+    const cx=p.x>>2,cy=p.y>>2;
+    if(p.l<=0||cx<0||cx>=W||cy<0||cy>=H||(p.k===0&&T[cy*W+cx]!==WATER&&T[cy*W+cx]!==FISH)){PT[n]=PT[PT.length-1];PT.pop();continue;}
+    const px=p.x|0,py=p.y|0;
+    if(p.k===0)buf[py*BW+px]=pkh('#e4f4ff');
+    else if(p.k===3)buf[py*BW+px]=p.l>10?pkh('#ffd25a'):pkh('#ff7a2a');
+    else if(p.k===1&&p.l>8)sprite(px,py,ZG,{z:pkh('#d6d2ff')},false,BH);
+    else if(p.k===2&&p.l>8)sprite(px,py,HG,{h:pkh('#ff6fae')},false,BH);
+  }
+  // あかり（火・マグマ・こたつの光）
+  blur(ER);blur(EG);blur(EB);
+  const G=1400;
+  for(let i=0;i<N;i++){const lr=ER[i]*G,lg=EG[i]*G,lb=EB[i]*G;if(lr+lg+lb<5)continue;
+    const ar=Math.min(170,lr),ag=Math.min(120,lg),ab=Math.min(80,lb),b=((i/W)|0)*PS*BW+(i%W)*PS;
+    for(let r=0;r<4;r++){const o=b+r*BW;for(let s=0;s<4;s++){const c=buf[o+s];
+      const rr=(c&255)+ar,gg=((c>>8)&255)+ag,bb=((c>>16)&255)+ab;
+      buf[o+s]=((255<<24)|((bb>255?255:bb)<<16)|((gg>255?255:gg)<<8)|(rr>255?255:rr))>>>0;}}}
+  ctx.putImageData(img,0,0);
+  stats={cats,kot,wet,fire:fires};
+  return cats;
+}
+
+// ================= ステージ =================
+const G0=H-12;
+function rect(x0,y0,x1,y1,t){for(let y=y0;y<=y1;y++)for(let x=x0;x<=x1;x++)if(x>=0&&x<W&&y>=0&&y<H)set(y*W+x,t);}
+function ground(t=DIRT){rect(0,G0,W-1,H-1,t);}
+function cats(n,x0,x1,y){for(let k=0;k<n;k++){const x=Math.round(x0+(x1-x0)*(n===1?.5:k/(n-1)));set(y*W+x,CAT);}}
+function countRect(x0,y0,x1,y1,t){let c=0;for(let y=y0;y<=y1;y++)for(let x=x0;x<=x1;x++)if(T[y*W+x]===t)c++;return c;}
+const STAGES=[
+ {name:'はじめの一歩',brief:'すなで穴をうめて、ねこをこたつまで連れていこう。穴に落ちたねこは、下にすなを入れると上がってくるよ。',
+  tools:{[SAND]:400},goal:{type:'kot',n:2},
+  build(){ground();rect(42,G0,55,H-1,EMPTY);rect(74,G0-2,85,G0-1,KOTATSU);cats(3,8,26,G0-1);}},
+ {name:'段差をのぼろう',brief:'ねこは1段ずつしか登れない。すなで坂を作って、高台のこたつへ。',
+  tools:{[SAND]:380},goal:{type:'kot',n:3},
+  build(){ground();rect(68,G0-10,99,G0-1,DIRT);rect(80,G0-12,91,G0-11,KOTATSU);cats(3,8,34,G0-1);}},
+ {name:'ごはんの時間',brief:'水そうの魚が気になるねこたち。ふちまで登れるようにして、魚を3匹食べさせよう。',
+  tools:{[SAND]:320},goal:{type:'fish',n:3},
+  build(){ground();rect(86,G0-9,86,G0,WALL);rect(99,G0-9,99,G0,WALL);rect(86,G0,99,G0,WALL);rect(87,G0-9,98,G0-1,WATER);
+    for(let k=0;k<5;k++)set((G0-2-(R()*6|0))*W+88+(R()*10|0),FISH);cats(3,8,30,G0-1);}},
+ {name:'火事だ！',brief:'マグマから火が導火線の木を伝ってくる！みずで食い止めて、40秒間おうちの木を7割以上守ろう。',
+  tools:{[WATER]:300},goal:{type:'fire',sec:40,ratio:.7,rect:[52,G0-16,82,G0-1]},
+  build(){ground();rect(1,G0-7,13,G0-1,WALL);rect(2,G0-7,12,G0-2,LAVA);
+    rect(13,G0-4,13,G0-2,WOOD);rect(14,G0-3,51,G0-1,WOOD);rect(52,G0-16,82,G0-1,WOOD);rect(54,G0-14,80,G0-1,EMPTY);rect(60,G0-2,71,G0-1,KOTATSU);
+    set((G0-3)*W+62,CAT);set((G0-3)*W+68,CAT);}},
+ {name:'ねこだんご',brief:'またたびを食べたねこから、ときどき子ねこが生まれる。ねこを15匹にしよう。',
+  tools:{[CATNIP]:90},goal:{type:'cats',n:15},
+  build(){ground();rect(18,G0-34,20,G0-1,WALL);rect(80,G0-34,82,G0-1,WALL);cats(3,32,68,G0-1);}},
+ {name:'マグマの谷',brief:'マグマに水をかけると石になる。谷に石の橋をかけて、ねこを向こうのこたつへ。',
+  tools:{[WATER]:220},goal:{type:'kot',n:3},
+  build(){ground();rect(40,G0,59,G0+8,LAVA);rect(76,G0-2,87,G0-1,KOTATSU);cats(3,6,26,G0-1);}},
+ {name:'こおりの壁',brief:'こおりの壁が道をふさいでいる。ひでとかして、ねこを通してあげよう。',
+  tools:{[FIRE]:110},goal:{type:'kot',n:3},
+  build(){ground();rect(46,G0-12,50,G0-1,ICE);rect(40,G0-13,56,G0-13,WALL);rect(78,G0-2,89,G0-1,KOTATSU);cats(3,6,30,G0-1);}},
+ {name:'さんのトンネル',brief:'かたまった猫砂の山を、さんで溶かしてトンネルを掘ろう。さんはねこには無害。',
+  tools:{[ACID]:200},goal:{type:'kot',n:3},
+  build(){ground(WALL);rect(40,G0-16,58,G0-1,CLUMP);rect(78,G0-2,89,G0-1,KOTATSU);cats(3,6,28,G0-1);}},
+ {name:'大雨からこたつを守れ',brief:'上から水がどんどん降ってくる！スタート前にかべで屋根を作って、30秒間ねこをぬらさないで。',
+  tools:{[WALL]:130},goal:{type:'survive',sec:30},
+  build(){ground();rect(42,G0-4,57,G0-1,DIRT);rect(44,G0-7,55,G0-5,KOTATSU);
+    for(const x of [46,50,54]){const i=(G0-8)*W+x;set(i,CAT);A[i]=A_KOT;}
+    rect(0,G0,7,G0,DRAIN);rect(92,G0,99,G0,DRAIN);
+    rect(44,3,55,3,WALL);rect(46,4,53,4,CLONER);rect(46,5,53,5,WATER);}},
+ {name:'ねこの大冒険',brief:'マグマの谷、そして高い崖。みずとすなを使って、4匹みんなをこたつへ！',
+  tools:{[WATER]:200,[SAND]:380},goal:{type:'kot',n:4},
+  build(){ground();rect(28,G0,43,G0+7,LAVA);rect(64,G0-10,99,G0-1,DIRT);rect(80,G0-12,91,G0-11,KOTATSU);cats(4,3,20,G0-1);}},
+];
+
+// ================= UI =================
+const ELS=[
+  {id:CAT,n:'🐱 ねこ',d:'歩く・座る・毛づくろい・のび・昼寝。こたつで丸くなる。水はきらい。',g:1,c:'#f0a04b'},
+  {id:CATNIP,n:'🌿 またたび',d:'ねこが食べるとよっぱらう。子ねこが生まれることも。',g:1},
+  {id:FOXTAIL,n:'🌾 ねこじゃらし',d:'上にのびる。ねこがじゃれてジャンプ。',g:1,c:'#d9c27f'},
+  {id:KOTATSU,n:'♨️ こたつ',d:'ねこが集まって丸くなる。雪や氷をとかす。',g:1},
+  {id:FISH,n:'🐟 さかな',d:'水の中を泳ぐ。ねこの大好物。陸だと…。',g:1,c:'#ff8a3d'},
+  {id:HAIRBALL,n:'🧶 けだま',d:'毛づくろいの後にねこが吐く。よく燃える。',g:1},
+  {id:LITTER,n:'🪣 ねこすな',d:'水を吸って固まる。',g:1},
+  {id:EMPTY,n:'けしゴム',d:'なんでも消す。',g:2,c:'#3a3546'},
+  {id:WALL,n:'かべ',d:'動かないかべ。',g:2},
+  {id:DIRT,n:'つち',d:'動かない地面。',g:2},
+  {id:SAND,n:'すな',d:'さらさら落ちて積もる。ぬれると固まって崩れにくい。',g:2},
+  {id:WATER,n:'みず',d:'勢いよく流れて広がる。',g:2},
+  {id:STONE,n:'いし',d:'まっすぐ落ちる。',g:2},
+  {id:WOOD,n:'き',d:'じわじわ燃える。',g:2},
+  {id:FIRE,n:'ひ',d:'燃え広がる。水で消える。氷や雪をとかす。',g:2},
+  {id:LAVA,n:'マグマ',d:'まわりを照らす。水にふれると石と湯気に。',g:2},
+  {id:ICE,n:'こおり',d:'まわりの水を凍らせる。熱でとける。',g:2},
+  {id:SNOW,n:'ゆき',d:'ゆらゆら降る。熱でとける。',g:2},
+  {id:PLANT,n:'しょくぶつ',d:'水を吸ってのびる。燃える。',g:2},
+  {id:ACID,n:'さん',d:'いろいろ溶かす（ねこと魚は平気）。',g:2},
+  {id:OIL,n:'あぶら',d:'水に浮く。とてもよく燃える。',g:2},
+  {id:CLONER,n:'クローン',d:'最初にふれたものをコピーし続ける。',g:2},
+  {id:DRAIN,n:'はいすいこう',d:'ふれた液体を吸いこむ。',g:2,c:'#4a4656'},
+];
+const ELM={};ELS.forEach(e=>ELM[e.id]=e);
+let mode='free',stageIdx=0,ink={},inkMax={},tool=CAT,brush=1,down=false,cx=-1,cy=-1,paused=false,frame=0,lastSpawn=-99,
+    sFrames=0,hold=0,started=false,ended=false,fireInit=1;
+const PROB=new Float32Array(NT).fill(.5);
+[WALL,WOOD,ICE,PLANT,CLONER,KOTATSU,DIRT,DRAIN].forEach(t=>PROB[t]=1);PROB[FOXTAIL]=.25;PROB[SNOW]=.15;
+let stars=[];try{stars=JSON.parse(localStorage.getItem('nekosuna_stars')||'[]');}catch(e){}
+function saveStars(){try{localStorage.setItem('nekosuna_stars',JSON.stringify(stars));}catch(e){}}
+
+function canUse(){return mode==='free'||(ink[tool]||0)>0;}
+function useInk(){if(mode==='stage'){ink[tool]--;dirtyPal=true;}}
+function paintAt(x,y){
+  if(ended||!canUse())return;
+  if(tool===CAT||tool===FISH){
+    if(frame-lastSpawn<(tool===CAT?6:3))return;
+    const rx=x+((R()*2-1)*brush|0),ry=y+((R()*2-1)*brush|0);
+    if(rx<0||rx>=W||ry<0||ry>=H)return;const j=ry*W+rx;
+    if(tool===CAT){if(T[j]===EMPTY&&catCount<CATMAX){set(j,CAT);if(R()<.15)S[j]|=4;catCount++;lastSpawn=frame;useInk();}}
+    else if(T[j]===EMPTY||T[j]===WATER){set(j,FISH);lastSpawn=frame;useInk();}
+    return;}
+  const r=brush;
+  for(let dy=-r;dy<=r;dy++)for(let dx=-r;dx<=r;dx++){
+    if(dx*dx+dy*dy>r*r+r)continue;const nx=x+dx,ny=y+dy;if(nx<0||nx>=W||ny<0||ny>=H)continue;
+    if(!canUse())return;
+    const j=ny*W+nx;
+    if(tool===EMPTY){if(T[j]!==EMPTY){set(j,EMPTY);useInk();}}
+    else if(T[j]===EMPTY&&R()<PROB[tool]){set(j,tool);if(tool===FIRE)L[j]=30+(R()*30|0);useInk();}
+  }
+}
+function toCell(e){const r=cv.getBoundingClientRect();return[Math.floor((e.clientX-r.left)/r.width*W),Math.floor((e.clientY-r.top)/r.height*H)];}
+function line(x0,y0,x1,y1){const n=Math.max(Math.abs(x1-x0),Math.abs(y1-y0),1);
+  for(let s=1;s<=n;s++)paintAt(Math.round(x0+(x1-x0)*s/n),Math.round(y0+(y1-y0)*s/n));}
+const lum=h=>{const c=hex(h);return .299*c[0]+.587*c[1]+.114*c[2];};
+const $=id=>document.getElementById(id);
+let dirtyPal=false;
+function showDesc(e){$('desc').innerHTML='<b>'+e.n+'</b>　'+e.d;}
+function buildPalette(){
+  const pal=$('pal');pal.innerHTML='';
+  const groups=mode==='free'?[['ねこコーナー',ELS.filter(e=>e.g===1)],['きほんの素材',ELS.filter(e=>e.g===2)]]
+    :[['このステージで使える素材',Object.keys(ink).map(k=>ELM[k])]];
+  for(const [title,list] of groups){
+    const s=document.createElement('div');s.className='sec';s.textContent=title;pal.appendChild(s);
+    const g=document.createElement('div');g.className='grid';pal.appendChild(g);
+    for(const e of list){const b=document.createElement('button');b.className='el';b.dataset.id=e.id;
+      const col=e.c||BASE[e.id];b.style.background=col;b.style.color=lum(col)>150?'#221c14':'#fbf7ee';
+      b.innerHTML=e.n+(mode==='stage'?'<span class="n"></span>':'');
+      b.onclick=()=>{tool=e.id;markSel();showDesc(e);};g.appendChild(b);}}
+  if(!(mode==='free'?ELM[tool]:ink[tool]!==undefined))tool=+(mode==='free'?CAT:Object.keys(ink)[0]);
+  markSel();showDesc(ELM[tool]);updPal();
+}
+function markSel(){document.querySelectorAll('.el').forEach(b=>b.classList.toggle('sel',+b.dataset.id===tool));}
+function updPal(){if(mode!=='stage')return;
+  document.querySelectorAll('.el').forEach(b=>{const id=+b.dataset.id,n=b.querySelector('.n');
+    if(n)n.textContent='のこり '+ink[id];b.classList.toggle('empty',ink[id]<=0);});dirtyPal=false;}
+function clearWorld(){T.fill(0);V.fill(0);L.fill(0);S.fill(0);A.fill(0);AT.fill(0);VY.fill(0);PT.length=0;fishEaten=0;}
+function freeScene(){
+  clearWorld();const g=H-6;
+  rect(0,g,W-1,H-1,SAND);
+  const a=Math.floor(W*.58),b=W-6;
+  for(let y=g;y<H;y++)for(let x=a;x<=b;x++)set(y*W+x,(x===a||x===b||y===H-1)?WALL:WATER);
+  for(let n=0;n<5;n++)set((g+(R()*4|0))*W+a+1+(R()*(b-a-1)|0),FISH);
+  rect(7,g-3,18,g-1,KOTATSU);
+  for(let x=38;x<41;x++){const i=(g-1)*W+x;set(i,FOXTAIL);S[i]=5+(R()*4|0);}
+  for(let n=0;n<6;n++){const x=22+(R()*30|0),i=(g-1)*W+x;if(T[i]===EMPTY){set(i,CAT);if(n===5)S[i]|=4;}}
+}
+function goFree(){mode='free';ended=false;started=true;paused=false;freeScene();
+  $('title').textContent='ねこすな 🐾';$('goal').style.display='none';buildPalette();updPause();hideOv();}
+function goStage(k){
+  mode='stage';stageIdx=k;const st=STAGES[k];clearWorld();st.build();
+  ink={};inkMax={};for(const id in st.tools){ink[id]=st.tools[id];inkMax[id]=st.tools[id];}
+  tool=+Object.keys(ink)[0];sFrames=0;hold=0;ended=false;started=false;paused=true;fishEaten=0;
+  if(st.goal.type==='fire'){const r=st.goal.rect;fireInit=countRect(r[0],r[1],r[2],r[3],WOOD);}
+  $('title').textContent=(k+1)+'. '+st.name;$('goal').style.display='block';
+  buildPalette();updPause();updGoal();
+  showOv(`<div class="lbl">ステージ ${k+1}</div><h2>${st.name}</h2><p>${st.brief}</p>
+    <div class="tools-list">使える素材：${Object.keys(ink).map(id=>ELM[id].n+' '+ink[id]).join('　')}</div>
+    <button class="btn main" data-a="start">スタート</button>
+    ${st.goal.type==='survive'?'<p style="font-size:12px;margin:10px 0 0">※スタート前でも素材を置けます。「準備する」で先に屋根を作ってからスタートできます。</p><button class="btn" data-a="prep">準備する</button>':''}
+    <button class="btn" data-a="menu">ステージ選択へ</button>`);
+}
+function goalInfo(){
+  const g=STAGES[stageIdx].goal;
+  switch(g.type){
+    case 'kot':return{txt:`🎯 こたつで丸くなったねこ`,p:`${Math.min(stats.kot,g.n)} / ${g.n}`,ok:stats.kot>=g.n};
+    case 'fish':return{txt:`🎯 ねこが食べた魚`,p:`${Math.min(fishEaten,g.n)} / ${g.n}`,ok:fishEaten>=g.n};
+    case 'cats':return{txt:`🎯 ねこの数`,p:`${stats.cats} / ${g.n}`,ok:stats.cats>=g.n};
+    case 'fire':{const r=g.rect,w=countRect(r[0],r[1],r[2],r[3],WOOD),pc=Math.round(w/fireInit*100);
+      const left=Math.max(0,g.sec-Math.floor(sFrames/60));
+      return{txt:`🎯 おうちを守る（木 ${Math.round(g.ratio*100)}%以上）`,p:`のこり ${pc}% ・ あと ${left} 秒`,
+        ok:left===0&&pc>=g.ratio*100,fail:pc<g.ratio*100?'おうちが燃えすぎてしまった…':null};}
+    case 'survive':{const left=Math.max(0,g.sec-Math.floor(sFrames/60));
+      return{txt:`🎯 ねこをぬらさずに耐える`,p:`あと ${left} 秒`,ok:left===0,fail:stats.wet>0?'ねこがぬれてしまった…':null};}
+  }
+}
+let lastGoalTxt='';
+function updGoal(){if(mode!=='stage')return;const g=goalInfo();
+  const h=`${g.txt}　<span class="p">${g.p}</span>`;if(h!==lastGoalTxt){$('goal').innerHTML=h;lastGoalTxt=h;}return g;}
+function checkStage(){
+  if(mode!=='stage'||ended||!started)return;
+  const g=updGoal();
+  if(g.fail){ended=true;setTimeout(()=>showOv(`<h2>しっぱい…</h2><p>${g.fail}</p>
+      <button class="btn main" data-a="retry">もう一度</button><button class="btn" data-a="menu">ステージ選択へ</button>`),400);return;}
+  hold=g.ok?hold+1:0;
+  if(hold>=(STAGES[stageIdx].goal.type==='kot'?60:1)){ended=true;
+    let tot=0,rem=0;for(const id in inkMax){tot+=inkMax[id];rem+=Math.max(0,ink[id]);}
+    const ratio=rem/tot,st=ratio>=.5?3:ratio>=.25?2:1;
+    stars[stageIdx]=Math.max(stars[stageIdx]||0,st);saveStars();
+    const next=stageIdx+1<STAGES.length;
+    setTimeout(()=>showOv(`<h2>ステージクリア！</h2><div class="big">${'★'.repeat(st)}<span style="opacity:.25">${'★'.repeat(3-st)}</span></div>
+      <p>素材を ${Math.round(ratio*100)}% 残してクリア${st<3?'<br><span style="font-size:12px">（50%以上残すと★3）</span>':''}</p>
+      ${next?'<button class="btn main" data-a="next">つぎのステージへ</button>':'<p>🎉 全ステージクリア！おめでとう！</p>'}
+      <button class="btn" data-a="retry">もう一度</button><button class="btn" data-a="menu">ステージ選択へ</button>`),700);}
+}
+function showMenu(){
+  paused=true;updPause();
+  let g='';for(let k=0;k<STAGES.length;k++){const lock=k>0&&!(stars[k-1]>0);
+    g+=`<button class="st${lock?' lock':''}" ${lock?'':`data-a="stage" data-k="${k}"`}>${lock?'🔒':k+1}<small>${'★'.repeat(stars[k]||0)}</small></button>`;}
+  showOv(`<h2>ねこすな 🐾</h2><p>ねこと遊べる落ちる砂</p>
+    <button class="btn main" data-a="free">じゆうに遊ぶ</button>
+    <div class="sec" style="margin-top:16px">ステージ</div><div class="stages">${g}</div>`);
+}
+function showOv(h){$('card').innerHTML=h;$('ov').style.display='flex';}
+function hideOv(){$('ov').style.display='none';}
+function updPause(){const pb=$('pause');pb.textContent=paused?'▶':'⏸';pb.classList.toggle('on',paused);}
+function fit(){const r=$('wrap').getBoundingClientRect();const s=Math.min((r.width-16)/W,(r.height-8)/H);
+  cv.style.width=(W*s)+'px';cv.style.height=(H*s)+'px';}
+
+function init(){
+  cv=$('c');ctx=cv.getContext('2d');cv.width=BW;cv.height=BH;
+  img=ctx.createImageData(BW,BH);buf=new Uint32Array(img.data.buffer);
+  document.querySelectorAll('.brush').forEach(b=>b.onclick=()=>{brush=+b.dataset.r;
+    document.querySelectorAll('.brush').forEach(x=>x.classList.toggle('on',x===b));});
+  $('pause').onclick=()=>{if(mode==='stage'&&!started){started=true;}paused=!paused;updPause();};
+  $('retry').onclick=()=>{mode==='stage'?goStage(stageIdx):freeScene();};
+  $('menu').onclick=showMenu;
+  $('card').addEventListener('click',e=>{const b=e.target.closest('[data-a]');if(!b)return;const a=b.dataset.a;
+    if(a==='start'){hideOv();started=true;paused=false;updPause();}
+    else if(a==='prep'){hideOv();paused=true;updPause();}
+    else if(a==='menu')showMenu();
+    else if(a==='free')goFree();
+    else if(a==='stage')goStage(+b.dataset.k);
+    else if(a==='retry')goStage(stageIdx);
+    else if(a==='next')goStage(stageIdx+1);});
+  cv.addEventListener('pointerdown',e=>{e.preventDefault();cv.setPointerCapture(e.pointerId);down=true;[cx,cy]=toCell(e);paintAt(cx,cy);});
+  cv.addEventListener('pointermove',e=>{if(!down)return;const[x,y]=toCell(e);line(cx,cy,x,y);cx=x;cy=y;});
+  const up=()=>{down=false;};cv.addEventListener('pointerup',up);cv.addEventListener('pointercancel',up);
+  fit();addEventListener('resize',fit);
+  goFree();showMenu();
+  const hud=$('hud');
+  (function loop(){
+    frame++;
+    if(down&&cx>=0)paintAt(cx,cy);
+    if(!paused){step();if(mode==='stage'&&started)sFrames++;}
+    catCount=render(!paused);
+    if((frame&7)===0){hud.textContent='🐱 ×'+catCount;if(dirtyPal)updPal();if(mode==='stage')updGoal();}
+    if(!paused)checkStage();
+    requestAnimationFrame(loop);
+  })();
+}
+init();
+</script>
+</body>
+</html>
