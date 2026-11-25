@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>欲望スキャナー</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* 単一テーマ：夜の深い藍に、4系統の欲望色だけが光る。縦1カラムのゲーム画面 */
+:root{
+  --bg:#130f26; --panel:#1d1838; --line:#342c5c; --ink:#f3eefc; --mute:#a59cc6;
+  --pow:#ff6b5a; --mind:#4fc3f7; --bond:#ff7ac8; --body:#f6c453;
+  --display:"Dela Gothic One","Hiragino Sans",sans-serif;
+  --text:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--text);line-height:1.7;
+  background-image:radial-gradient(circle at 50% -10%,#2a2160 0,transparent 60%);}
+main{max-width:560px;margin:0 auto;padding:24px 18px 48px;display:flex;flex-direction:column;gap:20px;min-height:100%}
+h1,h2{font-family:var(--display);font-weight:400;margin:0;text-wrap:balance;letter-spacing:.02em}
+h1{font-size:clamp(2.2rem,9vw,3.2rem);line-height:1.15}
+h1 span{background:linear-gradient(90deg,var(--pow),var(--bond),var(--mind),var(--body));-webkit-background-clip:text;background-clip:text;color:transparent}
+p{margin:0}
+.mute{color:var(--mute);font-size:.92rem}
+.btn{font-family:var(--text);font-weight:700;font-size:1rem;border:0;border-radius:14px;padding:15px 20px;cursor:pointer;
+  background:var(--ink);color:var(--bg);transition:transform .12s}
+.btn:active{transform:scale(.97)}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.btn:focus-visible,.opt:focus-visible{outline:3px solid var(--body);outline-offset:2px}
+.groups{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.chip{border:1px solid var(--line);border-radius:12px;padding:10px 12px;font-size:.85rem;background:var(--panel)}
+.chip b{display:block;font-family:var(--display);font-weight:400;font-size:1rem}
+.progress{height:6px;background:var(--line);border-radius:6px;overflow:hidden}
+.progress i{display:block;height:100%;background:linear-gradient(90deg,var(--pow),var(--bond),var(--mind),var(--body));transition:width .3s}
+.qno{font-family:var(--display);color:var(--mute);font-size:.9rem;font-variant-numeric:tabular-nums}
+.q{font-size:1.35rem;font-weight:700;line-height:1.5}
+.opts{display:flex;flex-direction:column;gap:10px}
+.opt{font-family:var(--text);text-align:left;font-size:1rem;color:var(--ink);background:var(--panel);border:1px solid var(--line);
+  border-radius:14px;padding:15px 16px;cursor:pointer;transition:border-color .15s,transform .12s}
+.opt:hover{border-color:var(--mute)}
+.opt:active{transform:scale(.98)}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+.row .btn{flex:1}
+#art{width:100%;aspect-ratio:1;border-radius:20px;display:block;background:#0c0a1a}
+.typename{text-align:center;display:flex;flex-direction:column;gap:4px}
+.typename h2{font-size:clamp(1.7rem,7vw,2.3rem)}
+.top3{display:flex;flex-direction:column;gap:10px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px 16px;border-left:5px solid var(--c)}
+.card b{font-family:var(--display);font-weight:400;font-size:1.1rem}
+.bars{display:flex;flex-direction:column;gap:7px}
+.bar{display:grid;grid-template-columns:5.5em 1fr 2.2em;align-items:center;gap:8px;font-size:.88rem}
+.bar .t{height:10px;background:var(--line);border-radius:5px;overflow:hidden}
+.bar .t i{display:block;height:100%;background:var(--c);border-radius:5px}
+.bar .n{text-align:right;font-variant-numeric:tabular-nums;color:var(--mute)}
+#saveimg{width:100%;border-radius:14px;display:none}
+.hidden{display:none!important}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<main id="app"></main>
+<script>
+const D={
+ P:{n:"権力",g:"pow",adj:"支配する",noun:"王",d:"人や物事を動かし、主導権を握りたい"},
+ T:{n:"地位",g:"pow",adj:"輝く",noun:"スター",d:"肩書きや見た目で一目置かれたい"},
+ H:{n:"名誉",g:"pow",adj:"筋を通す",noun:"武士",d:"誠実さと信念を守り抜きたい"},
+ V:{n:"闘争",g:"pow",adj:"燃える",noun:"闘士",d:"負けたくない。やられたらやり返したい"},
+ C:{n:"好奇心",g:"mind",adj:"探る",noun:"探究者",d:"知らないことを知りたい、理解したい"},
+ O:{n:"秩序",g:"mind",adj:"整える",noun:"設計者",d:"物事をきちんと整理し、予定どおり進めたい"},
+ I:{n:"独立",g:"mind",adj:"孤高の",noun:"旅人",d:"誰にも縛られず、自分の力でやりたい"},
+ D:{n:"理想",g:"mind",adj:"世界を変える",noun:"革命家",d:"社会を良くしたい、正義を貫きたい"},
+ A:{n:"受容",g:"bond",adj:"愛される",noun:"人気者",d:"認められたい、嫌われたくない"},
+ X:{n:"交流",g:"bond",adj:"群れる",noun:"お祭り男",d:"仲間と集まって楽しく過ごしたい"},
+ F:{n:"家族",g:"bond",adj:"守る",noun:"大樹",d:"身内を大切にし、育て、守りたい"},
+ R:{n:"恋愛",g:"bond",adj:"ときめく",noun:"ロマンチスト",d:"惹かれ合う相手と情熱を分かち合いたい"},
+ E:{n:"食",g:"body",adj:"味わう",noun:"美食家",d:"おいしいものを食べる喜びを求めたい"},
+ B:{n:"身体活動",g:"body",adj:"駆ける",noun:"アスリート",d:"体を動かして汗をかきたい"},
+ S:{n:"貯蓄",g:"body",adj:"蓄える",noun:"コレクター",d:"集めて、ためて、備えておきたい"},
+ Q:{n:"平穏",g:"body",adj:"凪いだ",noun:"仙人",d:"不安や争いから離れ、穏やかでいたい"}
+};
+const G={pow:{n:"力",c:"#ff6b5a"},mind:{n:"知",c:"#4fc3f7"},bond:{n:"絆",c:"#ff7ac8"},body:{n:"体",c:"#f6c453"}};
+const Qs=[
+["突然、自由な休日が1日できた。",[["気になっていた分野を一日中調べる","C"],["友達を集めてワイワイ過ごす","X"],["山やジムで体を動かす","B"],["評判の店を食べ歩く","E"]]],
+["新プロジェクトが始まる。あなたの立ち位置は？",[["リーダーとして全体を率いる","P"],["一人で任される専門パート","I"],["手順とスケジュールを整える管理役","O"],["プロジェクトの意義を語る旗振り役","D"]]],
+["宝くじで1000万円が当たった。",[["ほとんど貯金や資産に回す","S"],["家族のために使う","F"],["車や時計など目に見える良いものを買う","T"],["寄付や社会活動に回す","D"]]],
+["SNSに投稿した。一番うれしい反応は？",[["たくさんの人に「すごい！」と言われる","A"],["影響力のある人にシェアされる","T"],["気になる人からの「いいね」","R"],["反論してきた相手を言い負かせた","V"]]],
+["手柄を同僚に横取りされた。",[["必ず借りは返す。黙っていない","V"],["筋を通して正式に抗議する","H"],["揉めずに流し、心の平穏を守る","Q"],["次は自分が上に立って主導権を握る","P"]]],
+["理想の住まいは？",[["静かな郊外で穏やかに暮らす","Q"],["家族が集まれる広い家","F"],["誰にも干渉されない一人暮らし","I"],["隅々まで整理された機能的な部屋","O"]]],
+["旅行先を選ぶ決め手は？",[["知らない文化や歴史に触れられる","C"],["その土地の名物グルメ","E"],["登山やダイビングなどのアクティビティ","B"],["ロマンチックな景色","R"]]],
+["会議で意見が真っ二つに割れた。",[["自分の案で押し切る","P"],["相手の矛盾を突いて論破する","V"],["場の空気に合わせる","A"],["正しいと思う原則を曲げない","H"]]],
+["新しい趣味を始めるなら？",[["筋トレやランニング","B"],["料理や食べ歩き","E"],["瞑想やヨガ","Q"],["社会人サークルに入る","X"]]],
+["給料が上がった。最初に使うのは？",[["将来のための積み立て","S"],["ブランド品","T"],["恋人やパートナーとの特別なデート","R"],["仲間におごる飲み会","X"]]],
+["一番避けたいことは？",[["人から嫌われること","A"],["自分の行動を誰かに縛られること","I"],["約束を破る人間だと思われること","H"],["物事がぐちゃぐちゃのまま進むこと","O"]]],
+["子どもの頃に熱中したのは？",[["図鑑や百科事典","C"],["鬼ごっこやスポーツ","B"],["カードやシールのコレクション","S"],["ごっこ遊びのリーダー役","P"]]],
+["恋愛で一番大事なのは？",[["ときめきと情熱","R"],["一緒にいて落ち着けること","Q"],["いずれ家庭を築けること","F"],["自分の時間を尊重してくれること","I"]]],
+["今夜観る映画を選ぶなら？",[["正義が巨悪を倒す社会派ドラマ","D"],["痛快な復讐劇","V"],["切ないラブストーリー","R"],["知的好奇心をくすぐるドキュメンタリー","C"]]],
+["週末の夜、最高の過ごし方は？",[["家族と食卓を囲む","F"],["大人数のパーティー","X"],["おいしい店でディナー","E"],["一人で静かに過ごす","Q"]]],
+["仕事で評価されるなら、どの形がうれしい？",[["みんなの前で褒められる","A"],["肩書きや役職が上がる","T"],["裁量と権限が増える","P"],["誠実さを信頼される","H"]]],
+["あなたの部屋の引き出しを開けると？",[["きっちり分類されている","O"],["いつか使うかもしれない物のストック","S"],["読みかけの本や調べ物のメモ","C"],["必要最小限で、ほとんど何もない","I"]]],
+["ニュースでつい反応してしまうのは？",[["社会の不正や格差","D"],["悪事を働いた人が裁かれる話","V"],["人気店の新メニュー","E"],["お得なセールやポイント還元の情報","S"]]],
+["理想の上司は？",[["こまめに褒めてくれる人","A"],["放っておいてくれる人","I"],["筋が通っていて誠実な人","H"],["ルールと段取りが明確な人","O"]]],
+["大事なプレゼンの前夜にすることは？",[["段取りを完璧に確認する","O"],["走って頭をすっきりさせる","B"],["家族に話して励ましてもらう","F"],["ライバルに勝つイメージを固める","V"]]],
+["お金の使い方で一番近いのは？",[["使わずにためておくのが安心","S"],["体験や美食に使う","E"],["見栄えや格の高さに使う","T"],["大切な人への贈り物に使う","R"]]],
+["100人の前でスピーチ。テーマは？",[["社会をこう変えたい","D"],["自分が成し遂げた実績","T"],["仲間との思い出","X"],["家族への感謝","F"]]],
+["チームで試合に出る。あなたの役割は？",[["キャプテン","P"],["ムードメーカー","X"],["体を張るエース","B"],["相手を研究する分析役","C"]]],
+["人生の最後に、どう言われたい？",[["世の中を良くした人","D"],["誠実で筋を通した人","H"],["みんなに愛された人","A"],["穏やかに生きた人","Q"]]]
+];
+// 各欲望の出題回数（正規化用）
+const APP={};Object.keys(D).forEach(k=>APP[k]=0);Qs.forEach(q=>q[1].forEach(o=>APP[o[1]]++));
+
+let S={phase:"start",i:0,picks:[],order:[]};
+const app=document.getElementById("app");
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
+function newOrder(){return Qs.map(()=>shuffle([0,1,2,3]))}
+
+function render(){
+  cancelAnimationFrame(window._raf);
+  if(S.phase==="start") return renderStart();
+  if(S.phase==="quiz") return renderQuiz();
+  renderResult();
+}
+function renderStart(){
+  app.innerHTML=`
+  <p class="mute">リースの16欲求をもとにした診断ゲーム</p>
+  <h1>あなたの<br><span>欲望</span>を<br>スキャンする</h1>
+  <p>24の場面で、直感にいちばん近い行動を選んでください。16種類の欲望の強さを測り、最後にあなたの欲望を一枚の「かたち」として描き出します。</p>
+  <div class="groups">${Object.entries(G).map(([k,g])=>`<div class="chip" style="border-color:${g.c}55"><b style="color:${g.c}">${g.n}の欲望</b>${Object.values(D).filter(d=>d.g===k).map(d=>d.n).join("・")}</div>`).join("")}</div>
+  <button class="btn" id="go">スキャン開始（約3分）</button>
+  <p class="mute">※ 公式のReiss Motivation Profileではなく、考え方を借りたオリジナルの簡易ゲームです。</p>`;
+  document.getElementById("go").onclick=()=>{S={phase:"quiz",i:0,picks:[],order:newOrder()};render()};
+}
+function renderQuiz(){
+  const q=Qs[S.i];
+  app.innerHTML=`
+  <div class="progress"><i style="width:${S.i/Qs.length*100}%"></i></div>
+  <p class="qno">Q${S.i+1} / ${Qs.length}</p>
+  <p class="q">${q[0]}</p>
+  <div class="opts">${S.order[S.i].map(j=>`<button class="opt" id="o${j}" data-k="${q[1][j][1]}">${q[1][j][0]}</button>`).join("")}</div>
+  ${S.i>0?`<button class="btn ghost" id="back">ひとつ戻る</button>`:""}`;
+  app.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{
+    S.picks[S.i]=b.dataset.k;S.i++;
+    if(S.i>=Qs.length)S.phase="result";
+    render();window.scrollTo(0,0);
+  });
+  const bk=document.getElementById("back");if(bk)bk.onclick=()=>{S.i--;S.picks.length=S.i;render()};
+}
+function scores(){
+  const c={};Object.keys(D).forEach(k=>c[k]=0);S.picks.forEach(k=>c[k]++);
+  const s={};Object.keys(D).forEach(k=>s[k]=Math.round(c[k]/APP[k]*100));return s;
+}
+function renderResult(){
+  const s=scores();
+  const rank=Object.keys(D).sort((a,b)=>s[b]-s[a]);
+  const t1=rank[0],t2=rank[1];
+  const type=`${D[t2].adj}${D[t1].noun}`;
+  const gs={};Object.keys(G).forEach(g=>gs[g]=0);Object.keys(D).forEach(k=>gs[D[k].g]+=s[k]);
+  const gTop=Object.keys(G).sort((a,b)=>gs[b]-gs[a])[0];
+  app.innerHTML=`
+  <div class="typename"><p class="mute">あなたの欲望のかたち</p><h2>${type}</h2><p class="mute">いちばん強いのは<b style="color:${G[gTop].c}">「${G[gTop].n}」</b>の系統</p></div>
+  <canvas id="art" width="1080" height="1080" aria-label="16の欲望の強さを花びらの長さで描いた図"></canvas>
+  <img id="saveimg" alt="欲望のかたち（長押しで保存）">
+  <div class="row"><button class="btn" id="snap">画像にする</button><button class="btn ghost" id="copy">結果をコピー</button></div>
+  <p class="mute" id="note">花びら1枚が1つの欲望。長く明るいほど強い欲望です。</p>
+  <h2 style="font-size:1.3rem">上位3つの欲望</h2>
+  <div class="top3">${rank.slice(0,3).map((k,i)=>`<div class="card" style="--c:${G[D[k].g].c}"><b>${i+1}. ${D[k].n}</b> <span class="mute">${s[k]}</span><p>${D[k].d}</p></div>`).join("")}</div>
+  <h2 style="font-size:1.3rem">16の欲望スコア</h2>
+  <div class="bars">${rank.map(k=>`<div class="bar" style="--c:${G[D[k].g].c}"><span>${D[k].n}</span><span class="t"><i style="width:${Math.max(s[k],2)}%"></i></span><span class="n">${s[k]}</span></div>`).join("")}</div>
+  <p class="mute">いちばん弱いのは「${D[rank[15]].n}」。あなたがあまり求めていないものです。</p>
+  <button class="btn ghost" id="again">もう一度スキャンする</button>`;
+  const cv=document.getElementById("art");
+  drawArt(cv,s,type);
+  document.getElementById("again").onclick=()=>{S={phase:"start",i:0,picks:[],order:[]};render();window.scrollTo(0,0)};
+  document.getElementById("snap").onclick=()=>{
+    const img=document.getElementById("saveimg");img.src=cv.toDataURL("image/png");img.style.display="block";cv.style.display="none";
+    document.getElementById("note").textContent="画像を長押し（PCは右クリック）で保存できます。";
+  };
+  document.getElementById("copy").onclick=async e=>{
+    const txt=`私の欲望タイプは「${type}」\n上位：${rank.slice(0,3).map(k=>`${D[k].n}${s[k]}`).join(" / ")}\n#欲望スキャナー`;
+    try{await navigator.clipboard.writeText(txt);e.target.textContent="コピーしました"}catch{e.target.textContent="コピーできませんでした"}
+  };
+}
+// 欲望の花：16枚の花びら。長さ＝強さ、色＝系統、揺らぎで生き物らしく
+function drawArt(cv,s,type){
+  const x=cv.getContext("2d"),W=cv.width,c=W/2,keys=Object.keys(D);
+  const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const stars=Array.from({length:140},()=>[Math.random()*W,Math.random()*W,Math.random()*1.8+.3,Math.random()*6]);
+  function frame(t){
+    t=reduce?0:t/1000;
+    x.globalCompositeOperation="source-over";
+    const bg=x.createRadialGradient(c,c,0,c,c,W*.7);bg.addColorStop(0,"#1f1840");bg.addColorStop(1,"#0a0818");
+    x.fillStyle=bg;x.fillRect(0,0,W,W);
+    stars.forEach(([sx,sy,r,p])=>{x.fillStyle=`rgba(255,255,255,${.25+.25*Math.sin(t*1.5+p)})`;x.beginPath();x.arc(sx,sy,r,0,7);x.fill()});
+    // ガイド円
+    x.strokeStyle="rgba(255,255,255,.07)";x.lineWidth=2;
+    [.25,.5,.75,1].forEach(r=>{x.beginPath();x.arc(c,c,80+r*340,0,7);x.stroke()});
+    x.globalCompositeOperation="lighter";
+    keys.forEach((k,i)=>{
+      const v=s[k]/100,a=i/16*Math.PI*2-Math.PI/2+Math.sin(t*.3)*.04;
+      const len=90+v*340+Math.sin(t*1.3+i)*8*v,wid=.17+v*.07,col=G[D[k].g].c;
+      for(let L=3;L>=1;L--){
+        const ll=len*(.6+L*.13);
+        x.beginPath();x.moveTo(c,c);
+        const ax=c+Math.cos(a-wid)*ll*.55,ay=c+Math.sin(a-wid)*ll*.55,bx=c+Math.cos(a+wid)*ll*.55,by=c+Math.sin(a+wid)*ll*.55;
+        const tx=c+Math.cos(a)*ll,ty=c+Math.sin(a)*ll;
+        x.quadraticCurveTo(ax,ay,tx,ty);x.quadraticCurveTo(bx,by,c,c);
+        const gr=x.createLinearGradient(c,c,tx,ty);
+        gr.addColorStop(0,col+"00");gr.addColorStop(1,col+Math.round((.12+v*.35)*255/L).toString(16).padStart(2,"0"));
+        x.fillStyle=gr;x.fill();
+      }
+      const tx=c+Math.cos(a)*len,ty=c+Math.sin(a)*len;
+      x.fillStyle=col;x.shadowColor=col;x.shadowBlur=30*v;x.beginPath();x.arc(tx,ty,5+v*11,0,7);x.fill();x.shadowBlur=0;
+    });
+    x.globalCompositeOperation="source-over";
+    // 核
+    const core=x.createRadialGradient(c,c,0,c,c,70);core.addColorStop(0,"#fff");core.addColorStop(.4,"rgba(255,240,250,.5)");core.addColorStop(1,"rgba(255,255,255,0)");
+    x.fillStyle=core;x.beginPath();x.arc(c,c,70+Math.sin(t*2)*4,0,7);x.fill();
+    // ラベル
+    x.font="500 26px 'Zen Kaku Gothic New',sans-serif";x.textAlign="center";x.textBaseline="middle";
+    keys.forEach((k,i)=>{const a=i/16*Math.PI*2-Math.PI/2,r=478;x.fillStyle=s[k]>=50?"#f3eefc":"rgba(243,238,252,.45)";x.fillText(D[k].n,c+Math.cos(a)*r,c+Math.sin(a)*r)});
+    x.font="44px 'Dela Gothic One',sans-serif";x.fillStyle="#f3eefc";x.textAlign="left";x.fillText(type,40,W-48);
+    x.font="500 24px 'Zen Kaku Gothic New',sans-serif";x.fillStyle="rgba(243,238,252,.6)";x.textAlign="right";x.fillText("欲望スキャナー",W-40,W-46);
+    if(!reduce)window._raf=requestAnimationFrame(frame);
+  }
+  document.fonts.ready.then(()=>{window._raf=requestAnimationFrame(frame)});
+}
+function start(d){if(d&&d.phase)S=d;render()}
+window.claude?.hot?.snapshot?.(()=>S);
+window.claude?.hot?.ready?window.claude.hot.ready(start):start(window.claude?.hot?.data??{});
+</script>
+</body>
+</html>
