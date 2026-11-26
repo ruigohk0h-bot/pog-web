@@ -17,7 +17,7 @@
     "horses": [
       {
         "name": "トゥザファイナル",
-        "active": false,
+        "active": true,
         "sire": "ナダル",
         "dam": "スパークオンアイス"
       },
@@ -53,7 +53,7 @@
       },
       {
         "name": "ルヴァンアレー",
-        "active": false,
+        "active": true,
         "sire": "ルヴァンスレーヴ",
         "dam": "ラテュロス"
       },
@@ -197,7 +197,7 @@
     "horses": [
       {
         "name": "デミアン",
-        "active": false,
+        "active": true,
         "sire": "Flightline",
         "dam": "Mira Alta"
       },
@@ -407,7 +407,7 @@
       },
       {
         "name": "オールシティキング",
-        "active": false,
+        "active": true,
         "sire": "Flightline",
         "dam": "セルフレスリー"
       },
@@ -569,7 +569,7 @@
       },
       {
         "name": "ゼットターム",
-        "active": true,
+        "active": false,
         "sire": "ニューイヤーズデイ",
         "dam": "ファシネートゼット"
       },
@@ -617,7 +617,7 @@
       },
       {
         "name": "オールベット",
-        "active": false,
+        "active": true,
         "sire": "キズナ",
         "dam": "エスティロタレントーソ"
       },
